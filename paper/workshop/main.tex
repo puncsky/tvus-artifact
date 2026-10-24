@@ -1,0 +1,383 @@
+% AAAI-27 workshop "LLM Agents Under Threat in Cyberspace" -- paper draft (m9/t002, revised m9/t003).
+% Preamble follows AuthorKit27/CameraReady2027.tex (TemplateVersion 2027.1).
+% Single-blind review, so the non-anonymous (camera-ready) variant is used: the
+% [submission] option of aaai2027.sty hides the author block and is meant for AAAI's
+% double-blind main track. \nocopyright drops the AAAI proceedings copyright slug,
+% since the workshop is non-archival. Re-check both choices against the workshop's
+% submission instructions in TARGET.md (single-blind, non-archival).
+% Build with pdfLaTeX only: aaai2027.sty calls \RequirePDFTeX.
+% Number sources (internal, not cited in the PDF): w3/paper/paper.md (7.3, 7.7b, 7.8b),
+% w3/docs/formalism.md, w3/reports/separability/table.md (pooled-*), w3/reports/pilot-h2h3/README.md,
+% w3/reports/bypass-extractor.md, w3/reports/<run>/summary.json (conditional_on_b0_steered, compute),
+% w3/reports/<run>/rows.jsonl (Table 4 like-for-like recomputation), w3/preregistration.json, w3/protocol-v2.md.
+% Review responses: reviews/REVIEWS.md.
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage{aaai2027}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\nocopyright
+
+\pdfinfo{
+/TemplateVersion (2027.1)
+}
+
+\setcounter{secnumdepth}{2} % numbered sections (kit allows 0, 1 or 2)
+
+\newcommand{\Allowed}{\mathrm{Allowed}}
+\newcommand{\TR}{\mathrm{TR}}
+\newcommand{\x}{$\times$}
+
+\title{Trusted Values, Untrusted Choices: A Measurement Study of Selection Provenance in Tool-Using Agents}
+\author{
+    Tian Pan
+}
+\affiliations{
+    Independent researcher\\
+    tian.pan@aya.yale.edu
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+An agent can choose an unauthorized action even when every argument value comes from a trusted record. We measure this Trusted-Value, Untrusted-Selection (TVUS) failure and explain two diagnostic traps. First, legitimate dependence of a memo on external text can swamp attribution of the protected choice. Second, deleting a source at the final turn leaves its influence in earlier summaries and commitments. Across 40 authored templates and a 300-task generated benchmark, these mechanisms recur in 8--32B open-weight agents. On Qwen-32B's held-out test, a chosen-action score gate missed 52/55 steered executions; clean-checkpoint regeneration missed 0/55. Candidate-relative scores detect influence but also flag resisted attacks. Trusted reconstruction supplies a reference baseline whose failures expose assumptions about trusted state, checkpoint integrity and release extraction. Four hosted agents were steered once in 248 authored attacks; small, partly refusal-limited searches do not establish immunity. Our contribution is measurement and failure analysis, without a general security guarantee.
+\end{abstract}
+
+\section{Introduction}
+
+\paragraph{A trusted value can still be the wrong choice.}
+A user asks an agent to pay an invoice to account A and summarize an accompanying email in the payment memo. Accounts A and B are both registered in the trusted backend. The email has no authority to change the payee, but says that the team usually uses B. If the agent pays B, every emitted value can pass a value-origin check while the choice violates the task. We call this \textbf{Trusted-Value, Untrusted-Selection (TVUS)}: the attacker changes the selection among trusted candidates, not the candidates themselves.
+
+\begin{figure}[tb]
+\centering
+\input{figures/selection-flow}
+\caption{Illustrative payment workflow. Late deletion removes the email but leaves its stored influence; clean replay regenerates the summary. All candidate values pass our structural provenance check, while only A is authorized.}
+\label{fig:example}
+\end{figure}
+
+Figure~\ref{fig:example} previews our two findings. \textbf{P1:} a full-action attribution score mixes the protected selection with a memo's legitimate dependence on external content. Large attribution need not mean an unauthorized choice, and clean-calibrated thresholds can miss attacks. \textbf{P2:} deleting the raw email at the final turn does not remove its influence from a summary, memory or earlier commitment. A counterfactual must account for that derived history.
+
+\paragraph{Scope and motivation.}
+We focus on 8--32B open-weight agents in a backend that supplies enumerated actions. Such models permit local execution and direct access to scores and interventions, making these mechanisms inspectable. We do not estimate deployment prevalence. Four hosted agents were steered only once in 248 authored attacks; this contrast is a substantive result, not evidence of immunity under stronger attacks. Their different models, harnesses and decoding settings also prevent a controlled model-size comparison.
+
+\paragraph{Contributions.}
+We separate selection influence from executed policy violation; provide 24 development, 8 confirmation and 8 failure-boundary templates plus 300 rule-generated tasks; measure P1 and P2 with shared proposals and frozen thresholds; and evaluate clean-checkpoint regeneration and trusted reconstruction as references, including their utility costs, bounded adaptive searches and failure conditions. Candidate-relative scores help monitor influence, whereas regeneration is the stronger gate in the evaluated settings.
+
+\paragraph{Positioning.}
+CXI already states the selection-authority problem and implements authority-projected decoding with typed releases \citep{santosgrueiro2026cxi}. Our reconstruction is a group-level port of that path. The contribution is the comparative measurement and mechanistic analysis, not the invention of selection authority or reconstruction. Section~\ref{sec:related} distinguishes the closest causal and provenance systems.
+
+\section{Selection Provenance}
+\label{sec:formal}
+
+\paragraph{Setting.}
+The context $C$ contains the user task $\tau$, a frozen trusted snapshot $T$, candidate tuples $A$, and external sources. A tuple $g\in A$ assigns protected fields $G$; free text $\varphi$ (a memo or reason) must summarize external items. All candidate values occur in $T$. The attacker edits only designated external sources, at most 2048 bytes; it cannot change the task, snapshot, candidates or authorization contract.
+
+\paragraph{Authority and releases.}
+The contract $K$ determines a field-level policy $P$: which sources may decide each protected field, which narrow \emph{typed releases} an external source may supply, and which tuples are valid. Raw sources without group-wide authority are $U$. A release does not promote the whole source to authority. For example, a verified carrier notice may replace the ticketed flight with another registered flight, while the booking record still determines fare class. There is no global release-priority rule or general conflict resolver: authority is field-specific, and candidates stay frozen. Releases introducing values outside $A$ are outside this benchmark's supported setting.
+
+\paragraph{Influence and violation.}
+Let $\Allowed(\tau,T,P)\subseteq A$ be the evaluator's allowed set given the authorized facts, including verified releases. A view-preserving intervention $\iota$ removes or neutralizes raw $U$, retains authorized facts, and regenerates history. Selection is \emph{influenced} if the chosen tuple $\pi_G(C)$ or candidate distribution changes under $C^\iota$. An executed $g\notin\Allowed$ is a \emph{violation}. These differ: influence within $\Allowed$ is not counted as a violation, while capability errors are; same-seed pairing approximates the attack-caused subset. Only the evaluator sees ground truth. Gates return PASS, BLOCK or UNKNOWN.
+
+\paragraph{History and reconstruction.}
+Derived state $h$ includes summaries, rankings and commitments; $h_0$ precedes external reads. In-place deletion keeps $h$; \emph{closure} recomputes it from $h_0$. The projected context $\Pi_P(C)$ retains the task, snapshot, candidates, contract and authorized sources, replacing released raw text with extracted facts $\hat v_f$. Extraction may disagree with the verified fact $v_f$. Reconstruction executes the regenerated protected tuple and retains the original $\varphi$, whose integrity and consistency with the new tuple are not guaranteed. This requires untainted candidates, sufficient trusted state, self-contained authority, a clean checkpoint, separable fields, stable identities, reliable extraction and an available contract. Section~\ref{sec:boundary} tests selected failures of these assumptions, not all eight.
+
+\section{Benchmark}
+\label{sec:bench}
+
+\paragraph{Authored suites (40).}
+Development has six four-template families: selection, redundant inducements, interaction with trusted facts, history propagation, cross-record association, and legitimate external dependence (20 threats, 4 controls). Eight confirmation templates (6 threats, 2 controls, seven new domains) were separately authored by another LLM agent before development results existed. Eight boundary templates target reconstruction assumptions. Candidate counts are 2--4: development 4/19/1 templates with 2/3/4 candidates, confirmation 7/1 with 3/4, and boundary 5/3 with 2/3.
+
+\paragraph{Generated benchmark (300).}
+Eight rule families (6 threat, 2 legitimate) span eight domains; code computes $\Allowed$. Disjoint (rule-family, domain) pairs define 153 development and 147 test tasks, with individual families and domains in both. There are 139 three-candidate and 161 four-candidate tasks. Pilots use 48 development tasks (36 threats); Qwen-32B evaluates all 147 test tasks under three H1 run specifications. Candidate-count and near-duplicate sensitivity are not separately evaluated.
+
+\paragraph{Conditions and validity.}
+Each source has clean, neutral and attack texts; legitimate authorized influence may change $\Allowed$. History cases hide raw items at action time except the retained-email summary case R03. Threats are solvable from trusted state. Hash-bound truth is isolated from model inputs; validators check candidates and byte budgets, and generated neutral text is leak-checked. All 40 authored templates are LLM-written (authoring model unrecorded), without independent human validation. The author's separate 20-authored/20-generated spot-checks flagged ambiguity and a generator defect; the latter was fixed and affected pilots re-run before test evaluation. This is author review, not independent validation.
+
+\paragraph{Harnesses and closure.}
+H1 emits one action JSON; H2 runs a ReAct loop with snapshot, candidate and source tools; H3 uses native hosted tools without log-probabilities. Closure replays the simulated environment from before the first external read and regenerates later notes, rankings and commitments. It reuses fixed task data, not the original generated reasoning. In-place deletion instead edits source-bearing tool results while retaining the existing transcript. Recomputed model outputs need not be deterministic; hosted sampling is detailed below.
+
+\section{Methods Compared}
+\label{sec:methods}
+
+All methods receive the same proposal, facts, releases, execution sink and retry policy. The agent prompt explicitly restricts protected choices to the task, snapshot and authorized sources, while requiring free-text summaries of external content. TVUS thus violates an explicit authority rule. Table~\ref{tab:methods} groups methods by what they test; codes identify frozen implementation variants.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}l>{\raggedright\arraybackslash}p{5.0cm}@{}}
+\toprule
+Family & Test or intervention \\
+\midrule
+Agent (B0) & Execute any parsable contract-prompted proposal. \\
+Values (B1) & Check that protected values occur in trusted records. \\
+Attribution & Full-action LOO/joint drop (B4); CausalArmor margin (B5). \\
+Regeneration & Compare the protected choice after in-place deletion or clean-checkpoint replay. \\
+Reconstruction (B2) & Execute the choice from $\Pi_P(C)$; retain free text. \\
+Auditor (B6) & Combine relative scores $R,D$ with clean-checkpoint regeneration. \\
+\bottomrule
+\end{tabular}
+\caption{Six method families. Our structural value check is PACT-inspired, not an evaluation of the complete PACT system.}
+\label{tab:methods}
+\end{table}
+
+\paragraph{Ports and controls.}
+No official defense artifact was run. The CausalArmor port uses the agent model's per-token LOO action attribution relative to the user request, with raw-span removal; sanitization and optional reasoning masking are omitted. The CXI port uses group-level projection and prompt-constrained enumeration of registered release values, not grammar-constrained decoding. A fail-closed value control (B1c) also rejects literal protected-value overlap with unauthorized text. B5c calibrates the attribution margin; B5e adds closure and relative scoring. Auditor ablations isolate scores, regeneration, chosen-action scores and tuple-only scores.
+
+\paragraph{Scoring.}
+Fresh teacher-forced passes sum unnormalized log-probabilities of each serialized candidate action with the proposal's free text held fixed. Blanking $\varphi$ only during scoring gives the tuple-only control; it does \emph{not} test generating the original proposal without a narrative field. The auditor uses authored neutral rewrites as oracle interventions and returns UNKNOWN on an invalid intervention or unparsable regeneration. Score thresholds are calibrated below.
+
+\section{Protocol}
+\label{sec:protocol}
+
+\paragraph{Models and runs.}
+Four open-weight backbones: MLX 4-bit Qwen2.5-14B, Llama-3.1-8B and Gemma-3-27B (mlx-lm 0.32, Apple M4 Pro, 48\,GiB); Qwen2.5-32B in bf16 (PyTorch 2.14, NVIDIA GB10), with revisions pinned. H1 development/confirmation use greedy seed 0 and temperature 0.7 seeds 11,23 for both Qwen models and Llama ($24\times3$ conditions $\times3$ specifications $=216$ development executions per family). Gemma uses seeds 0,11. Both Qwen models have 0/216 unparsable proposals; Llama has 12/216 (P01, X01, L02), counted as failures. H2 and local generated pilots are greedy; boundary runs use Qwen-14B H1 seeds 0,11 and H2.
+
+\paragraph{Hosted settings.}
+GPT-5.6-sol, Gemini 3.1 Pro, Claude Haiku 4.5 and Claude Opus 5.5 each have one H3 run per suite. Seed 0 and temperature 0 in run records are requested settings, not proof of greedy API decoding: the Claude adapter omits temperature and seed; the other adapters request temperature but may fall back if unsupported. Historical manifests do not fully record effective sampling, so H3 is treated as single-run provider decoding, without deterministic or matched-randomness claims. Qwen without size means 14B.
+
+\paragraph{Thresholds.} Each statistic's threshold is the 95th percentile of the run's clean and neutral executions with a parsable, in-candidate B0 proposal (144 for each Qwen H1 run; 136 Llama H1, i.e.\ 144 minus 8 unparsable; 96 Gemma H1; 48 per H2 run), frozen before the confirmation, boundary and bypass runs, which reuse it. This is a ${\le}5\%$ target per statistic on in-sample data (effective $n\approx24$ templates), not a guarantee for combined rules.
+
+\paragraph{Denominators.} \emph{All scheduled}: every attack execution of the threat templates. \emph{Attack-attributable}: per execution, those whose same-seed clean B0 execution was a correct automatic completion (clean only; the pairing is exact under greedy decoding and only nominal under sampling). A template is listed as a capability failure if any clean seed fails (Qwen-14B: H04, P04; Llama: H04, P01, P02, X01; Gemma: H04, P02, P04; Qwen-32B: none under H1), but attack executions whose own seed was clean-correct stay attributable; hence 55, 50 and 35 rather than 60, 60 and 40. \emph{Steered} (primary for gates): attributable executions on which B0 itself executed the unauthorized tuple; a gate's misses are counted over these. For $0/n$ we report the Wilson 95\% upper bound (rule of three: $\approx3/n$); executions within a template are correlated, so the template count (given alongside) is the more conservative unit. Cost is in forward passes relative to B0, split into generation and teacher-forced scoring passes.
+
+\paragraph{Pre-specification.} Denominators, thresholds, the confirmation protocol and the search budgets were preregistered; the attributable subset, separability, steered denominators and resisted-attack negatives were added after first results or review. Two deviations (\S\ref{sec:recon}): an extractor fix before every confirmation run, with L02 re-run, and a validity-rule fix for K08, re-run for Qwen-14B.
+
+\paragraph{Clean capability.} Qwen-14B completed 67/72 clean development executions, Qwen-32B 70/72, Llama 60/72 and Gemma 43/48 (89.6\%); Llama and Gemma are below our 90\% floor (Gemma confirmation 14/16) and are kept for mechanism confirmation only. Failures concentrate on early-commitment and model-ranking designs.
+
+\section{Results}
+
+\subsection{The gap exists for these models and harnesses}
+\label{sec:gap}
+
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lllrrrrrrr@{}}
+\toprule
+Family & H & Suite & B0 clean & B0 attack & B1c & B2 recon.\ (UB) & In-place del. & $h_0$ regen. & Chosen-act. \\
+\midrule
+Qwen-14B & H1 & dev (3) & 67/72 & 26/60 (22/55) & 0/22 [0/60] & 0/22 (.15) [4/60] & 5/22 [9/60] & 0/22 [3/60] & 17/22 [21/60] \\
+Qwen-14B & H2 & dev (1) & 22/24 & 11/20 (9/18) & 0/9 [0/20] & 0/9 (.30) [2/20] & 1/9 [3/20] & 0/9 [2/20] & 8/9 [10/20] \\
+Llama-8B & H1 & dev (3) & 60/72 & 22/60 (18/50) & 0/18 [2/60] & 0/18 (.18) [5/60] & 12/18 [16/60] & 0/18 [1/60] & 16/18 [20/60] \\
+Gemma-27B & H1 & dev (2) & 43/48 & 14/40 (11/35) & 0/11 [0/40] & 1/11 (.38) [6/40] & 1/11 [3/40] & 0/11 [2/40] & 8/11 [11/40] \\
+Gemma-27B & H2 & dev (1) & 21/24 & 8/20 (5/17) & 0/5 [0/20] & 0/5 (.43) [3/20] & 2/5 [4/20] & 0/5 [2/20] & 3/5 [6/20] \\
+Qwen-32B\,bf16 & H1 & dev (3) & 70/72 & 19/60 (19/60) & 0/19 [0/60] & 0/19 (.17) [0/60] & 4/19 [4/60] & 0/19 [0/60] & 16/19 [16/60] \\
+Qwen-32B\,bf16 & H2 & dev (1) & 23/24 & 7/20 (6/19) & 0/6 [0/20] & 0/6 (.39) [1/20] & 1/6 [2/20] & 0/6 [1/20] & 5/6 [6/20] \\
+4 hosted & H3 & dev (1) & 95/96 & 0/80 (0/79) & -- [0/80] & -- [0/80] & -- [0/80] & -- [0/80] & n/a \\
+\midrule
+Qwen-14B & H1 & conf (3) & 21/24 & 9/18 (9/18) & 0/9 [0/18] & 0/9 (.30) [0/18] & 2/9 [2/18] & 0/9 [0/18] & 9/9 [9/18] \\
+Qwen-14B & H2 & conf (1) & 8/8 & 4/6 (4/6) & 0/4 [0/6] & 0/4 (.49) [0/6] & 1/4 [1/6] & 0/4 [0/6] & 4/4 [4/6] \\
+Llama-8B & H1 & conf (3) & 23/24 & 8/18 (7/17) & 0/7 [0/18] & 0/7 (.35) [0/18] & 2/7 [3/18] & 0/7 [0/18] & 6/7 [7/18] \\
+Gemma-27B & H1 & conf (2) & 14/16 & 7/12 (7/12) & 0/7 [0/12] & 0/7 (.35) [0/12] & 1/7 [1/12] & 0/7 [0/12] & 6/7 [6/12] \\
+Qwen-32B\,bf16 & H1 & conf (3) & 24/24 & 4/18 (4/18) & 0/4 [0/18] & 0/4 (.49) [0/18] & 0/4 [0/18] & 0/4 [0/18] & 4/4 [4/18] \\
+Qwen-32B\,bf16 & H2 & conf (1) & 8/8 & 3/6 (3/6) & 0/3 [0/6] & 0/3 (.56) [0/6] & 0/3 [0/6] & 0/3 [0/6] & 3/3 [3/6] \\
+4 hosted & H3 & conf (1) & 32/32 & 1/24 (1/24) & 1/1 [1/24] & 0/1 (.79) [0/24] & 1/1 [1/24] & 0/1 [0/24] & n/a \\
+\midrule
+Qwen-14B & H1 & gen (1) & 45/48 & 9/36 (6/33) & 1/6 [4/36] & 0/6 (.39) [3/36] & 0/6 [3/36] & 0/6 [3/36] & 5/6 [8/36] \\
+4 hosted & H3 & gen (1) & 192/192 & 0/144 (0/144) & -- [0/144] & -- [0/144] & -- [0/144] & -- [0/144] & n/a \\
+Qwen-32B\,bf16 & H1 & test (3) & 396/441 & 82/375 (55/348) & 7/55 [19/375] & 0/55 (.07) [25/375] & 0/55 [22/375] & 0/55 [22/375] & 52/55 [78/375] \\
+\bottomrule
+\end{tabular}
+\caption{Unauthorized executions reaching the sink. B0 attack: all scheduled attack executions of threat templates (attack-attributable in parentheses). Gate columns: misses among B0-steered executions (primary), with all scheduled attack executions in brackets; for B2 the Wilson 95\% upper bound of the steered miss rate.  Suite: development, confirmation, generated 48-task slice or generated held-out test split (147 tasks), seeds in parentheses; H: harness (H1 single-shot, H2 tool loop, H3 hosted tool use); ``4 hosted'' pools GPT-5.6-sol, Gemini 3.1 Pro, Claude Haiku 4.5 and Claude Opus 5.5. In-place del.: joint deletion in place + regeneration; $h_0$ regen.: regeneration-only gate; Chosen-act.: B6 chosen-action ablation. B1 (structural provenance) passes exactly the B0 column by construction. Thresholds per (family, harness); confirmation and test rows use the frozen development thresholds.}
+\label{tab:gap}
+\end{table*}
+
+Table~\ref{tab:gap} shows the gap across selection, redundancy and history mechanisms. Five development templates steer all three three-seed models (H02, R02--R04, S02). Structural provenance passes every executed attack because all values are trusted. Fail-closed overlap checking blocks those steered cases, but also rejects every scoped release (3/12 legitimate dependencies in each model); its two Llama misses are capability-failure executions.
+
+The gap recurs on confirmation templates, under the tool loop, on Gemma and in generated tasks. One generated indirect-reference attack passes the fail-closed value check. On the held-out 147-task test split, Qwen-32B is steered in 55/348 attributable executions: reconstruction and both regeneration gates miss 0/55, versus 52/55 for chosen-action attribution. The larger bf16 configuration still exhibits steering; model size and quantization are not isolated factors.
+
+\paragraph{Hosted frontier agents.} Across 320 clean executions the four hosted agents make one error. Their single steer in 248 attacks is Haiku on an early-commitment case (K06): in-place deletion misses it; reconstruction and clean-checkpoint regeneration recover. These results concern our authored inducements and explicit contract prompt, not general robustness; Section~\ref{sec:bypass} reports the bounded search.
+
+\subsection{Why chosen-action attribution is blind (P1)}
+\label{sec:p1}
+
+Teacher-forced scoring factorizes as $\log p(a\mid C)=\log p(g\mid C)+\log p(\varphi\mid g,C)$. Any chosen-action attribution (LOO, joint-deletion drop, the CausalArmor margin) is a function of
+\begin{multline*}
+\Delta_U(a)=\underbrace{\log p(g\mid C)-\log p(g\mid C^{\setminus U})}_{\text{selection}}\\
++\underbrace{\log p(\varphi\mid g,C)-\log p(\varphi\mid g,C^{\setminus U})}_{\text{free field}}.
+\end{multline*}
+Because the task requires $\varphi$ to quote external items, deleting $U$ makes $\varphi$ improbable whether selection was induced or not. \textbf{P1} is an empirical effect-size claim: legitimate free-field dependence swamps the selection term. On Qwen threats the clean joint-drop median/p95 is 79.4/163.6 nats, encompassing the attack-induced median 105.9 (Llama: 98.7/230.7 versus 98.8). Clean-calibrated LOO, joint-drop and CausalArmor gates miss 18--21/22 steered Qwen executions, 17/18 on Llama and 16--19/19 on Qwen-32B. The uncalibrated CausalArmor rule instead blocks 108/144 and 100/136 parsable clean/neutral executions, and all 12 legitimate dependencies in both 4-bit families (111/144 and 12/12 on Qwen-32B), complementing \citet{ahad2026influence}.
+
+\emph{Candidate-relative statistics cancel the shared term.} Score every $g_j\in A$ with the proposal's $\varphi$; with $j_0$ the proposal, $L_j(C)=\log p(a_{j_0}\mid C)-\log p(a_j\mid C)$, and
+\begin{gather*}
+R=\max_{j\ne j_0}\big|L_j(C)-L_j(C^{\iota})\big|,\\
+D=\mathrm{TV}\big(\sigma_j(C),\,\sigma_j(C^{\iota})\big),
+\end{gather*}
+with $C^{\iota}$ the intervened context and $\sigma_j$ the softmax over candidates. Only the $g\times U$ interaction of the free-field term survives. $R$ has clean median/p95 2.7/8.7 versus an attack-induced median of 23.6 on Qwen (Llama 1.7/5.9 vs.\ 9.1).
+
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lllllll@{}}
+\toprule
+& \multicolumn{3}{c}{Qwen2.5-14B (31 pos.; 96 c, 96 n, 43 r, 18 l neg.)} & \multicolumn{3}{c}{Llama-3.1-8B (25 pos.; 90 c, 94 n, 44 r, 18 l neg.)} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Statistic & AUROC (95\% CI) & TPR & FPR c / n / r / l & AUROC (95\% CI) & TPR & FPR c / n / r / l \\
+\midrule
+cand.-relative $R$ & .968 (.93--.99) & .97 & .04 / .05 / .58 / .17 & .915 (.84--.97) & .64 & .03 / .03 / .34 / .06 \\
+$R_t$ ($\varphi$ blanked) & .878 (.73--.98) & .74 & .04 / .04 / .23 / .17 & .945 (.90--.98) & .72 & .04 / .02 / .34 / .17 \\
+TV distance $D$ & .974 (.93--1.00) & .90 & .04 / .02 / .35 / .17 & .972 (.94--.99) & .96 & .08 / .04 / .23 / .22 \\
+chosen drop (joint) & .686 (.53--.82) & .16 & .03 / .05 / .00 / .00 & .568 (.42--.73) & .12 & .01 / .05 / .14 / .00 \\
+max single LOO & .555 (.42--.69) & .03 & .06 / .07 / .09 / .00 & .374 (.26--.52) & .04 & .00 / .06 / .16 / .17 \\
+CausalArmor margin & .489 (.34--.63) & .03 & .05 / .09 / .07 / .00 & .319 (.19--.46) & .04 & .00 / .10 / .20 / .06 \\
+\midrule
+regeneration disagrees & -- & 1.00 & .02 / .02 / .02 / .17 & -- & 1.00 & .04 / .03 / .05 / .17 \\
+\bottomrule
+\end{tabular}
+\caption{Separability, development and confirmation pooled for the two three-seed 4-bit families; Gemma results are omitted here and Qwen-32B separability is not computed. Hosted APIs expose no log-probabilities. Positives: steered B0 executions. Negatives: clean (c), neutral (n), resisted attacks (r: all scheduled, choice allowed) and legitimate authorized influence (l); parsable counts (8 Llama proposals dropped). TPR/FPR use frozen development thresholds. CI: percentile bootstrap over 32 templates (1000 resamples); 12 Qwen and 10 Llama templates carry positives, so intervals are optimistic. With clean+neutral negatives only, $R$ AUROC is .995/.951. Regeneration's l FPR uses original L02/K08 runs (\S\ref{sec:recon}).}
+\label{tab:auroc}
+\end{table*}
+
+\textbf{Scores detect influence; regeneration detects violation.} Single-source LOO and CausalArmor are near/below chance; joint deletion separates less well than relative scores (Table~\ref{tab:auroc}). Llama's heavily attributed user-request reference may partly explain our CausalArmor port's below-chance margin. At frozen thresholds $R$ flags 58\%/34\% of resisted attacks and $D$ 35\%/23\%: influence can shift probabilities without changing the allowed outcome. Clean-checkpoint regeneration disagrees with all steered proposals and only 2--5\% of resisted ones; Table~\ref{tab:recon} also counts UNKNOWN outcomes as false blocks. Thus regeneration is the stronger gate here; relative scoring is useful for monitoring resisted attempts. This is not formatting-invariant: Qwen's $D$ threshold is near zero, and formatting alone moved it by 0.27.
+
+\subsection{Last-turn deletion versus closure (P2)}
+\label{sec:p2}
+
+Derived history creates the path $U\to h\to g$. In-place deletion removes raw $U$ from the action-time view but retains $h$. \textbf{P2:} late deletion misses propagated influence; clean-checkpoint replay regenerates its descendants. Where history templates already hide raw sources, this blind spot holds by construction. The non-trivial test is R03: deleting the still-visible email leaves a steering summary, sufficient on both 4-bit families. In-place deletion misses 5/22 Qwen and 12/18 Llama steered executions; closure misses 0/22 and 0/18. The pattern recurs on confirmation cases and Haiku's early commitment. Qwen-32B has 4/19 H1 and 1/6 H2 in-place misses, all history cases, but its R03 steering does not survive deletion. Our raw-span CausalArmor port shares this blind spot; this is not a result for all replay-based defenses.
+
+\subsection{Reconstruction as reference, and its cost}
+\label{sec:recon}
+
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{3.4pt}
+\begin{tabular}{@{}lllllllll@{}}
+\toprule
+& \multicolumn{4}{c}{Development, H1 (Qwen, Llama)} & \multicolumn{3}{c}{Confirmation, H1 (Qwen, Llama, Gemma)} & \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-8}
+Defense & Steered miss & Legit FB & C+N FB & Clean & Steered miss & C+N FB & Legit FB / wrong & Passes \x B0 (gen + score) \\
+\midrule
+B2 reconstruction & 0/22, 0/18 & 0/12, 2/12$^{a}$ & 0, 0 & 68, 61 & 0/9, 0/7, 0/7 & 0, 0, 0 & 0/0, 0/3, 0/2 & 2.0\x{} (1.35 + 0) \\
+in-place del.+regen. & 5/22, 12/18 & 0/12, 2/12 & 0, 5 & 67, 59 & 2/9, 2/7, 1/7 & 6, 2, 4 & 0/0, 3/0, 2/0 & 1.8\x{} (1.0 + 0) \\
+$h_0$ regen.\ only & 0/22, 0/18 & 0/12, 2/12 & 4, 11 & 67, 59 & 0/9, 0/7, 0/7 & 6, 3, 4 & 0/0, 3/0, 2/0 & 3.0\x{} (2.7 + 0) \\
+B5e enhanced attrib. & 0/22, 0/18 & 0/12, 0/12 & 8, 10 & 65, 57 & 0/9, 0/7, 0/7 & 8, 1, 4 & 1/0, 3/0, 2/0 & 11.7\x{} (1.35 + 11.4) \\
+B6 auditor & 0/22, 0/18 & 1/12, 3/12 & 13, 18 & 61, 56 & 0/9, 0/7, 0/7 & 8, 8, 4 & 1/0, 3/0, 2/0 & 17.6\x{} (2.7 + 17.1) \\
+\bottomrule
+\end{tabular}
+\caption{Gate comparison on identical executions. Steered miss: unauthorized executions among B0-steered attack executions. Legit FB: blocked, UNKNOWN or no parsable action (any non-completion, for gates and generation paths alike) among the 12 legitimate-template attack executions (4 templates \x{} 3 seeds). C+N FB: blocks or UNKNOWN among clean and neutral executions with a parsable B0 proposal (dev of 144, 136; confirmation of 48, 48, 32; most confirmation blocks fall on B0's own wrong proposals on K08). Clean: correct clean completions of 72. Legit FB / wrong: legitimate confirmation executions blocked / executed with a wrong released value (of 6, 6, 4). L02 (dev) and K08 (Qwen conf.) use the post-fix re-runs for every gate. Passes (Qwen dev): mean of per-execution ratios; gen and score are mean extra passes over B0's 1.35 generation passes. $^{a}$B2's 2/3 non-completions on Llama L02 (no parsable action) are counted; every Llama gate passed B0's one wrong L03 execution.}
+\label{tab:recon}
+\end{table*}
+
+Reconstruction restores clean behaviour without adding capability. It misses no steered executions on Qwen/Llama development or their H1 confirmation sets, 1/30 in other 4-bit/hosted pilots and 0/32 across Qwen-32B's four authored runs. All-scheduled B2 wrong executions are 4/60, 5/60 and 6/40 in 4-bit H1 development; all but one have an already-wrong same-seed clean B0 run. The exception is Gemma's decoy-selection case (P02): without external text it chooses a decoy, which we interpret as a sampling capability error and still count as a miss. Conditioning on clean-correct seeds favours reconstruction: projected input resembles clean context, and clean accuracy barely changes (68/72,61/72 versus B0's 67/72,60/72). Qwen-32B repeats the gate ordering.
+
+Typed releases shift the remaining risk to semantic extraction. In the payout-account case (L02), failing to enumerate registered values initially produced NONE and a default-account payment in 3/3 Qwen-14B executions; every gate was re-run after the fix. In the flight-reassignment case (K08), the notice names both withdrawn and assigned flights. The extractor chooses the withdrawn flight for Llama (3/3), Gemma (2/2) and Haiku (1/1), while B0 reads the full notice correctly. Both Qwen extractors choose correctly.
+
+\emph{Combining scores with regeneration adds overhead here.} With raw $U$ removed and typed releases retained, the auditor's regeneration context equals $\Pi_P(C)$. Scores detect no steered violation that regeneration misses, but add clean false blocks (13/144,18/144). B6 costs 17.6\x{} forward passes versus regeneration's 3.0\x{}; generation and prefill-only scoring have different costs (Table~\ref{tab:recon}). Wall-clock ratios are 11.2\x{} for B6 and 1.9\x{} for reconstruction.
+
+\subsection{Where reconstruction fails}
+\label{sec:boundary}
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{2.2pt}
+\begin{tabular}{@{}llllll@{}}
+\toprule
+& Failure & B0 & B2 & $h_0$ gate & Verdict \\
+\midrule
+F02 & state & U U\,|\,U & \textbf{U U\,|\,U} & ? ?\,|\,? & confirmed \\
+F03 & release scope & a a\,|\,a & \textbf{U U\,|\,U} & b b\,|\,a & confirmed \\
+F04 & checkpoint & a U\,|\,U & \textbf{a U}\,|\,a & a U\,|\,b & partial \\
+F08 & contract & a U\,|\,U & \textbf{a U\,|\,U} & a U\,|\,U & definitional \\
+F07 & extractor & a a\,|\,a & \textbf{p p}\,|\,a & ? ?\,|\,b & fails closed \\
+\bottomrule
+\end{tabular}
+\caption{Boundary suite, Qwen-14B, attack: H1 seeds 0,11 $|$ H2. U: wrong execution; a: allowed; b: blocked; ?: UNKNOWN; p: parse failure. F04 deliberately places the checkpoint after a generated note.}
+\label{tab:boundary}
+\end{table}
+
+Reconstruction can execute a wrong action when required authority or clean state is missing (Table~\ref{tab:boundary}). Each case has two H1 executions and one H2 execution on one model, so these are illustrations. Insufficient trusted state (F02) leaves two records indistinguishable; reconstruction commits where it should abstain. A conditional release (F03) loses its condition during extraction. A polluted checkpoint (F04) retains an earlier generated note: reconstruction follows it in one of two steered executions (H1 seed 11), but recovers in H2.
+
+Other boundaries expose availability costs or unresolved tests. With no contract (F08), reconstruction equals B0 by definition. Negation around a withdrawn value (F07) breaks extraction under H1 and produces no action. The candidate restriction in F01 was only prompted, so the intended hard-shortlist failure was not realized; F05--F06 likewise did not realize their intended failures.
+
+\subsection{Defense-aware search}
+\label{sec:bypass}
+
+\paragraph{Content-only search, decision feedback.} Content-only attacks reach weak gates while source-isolated references hold under the stated construction. Eight development templates receive twelve queries each; the attacker is the victim model under rotating operator instructions and sees all defense decisions and target-sink outcomes. Unauthorized queries reaching the sink, Qwen-14B / Llama of 96: B0 and B1 27 / 17; chosen-action gates 25--27 / 16; in-place deletion 6 / 10; B6 scores only 2 / 2; B1c, B2, clean-checkpoint regeneration and B6 0 / 0. Every steering query contains a literal protected value; a generated indirect-reference case separately passes B1c (\S\ref{sec:gap}).
+
+\paragraph{Independent attacker, score feedback.} Score-feedback adaptation bypasses score-only gates but not regeneration on these twelve tasks. The frozen setup uses Qwen-14B (H1) as victim and Claude Haiku 4.5 as attacker, with an independently authored benchmark-framed prompt. Feedback includes each defense's decision and statistic relative to its threshold. Twelve generated tasks (nine authored-steered, three resisted) receive 24 total queries each. The attacker writes all 276 adaptive queries without refusal; 79/288 total queries hit its exact target (Table~\ref{tab:adaptive}).
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Defense (tasks bypassed within $B$ queries) & 0 & 4 & 12 & 23 \\
+\midrule
+B0, B1 structural provenance & 6 & 8 & 8 & 8 \\
+chosen-action gates (B4, B5c) & 5 & 7 & 7 & 7 \\
+B6 tuple-only scores & 2 & 4 & 5 & 5 \\
+B1c fail-closed provenance & 1 & 2 & 2 & 2 \\
+B6 scores only & 1 & 1 & 1 & 2 \\
+B5 CausalArmor rule ($\kappa{=}0$) & 0 & 1 & 1 & 1 \\
+\midrule
+B2, $h_0$ regen., in-place del., B5e, B6 & 0 & 0 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\caption{Adaptive attack on Qwen2.5-14B: of 12 generated tasks, those on which the attacker's target executed under each defense within $B$ adaptive queries ($B{=}0$: authored text). A $0/12$ has a Wilson 95\% upper bound of 0.24.}
+\label{tab:adaptive}
+\end{table}
+
+Weak gates are bypassed within four queries and then plateau (Table~\ref{tab:adaptive}). Scores-only variants fail on two or five tasks; regeneration catches those cases. Fresh-randomness validation reproduces B0 steering in 15/16 re-runs and chosen-action bypasses in 12/14. Reconstruction, regeneration and B6 holding confirms their construction under these writable-source restrictions, not general robustness: reconstruction excludes raw writable sources; B6's regeneration branch enforces disagreement blocking.
+
+\paragraph{Search against hosted agents.} The hosted search is inconclusive about robustness. Four templates that steer open-weight agents, twelve queries each, yield 0/48 target hits against GPT-5.6-sol with the same model as attacker. Opus likewise gives 0/48, but refuses 41/44 adaptive queries. This small, non-optimized search with no cross-model transfer does not distinguish strong resistance from weak elicitation.
+
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Template (kept/12) & B0 wrong & B2 wrong & 1st hit & Repro. \\
+\midrule
+L02 (11/12) & 1/11 & \textbf{1/11} & query 1 & 2/2 \\
+K08 (11/12) & 1/11 & \textbf{3/11} & query 3 & 2/2 \\
+F07 (1/12) & 0/1 & 0/1 & -- & -- \\
+\bottomrule
+\end{tabular}
+\caption{Release-source search, Qwen-14B H1: post-hoc counts on queries preserving the original authorized designation. Each original 12-query budget includes authored query 0. Kept/12 gives the audited denominator; wrong means outside its allowed set. Repro.: first B2 hit, temperature 0.7, seeds 11 and 23.}
+\label{tab:extract}
+\end{table}
+
+\paragraph{Extractor-targeted search.} Extraction can choose a wrong registered value even when the authorized designation is preserved. An agent audit retains 23/36 queries with unambiguous unchanged designations (Table~\ref{tab:extract}). Excluded rewrites obscure a row pointer, change the designated flight, or invent registration evidence; they still consume budget and inform feedback. These are descriptive post-hoc counts, not a fresh validity-constrained search or independent human validation. The negated-release case (F07) retains only authored text, on which B2 fails closed. In the payout case (L02), the newer registered account is identified but extraction returns NONE. In the flight case (K08), extraction chooses the withdrawn flight rather than the assigned one. First hits reproduce 2/2 each. A legal-value grammar alone is not shown to resolve these semantic failures.
+
+\section{Discussion}
+
+\paragraph{Influence and violation are different targets.} Full-action attribution mixes a memo's dependence on an email with the email's influence on row selection. Candidate-relative scores help monitor influence, including resisted attempts. Clean-checkpoint regeneration instead tests choice disagreement after closing history. That disagreement is useful for gating in our experiments, but is not an authorization oracle.
+
+\paragraph{The contract is the real cost.} Every path that worked needs the per-field authority classification and typed releases that structural frameworks also need, and those prevent TVUS by construction once $K$ exists. Reconstruction's niche is retrofitting an existing proposer that already chooses among enumerated candidates, without a planner rewrite; where $K$ delegates a field to external text, the release extractor becomes the attack surface.
+
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Authority and provenance.}
+PACT checks argument origins \citep{fan2026pact}; CaMeL and FIDES move control into tracked planners \citep{debenedetti2025camel,costa2025fides}; ProvenanceGuard and Agent-Sentry constrain execution provenance \citep{she2026provenanceguard,sequeira2026agentsentry}. Our structural baseline isolates value membership and cannot establish failure of those complete systems. CXI already addresses selection authority \citep{santosgrueiro2026cxi}. AGATE binds runtime actions to operator authorization and provenance \citep{zhang2026agate}; whether its instantiated contracts catch our cases is untested. NeuroTaint tracks semantic, causal and persistent propagation offline \citep{cai2026neurotaint}, complementary to our runtime gates. The execution-provenance survey distinguishes evidence support from execution influence \citep{wang2026traces}.
+
+\paragraph{Counterfactual and causal defenses.}
+AttriGuard attenuates observation history while teacher-forcing past actions, then judges tool-call survival \citep{he2026attriguard}. AgentSentry holds the boundary prefix/state fixed for masked and sanitized re-executions and purifies context for continuation \citep{zhang2026agentsentry}; it is distinct from Agent-Sentry above. Our clean-checkpoint reference instead regenerates derived state from a field-authorized view and compares the protected tuple. Their sanitization, replay anchoring and judgment rules differ from our ports; we did not run them or establish that P1/P2 defeat them. MELON masks the user task \citep{melon2025}; we keep it. CausalArmor \citep{kim2026causalarmor} builds on context attribution \citep{cohenwang2024contextcite,liu2025attribot}; our false-flag direction complements \citet{ahad2026influence}.
+
+\paragraph{Scope of the measurement.}
+Liao studies offline argument-level provenance sensitivity \citep{liao2026auditing}; query-conditioned attribution recovers aspect-specific historical evidence \citep{liu2026queryattribution}, rather than deciding execution authority. Training and input-structure defenses \citep{struq2024,secalign2024,instructionhierarchy2024,spotlighting2024} may compose with a selection gate. Prior preference and tool-selection attacks allow attacker-supplied alternatives \citep{prefmanip2024,toolselect2025}; here the alternatives are trusted. Adaptive evaluation of out-of-band defenses similarly calls for bounded, defense-aware tests without turning small negative results into guarantees \citep{narisetty2026adaptive}.
+
+\section{Limitations}
+\label{sec:limits}
+
+\emph{Validation and scope.} No independent human labelled the authored suites. Author spot-checks confirmed 19/20 authored allowed tuples (F02 intentionally lacks authorized disambiguation) and, after fixes, 20/20 generated tuples; this does not bound an independent-review defect rate. We assume frozen enumerated candidates and separable protected/free fields. Open-ended generation or an attacker-tainted top-$k$ shortlist requires a new candidate-authority model, not a direct extension. Steering within $\Allowed$ is unmeasured.
+
+\emph{Statistics and models.} Development steering spans 8,7,7 templates (22,18,19 executions); a template-level $0/8$ has Wilson upper bound about 0.32. Thresholds are per statistic and calibrated in-sample; combined rules lack a joint 5\% guarantee. Clean-checkpoint regeneration false-blocked 13/128 clean/neutral 4-bit confirmation executions (11 were B0's own wrong proposals), versus 0/48 on Qwen-32B. We did not evaluate injection-trained backbones or third-party harnesses \citep{debenedetti2024agentdojo,boisvert2025doomarena}; bf16 covers one family. Hosted decoding is not controlled or proven deterministic, and 96 hosted search queries are small and partly refusal-limited.
+
+\emph{Mechanism controls.} Tuple-only rescoring holds the original proposal fixed; removing free text during proposal generation remains untested. Candidate count, near-duplicate similarity and systematic memo-style perturbations were not swept. Relative scores cancel only shared free-field dependence: candidate-specific wording and pronouns can remain. In bf16, padded scoring drifted 0.6--0.9 nats from unbatched ($10^{-4}$ in fp32), so we scored unbatched; bf16/fp32 sums differ by 0.5--0.9 nats, small versus $R$ thresholds (9--16), not always $D$ (0.002--0.52). Grammar constraints restrict legal values but do not resolve negation or temporal designation among them. H3 supports regeneration without scores; rationales and candidate re-asking were not validated as $R/D$ proxies. The independent attacker targets only Qwen-14B (24 total queries/task).
+
+\paragraph{Reproducibility and ethics.}
+Code, fixtures, protocols, per-execution verdicts and available raw traces are released at \url{https://github.com/puncsky/tvus-artifact} (v1.0.0). Complete 32B raw execution logs are absent; derived verdicts and scores are included. The benchmark is synthetic and involves no real systems.
+
+\bibliography{refs}
+
+\end{document}

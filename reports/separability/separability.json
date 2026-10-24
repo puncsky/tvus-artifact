@@ -1,0 +1,2770 @@
+{
+  "dev-qwen14b": {
+    "n_pos": 22,
+    "n_neg": 190,
+    "n_neg_by_kind": {
+      "clean": 72,
+      "neutral": 72,
+      "resisted": 34,
+      "legit_attack": 12
+    },
+    "templates": [
+      "H01",
+      "H02",
+      "H03",
+      "H04",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "X01",
+      "X02",
+      "X03",
+      "X04"
+    ],
+    "stats": {
+      "ref_R": {
+        "label": "candidate-relative log-odds change R",
+        "auroc": 0.970334928229665,
+        "auroc_ci95_template_bootstrap": [
+          0.9120772946859903,
+          0.996876220226474
+        ],
+        "auprc": 0.8014146516095574,
+        "fpr_at_95tpr": 0.12105263157894737,
+        "frozen_threshold": 8.409303665161133,
+        "tpr_at_frozen": 0.9545454545454546,
+        "fpr_at_frozen": 0.14210526315789473,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.05555555555555555,
+          "resisted": 0.5,
+          "legit_attack": 0.25
+        }
+      },
+      "ref_R_t": {
+        "label": "R, free fields blanked",
+        "auroc": 0.8892344497607656,
+        "auroc_ci95_template_bootstrap": [
+          0.6759358288770053,
+          1.0
+        ],
+        "auprc": 0.8090990682809371,
+        "fpr_at_95tpr": 0.7157894736842105,
+        "frozen_threshold": 12.531064987182617,
+        "tpr_at_frozen": 0.8181818181818182,
+        "fpr_at_frozen": 0.05789473684210526,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.013888888888888888,
+          "neutral": 0.05555555555555555,
+          "resisted": 0.08823529411764706,
+          "legit_attack": 0.25
+        }
+      },
+      "ref_D": {
+        "label": "TV distance D",
+        "auroc": 0.9686602870813397,
+        "auroc_ci95_template_bootstrap": [
+          0.8955788248981966,
+          0.9986483442216716
+        ],
+        "auprc": 0.8177062012651863,
+        "fpr_at_95tpr": 0.14736842105263157,
+        "frozen_threshold": 0.00014162540408665797,
+        "tpr_at_frozen": 0.8636363636363636,
+        "fpr_at_frozen": 0.1,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.05555555555555555,
+          "neutral": 0.027777777777777776,
+          "resisted": 0.29411764705882354,
+          "legit_attack": 0.25
+        }
+      },
+      "ref_D_t": {
+        "label": "TV distance, free fields blanked",
+        "auroc": 0.9586124401913876,
+        "auroc_ci95_template_bootstrap": [
+          0.8860479797979798,
+          0.9956592512208355
+        ],
+        "auprc": 0.7739898988071046,
+        "fpr_at_95tpr": 0.1368421052631579,
+        "frozen_threshold": 0.17503737078298928,
+        "tpr_at_frozen": 0.7727272727272727,
+        "fpr_at_frozen": 0.05789473684210526,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.06944444444444445,
+          "neutral": 0.027777777777777776,
+          "resisted": 0.029411764705882353,
+          "legit_attack": 0.25
+        }
+      },
+      "chosen_drop": {
+        "label": "chosen-action log-prob drop (joint deletion)",
+        "auroc": 0.7246411483253589,
+        "auroc_ci95_template_bootstrap": [
+          0.5490805840995132,
+          0.8652349828820417
+        ],
+        "auprc": 0.31337166361590274,
+        "fpr_at_95tpr": 0.6894736842105263,
+        "frozen_threshold": 159.50526809692383,
+        "tpr_at_frozen": 0.22727272727272727,
+        "fpr_at_frozen": 0.03684210526315789,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.05555555555555555,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "loo_max": {
+        "label": "max single-source LOO drop",
+        "auroc": 0.5503588516746412,
+        "auroc_ci95_template_bootstrap": [
+          0.3851575456053068,
+          0.7156525066972829
+        ],
+        "auprc": 0.1328516745838974,
+        "fpr_at_95tpr": 0.9894736842105263,
+        "frozen_threshold": 129.39201736450195,
+        "tpr_at_frozen": 0.045454545454545456,
+        "fpr_at_frozen": 0.05789473684210526,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.05555555555555555,
+          "resisted": 0.11764705882352941,
+          "legit_attack": 0.0
+        }
+      },
+      "joint_drop": {
+        "label": "joint-deletion drop (chosen action)",
+        "auroc": 0.5812200956937799,
+        "auroc_ci95_template_bootstrap": [
+          0.376,
+          0.8126293995859213
+        ],
+        "auprc": 0.22168405066766614,
+        "fpr_at_95tpr": 0.9894736842105263,
+        "frozen_threshold": 156.08063316345215,
+        "tpr_at_frozen": 0.18181818181818182,
+        "fpr_at_frozen": 0.03684210526315789,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.05555555555555555,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ca_margin": {
+        "label": "CausalArmor margin (span \u2212 user request, per token)",
+        "auroc": 0.48229665071770333,
+        "auroc_ci95_template_bootstrap": [
+          0.29733333333333334,
+          0.6380597014925373
+        ],
+        "auprc": 0.09844911269694775,
+        "fpr_at_95tpr": 0.8473684210526315,
+        "frozen_threshold": 1.1550943647112164,
+        "tpr_at_frozen": 0.045454545454545456,
+        "fpr_at_frozen": 0.05263157894736842,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.027777777777777776,
+          "neutral": 0.06944444444444445,
+          "resisted": 0.08823529411764706,
+          "legit_attack": 0.0
+        }
+      },
+      "enh_R": {
+        "label": "enhanced R (closure on history)",
+        "auroc": 0.9641148325358851,
+        "auroc_ci95_template_bootstrap": [
+          0.9070675517376025,
+          0.9964349376114082
+        ],
+        "auprc": 0.7940902673073219,
+        "fpr_at_95tpr": 0.14210526315789473,
+        "frozen_threshold": 7.589031219482422,
+        "tpr_at_frozen": 0.9545454545454546,
+        "fpr_at_frozen": 0.14210526315789473,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.027777777777777776,
+          "neutral": 0.06944444444444445,
+          "resisted": 0.5,
+          "legit_attack": 0.25
+        }
+      }
+    },
+    "regen_mismatch": {
+      "tpr": 1.0,
+      "fpr": 0.042105263157894736,
+      "n_pos": 22,
+      "n_neg": 190,
+      "fpr_by_kind": {
+        "clean": 0.027777777777777776,
+        "neutral": 0.027777777777777776,
+        "resisted": 0.029411764705882353,
+        "legit_attack": 0.25
+      }
+    }
+  },
+  "dev-qwen14b (clean+neutral negatives only)": {
+    "n_pos": 22,
+    "n_neg": 144,
+    "n_neg_by_kind": {
+      "clean": 72,
+      "neutral": 72,
+      "resisted": 0,
+      "legit_attack": 0
+    },
+    "templates": [
+      "H01",
+      "H02",
+      "H03",
+      "H04",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "X01",
+      "X02",
+      "X03",
+      "X04"
+    ],
+    "stats": {
+      "ref_R": {
+        "label": "candidate-relative log-odds change R",
+        "auroc": 0.9946338383838383,
+        "auroc_ci95_template_bootstrap": [
+          0.9759615384615384,
+          1.0
+        ],
+        "auprc": 0.9712326863854878,
+        "fpr_at_95tpr": 0.034722222222222224,
+        "frozen_threshold": 8.409303665161133,
+        "tpr_at_frozen": 0.9545454545454546,
+        "fpr_at_frozen": 0.04861111111111111,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.05555555555555555,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_R_t": {
+        "label": "R, free fields blanked",
+        "auroc": 0.8952020202020202,
+        "auroc_ci95_template_bootstrap": [
+          0.6875,
+          1.0
+        ],
+        "auprc": 0.8615672857608342,
+        "fpr_at_95tpr": 0.7083333333333334,
+        "frozen_threshold": 12.531064987182617,
+        "tpr_at_frozen": 0.8181818181818182,
+        "fpr_at_frozen": 0.034722222222222224,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.013888888888888888,
+          "neutral": 0.05555555555555555,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_D": {
+        "label": "TV distance D",
+        "auroc": 0.9823232323232324,
+        "auroc_ci95_template_bootstrap": [
+          0.9252873563218391,
+          1.0
+        ],
+        "auprc": 0.9191672641943541,
+        "fpr_at_95tpr": 0.10416666666666667,
+        "frozen_threshold": 0.00014162540408665797,
+        "tpr_at_frozen": 0.8636363636363636,
+        "fpr_at_frozen": 0.041666666666666664,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.05555555555555555,
+          "neutral": 0.027777777777777776,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_D_t": {
+        "label": "TV distance, free fields blanked",
+        "auroc": 0.9678030303030303,
+        "auroc_ci95_template_bootstrap": [
+          0.90625,
+          0.9982638888888888
+        ],
+        "auprc": 0.8770944207307844,
+        "fpr_at_95tpr": 0.125,
+        "frozen_threshold": 0.17503737078298928,
+        "tpr_at_frozen": 0.7727272727272727,
+        "fpr_at_frozen": 0.04861111111111111,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.06944444444444445,
+          "neutral": 0.027777777777777776,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "chosen_drop": {
+        "label": "chosen-action log-prob drop (joint deletion)",
+        "auroc": 0.7105429292929293,
+        "auroc_ci95_template_bootstrap": [
+          0.5339147286821705,
+          0.8459967320261438
+        ],
+        "auprc": 0.3350585804232118,
+        "fpr_at_95tpr": 0.7013888888888888,
+        "frozen_threshold": 159.50526809692383,
+        "tpr_at_frozen": 0.22727272727272727,
+        "fpr_at_frozen": 0.04861111111111111,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.05555555555555555,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "loo_max": {
+        "label": "max single-source LOO drop",
+        "auroc": 0.5492424242424242,
+        "auroc_ci95_template_bootstrap": [
+          0.39544753086419754,
+          0.7061965811965812
+        ],
+        "auprc": 0.16156785500381715,
+        "fpr_at_95tpr": 0.9861111111111112,
+        "frozen_threshold": 129.39201736450195,
+        "tpr_at_frozen": 0.045454545454545456,
+        "fpr_at_frozen": 0.04861111111111111,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.05555555555555555,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "joint_drop": {
+        "label": "joint-deletion drop (chosen action)",
+        "auroc": 0.5789141414141414,
+        "auroc_ci95_template_bootstrap": [
+          0.3912037037037037,
+          0.8046875
+        ],
+        "auprc": 0.2460970368572807,
+        "fpr_at_95tpr": 0.9861111111111112,
+        "frozen_threshold": 156.08063316345215,
+        "tpr_at_frozen": 0.18181818181818182,
+        "fpr_at_frozen": 0.04861111111111111,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.05555555555555555,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ca_margin": {
+        "label": "CausalArmor margin (span \u2212 user request, per token)",
+        "auroc": 0.49021464646464646,
+        "auroc_ci95_template_bootstrap": [
+          0.310570987654321,
+          0.6377314814814815
+        ],
+        "auprc": 0.1273787328897898,
+        "fpr_at_95tpr": 0.8402777777777778,
+        "frozen_threshold": 1.1550943647112164,
+        "tpr_at_frozen": 0.045454545454545456,
+        "fpr_at_frozen": 0.04861111111111111,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.027777777777777776,
+          "neutral": 0.06944444444444445,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "enh_R": {
+        "label": "enhanced R (closure on history)",
+        "auroc": 0.9876893939393939,
+        "auroc_ci95_template_bootstrap": [
+          0.9444444444444444,
+          1.0
+        ],
+        "auprc": 0.9517743221690591,
+        "fpr_at_95tpr": 0.04861111111111111,
+        "frozen_threshold": 7.589031219482422,
+        "tpr_at_frozen": 0.9545454545454546,
+        "fpr_at_frozen": 0.04861111111111111,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.027777777777777776,
+          "neutral": 0.06944444444444445,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      }
+    },
+    "regen_mismatch": {
+      "tpr": 1.0,
+      "fpr": 0.027777777777777776,
+      "n_pos": 22,
+      "n_neg": 144,
+      "fpr_by_kind": {
+        "clean": 0.027777777777777776,
+        "neutral": 0.027777777777777776,
+        "resisted": 0.0,
+        "legit_attack": 0.0
+      }
+    }
+  },
+  "dev-llama8b": {
+    "n_pos": 18,
+    "n_neg": 182,
+    "n_neg_by_kind": {
+      "clean": 66,
+      "neutral": 70,
+      "resisted": 34,
+      "legit_attack": 12
+    },
+    "templates": [
+      "H01",
+      "H02",
+      "H03",
+      "H04",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "X01",
+      "X02",
+      "X03",
+      "X04"
+    ],
+    "stats": {
+      "ref_R": {
+        "label": "candidate-relative log-odds change R",
+        "auroc": 0.9459706959706959,
+        "auroc_ci95_template_bootstrap": [
+          0.8745629370629371,
+          0.9901380670611439
+        ],
+        "auprc": 0.7183848531163107,
+        "fpr_at_95tpr": 0.3626373626373626,
+        "frozen_threshold": 5.682384490966797,
+        "tpr_at_frozen": 0.8333333333333334,
+        "fpr_at_frozen": 0.08791208791208792,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.045454545454545456,
+          "neutral": 0.04285714285714286,
+          "resisted": 0.29411764705882354,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_R_t": {
+        "label": "R, free fields blanked",
+        "auroc": 0.9713064713064713,
+        "auroc_ci95_template_bootstrap": [
+          0.9224137931034483,
+          0.9992937853107344
+        ],
+        "auprc": 0.8412434286732602,
+        "fpr_at_95tpr": 0.13736263736263737,
+        "frozen_threshold": 3.9090919494628906,
+        "tpr_at_frozen": 0.7222222222222222,
+        "fpr_at_frozen": 0.06593406593406594,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.06060606060606061,
+          "neutral": 0.02857142857142857,
+          "resisted": 0.17647058823529413,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_D": {
+        "label": "TV distance D",
+        "auroc": 0.9723748473748474,
+        "auroc_ci95_template_bootstrap": [
+          0.9354619565217391,
+          0.9934489402697495
+        ],
+        "auprc": 0.8112600959550357,
+        "fpr_at_95tpr": 0.16483516483516483,
+        "frozen_threshold": 0.16399308273790375,
+        "tpr_at_frozen": 0.9444444444444444,
+        "fpr_at_frozen": 0.08241758241758242,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.045454545454545456,
+          "neutral": 0.04285714285714286,
+          "resisted": 0.23529411764705882,
+          "legit_attack": 0.08333333333333333
+        }
+      },
+      "ref_D_t": {
+        "label": "TV distance, free fields blanked",
+        "auroc": 0.9816849816849816,
+        "auroc_ci95_template_bootstrap": [
+          0.9381469979296067,
+          1.0
+        ],
+        "auprc": 0.884984478121733,
+        "fpr_at_95tpr": 0.13186813186813187,
+        "frozen_threshold": 0.20663000691512193,
+        "tpr_at_frozen": 0.8888888888888888,
+        "fpr_at_frozen": 0.06593406593406594,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.045454545454545456,
+          "neutral": 0.02857142857142857,
+          "resisted": 0.20588235294117646,
+          "legit_attack": 0.0
+        }
+      },
+      "chosen_drop": {
+        "label": "chosen-action log-prob drop (joint deletion)",
+        "auroc": 0.5515873015873016,
+        "auroc_ci95_template_bootstrap": [
+          0.3575418994413408,
+          0.7596296296296297
+        ],
+        "auprc": 0.15215283331870444,
+        "fpr_at_95tpr": 0.7582417582417582,
+        "frozen_threshold": 227.87916564941406,
+        "tpr_at_frozen": 0.1111111111111111,
+        "fpr_at_frozen": 0.06043956043956044,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.015151515151515152,
+          "neutral": 0.07142857142857142,
+          "resisted": 0.14705882352941177,
+          "legit_attack": 0.0
+        }
+      },
+      "loo_max": {
+        "label": "max single-source LOO drop",
+        "auroc": 0.33852258852258854,
+        "auroc_ci95_template_bootstrap": [
+          0.21178718400940624,
+          0.5
+        ],
+        "auprc": 0.09547022886101775,
+        "fpr_at_95tpr": 1.0,
+        "frozen_threshold": 162.81152629852295,
+        "tpr_at_frozen": 0.05555555555555555,
+        "fpr_at_frozen": 0.07142857142857142,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.08571428571428572,
+          "resisted": 0.17647058823529413,
+          "legit_attack": 0.08333333333333333
+        }
+      },
+      "joint_drop": {
+        "label": "joint-deletion drop (chosen action)",
+        "auroc": 0.3898046398046398,
+        "auroc_ci95_template_bootstrap": [
+          0.21212121212121213,
+          0.6544692737430168
+        ],
+        "auprc": 0.10629832809685039,
+        "fpr_at_95tpr": 1.0,
+        "frozen_threshold": 226.1168727874756,
+        "tpr_at_frozen": 0.05555555555555555,
+        "fpr_at_frozen": 0.06043956043956044,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.08571428571428572,
+          "resisted": 0.14705882352941177,
+          "legit_attack": 0.0
+        }
+      },
+      "ca_margin": {
+        "label": "CausalArmor margin (span \u2212 user request, per token)",
+        "auroc": 0.27289377289377287,
+        "auroc_ci95_template_bootstrap": [
+          0.146356783919598,
+          0.44060773480662985
+        ],
+        "auprc": 0.08734847487742851,
+        "fpr_at_95tpr": 0.989010989010989,
+        "frozen_threshold": 1.3442031880642504,
+        "tpr_at_frozen": 0.05555555555555555,
+        "fpr_at_frozen": 0.08241758241758242,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.08571428571428572,
+          "resisted": 0.23529411764705882,
+          "legit_attack": 0.08333333333333333
+        }
+      },
+      "enh_R": {
+        "label": "enhanced R (closure on history)",
+        "auroc": 0.9496336996336996,
+        "auroc_ci95_template_bootstrap": [
+          0.9038572251007484,
+          0.9867291178766588
+        ],
+        "auprc": 0.7024041903642867,
+        "fpr_at_95tpr": 0.31868131868131866,
+        "frozen_threshold": 5.47136116027832,
+        "tpr_at_frozen": 0.7222222222222222,
+        "fpr_at_frozen": 0.06593406593406594,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.045454545454545456,
+          "neutral": 0.04285714285714286,
+          "resisted": 0.17647058823529413,
+          "legit_attack": 0.0
+        }
+      }
+    },
+    "regen_mismatch": {
+      "tpr": 1.0,
+      "fpr": 0.04395604395604396,
+      "n_pos": 18,
+      "n_neg": 182,
+      "fpr_by_kind": {
+        "clean": 0.045454545454545456,
+        "neutral": 0.04285714285714286,
+        "resisted": 0.058823529411764705,
+        "legit_attack": 0.0
+      }
+    }
+  },
+  "dev-llama8b (clean+neutral negatives only)": {
+    "n_pos": 18,
+    "n_neg": 136,
+    "n_neg_by_kind": {
+      "clean": 66,
+      "neutral": 70,
+      "resisted": 0,
+      "legit_attack": 0
+    },
+    "templates": [
+      "H01",
+      "H02",
+      "H03",
+      "H04",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "X01",
+      "X02",
+      "X03",
+      "X04"
+    ],
+    "stats": {
+      "ref_R": {
+        "label": "candidate-relative log-odds change R",
+        "auroc": 0.9665032679738562,
+        "auroc_ci95_template_bootstrap": [
+          0.9226618705035972,
+          0.9971153846153846
+        ],
+        "auprc": 0.8419576145696774,
+        "fpr_at_95tpr": 0.2867647058823529,
+        "frozen_threshold": 5.682384490966797,
+        "tpr_at_frozen": 0.8333333333333334,
+        "fpr_at_frozen": 0.04411764705882353,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.045454545454545456,
+          "neutral": 0.04285714285714286,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_R_t": {
+        "label": "R, free fields blanked",
+        "auroc": 0.9812091503267973,
+        "auroc_ci95_template_bootstrap": [
+          0.9521531100478469,
+          1.0
+        ],
+        "auprc": 0.9008626639061421,
+        "fpr_at_95tpr": 0.08823529411764706,
+        "frozen_threshold": 3.9090919494628906,
+        "tpr_at_frozen": 0.7222222222222222,
+        "fpr_at_frozen": 0.04411764705882353,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.06060606060606061,
+          "neutral": 0.02857142857142857,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_D": {
+        "label": "TV distance D",
+        "auroc": 0.9869281045751634,
+        "auroc_ci95_template_bootstrap": [
+          0.9573934837092731,
+          1.0
+        ],
+        "auprc": 0.9280144282853262,
+        "fpr_at_95tpr": 0.13970588235294118,
+        "frozen_threshold": 0.16399308273790375,
+        "tpr_at_frozen": 0.9444444444444444,
+        "fpr_at_frozen": 0.04411764705882353,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.045454545454545456,
+          "neutral": 0.04285714285714286,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_D_t": {
+        "label": "TV distance, free fields blanked",
+        "auroc": 0.9869281045751634,
+        "auroc_ci95_template_bootstrap": [
+          0.9444444444444444,
+          1.0
+        ],
+        "auprc": 0.9477124183006536,
+        "fpr_at_95tpr": 0.11764705882352941,
+        "frozen_threshold": 0.20663000691512193,
+        "tpr_at_frozen": 0.8888888888888888,
+        "fpr_at_frozen": 0.03676470588235294,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.045454545454545456,
+          "neutral": 0.02857142857142857,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "chosen_drop": {
+        "label": "chosen-action log-prob drop (joint deletion)",
+        "auroc": 0.5592320261437909,
+        "auroc_ci95_template_bootstrap": [
+          0.371875,
+          0.7679924242424242
+        ],
+        "auprc": 0.22218094034137878,
+        "fpr_at_95tpr": 0.75,
+        "frozen_threshold": 227.87916564941406,
+        "tpr_at_frozen": 0.1111111111111111,
+        "fpr_at_frozen": 0.04411764705882353,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.015151515151515152,
+          "neutral": 0.07142857142857142,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "loo_max": {
+        "label": "max single-source LOO drop",
+        "auroc": 0.35498366013071897,
+        "auroc_ci95_template_bootstrap": [
+          0.23845327604726102,
+          0.5040816326530613
+        ],
+        "auprc": 0.14507493002172284,
+        "fpr_at_95tpr": 1.0,
+        "frozen_threshold": 162.81152629852295,
+        "tpr_at_frozen": 0.05555555555555555,
+        "fpr_at_frozen": 0.04411764705882353,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.08571428571428572,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "joint_drop": {
+        "label": "joint-deletion drop (chosen action)",
+        "auroc": 0.4068627450980392,
+        "auroc_ci95_template_bootstrap": [
+          0.23174603174603176,
+          0.6637037037037037
+        ],
+        "auprc": 0.16238299013599372,
+        "fpr_at_95tpr": 1.0,
+        "frozen_threshold": 226.1168727874756,
+        "tpr_at_frozen": 0.05555555555555555,
+        "fpr_at_frozen": 0.04411764705882353,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.08571428571428572,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ca_margin": {
+        "label": "CausalArmor margin (span \u2212 user request, per token)",
+        "auroc": 0.29248366013071897,
+        "auroc_ci95_template_bootstrap": [
+          0.16618675442204853,
+          0.4431818181818182
+        ],
+        "auprc": 0.10731762904778012,
+        "fpr_at_95tpr": 0.9852941176470589,
+        "frozen_threshold": 1.3442031880642504,
+        "tpr_at_frozen": 0.05555555555555555,
+        "fpr_at_frozen": 0.04411764705882353,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.08571428571428572,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "enh_R": {
+        "label": "enhanced R (closure on history)",
+        "auroc": 0.9665032679738562,
+        "auroc_ci95_template_bootstrap": [
+          0.9306569343065694,
+          0.9977189781021898
+        ],
+        "auprc": 0.8492201330375995,
+        "fpr_at_95tpr": 0.27205882352941174,
+        "frozen_threshold": 5.47136116027832,
+        "tpr_at_frozen": 0.7222222222222222,
+        "fpr_at_frozen": 0.04411764705882353,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.045454545454545456,
+          "neutral": 0.04285714285714286,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      }
+    },
+    "regen_mismatch": {
+      "tpr": 1.0,
+      "fpr": 0.04411764705882353,
+      "n_pos": 18,
+      "n_neg": 136,
+      "fpr_by_kind": {
+        "clean": 0.045454545454545456,
+        "neutral": 0.04285714285714286,
+        "resisted": 0.0,
+        "legit_attack": 0.0
+      }
+    }
+  },
+  "conf-qwen14b": {
+    "n_pos": 9,
+    "n_neg": 63,
+    "n_neg_by_kind": {
+      "clean": 24,
+      "neutral": 24,
+      "resisted": 9,
+      "legit_attack": 6
+    },
+    "templates": [
+      "K01",
+      "K02",
+      "K03",
+      "K04",
+      "K05",
+      "K06",
+      "K07",
+      "K08"
+    ],
+    "stats": {
+      "ref_R": {
+        "label": "candidate-relative log-odds change R",
+        "auroc": 0.9576719576719577,
+        "auroc_ci95_template_bootstrap": [
+          0.8591549295774648,
+          1.0
+        ],
+        "auprc": 0.7808922558922559,
+        "fpr_at_95tpr": 0.14285714285714285,
+        "frozen_threshold": 8.409303665161133,
+        "tpr_at_frozen": 1.0,
+        "fpr_at_frozen": 0.15873015873015872,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.041666666666666664,
+          "resisted": 0.8888888888888888,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_R_t": {
+        "label": "R, free fields blanked",
+        "auroc": 0.763668430335097,
+        "auroc_ci95_template_bootstrap": [
+          0.40808823529411764,
+          0.989010989010989
+        ],
+        "auprc": 0.5089208810139043,
+        "fpr_at_95tpr": 0.5396825396825397,
+        "frozen_threshold": 12.531064987182617,
+        "tpr_at_frozen": 0.5555555555555556,
+        "fpr_at_frozen": 0.15873015873015872,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.125,
+          "neutral": 0.0,
+          "resisted": 0.7777777777777778,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_D": {
+        "label": "TV distance D",
+        "auroc": 0.9964726631393298,
+        "auroc_ci95_template_bootstrap": [
+          0.9647266313932981,
+          1.0
+        ],
+        "auprc": 0.9797979797979798,
+        "fpr_at_95tpr": 0.031746031746031744,
+        "frozen_threshold": 0.00014162540408665797,
+        "tpr_at_frozen": 1.0,
+        "fpr_at_frozen": 0.07936507936507936,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.5555555555555556,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_D_t": {
+        "label": "TV distance, free fields blanked",
+        "auroc": 0.91005291005291,
+        "auroc_ci95_template_bootstrap": [
+          0.6740547588005215,
+          0.9958333333333333
+        ],
+        "auprc": 0.6458553791887126,
+        "fpr_at_95tpr": 0.19047619047619047,
+        "frozen_threshold": 0.17503737078298928,
+        "tpr_at_frozen": 0.6666666666666666,
+        "fpr_at_frozen": 0.14285714285714285,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.125,
+          "neutral": 0.0,
+          "resisted": 0.6666666666666666,
+          "legit_attack": 0.0
+        }
+      },
+      "chosen_drop": {
+        "label": "chosen-action log-prob drop (joint deletion)",
+        "auroc": 0.6155202821869489,
+        "auroc_ci95_template_bootstrap": [
+          0.3380281690140845,
+          0.8786764705882353
+        ],
+        "auprc": 0.15844004980383108,
+        "fpr_at_95tpr": 0.5238095238095238,
+        "frozen_threshold": 159.50526809692383,
+        "tpr_at_frozen": 0.0,
+        "fpr_at_frozen": 0.015873015873015872,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.041666666666666664,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "loo_max": {
+        "label": "max single-source LOO drop",
+        "auroc": 0.5961199294532628,
+        "auroc_ci95_template_bootstrap": [
+          0.3421516754850088,
+          0.8309859154929577
+        ],
+        "auprc": 0.1517841190197019,
+        "fpr_at_95tpr": 1.0,
+        "frozen_threshold": 129.39201736450195,
+        "tpr_at_frozen": 0.0,
+        "fpr_at_frozen": 0.09523809523809523,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.125,
+          "neutral": 0.125,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "joint_drop": {
+        "label": "joint-deletion drop (chosen action)",
+        "auroc": 0.5767195767195767,
+        "auroc_ci95_template_bootstrap": [
+          0.3253731343283582,
+          0.8444444444444444
+        ],
+        "auprc": 0.14290033443259248,
+        "fpr_at_95tpr": 1.0,
+        "frozen_threshold": 156.08063316345215,
+        "tpr_at_frozen": 0.0,
+        "fpr_at_frozen": 0.0,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ca_margin": {
+        "label": "CausalArmor margin (span \u2212 user request, per token)",
+        "auroc": 0.5343915343915344,
+        "auroc_ci95_template_bootstrap": [
+          0.25671641791044775,
+          0.7670329670329671
+        ],
+        "auprc": 0.13786555295384215,
+        "fpr_at_95tpr": 0.7777777777777778,
+        "frozen_threshold": 1.1550943647112164,
+        "tpr_at_frozen": 0.0,
+        "fpr_at_frozen": 0.1111111111111111,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.125,
+          "neutral": 0.16666666666666666,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "enh_R": {
+        "label": "enhanced R (closure on history)",
+        "auroc": 0.9629629629629629,
+        "auroc_ci95_template_bootstrap": [
+          0.8823529411764706,
+          1.0
+        ],
+        "auprc": 0.8021043771043771,
+        "fpr_at_95tpr": 0.14285714285714285,
+        "frozen_threshold": 7.589031219482422,
+        "tpr_at_frozen": 1.0,
+        "fpr_at_frozen": 0.15873015873015872,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.041666666666666664,
+          "resisted": 0.8888888888888888,
+          "legit_attack": 0.0
+        }
+      }
+    },
+    "regen_mismatch": {
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "n_pos": 9,
+      "n_neg": 63,
+      "fpr_by_kind": {
+        "clean": 0.0,
+        "neutral": 0.0,
+        "resisted": 0.0,
+        "legit_attack": 0.0
+      }
+    }
+  },
+  "conf-qwen14b (clean+neutral negatives only)": {
+    "n_pos": 9,
+    "n_neg": 48,
+    "n_neg_by_kind": {
+      "clean": 24,
+      "neutral": 24,
+      "resisted": 0,
+      "legit_attack": 0
+    },
+    "templates": [
+      "K01",
+      "K02",
+      "K03",
+      "K04",
+      "K05",
+      "K06",
+      "K07",
+      "K08"
+    ],
+    "stats": {
+      "ref_R": {
+        "label": "candidate-relative log-odds change R",
+        "auroc": 0.9976851851851852,
+        "auroc_ci95_template_bootstrap": [
+          0.9895833333333334,
+          1.0
+        ],
+        "auprc": 0.9888888888888889,
+        "fpr_at_95tpr": 0.020833333333333332,
+        "frozen_threshold": 8.409303665161133,
+        "tpr_at_frozen": 1.0,
+        "fpr_at_frozen": 0.041666666666666664,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.041666666666666664,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_R_t": {
+        "label": "R, free fields blanked",
+        "auroc": 0.8055555555555556,
+        "auroc_ci95_template_bootstrap": [
+          0.44642857142857145,
+          1.0
+        ],
+        "auprc": 0.6285792094615624,
+        "fpr_at_95tpr": 0.5208333333333334,
+        "frozen_threshold": 12.531064987182617,
+        "tpr_at_frozen": 0.5555555555555556,
+        "fpr_at_frozen": 0.0625,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.125,
+          "neutral": 0.0,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_D": {
+        "label": "TV distance D",
+        "auroc": 1.0,
+        "auroc_ci95_template_bootstrap": [
+          1.0,
+          1.0
+        ],
+        "auprc": 1.0,
+        "fpr_at_95tpr": 0.0,
+        "frozen_threshold": 0.00014162540408665797,
+        "tpr_at_frozen": 1.0,
+        "fpr_at_frozen": 0.0,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_D_t": {
+        "label": "TV distance, free fields blanked",
+        "auroc": 0.9513888888888888,
+        "auroc_ci95_template_bootstrap": [
+          0.7115384615384616,
+          1.0
+        ],
+        "auprc": 0.8296296296296297,
+        "fpr_at_95tpr": 0.125,
+        "frozen_threshold": 0.17503737078298928,
+        "tpr_at_frozen": 0.6666666666666666,
+        "fpr_at_frozen": 0.0625,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.125,
+          "neutral": 0.0,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "chosen_drop": {
+        "label": "chosen-action log-prob drop (joint deletion)",
+        "auroc": 0.5972222222222222,
+        "auroc_ci95_template_bootstrap": [
+          0.3515625,
+          0.8541666666666666
+        ],
+        "auprc": 0.1906358166162088,
+        "fpr_at_95tpr": 0.5625,
+        "frozen_threshold": 159.50526809692383,
+        "tpr_at_frozen": 0.0,
+        "fpr_at_frozen": 0.020833333333333332,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.041666666666666664,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "loo_max": {
+        "label": "max single-source LOO drop",
+        "auroc": 0.5833333333333334,
+        "auroc_ci95_template_bootstrap": [
+          0.3541666666666667,
+          0.8035714285714286
+        ],
+        "auprc": 0.1860447869219799,
+        "fpr_at_95tpr": 1.0,
+        "frozen_threshold": 129.39201736450195,
+        "tpr_at_frozen": 0.0,
+        "fpr_at_frozen": 0.125,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.125,
+          "neutral": 0.125,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "joint_drop": {
+        "label": "joint-deletion drop (chosen action)",
+        "auroc": 0.5671296296296297,
+        "auroc_ci95_template_bootstrap": [
+          0.3425925925925926,
+          0.8171296296296297
+        ],
+        "auprc": 0.1769240324709881,
+        "fpr_at_95tpr": 1.0,
+        "frozen_threshold": 156.08063316345215,
+        "tpr_at_frozen": 0.0,
+        "fpr_at_frozen": 0.0,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ca_margin": {
+        "label": "CausalArmor margin (span \u2212 user request, per token)",
+        "auroc": 0.5532407407407407,
+        "auroc_ci95_template_bootstrap": [
+          0.2864583333333333,
+          0.7852564102564102
+        ],
+        "auprc": 0.18132991647905705,
+        "fpr_at_95tpr": 0.7708333333333334,
+        "frozen_threshold": 1.1550943647112164,
+        "tpr_at_frozen": 0.0,
+        "fpr_at_frozen": 0.14583333333333334,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.125,
+          "neutral": 0.16666666666666666,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "enh_R": {
+        "label": "enhanced R (closure on history)",
+        "auroc": 0.9976851851851852,
+        "auroc_ci95_template_bootstrap": [
+          0.9907407407407407,
+          1.0
+        ],
+        "auprc": 0.9888888888888889,
+        "fpr_at_95tpr": 0.020833333333333332,
+        "frozen_threshold": 7.589031219482422,
+        "tpr_at_frozen": 1.0,
+        "fpr_at_frozen": 0.041666666666666664,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.041666666666666664,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      }
+    },
+    "regen_mismatch": {
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "n_pos": 9,
+      "n_neg": 48,
+      "fpr_by_kind": {
+        "clean": 0.0,
+        "neutral": 0.0,
+        "resisted": 0.0,
+        "legit_attack": 0.0
+      }
+    }
+  },
+  "conf-llama8b": {
+    "n_pos": 7,
+    "n_neg": 64,
+    "n_neg_by_kind": {
+      "clean": 24,
+      "neutral": 24,
+      "resisted": 10,
+      "legit_attack": 6
+    },
+    "templates": [
+      "K01",
+      "K02",
+      "K03",
+      "K04",
+      "K05",
+      "K06",
+      "K07",
+      "K08"
+    ],
+    "stats": {
+      "ref_R": {
+        "label": "candidate-relative log-odds change R",
+        "auroc": 0.8392857142857143,
+        "auroc_ci95_template_bootstrap": [
+          0.7391304347826086,
+          0.9433106575963719
+        ],
+        "auprc": 0.402276295133438,
+        "fpr_at_95tpr": 0.328125,
+        "frozen_threshold": 5.682384490966797,
+        "tpr_at_frozen": 0.14285714285714285,
+        "fpr_at_frozen": 0.09375,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.5,
+          "legit_attack": 0.16666666666666666
+        }
+      },
+      "ref_R_t": {
+        "label": "R, free fields blanked",
+        "auroc": 0.8459821428571429,
+        "auroc_ci95_template_bootstrap": [
+          0.65,
+          1.0
+        ],
+        "auprc": 0.49509803921568624,
+        "fpr_at_95tpr": 0.265625,
+        "frozen_threshold": 3.9090919494628906,
+        "tpr_at_frozen": 0.7142857142857143,
+        "fpr_at_frozen": 0.1875,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.9,
+          "legit_attack": 0.5
+        }
+      },
+      "ref_D": {
+        "label": "TV distance D",
+        "auroc": 0.9866071428571429,
+        "auroc_ci95_template_bootstrap": [
+          0.9558823529411765,
+          1.0
+        ],
+        "auprc": 0.9200680272108843,
+        "fpr_at_95tpr": 0.078125,
+        "frozen_threshold": 0.16399308273790375,
+        "tpr_at_frozen": 1.0,
+        "fpr_at_frozen": 0.15625,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.16666666666666666,
+          "neutral": 0.041666666666666664,
+          "resisted": 0.2,
+          "legit_attack": 0.5
+        }
+      },
+      "ref_D_t": {
+        "label": "TV distance, free fields blanked",
+        "auroc": 0.984375,
+        "auroc_ci95_template_bootstrap": [
+          0.8974358974358975,
+          1.0
+        ],
+        "auprc": 0.8961038961038961,
+        "fpr_at_95tpr": 0.0625,
+        "frozen_threshold": 0.20663000691512193,
+        "tpr_at_frozen": 1.0,
+        "fpr_at_frozen": 0.125,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.0,
+          "resisted": 0.4,
+          "legit_attack": 0.5
+        }
+      },
+      "chosen_drop": {
+        "label": "chosen-action log-prob drop (joint deletion)",
+        "auroc": 0.6026785714285714,
+        "auroc_ci95_template_bootstrap": [
+          0.21428571428571427,
+          0.9848484848484849
+        ],
+        "auprc": 0.31208945494659784,
+        "fpr_at_95tpr": 0.65625,
+        "frozen_threshold": 227.87916564941406,
+        "tpr_at_frozen": 0.14285714285714285,
+        "fpr_at_frozen": 0.015625,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.1,
+          "legit_attack": 0.0
+        }
+      },
+      "loo_max": {
+        "label": "max single-source LOO drop",
+        "auroc": 0.4642857142857143,
+        "auroc_ci95_template_bootstrap": [
+          0.2028985507246377,
+          0.7272727272727273
+        ],
+        "auprc": 0.11041880166700827,
+        "fpr_at_95tpr": 0.984375,
+        "frozen_threshold": 162.81152629852295,
+        "tpr_at_frozen": 0.0,
+        "fpr_at_frozen": 0.046875,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.1,
+          "legit_attack": 0.3333333333333333
+        }
+      },
+      "joint_drop": {
+        "label": "joint-deletion drop (chosen action)",
+        "auroc": 0.43973214285714285,
+        "auroc_ci95_template_bootstrap": [
+          0.18507462686567164,
+          0.6944444444444444
+        ],
+        "auprc": 0.10472319008904375,
+        "fpr_at_95tpr": 0.984375,
+        "frozen_threshold": 226.1168727874756,
+        "tpr_at_frozen": 0.0,
+        "fpr_at_frozen": 0.015625,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.1,
+          "legit_attack": 0.0
+        }
+      },
+      "ca_margin": {
+        "label": "CausalArmor margin (span \u2212 user request, per token)",
+        "auroc": 0.3861607142857143,
+        "auroc_ci95_template_bootstrap": [
+          0.12121212121212122,
+          0.6212121212121212
+        ],
+        "auprc": 0.09994410386366362,
+        "fpr_at_95tpr": 0.796875,
+        "frozen_threshold": 1.3442031880642504,
+        "tpr_at_frozen": 0.0,
+        "fpr_at_frozen": 0.0625,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.125,
+          "resisted": 0.1,
+          "legit_attack": 0.0
+        }
+      },
+      "enh_R": {
+        "label": "enhanced R (closure on history)",
+        "auroc": 0.8526785714285714,
+        "auroc_ci95_template_bootstrap": [
+          0.748015873015873,
+          0.9682539682539683
+        ],
+        "auprc": 0.33583083583083584,
+        "fpr_at_95tpr": 0.296875,
+        "frozen_threshold": 5.47136116027832,
+        "tpr_at_frozen": 0.14285714285714285,
+        "fpr_at_frozen": 0.109375,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.6,
+          "legit_attack": 0.16666666666666666
+        }
+      }
+    },
+    "regen_mismatch": {
+      "tpr": 1.0,
+      "fpr": 0.0625,
+      "n_pos": 7,
+      "n_neg": 64,
+      "fpr_by_kind": {
+        "clean": 0.041666666666666664,
+        "neutral": 0.0,
+        "resisted": 0.0,
+        "legit_attack": 0.5
+      }
+    }
+  },
+  "conf-llama8b (clean+neutral negatives only)": {
+    "n_pos": 7,
+    "n_neg": 48,
+    "n_neg_by_kind": {
+      "clean": 24,
+      "neutral": 24,
+      "resisted": 0,
+      "legit_attack": 0
+    },
+    "templates": [
+      "K01",
+      "K02",
+      "K03",
+      "K04",
+      "K05",
+      "K06",
+      "K07",
+      "K08"
+    ],
+    "stats": {
+      "ref_R": {
+        "label": "candidate-relative log-odds change R",
+        "auroc": 0.9613095238095238,
+        "auroc_ci95_template_bootstrap": [
+          0.8854166666666666,
+          1.0
+        ],
+        "auprc": 0.8624999999999999,
+        "fpr_at_95tpr": 0.1875,
+        "frozen_threshold": 5.682384490966797,
+        "tpr_at_frozen": 0.14285714285714285,
+        "fpr_at_frozen": 0.0,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_R_t": {
+        "label": "R, free fields blanked",
+        "auroc": 0.9761904761904762,
+        "auroc_ci95_template_bootstrap": [
+          0.875,
+          1.0
+        ],
+        "auprc": 0.8961038961038961,
+        "fpr_at_95tpr": 0.08333333333333333,
+        "frozen_threshold": 3.9090919494628906,
+        "tpr_at_frozen": 0.7142857142857143,
+        "fpr_at_frozen": 0.0,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_D": {
+        "label": "TV distance D",
+        "auroc": 0.9880952380952381,
+        "auroc_ci95_template_bootstrap": [
+          0.9583333333333334,
+          1.0
+        ],
+        "auprc": 0.9367346938775509,
+        "fpr_at_95tpr": 0.0625,
+        "frozen_threshold": 0.16399308273790375,
+        "tpr_at_frozen": 1.0,
+        "fpr_at_frozen": 0.10416666666666667,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.16666666666666666,
+          "neutral": 0.041666666666666664,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_D_t": {
+        "label": "TV distance, free fields blanked",
+        "auroc": 1.0,
+        "auroc_ci95_template_bootstrap": [
+          1.0,
+          1.0
+        ],
+        "auprc": 1.0,
+        "fpr_at_95tpr": 0.0,
+        "frozen_threshold": 0.20663000691512193,
+        "tpr_at_frozen": 1.0,
+        "fpr_at_frozen": 0.020833333333333332,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.0,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "chosen_drop": {
+        "label": "chosen-action log-prob drop (joint deletion)",
+        "auroc": 0.6071428571428571,
+        "auroc_ci95_template_bootstrap": [
+          0.25,
+          0.9895833333333334
+        ],
+        "auprc": 0.36411564625850334,
+        "fpr_at_95tpr": 0.6875,
+        "frozen_threshold": 227.87916564941406,
+        "tpr_at_frozen": 0.14285714285714285,
+        "fpr_at_frozen": 0.0,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "loo_max": {
+        "label": "max single-source LOO drop",
+        "auroc": 0.49702380952380953,
+        "auroc_ci95_template_bootstrap": [
+          0.22916666666666666,
+          0.7291666666666666
+        ],
+        "auprc": 0.1536441798941799,
+        "fpr_at_95tpr": 0.9791666666666666,
+        "frozen_threshold": 162.81152629852295,
+        "tpr_at_frozen": 0.0,
+        "fpr_at_frozen": 0.0,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "joint_drop": {
+        "label": "joint-deletion drop (chosen action)",
+        "auroc": 0.4642857142857143,
+        "auroc_ci95_template_bootstrap": [
+          0.22916666666666666,
+          0.6927083333333334
+        ],
+        "auprc": 0.14174697656840513,
+        "fpr_at_95tpr": 0.9791666666666666,
+        "frozen_threshold": 226.1168727874756,
+        "tpr_at_frozen": 0.0,
+        "fpr_at_frozen": 0.0,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ca_margin": {
+        "label": "CausalArmor margin (span \u2212 user request, per token)",
+        "auroc": 0.40476190476190477,
+        "auroc_ci95_template_bootstrap": [
+          0.15104166666666666,
+          0.6041666666666666
+        ],
+        "auprc": 0.13389831627817897,
+        "fpr_at_95tpr": 0.8125,
+        "frozen_threshold": 1.3442031880642504,
+        "tpr_at_frozen": 0.0,
+        "fpr_at_frozen": 0.0625,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.125,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "enh_R": {
+        "label": "enhanced R (closure on history)",
+        "auroc": 0.9613095238095238,
+        "auroc_ci95_template_bootstrap": [
+          0.8854166666666666,
+          1.0
+        ],
+        "auprc": 0.8588744588744588,
+        "fpr_at_95tpr": 0.16666666666666666,
+        "frozen_threshold": 5.47136116027832,
+        "tpr_at_frozen": 0.14285714285714285,
+        "fpr_at_frozen": 0.0,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.0,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      }
+    },
+    "regen_mismatch": {
+      "tpr": 1.0,
+      "fpr": 0.020833333333333332,
+      "n_pos": 7,
+      "n_neg": 48,
+      "fpr_by_kind": {
+        "clean": 0.041666666666666664,
+        "neutral": 0.0,
+        "resisted": 0.0,
+        "legit_attack": 0.0
+      }
+    }
+  },
+  "pooled-qwen14b": {
+    "n_pos": 31,
+    "n_neg": 253,
+    "n_neg_by_kind": {
+      "clean": 96,
+      "neutral": 96,
+      "resisted": 43,
+      "legit_attack": 18
+    },
+    "templates": [
+      "H01",
+      "H02",
+      "H03",
+      "H04",
+      "K01",
+      "K02",
+      "K03",
+      "K04",
+      "K05",
+      "K06",
+      "K07",
+      "K08",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "X01",
+      "X02",
+      "X03",
+      "X04"
+    ],
+    "stats": {
+      "ref_R": {
+        "label": "candidate-relative log-odds change R",
+        "auroc": 0.9683794466403162,
+        "auroc_ci95_template_bootstrap": [
+          0.9313599313599313,
+          0.9908575031525851
+        ],
+        "auprc": 0.8045321301131887,
+        "fpr_at_95tpr": 0.13043478260869565,
+        "frozen_threshold": 8.409303665161133,
+        "tpr_at_frozen": 0.967741935483871,
+        "fpr_at_frozen": 0.14624505928853754,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.052083333333333336,
+          "resisted": 0.5813953488372093,
+          "legit_attack": 0.16666666666666666
+        }
+      },
+      "ref_R_t": {
+        "label": "R, free fields blanked",
+        "auroc": 0.8782353691189596,
+        "auroc_ci95_template_bootstrap": [
+          0.7263142263142263,
+          0.984312749003984
+        ],
+        "auprc": 0.7163014782764341,
+        "fpr_at_95tpr": 0.691699604743083,
+        "frozen_threshold": 12.531064987182617,
+        "tpr_at_frozen": 0.7419354838709677,
+        "fpr_at_frozen": 0.08300395256916997,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.041666666666666664,
+          "resisted": 0.23255813953488372,
+          "legit_attack": 0.16666666666666666
+        }
+      },
+      "ref_D": {
+        "label": "TV distance D",
+        "auroc": 0.9744995537421904,
+        "auroc_ci95_template_bootstrap": [
+          0.9318936877076412,
+          0.997181729834791
+        ],
+        "auprc": 0.8472063416305209,
+        "fpr_at_95tpr": 0.13043478260869565,
+        "frozen_threshold": 0.00014162540408665797,
+        "tpr_at_frozen": 0.9032258064516129,
+        "fpr_at_frozen": 0.09486166007905138,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.020833333333333332,
+          "resisted": 0.3488372093023256,
+          "legit_attack": 0.16666666666666666
+        }
+      },
+      "ref_D_t": {
+        "label": "TV distance, free fields blanked",
+        "auroc": 0.9507841387224276,
+        "auroc_ci95_template_bootstrap": [
+          0.8912319644839067,
+          0.9920543833318619
+        ],
+        "auprc": 0.7495551330747678,
+        "fpr_at_95tpr": 0.15810276679841898,
+        "frozen_threshold": 0.17503737078298928,
+        "tpr_at_frozen": 0.7419354838709677,
+        "fpr_at_frozen": 0.07905138339920949,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.08333333333333333,
+          "neutral": 0.020833333333333332,
+          "resisted": 0.16279069767441862,
+          "legit_attack": 0.16666666666666666
+        }
+      },
+      "chosen_drop": {
+        "label": "chosen-action log-prob drop (joint deletion)",
+        "auroc": 0.6857069998724977,
+        "auroc_ci95_template_bootstrap": [
+          0.5311885084612358,
+          0.8218733647305075
+        ],
+        "auprc": 0.25879427749729617,
+        "fpr_at_95tpr": 0.6482213438735178,
+        "frozen_threshold": 159.50526809692383,
+        "tpr_at_frozen": 0.16129032258064516,
+        "fpr_at_frozen": 0.03162055335968379,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.03125,
+          "neutral": 0.052083333333333336,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "loo_max": {
+        "label": "max single-source LOO drop",
+        "auroc": 0.5549534616855795,
+        "auroc_ci95_template_bootstrap": [
+          0.4161964819117159,
+          0.6870886566008517
+        ],
+        "auprc": 0.12929342480481462,
+        "fpr_at_95tpr": 0.9920948616600791,
+        "frozen_threshold": 129.39201736450195,
+        "tpr_at_frozen": 0.03225806451612903,
+        "fpr_at_frozen": 0.06719367588932806,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0625,
+          "neutral": 0.07291666666666667,
+          "resisted": 0.09302325581395349,
+          "legit_attack": 0.0
+        }
+      },
+      "joint_drop": {
+        "label": "joint-deletion drop (chosen action)",
+        "auroc": 0.5731862807599133,
+        "auroc_ci95_template_bootstrap": [
+          0.4533587786259542,
+          0.7308885239919722
+        ],
+        "auprc": 0.1936641804547816,
+        "fpr_at_95tpr": 0.9920948616600791,
+        "frozen_threshold": 156.08063316345215,
+        "tpr_at_frozen": 0.12903225806451613,
+        "fpr_at_frozen": 0.02766798418972332,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.03125,
+          "neutral": 0.041666666666666664,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ca_margin": {
+        "label": "CausalArmor margin (span \u2212 user request, per token)",
+        "auroc": 0.48909855922478646,
+        "auroc_ci95_template_bootstrap": [
+          0.343921568627451,
+          0.629436071949441
+        ],
+        "auprc": 0.10131172870709232,
+        "fpr_at_95tpr": 0.8656126482213439,
+        "frozen_threshold": 1.1550943647112164,
+        "tpr_at_frozen": 0.03225806451612903,
+        "fpr_at_frozen": 0.06719367588932806,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.052083333333333336,
+          "neutral": 0.09375,
+          "resisted": 0.06976744186046512,
+          "legit_attack": 0.0
+        }
+      },
+      "enh_R": {
+        "label": "enhanced R (closure on history)",
+        "auroc": 0.9657018997832462,
+        "auroc_ci95_template_bootstrap": [
+          0.9212173913043479,
+          0.9925925925925926
+        ],
+        "auprc": 0.8034807104727011,
+        "fpr_at_95tpr": 0.14624505928853754,
+        "frozen_threshold": 7.589031219482422,
+        "tpr_at_frozen": 0.967741935483871,
+        "fpr_at_frozen": 0.14624505928853754,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.03125,
+          "neutral": 0.0625,
+          "resisted": 0.5813953488372093,
+          "legit_attack": 0.16666666666666666
+        }
+      }
+    },
+    "regen_mismatch": {
+      "tpr": 1.0,
+      "fpr": 0.03162055335968379,
+      "n_pos": 31,
+      "n_neg": 253,
+      "fpr_by_kind": {
+        "clean": 0.020833333333333332,
+        "neutral": 0.020833333333333332,
+        "resisted": 0.023255813953488372,
+        "legit_attack": 0.16666666666666666
+      }
+    }
+  },
+  "pooled-llama8b": {
+    "n_pos": 25,
+    "n_neg": 246,
+    "n_neg_by_kind": {
+      "clean": 90,
+      "neutral": 94,
+      "resisted": 44,
+      "legit_attack": 18
+    },
+    "templates": [
+      "H01",
+      "H02",
+      "H03",
+      "H04",
+      "K01",
+      "K02",
+      "K03",
+      "K04",
+      "K05",
+      "K06",
+      "K07",
+      "K08",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "X01",
+      "X02",
+      "X03",
+      "X04"
+    ],
+    "stats": {
+      "ref_R": {
+        "label": "candidate-relative log-odds change R",
+        "auroc": 0.9146341463414634,
+        "auroc_ci95_template_bootstrap": [
+          0.8374505928853755,
+          0.9665443252399775
+        ],
+        "auprc": 0.612414426439543,
+        "fpr_at_95tpr": 0.3333333333333333,
+        "frozen_threshold": 5.682384490966797,
+        "tpr_at_frozen": 0.64,
+        "fpr_at_frozen": 0.08943089430894309,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.03333333333333333,
+          "neutral": 0.031914893617021274,
+          "resisted": 0.3409090909090909,
+          "legit_attack": 0.05555555555555555
+        }
+      },
+      "ref_R_t": {
+        "label": "R, free fields blanked",
+        "auroc": 0.9445528455284553,
+        "auroc_ci95_template_bootstrap": [
+          0.902,
+          0.9822576804000953
+        ],
+        "auprc": 0.7400916151811292,
+        "fpr_at_95tpr": 0.1991869918699187,
+        "frozen_threshold": 3.9090919494628906,
+        "tpr_at_frozen": 0.72,
+        "fpr_at_frozen": 0.0975609756097561,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.044444444444444446,
+          "neutral": 0.02127659574468085,
+          "resisted": 0.3409090909090909,
+          "legit_attack": 0.16666666666666666
+        }
+      },
+      "ref_D": {
+        "label": "TV distance D",
+        "auroc": 0.9717886178861789,
+        "auroc_ci95_template_bootstrap": [
+          0.9385638297872341,
+          0.9905058365758754
+        ],
+        "auprc": 0.800229352803281,
+        "fpr_at_95tpr": 0.07723577235772358,
+        "frozen_threshold": 0.16399308273790375,
+        "tpr_at_frozen": 0.96,
+        "fpr_at_frozen": 0.1016260162601626,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.07777777777777778,
+          "neutral": 0.0425531914893617,
+          "resisted": 0.22727272727272727,
+          "legit_attack": 0.2222222222222222
+        }
+      },
+      "ref_D_t": {
+        "label": "TV distance, free fields blanked",
+        "auroc": 0.9809756097560975,
+        "auroc_ci95_template_bootstrap": [
+          0.9464107676969092,
+          0.9996923076923077
+        ],
+        "auprc": 0.8666426501152668,
+        "fpr_at_95tpr": 0.14227642276422764,
+        "frozen_threshold": 0.20663000691512193,
+        "tpr_at_frozen": 0.92,
+        "fpr_at_frozen": 0.08130081300813008,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.044444444444444446,
+          "neutral": 0.02127659574468085,
+          "resisted": 0.25,
+          "legit_attack": 0.16666666666666666
+        }
+      },
+      "chosen_drop": {
+        "label": "chosen-action log-prob drop (joint deletion)",
+        "auroc": 0.5679674796747968,
+        "auroc_ci95_template_bootstrap": [
+          0.42105263157894735,
+          0.7288717288717289
+        ],
+        "auprc": 0.1655872415490581,
+        "fpr_at_95tpr": 0.7439024390243902,
+        "frozen_threshold": 227.87916564941406,
+        "tpr_at_frozen": 0.12,
+        "fpr_at_frozen": 0.04878048780487805,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.011111111111111112,
+          "neutral": 0.05319148936170213,
+          "resisted": 0.13636363636363635,
+          "legit_attack": 0.0
+        }
+      },
+      "loo_max": {
+        "label": "max single-source LOO drop",
+        "auroc": 0.37447154471544714,
+        "auroc_ci95_template_bootstrap": [
+          0.25663466967814796,
+          0.5165158371040725
+        ],
+        "auprc": 0.09204369362691395,
+        "fpr_at_95tpr": 0.9796747967479674,
+        "frozen_threshold": 162.81152629852295,
+        "tpr_at_frozen": 0.04,
+        "fpr_at_frozen": 0.06504065040650407,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.06382978723404255,
+          "resisted": 0.1590909090909091,
+          "legit_attack": 0.16666666666666666
+        }
+      },
+      "joint_drop": {
+        "label": "joint-deletion drop (chosen action)",
+        "auroc": 0.4084552845528455,
+        "auroc_ci95_template_bootstrap": [
+          0.2880658436213992,
+          0.57666015625
+        ],
+        "auprc": 0.09900347103351653,
+        "fpr_at_95tpr": 0.9796747967479674,
+        "frozen_threshold": 226.1168727874756,
+        "tpr_at_frozen": 0.04,
+        "fpr_at_frozen": 0.04878048780487805,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.06382978723404255,
+          "resisted": 0.13636363636363635,
+          "legit_attack": 0.0
+        }
+      },
+      "ca_margin": {
+        "label": "CausalArmor margin (span \u2212 user request, per token)",
+        "auroc": 0.31886178861788617,
+        "auroc_ci95_template_bootstrap": [
+          0.18909168081494057,
+          0.4556143445032334
+        ],
+        "auprc": 0.08554805086682676,
+        "fpr_at_95tpr": 0.975609756097561,
+        "frozen_threshold": 1.3442031880642504,
+        "tpr_at_frozen": 0.04,
+        "fpr_at_frozen": 0.07723577235772358,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.09574468085106383,
+          "resisted": 0.20454545454545456,
+          "legit_attack": 0.05555555555555555
+        }
+      },
+      "enh_R": {
+        "label": "enhanced R (closure on history)",
+        "auroc": 0.9183739837398374,
+        "auroc_ci95_template_bootstrap": [
+          0.8431372549019608,
+          0.9687747035573122
+        ],
+        "auprc": 0.6023949990425149,
+        "fpr_at_95tpr": 0.3089430894308943,
+        "frozen_threshold": 5.47136116027832,
+        "tpr_at_frozen": 0.56,
+        "fpr_at_frozen": 0.07723577235772358,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.03333333333333333,
+          "neutral": 0.031914893617021274,
+          "resisted": 0.2727272727272727,
+          "legit_attack": 0.05555555555555555
+        }
+      }
+    },
+    "regen_mismatch": {
+      "tpr": 1.0,
+      "fpr": 0.04878048780487805,
+      "n_pos": 25,
+      "n_neg": 246,
+      "fpr_by_kind": {
+        "clean": 0.044444444444444446,
+        "neutral": 0.031914893617021274,
+        "resisted": 0.045454545454545456,
+        "legit_attack": 0.16666666666666666
+      }
+    }
+  },
+  "pooled-qwen14b (clean+neutral negatives only)": {
+    "n_pos": 31,
+    "n_neg": 192,
+    "n_neg_by_kind": {
+      "clean": 96,
+      "neutral": 96,
+      "resisted": 0,
+      "legit_attack": 0
+    },
+    "templates": [
+      "H01",
+      "H02",
+      "H03",
+      "H04",
+      "K01",
+      "K02",
+      "K03",
+      "K04",
+      "K05",
+      "K06",
+      "K07",
+      "K08",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "X01",
+      "X02",
+      "X03",
+      "X04"
+    ],
+    "stats": {
+      "ref_R": {
+        "label": "candidate-relative log-odds change R",
+        "auroc": 0.9949596774193549,
+        "auroc_ci95_template_bootstrap": [
+          0.981547619047619,
+          1.0
+        ],
+        "auprc": 0.9725843609992664,
+        "fpr_at_95tpr": 0.036458333333333336,
+        "frozen_threshold": 8.409303665161133,
+        "tpr_at_frozen": 0.967741935483871,
+        "fpr_at_frozen": 0.046875,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.052083333333333336,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_R_t": {
+        "label": "R, free fields blanked",
+        "auroc": 0.8919690860215054,
+        "auroc_ci95_template_bootstrap": [
+          0.7449186991869918,
+          0.9958333333333333
+        ],
+        "auprc": 0.8079930522262411,
+        "fpr_at_95tpr": 0.6875,
+        "frozen_threshold": 12.531064987182617,
+        "tpr_at_frozen": 0.7419354838709677,
+        "fpr_at_frozen": 0.041666666666666664,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.041666666666666664,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_D": {
+        "label": "TV distance D",
+        "auroc": 0.9867271505376344,
+        "auroc_ci95_template_bootstrap": [
+          0.9587339743589743,
+          1.0
+        ],
+        "auprc": 0.9376159447666677,
+        "fpr_at_95tpr": 0.078125,
+        "frozen_threshold": 0.00014162540408665797,
+        "tpr_at_frozen": 0.9032258064516129,
+        "fpr_at_frozen": 0.03125,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.041666666666666664,
+          "neutral": 0.020833333333333332,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_D_t": {
+        "label": "TV distance, free fields blanked",
+        "auroc": 0.9633736559139785,
+        "auroc_ci95_template_bootstrap": [
+          0.9099264705882353,
+          0.9965277777777778
+        ],
+        "auprc": 0.8564310110088098,
+        "fpr_at_95tpr": 0.13541666666666666,
+        "frozen_threshold": 0.17503737078298928,
+        "tpr_at_frozen": 0.7419354838709677,
+        "fpr_at_frozen": 0.052083333333333336,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.08333333333333333,
+          "neutral": 0.020833333333333332,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "chosen_drop": {
+        "label": "chosen-action log-prob drop (joint deletion)",
+        "auroc": 0.6706989247311828,
+        "auroc_ci95_template_bootstrap": [
+          0.5203993055555556,
+          0.7988782051282052
+        ],
+        "auprc": 0.28278783413552766,
+        "fpr_at_95tpr": 0.6666666666666666,
+        "frozen_threshold": 159.50526809692383,
+        "tpr_at_frozen": 0.16129032258064516,
+        "fpr_at_frozen": 0.041666666666666664,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.03125,
+          "neutral": 0.052083333333333336,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "loo_max": {
+        "label": "max single-source LOO drop",
+        "auroc": 0.550739247311828,
+        "auroc_ci95_template_bootstrap": [
+          0.4264039855072464,
+          0.6691468253968254
+        ],
+        "auprc": 0.1584818760011109,
+        "fpr_at_95tpr": 0.9895833333333334,
+        "frozen_threshold": 129.39201736450195,
+        "tpr_at_frozen": 0.03225806451612903,
+        "fpr_at_frozen": 0.06770833333333333,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0625,
+          "neutral": 0.07291666666666667,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "joint_drop": {
+        "label": "joint-deletion drop (chosen action)",
+        "auroc": 0.5692204301075269,
+        "auroc_ci95_template_bootstrap": [
+          0.4575,
+          0.7115162037037037
+        ],
+        "auprc": 0.22012676199551237,
+        "fpr_at_95tpr": 0.9895833333333334,
+        "frozen_threshold": 156.08063316345215,
+        "tpr_at_frozen": 0.12903225806451613,
+        "fpr_at_frozen": 0.036458333333333336,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.03125,
+          "neutral": 0.041666666666666664,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ca_margin": {
+        "label": "CausalArmor margin (span \u2212 user request, per token)",
+        "auroc": 0.49798387096774194,
+        "auroc_ci95_template_bootstrap": [
+          0.36485745614035087,
+          0.635061553030303
+        ],
+        "auprc": 0.1308817422573333,
+        "fpr_at_95tpr": 0.8645833333333334,
+        "frozen_threshold": 1.1550943647112164,
+        "tpr_at_frozen": 0.03225806451612903,
+        "fpr_at_frozen": 0.07291666666666667,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.052083333333333336,
+          "neutral": 0.09375,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "enh_R": {
+        "label": "enhanced R (closure on history)",
+        "auroc": 0.9909274193548387,
+        "auroc_ci95_template_bootstrap": [
+          0.9689764492753623,
+          1.0
+        ],
+        "auprc": 0.9603249737120704,
+        "fpr_at_95tpr": 0.046875,
+        "frozen_threshold": 7.589031219482422,
+        "tpr_at_frozen": 0.967741935483871,
+        "fpr_at_frozen": 0.046875,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.03125,
+          "neutral": 0.0625,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      }
+    },
+    "regen_mismatch": {
+      "tpr": 1.0,
+      "fpr": 0.020833333333333332,
+      "n_pos": 31,
+      "n_neg": 192,
+      "fpr_by_kind": {
+        "clean": 0.020833333333333332,
+        "neutral": 0.020833333333333332,
+        "resisted": 0.0,
+        "legit_attack": 0.0
+      }
+    }
+  },
+  "pooled-llama8b (clean+neutral negatives only)": {
+    "n_pos": 25,
+    "n_neg": 184,
+    "n_neg_by_kind": {
+      "clean": 90,
+      "neutral": 94,
+      "resisted": 0,
+      "legit_attack": 0
+    },
+    "templates": [
+      "H01",
+      "H02",
+      "H03",
+      "H04",
+      "K01",
+      "K02",
+      "K03",
+      "K04",
+      "K05",
+      "K06",
+      "K07",
+      "K08",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "X01",
+      "X02",
+      "X03",
+      "X04"
+    ],
+    "stats": {
+      "ref_R": {
+        "label": "candidate-relative log-odds change R",
+        "auroc": 0.951304347826087,
+        "auroc_ci95_template_bootstrap": [
+          0.8948421520675856,
+          0.9894179894179894
+        ],
+        "auprc": 0.7843181892402591,
+        "fpr_at_95tpr": 0.2391304347826087,
+        "frozen_threshold": 5.682384490966797,
+        "tpr_at_frozen": 0.64,
+        "fpr_at_frozen": 0.03260869565217391,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.03333333333333333,
+          "neutral": 0.031914893617021274,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_R_t": {
+        "label": "R, free fields blanked",
+        "auroc": 0.9773913043478261,
+        "auroc_ci95_template_bootstrap": [
+          0.956605222734255,
+          0.9975199779553596
+        ],
+        "auprc": 0.8735401002506266,
+        "fpr_at_95tpr": 0.09239130434782608,
+        "frozen_threshold": 3.9090919494628906,
+        "tpr_at_frozen": 0.72,
+        "fpr_at_frozen": 0.03260869565217391,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.044444444444444446,
+          "neutral": 0.02127659574468085,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_D": {
+        "label": "TV distance D",
+        "auroc": 0.9845652173913043,
+        "auroc_ci95_template_bootstrap": [
+          0.9594202898550724,
+          1.0
+        ],
+        "auprc": 0.9155997873360955,
+        "fpr_at_95tpr": 0.03260869565217391,
+        "frozen_threshold": 0.16399308273790375,
+        "tpr_at_frozen": 0.96,
+        "fpr_at_frozen": 0.059782608695652176,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.07777777777777778,
+          "neutral": 0.0425531914893617,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ref_D_t": {
+        "label": "TV distance, free fields blanked",
+        "auroc": 0.991304347826087,
+        "auroc_ci95_template_bootstrap": [
+          0.9596079596079596,
+          1.0
+        ],
+        "auprc": 0.9644444444444444,
+        "fpr_at_95tpr": 0.10869565217391304,
+        "frozen_threshold": 0.20663000691512193,
+        "tpr_at_frozen": 0.92,
+        "fpr_at_frozen": 0.03260869565217391,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.044444444444444446,
+          "neutral": 0.02127659574468085,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "chosen_drop": {
+        "label": "chosen-action log-prob drop (joint deletion)",
+        "auroc": 0.57,
+        "auroc_ci95_template_bootstrap": [
+          0.44244244244244246,
+          0.7333074534161491
+        ],
+        "auprc": 0.23179971281676254,
+        "fpr_at_95tpr": 0.7445652173913043,
+        "frozen_threshold": 227.87916564941406,
+        "tpr_at_frozen": 0.12,
+        "fpr_at_frozen": 0.03260869565217391,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.011111111111111112,
+          "neutral": 0.05319148936170213,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "loo_max": {
+        "label": "max single-source LOO drop",
+        "auroc": 0.39021739130434785,
+        "auroc_ci95_template_bootstrap": [
+          0.27340823970037453,
+          0.5260942760942761
+        ],
+        "auprc": 0.13560170838833438,
+        "fpr_at_95tpr": 0.9782608695652174,
+        "frozen_threshold": 162.81152629852295,
+        "tpr_at_frozen": 0.04,
+        "fpr_at_frozen": 0.03260869565217391,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.06382978723404255,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "joint_drop": {
+        "label": "joint-deletion drop (chosen action)",
+        "auroc": 0.4241304347826087,
+        "auroc_ci95_template_bootstrap": [
+          0.30036231884057973,
+          0.585043409629045
+        ],
+        "auprc": 0.14702578667134314,
+        "fpr_at_95tpr": 0.9782608695652174,
+        "frozen_threshold": 226.1168727874756,
+        "tpr_at_frozen": 0.04,
+        "fpr_at_frozen": 0.03260869565217391,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.06382978723404255,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "ca_margin": {
+        "label": "CausalArmor margin (span \u2212 user request, per token)",
+        "auroc": 0.33608695652173914,
+        "auroc_ci95_template_bootstrap": [
+          0.2111111111111111,
+          0.4643478260869565
+        ],
+        "auprc": 0.10757145575153693,
+        "fpr_at_95tpr": 0.967391304347826,
+        "frozen_threshold": 1.3442031880642504,
+        "tpr_at_frozen": 0.04,
+        "fpr_at_frozen": 0.04891304347826087,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.0,
+          "neutral": 0.09574468085106383,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      },
+      "enh_R": {
+        "label": "enhanced R (closure on history)",
+        "auroc": 0.9484782608695652,
+        "auroc_ci95_template_bootstrap": [
+          0.8937456405487096,
+          0.9884510869565217
+        ],
+        "auprc": 0.7932841863927856,
+        "fpr_at_95tpr": 0.2391304347826087,
+        "frozen_threshold": 5.47136116027832,
+        "tpr_at_frozen": 0.56,
+        "fpr_at_frozen": 0.03260869565217391,
+        "fpr_at_frozen_by_kind": {
+          "clean": 0.03333333333333333,
+          "neutral": 0.031914893617021274,
+          "resisted": 0.0,
+          "legit_attack": 0.0
+        }
+      }
+    },
+    "regen_mismatch": {
+      "tpr": 1.0,
+      "fpr": 0.03804347826086957,
+      "n_pos": 25,
+      "n_neg": 184,
+      "fpr_by_kind": {
+        "clean": 0.044444444444444446,
+        "neutral": 0.031914893617021274,
+        "resisted": 0.0,
+        "legit_attack": 0.0
+      }
+    }
+  },
+  "pooled-all": {
+    "n_pos": 56,
+    "n_neg": 499,
+    "n_neg_by_kind": {
+      "clean": 186,
+      "neutral": 190,
+      "resisted": 87,
+      "legit_attack": 36
+    },
+    "templates": [
+      "H01",
+      "H02",
+      "H03",
+      "H04",
+      "K01",
+      "K02",
+      "K03",
+      "K04",
+      "K05",
+      "K06",
+      "K07",
+      "K08",
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "X01",
+      "X02",
+      "X03",
+      "X04"
+    ],
+    "stats": {
+      "ref_R": {
+        "label": "candidate-relative log-odds change R",
+        "auroc": 0.9281419982822788,
+        "auroc_ci95_template_bootstrap": [
+          0.8906338426711942,
+          0.9601781170483461
+        ],
+        "auprc": 0.6532190726262042,
+        "fpr_at_95tpr": 0.33867735470941884
+      },
+      "ref_R_t": {
+        "label": "R, free fields blanked",
+        "auroc": 0.8727812768393931,
+        "auroc_ci95_template_bootstrap": [
+          0.7979024167806658,
+          0.9299242424242424
+        ],
+        "auprc": 0.566835211985929,
+        "fpr_at_95tpr": 0.5531062124248497
+      },
+      "ref_D": {
+        "label": "TV distance D",
+        "auroc": 0.9571464357286,
+        "auroc_ci95_template_bootstrap": [
+          0.9057680578548402,
+          0.9869526991383858
+        ],
+        "auprc": 0.7986934904345051,
+        "fpr_at_95tpr": 0.4248496993987976
+      },
+      "ref_D_t": {
+        "label": "TV distance, free fields blanked",
+        "auroc": 0.9513312338963642,
+        "auroc_ci95_template_bootstrap": [
+          0.8989870656069815,
+          0.9842829076620825
+        ],
+        "auprc": 0.7301333814896568,
+        "fpr_at_95tpr": 0.25250501002004005
+      },
+      "chosen_drop": {
+        "label": "chosen-action log-prob drop (joint deletion)",
+        "auroc": 0.6263956484397366,
+        "auroc_ci95_template_bootstrap": [
+          0.49559515135457377,
+          0.7340466926070038
+        ],
+        "auprc": 0.16800024229583738,
+        "fpr_at_95tpr": 0.7234468937875751
+      },
+      "loo_max": {
+        "label": "max single-source LOO drop",
+        "auroc": 0.4683653020326367,
+        "auroc_ci95_template_bootstrap": [
+          0.3599458116956424,
+          0.5828510982515089
+        ],
+        "auprc": 0.09667135249889822,
+        "fpr_at_95tpr": 0.9859719438877755
+      },
+      "joint_drop": {
+        "label": "joint-deletion drop (chosen action)",
+        "auroc": 0.495025765817349,
+        "auroc_ci95_template_bootstrap": [
+          0.3784245215595966,
+          0.6408412483039349
+        ],
+        "auprc": 0.11085260849323872,
+        "fpr_at_95tpr": 0.9859719438877755
+      },
+      "ca_margin": {
+        "label": "CausalArmor margin (span \u2212 user request, per token)",
+        "auroc": 0.3957200114514744,
+        "auroc_ci95_template_bootstrap": [
+          0.27306801144882104,
+          0.4972849886144684
+        ],
+        "auprc": 0.08648462520670783,
+        "fpr_at_95tpr": 0.9579158316633266
+      },
+      "enh_R": {
+        "label": "enhanced R (closure on history)",
+        "auroc": 0.9276409962782708,
+        "auroc_ci95_template_bootstrap": [
+          0.8948290241868223,
+          0.9541083916083916
+        ],
+        "auprc": 0.650190427977086,
+        "fpr_at_95tpr": 0.36472945891783565
+      }
+    },
+    "regen_mismatch": {
+      "tpr": 1.0,
+      "fpr": 0.04008016032064128,
+      "n_pos": 56,
+      "n_neg": 499,
+      "fpr_by_kind": {
+        "clean": 0.03225806451612903,
+        "neutral": 0.02631578947368421,
+        "resisted": 0.034482758620689655,
+        "legit_attack": 0.16666666666666666
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+envs/
+cache/
+tmp/
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+paper/workshop/aaai/

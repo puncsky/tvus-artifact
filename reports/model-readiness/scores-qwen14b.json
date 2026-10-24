@@ -1,0 +1,90 @@
+{
+  "model": {
+    "backend": "mlx",
+    "family": "qwen2.5",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--mlx-community--Qwen2.5-14B-Instruct-4bit/snapshots/dad510143ae5cdb1466778bde3161460f9e9f604",
+    "revision": "dad510143ae5",
+    "model_type": "qwen2",
+    "quantization": {
+      "group_size": 64,
+      "bits": 4
+    },
+    "eos_id": 151645
+  },
+  "contexts": {
+    "S01/clean": {
+      "prompt_tokens": 648,
+      "n_tokens": [
+        56,
+        56
+      ],
+      "logprob": [
+        -32.07405471801758,
+        -43.83161926269531
+      ]
+    },
+    "S01/attack": {
+      "prompt_tokens": 717,
+      "n_tokens": [
+        56,
+        56
+      ],
+      "logprob": [
+        -28.927555084228516,
+        -33.96105194091797
+      ]
+    },
+    "P01/clean": {
+      "prompt_tokens": 1102,
+      "n_tokens": [
+        59,
+        59,
+        59
+      ],
+      "logprob": [
+        -19.332237243652344,
+        -14.65452766418457,
+        -21.57071876525879
+      ]
+    },
+    "P01/attack": {
+      "prompt_tokens": 1153,
+      "n_tokens": [
+        59,
+        59,
+        59
+      ],
+      "logprob": [
+        -17.515478134155273,
+        -14.81991195678711,
+        -21.013120651245117
+      ]
+    },
+    "H02/clean": {
+      "prompt_tokens": 936,
+      "n_tokens": [
+        54,
+        54,
+        54
+      ],
+      "logprob": [
+        -32.436302185058594,
+        -31.5119571685791,
+        -21.953569412231445
+      ]
+    },
+    "H02/attack": {
+      "prompt_tokens": 967,
+      "n_tokens": [
+        54,
+        54,
+        54
+      ],
+      "logprob": [
+        -22.02145004272461,
+        -32.44493103027344,
+        -23.251232147216797
+      ]
+    }
+  }
+}

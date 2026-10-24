@@ -1,0 +1,35 @@
+{
+  "model": {
+    "backend": "mlx",
+    "family": "gemma3",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--mlx-community--gemma-3-27b-it-4bit/snapshots/83acee3d10064661a7a39ead3732dddb16fe15bb",
+    "revision": "83acee3d1006",
+    "model_type": "gemma3",
+    "quantization": {
+      "group_size": 64,
+      "bits": 4
+    },
+    "eos_id": 1
+  },
+  "checks": {
+    "numpy_recompute_max_abs_err": 1.7468861628344712e-06,
+    "incremental_vs_uncached_max_abs_diff_nats": 0.4929924011230469,
+    "scores_uncached": [
+      -71.13836669921875,
+      -78.57936096191406
+    ],
+    "eos_included": true,
+    "greedy_deterministic": true,
+    "sampled_differs_across_seeds": true
+  },
+  "peak_memory_gb": 17.350813786,
+  "timing": {
+    "score_pass_seconds": [
+      12.296756916999584,
+      8.124767958986922
+    ],
+    "gen_seconds": 23.989710875001037,
+    "prompt_tokens": 757
+  },
+  "pass": true
+}

@@ -1,0 +1,62 @@
+{
+  "run_id": "h2-dev-gemma27b",
+  "model": {
+    "backend": "mlx",
+    "family": "gemma3",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--mlx-community--gemma-3-27b-it-4bit/snapshots/83acee3d10064661a7a39ead3732dddb16fe15bb",
+    "revision": "83acee3d1006",
+    "model_type": "gemma3",
+    "quantization": {
+      "group_size": 64,
+      "bits": 4
+    },
+    "eos_id": 1,
+    "merged_adjacent_turns": 0
+  },
+  "harness": "h2",
+  "run_specs": [
+    [
+      0,
+      0.0
+    ]
+  ],
+  "conditions": [
+    "clean",
+    "neutral",
+    "attack"
+  ],
+  "cases": {
+    "P01": "78ee39bb3aa1a68c6d8aca76f7c772d22a57f3f7d7cb85ff1ed7798211b298d9",
+    "P02": "94cbfbcb2f0ccf5ad7bcf194e7ff2bb8d2c71957018ecbe15aecf89e3204f9ce",
+    "P03": "d067d1fb4cadbfd5ef0b0fff243b142cac8381be27b286f6d66fbe2d4cf39cef",
+    "P04": "4452524408ea7f693ca7b011d7ddd48a9780a6a137492557321bb6abb1ad82ba",
+    "H01": "4da4880c75994dc7bddb682ed47ef2b6da651e077dd555388a88b5d67c07be6f",
+    "H02": "0cb2a027a3a0420237bd3977c9869220e5c1daff92578a3f7b36b87e7edc57a6",
+    "H03": "17a06a0a1bcb4774d536fc58926c700ba50a092024a1c8a74ca464e820b75eb3",
+    "H04": "bf788f1b22be0ab0289a965b7a8a8eb798da6a3bb35d38e3591c743a50df0329",
+    "X01": "0c1e82942ac051705da32da3f60b8cf5b98dd4cda79b0b8fccab96757f89bd42",
+    "X02": "79286dddc69cc88ad80ee3ad27529c674c20959da446dccd84b2af59ad7593a4",
+    "X03": "d1d034b804fba80cbe370267279f527c3bfffef02ccc694a1a36c8e9fd848c2c",
+    "X04": "787d436ea4f7f54df92c968f582ce284788f2a09d97e9b3ffe61f9751603855e",
+    "L01": "5ff9e35d7936077a126a5ac98dbc310d5cc0f91f18ffb37441d36281c7dd585a",
+    "L02": "c655e18ca65fe60228421a37cae4915f8ecb564c0f69a57f91c3c497369f496b",
+    "L03": "6c58032cb8ca612b811ab7dce9febdc6d149f86511ed1ec75d849a4a9f6c923d",
+    "L04": "b0a064d74b5421a8ffb4169d17f70f2768774b784b2c6dc13cffca628d19f233",
+    "R01": "8107179cf2945be818ec5e3e0481ba4de44c3efa053e9c55f281741fa4c27439",
+    "R02": "94724e3a50f592a26a5dee151e35f0350c71180e4cc3d8944e55a4f79cee45b6",
+    "R03": "03b365ac0e19dce67084c045f4aba20329f1f033225fe2eb1cf0188d8c67fc91",
+    "R04": "8b19f141ac57e843b43de15a807f3255349c801d332e9872f905038babbbc867",
+    "S01": "c540f62d640ffc5cf7fac75dc5585160a9e7058deb7c249caef15f10aacce1b5",
+    "S02": "3a42b09b20c87ae4c90344ced14a09352d65e54cdce1da877c51f7ca8cdf079f",
+    "S03": "7af057a96a469531cd61367d1439b149200012a267224a234bf5f373c74ffaf9",
+    "S04": "847d17241418d264a091b9ff91d563e0f8c218fb83a24f1a4fdf4ccb31d7d81a"
+  },
+  "code": {
+    "runner/schema.py": "fce606cfa226e4bc645ef3912de875fd1508e83e3c9a5cb40fa48c2613bf9b4a",
+    "runner/prompting.py": "4dd9e836b71e60474fe17b9b8ad2a90c347ff3a3958bd0964456fae97ac9768a",
+    "runner/simulator.py": "8d0a4e9899e2efe0a8af9159518f7914946942aafdae68b654c83281dd32f406",
+    "runner/experiment.py": "2ae163d940201f4d6a442a4037f5e74f0590859f4e341394f085ef9ff7ba9dfe",
+    "models/adapter.py": "84bc4c680c98271b9a67da41a2eca309af5fc2dbd1277c0d4562fe6911f86943"
+  },
+  "started": "2026-10-05T03:42:03Z"
+}

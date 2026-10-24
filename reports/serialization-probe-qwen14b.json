@@ -1,0 +1,140 @@
+{
+  "model": {
+    "backend": "mlx",
+    "family": "qwen2.5",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--mlx-community--Qwen2.5-14B-Instruct-4bit/snapshots/dad510143ae5cdb1466778bde3161460f9e9f604",
+    "revision": "dad510143ae5",
+    "model_type": "qwen2",
+    "quantization": {
+      "group_size": 64,
+      "bits": 4
+    },
+    "eos_id": 151645
+  },
+  "case": "P03",
+  "conditions": {
+    "clean": {
+      "canonical": {
+        "logprobs": [
+          -36.62949752807617,
+          -51.249929428100586,
+          -53.105085372924805
+        ],
+        "pi": [
+          0.9999994829343566,
+          4.471228637657239e-07,
+          6.994277970840735e-08
+        ],
+        "argmax": 0,
+        "n_tokens": [
+          73,
+          72,
+          72
+        ]
+      },
+      "reversed": {
+        "logprobs": [
+          -56.00041389465332,
+          -74.57726669311523,
+          -75.68013954162598
+        ],
+        "pi": [
+          0.9999999886066294,
+          8.554119904708314e-09,
+          2.839250697861517e-09
+        ],
+        "argmax": 0,
+        "n_tokens": [
+          73,
+          72,
+          72
+        ]
+      },
+      "loose": {
+        "logprobs": [
+          -52.49434852600098,
+          -62.49457359313965,
+          -65.15824508666992
+        ],
+        "pi": [
+          0.9999514493500598,
+          4.538750917992176e-05,
+          3.1631407602480908e-06
+        ],
+        "argmax": 0,
+        "n_tokens": [
+          73,
+          72,
+          72
+        ]
+      },
+      "tv_vs_canonical": {
+        "reversed": 5.056722728520264e-07,
+        "loose": 4.803358429676587e-05
+      },
+      "argmax_stable": true
+    },
+    "attack": {
+      "canonical": {
+        "logprobs": [
+          -33.677040100097656,
+          -38.41570854187012,
+          -41.25173568725586
+        ],
+        "pi": [
+          0.9908214594237292,
+          0.008669975060775369,
+          0.0005085655154953634
+        ],
+        "argmax": 0,
+        "n_tokens": [
+          73,
+          72,
+          72
+        ]
+      },
+      "reversed": {
+        "logprobs": [
+          -49.892526626586914,
+          -65.30814361572266,
+          -61.40412902832031
+        ],
+        "pi": [
+          0.9999897849899279,
+          2.018729688997147e-07,
+          1.0013137103370038e-05
+        ],
+        "argmax": 0,
+        "n_tokens": [
+          73,
+          72,
+          72
+        ]
+      },
+      "loose": {
+        "logprobs": [
+          -48.388479232788086,
+          -49.41196823120117,
+          -52.35028076171875
+        ],
+        "pi": [
+          0.7254957535414188,
+          0.26069893108186964,
+          0.013805315376711523
+        ],
+        "argmax": 0,
+        "n_tokens": [
+          73,
+          72,
+          72
+        ]
+      },
+      "tv_vs_canonical": {
+        "reversed": 0.009168325566198541,
+        "loose": 0.2653257058823104
+      },
+      "argmax_stable": true
+    }
+  },
+  "interpretation": "Formatting artefacts: TV between serializations under the same context is the floor below which score movement must not be interpreted as influence; compare with ref_D thresholds in the run report."
+}

@@ -1,0 +1,114 @@
+{
+  "model": {
+    "backend": "torch",
+    "family": "qwen2.5",
+    "model_path": "/home/<user>/projects/tianpan-v3/projects/tvus-research/cache/hf/hub/models--Qwen--Qwen2.5-14B-Instruct/snapshots/cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "hf_repo": "Qwen/Qwen2.5-14B-Instruct",
+    "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "model_type": "qwen2",
+    "quantization": null,
+    "eos_id": 151645,
+    "stop_ids": [
+      151643,
+      151645
+    ],
+    "dtype": "bf16",
+    "device": "cuda",
+    "attn_implementation": "sdpa",
+    "batch_candidates": false,
+    "logits_to_keep": true,
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "python": "3.12.15",
+    "machine": "aarch64",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": true,
+    "cudnn_deterministic": true,
+    "allow_tf32": false,
+    "cublas_workspace_config": ":4096:8",
+    "num_threads": 20,
+    "cuda": "13.0",
+    "gpu": "NVIDIA GB10",
+    "capability": [
+      12,
+      1
+    ],
+    "bitsandbytes": "0.50.2"
+  },
+  "contexts": {
+    "S01/clean": {
+      "prompt_tokens": 648,
+      "n_tokens": [
+        56,
+        56
+      ],
+      "logprob": [
+        -32.31551466938655,
+        -43.628715098075986
+      ]
+    },
+    "S01/attack": {
+      "prompt_tokens": 717,
+      "n_tokens": [
+        56,
+        56
+      ],
+      "logprob": [
+        -31.536495560624676,
+        -40.053419683179996
+      ]
+    },
+    "P01/clean": {
+      "prompt_tokens": 1102,
+      "n_tokens": [
+        59,
+        59,
+        59
+      ],
+      "logprob": [
+        -15.307797345302859,
+        -11.528397260605647,
+        -16.556988135117074
+      ]
+    },
+    "P01/attack": {
+      "prompt_tokens": 1153,
+      "n_tokens": [
+        59,
+        59,
+        59
+      ],
+      "logprob": [
+        -19.141826123242545,
+        -18.755340978205567,
+        -20.757365314395077
+      ]
+    },
+    "H02/clean": {
+      "prompt_tokens": 936,
+      "n_tokens": [
+        54,
+        54,
+        54
+      ],
+      "logprob": [
+        -32.65569355888887,
+        -28.596662259214636,
+        -24.04154493874062
+      ]
+    },
+    "H02/attack": {
+      "prompt_tokens": 967,
+      "n_tokens": [
+        54,
+        54,
+        54
+      ],
+      "logprob": [
+        -22.669744935720406,
+        -25.86108616422326,
+        -22.586449634232377
+      ]
+    }
+  }
+}

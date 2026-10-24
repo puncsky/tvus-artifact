@@ -1,0 +1,48 @@
+{
+  "clone_before": {
+    "head": "97442c6ee7dec1b803828c81ec4c497b0d91f5cc",
+    "pinned": true,
+    "porcelain": "",
+    "src_sha256": "22089b22291c5c917c03ab2053969e103bd7759753812f25b43f54909bd43b26"
+  },
+  "clone_after": {
+    "head": "97442c6ee7dec1b803828c81ec4c497b0d91f5cc",
+    "pinned": true,
+    "porcelain": "",
+    "src_sha256": "22089b22291c5c917c03ab2053969e103bd7759753812f25b43f54909bd43b26"
+  },
+  "read_only_ok": true,
+  "model": {
+    "backend": "mlx",
+    "family": "qwen2.5",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--mlx-community--Qwen2.5-14B-Instruct-4bit/snapshots/dad510143ae5cdb1466778bde3161460f9e9f604",
+    "revision": "dad510143ae5",
+    "model_type": "qwen2",
+    "quantization": {
+      "group_size": 64,
+      "bits": 4
+    },
+    "eos_id": 151645,
+    "merged_adjacent_turns": 0
+  },
+  "run": "dev-qwen14b",
+  "cases": [
+    "S01",
+    "S02",
+    "S03",
+    "P01",
+    "R02",
+    "H02",
+    "H01",
+    "X03",
+    "L01"
+  ],
+  "condition": "attack",
+  "seed": 0,
+  "peak_memory_gb": 9.491153504,
+  "env": {
+    "HF_HOME": "<ARTIFACT_ROOT>/cache/hf",
+    "TMPDIR": "<ARTIFACT_ROOT>/tmp",
+    "HF_HUB_OFFLINE": "1"
+  }
+}

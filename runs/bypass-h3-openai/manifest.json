@@ -1,0 +1,58 @@
+{
+  "run_id": "bypass-h3-openai",
+  "model": {
+    "harness": "h3",
+    "provider": "openai",
+    "family": "openai",
+    "model": "gpt-5.6-sol",
+    "effort": "medium",
+    "max_output_tokens": 8000,
+    "cap_usd": 20.0,
+    "price_usd_per_mtok": {
+      "input": 4.0,
+      "cached_input": 0.4,
+      "cache_write": 5.0,
+      "output": 20.0
+    },
+    "usd_known": true,
+    "price_source": {
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "fetched": "2026-10-05",
+      "tier": "standard, short context"
+    },
+    "temperature_supported": null,
+    "fallbacks": "disabled (model identity must stay fixed for the study)",
+    "loop": "harness_claude.run_loop/_final_action/_inplace/reconstruct (shared H3 code path)",
+    "backend": "openai-responses-api",
+    "store": false,
+    "reasoning_effort": "medium",
+    "tool_schema": "function tools, strict=true (same JSON schemas as the Claude tools)"
+  },
+  "harness": "h3",
+  "budget": 12,
+  "templates": [
+    "S01",
+    "R02",
+    "H02",
+    "P01"
+  ],
+  "thresholds": {
+    "loo_max": 0.0,
+    "joint_drop": 0.0,
+    "ca_margin": 0.0,
+    "enh_R": 0.0,
+    "ref_D": 0.0,
+    "ref_R": 0.0,
+    "chosen_drop": 0.0,
+    "ref_D_t": 0.0,
+    "ref_R_t": 0.0,
+    "_n_calibration_executions": 48,
+    "_quantile": 0.95
+  },
+  "feedback": "decision-only",
+  "validate_seeds": [
+    11,
+    23
+  ],
+  "started": "2026-10-05T22:01:55Z"
+}

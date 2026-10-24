@@ -1,0 +1,485 @@
+{
+  "version": "v1.0.0",
+  "author": "Tian Pan",
+  "repository": "https://github.com/puncsky/tvus-artifact",
+  "path_redactions": [
+    "reports/adaptive-pilot-qwen14b/curves.json",
+    "reports/adaptive-pilot-qwen14b/curves.md",
+    "reports/causalarmor-native/results.meta.json",
+    "reports/conf-gemma27b/summary.json",
+    "reports/conf-llama8b/summary.json",
+    "reports/conf-qwen14b/neutrality.json",
+    "reports/conf-qwen14b/summary.json",
+    "reports/conf-qwen32b-bf16/summary.json",
+    "reports/dev-gemma27b/neutrality.json",
+    "reports/dev-gemma27b/summary.json",
+    "reports/dev-llama8b/neutrality.json",
+    "reports/dev-llama8b/summary.json",
+    "reports/dev-qwen14b/neutrality.json",
+    "reports/dev-qwen14b/summary.json",
+    "reports/dev-qwen32b-bf16/summary.json",
+    "reports/fb-h1-qwen14b/summary.json",
+    "reports/fb-h1-qwen32b-bf16/summary.json",
+    "reports/fb-h2-qwen14b/summary.json",
+    "reports/fb2-h1-qwen14b/summary.json",
+    "reports/fb2-h2-qwen14b/summary.json",
+    "reports/gen-dev-qwen14b/summary.json",
+    "reports/gen-test-qwen32b-bf16/summary.json",
+    "reports/h2-conf-qwen14b/summary.json",
+    "reports/h2-conf-qwen32b-bf16/summary.json",
+    "reports/h2-dev-gemma27b/summary.json",
+    "reports/h2-dev-qwen14b/neutrality.json",
+    "reports/h2-dev-qwen14b/summary.json",
+    "reports/h2-dev-qwen32b-bf16/summary.json",
+    "reports/model-readiness/compare-qwen05b-cpu--qwen05b-cpu_batch_candidates-true.json",
+    "reports/model-readiness/compare-qwen05b-cpu_batch_candidates-true--scores-qwen05b-cpu.json",
+    "reports/model-readiness/compare-qwen14b-torch--scores-qwen14b.json",
+    "reports/model-readiness/compare-qwen14b-torch_dtype-4bit--scores-qwen14b.json",
+    "reports/model-readiness/scores-qwen05b-cpu.json",
+    "reports/model-readiness/scores-qwen14b-torch.json",
+    "reports/model-readiness/scores-qwen14b.json",
+    "reports/model-readiness/verify-gemma27b.json",
+    "reports/model-readiness/verify-qwen05b-cpu.json",
+    "reports/model-readiness/verify-qwen14b-torch.json",
+    "reports/model-readiness/verify-qwen14b-torch_dtype-4bit.json",
+    "reports/model-readiness/verify-qwen14b.json",
+    "reports/model-readiness/verify-qwen32b-torch.json",
+    "reports/serialization-probe-qwen14b.json",
+    "review/spot-check-generated-2026-10-answer.md",
+    "review/spot-check-generated-2026-10-v2.md",
+    "review/spot-check-generated-2026-10.md",
+    "runs/adaptive-pilot-qwen14b/manifest.json",
+    "runs/adojo-h2-qwen14b/manifest.json",
+    "runs/bypass-extractor-qwen14b/manifest.json",
+    "runs/bypass-extractor-qwen14b-f07/manifest.json",
+    "runs/bypass-extractor-qwen14b-k08/manifest.json",
+    "runs/bypass-llama8b/manifest.json",
+    "runs/bypass-qwen14b/manifest.json",
+    "runs/conf-gemma27b/manifest.json",
+    "runs/conf-llama8b/manifest.json",
+    "runs/conf-qwen14b/manifest.json",
+    "runs/dev-gemma27b/manifest.json",
+    "runs/dev-llama8b/manifest.json",
+    "runs/dev-qwen14b/manifest.json",
+    "runs/fb-h1-qwen14b/manifest.json",
+    "runs/fb-h2-qwen14b/manifest.json",
+    "runs/fb2-h1-qwen14b/manifest.json",
+    "runs/fb2-h2-qwen14b/manifest.json",
+    "runs/gen-dev-qwen14b/manifest.json",
+    "runs/h2-conf-qwen14b/manifest.json",
+    "runs/h2-dev-gemma27b/manifest.json",
+    "runs/h2-dev-qwen14b/manifest.json"
+  ],
+  "run_coverage": [
+    {
+      "run": "adaptive-pilot-qwen14b",
+      "raw_files": [
+        "manifest.json",
+        "queries.jsonl",
+        "summary.json",
+        "spend-attacker.json"
+      ],
+      "derived_rows": false,
+      "summary": false
+    },
+    {
+      "run": "adojo-h2-qwen14b",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "derived_rows": false,
+      "summary": false
+    },
+    {
+      "run": "bypass-extractor-qwen14b",
+      "raw_files": [
+        "manifest.json",
+        "queries.jsonl",
+        "summary.json"
+      ],
+      "derived_rows": false,
+      "summary": false
+    },
+    {
+      "run": "bypass-extractor-qwen14b-f07",
+      "raw_files": [
+        "manifest.json",
+        "queries.jsonl",
+        "summary.json"
+      ],
+      "derived_rows": false,
+      "summary": false
+    },
+    {
+      "run": "bypass-extractor-qwen14b-k08",
+      "raw_files": [
+        "manifest.json",
+        "queries.jsonl",
+        "summary.json"
+      ],
+      "derived_rows": false,
+      "summary": false
+    },
+    {
+      "run": "bypass-h3-openai",
+      "raw_files": [
+        "manifest.json",
+        "queries.jsonl",
+        "summary.json",
+        "spend.json"
+      ],
+      "derived_rows": false,
+      "summary": false
+    },
+    {
+      "run": "bypass-h3-opus",
+      "raw_files": [
+        "manifest.json",
+        "queries.jsonl",
+        "summary.json",
+        "spend.json"
+      ],
+      "derived_rows": false,
+      "summary": false
+    },
+    {
+      "run": "bypass-llama8b",
+      "raw_files": [
+        "manifest.json",
+        "queries.jsonl",
+        "summary.json"
+      ],
+      "derived_rows": false,
+      "summary": false
+    },
+    {
+      "run": "bypass-qwen14b",
+      "raw_files": [
+        "manifest.json",
+        "queries.jsonl",
+        "summary.json"
+      ],
+      "derived_rows": false,
+      "summary": false
+    },
+    {
+      "run": "conf-gemma27b",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "conf-llama8b",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "conf-qwen14b",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "conf-qwen32b-bf16",
+      "raw_files": [],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "dev-gemma27b",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "dev-llama8b",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "dev-qwen14b",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "dev-qwen32b-bf16",
+      "raw_files": [],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "fb-h1-qwen14b",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "fb-h1-qwen32b-bf16",
+      "raw_files": [],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "fb-h2-qwen14b",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "fb2-h1-qwen14b",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "fb2-h2-qwen14b",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "gen-dev-qwen14b",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "gen-h3-gemini",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json",
+        "spend.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "gen-h3-haiku",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json",
+        "spend.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "gen-h3-openai",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json",
+        "spend.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "gen-h3-opus",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json",
+        "spend.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "gen-test-qwen32b-bf16",
+      "raw_files": [],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "h2-conf-qwen14b",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "h2-conf-qwen32b-bf16",
+      "raw_files": [],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "h2-dev-gemma27b",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "h2-dev-qwen14b",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "h2-dev-qwen32b-bf16",
+      "raw_files": [],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "h3-conf-gemini",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json",
+        "spend.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "h3-conf-haiku",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json",
+        "spend.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "h3-conf-openai",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json",
+        "spend.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "h3-conf-opus",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json",
+        "spend.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "h3-dev-gemini",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json",
+        "spend.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "h3-dev-haiku",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json",
+        "spend.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "h3-dev-openai",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json",
+        "spend.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "h3-dev-opus",
+      "raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json",
+        "spend.json"
+      ],
+      "derived_rows": true,
+      "summary": true
+    }
+  ],
+  "missing_raw_runs": [
+    "conf-qwen32b-bf16",
+    "dev-qwen32b-bf16",
+    "fb-h1-qwen32b-bf16",
+    "gen-test-qwen32b-bf16",
+    "h2-conf-qwen32b-bf16",
+    "h2-dev-qwen32b-bf16"
+  ],
+  "historical_hashes": "Original run manifests retain original code hashes; MANIFEST.sha256 covers the public export."
+}

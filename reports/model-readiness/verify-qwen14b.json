@@ -1,0 +1,35 @@
+{
+  "model": {
+    "backend": "mlx",
+    "family": "qwen2.5",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--mlx-community--Qwen2.5-14B-Instruct-4bit/snapshots/dad510143ae5cdb1466778bde3161460f9e9f604",
+    "revision": "dad510143ae5",
+    "model_type": "qwen2",
+    "quantization": {
+      "group_size": 64,
+      "bits": 4
+    },
+    "eos_id": 151645
+  },
+  "checks": {
+    "numpy_recompute_max_abs_err": 1.6971385363717673e-06,
+    "incremental_vs_uncached_max_abs_diff_nats": 0.04014396667480469,
+    "scores_uncached": [
+      -28.927555084228516,
+      -33.96105194091797
+    ],
+    "eos_included": true,
+    "greedy_deterministic": true,
+    "sampled_differs_across_seeds": true
+  },
+  "peak_memory_gb": 9.301063152,
+  "timing": {
+    "score_pass_seconds": [
+      3.4746947919998092,
+      3.443374375000076
+    ],
+    "gen_seconds": 6.186598958000104,
+    "prompt_tokens": 717
+  },
+  "pass": true
+}

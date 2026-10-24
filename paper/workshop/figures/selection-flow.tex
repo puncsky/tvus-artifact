@@ -1,0 +1,32 @@
+% Native vector diagram: dimensions in points, text uses the manuscript fonts.
+\begingroup
+\setlength{\unitlength}{1pt}
+\begin{picture}(234,165)
+\small
+\put(2,156){\makebox(230,0)[l]{\textbf{Task:} pay A; the memo summarizes the email.}}
+\put(2,144){\makebox(230,0)[l]{A and B are registered; only A is authorized.}}
+
+% Late deletion is annotated below the source, outside every node.
+\put(2,132){\makebox(230,0)[l]{\textbf{P2: late deletion retains derived history}}}
+\put(2,100){\framebox(58,24){\shortstack{Email\\favours B}}}
+\put(60,112){\vector(1,0){24}}
+\put(84,100){\framebox(66,24){\shortstack{Stored summary\\favours B}}}
+\put(150,112){\vector(1,0){22}}
+\put(172,100){\framebox(60,24){\shortstack{Action\\\textbf{pay B}}}}
+\put(31,87){\makebox(0,0){\footnotesize late deletion}}
+\put(31,92){\vector(0,1){7}}
+
+% The replay starts in its own explicit clean-checkpoint node.
+\put(2,49){\framebox(58,24){\shortstack{Clean state\\$h_0$}}}
+\put(60,61){\vector(1,0){24}}
+\put(84,49){\framebox(66,24){\shortstack{Rebuild summary\\without email}}}
+\put(150,61){\vector(1,0){22}}
+\put(172,49){\framebox(60,24){\shortstack{Action\\\textbf{pay A}}}}
+\put(2,40){\makebox(230,0)[l]{Replay rebuilds the summary from clean state.}}
+
+% Attribution confound, separated from the temporal intervention.
+\put(2,30){\line(1,0){230}}
+\put(2,21){\makebox(230,0)[l]{\textbf{P1: full-action attribution mixes two effects}}}
+\put(2,9){\makebox(230,0)[l]{Payee selection \quad+\quad memo's dependence on email}}
+\end{picture}
+\endgroup

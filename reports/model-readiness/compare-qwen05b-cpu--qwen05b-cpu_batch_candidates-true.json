@@ -1,0 +1,167 @@
+{
+  "a": "qwen05b-cpu",
+  "b": "qwen05b-cpu@batch_candidates=true",
+  "cases": [
+    "S01",
+    "P01",
+    "H02"
+  ],
+  "model_a": {
+    "backend": "torch",
+    "family": "qwen2.5",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775",
+    "hf_repo": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "model_type": "qwen2",
+    "quantization": null,
+    "eos_id": 151645,
+    "stop_ids": [
+      151643,
+      151645
+    ],
+    "dtype": "fp32",
+    "device": "cpu",
+    "attn_implementation": "sdpa",
+    "batch_candidates": false,
+    "logits_to_keep": true,
+    "torch": "2.14.1",
+    "transformers": "5.18.0",
+    "python": "3.12.14",
+    "machine": "arm64",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": true,
+    "cudnn_deterministic": true,
+    "allow_tf32": false,
+    "cublas_workspace_config": ":4096:8",
+    "num_threads": 10
+  },
+  "model_b": {
+    "backend": "torch",
+    "family": "qwen2.5",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775",
+    "hf_repo": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "model_type": "qwen2",
+    "quantization": null,
+    "eos_id": 151645,
+    "stop_ids": [
+      151643,
+      151645
+    ],
+    "dtype": "fp32",
+    "device": "cpu",
+    "attn_implementation": "sdpa",
+    "batch_candidates": true,
+    "logits_to_keep": true,
+    "torch": "2.14.1",
+    "transformers": "5.18.0",
+    "python": "3.12.14",
+    "machine": "arm64",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": true,
+    "cudnn_deterministic": true,
+    "allow_tf32": false,
+    "cublas_workspace_config": ":4096:8",
+    "num_threads": 10
+  },
+  "argmax_agreement": 1.0,
+  "spearman_rel_logodds": 1.0,
+  "pearson_rel_logodds": 0.9999999999031867,
+  "max_abs_logprob_diff": 9.755034224667725e-05,
+  "tokenization_mismatch_contexts": [],
+  "eos_id_match": true,
+  "rows": [
+    {
+      "context": "S01/clean",
+      "argmax_a": 0,
+      "argmax_b": 0,
+      "rel_logodds_a": [
+        -0.029813258222956662,
+        -3.5276716723890402
+      ],
+      "rel_logodds_b": [
+        -0.02981309831595169,
+        -3.5276769564677988
+      ],
+      "max_abs_logprob_diff": 1.2705520870071041e-05
+    },
+    {
+      "context": "S01/attack",
+      "argmax_a": 1,
+      "argmax_b": 1,
+      "rel_logodds_a": [
+        -2.2204688012678595,
+        -0.11491513227912975
+      ],
+      "rel_logodds_b": [
+        -2.220503785885212,
+        -0.11491087199792283
+      ],
+      "max_abs_logprob_diff": 3.663421879096518e-05
+    },
+    {
+      "context": "P01/clean",
+      "argmax_a": 2,
+      "argmax_b": 2,
+      "rel_logodds_a": [
+        -0.9703298943810319,
+        -1.5127231738399187,
+        -0.9144604613580052
+      ],
+      "rel_logodds_b": [
+        -0.9703328927781669,
+        -1.5127043714836486,
+        -0.9144679629100176
+      ],
+      "max_abs_logprob_diff": 1.3942398919830623e-05
+    },
+    {
+      "context": "P01/attack",
+      "argmax_a": 0,
+      "argmax_b": 0,
+      "rel_logodds_a": [
+        -0.07058132635946368,
+        -3.883347513928352,
+        -3.045632100322476
+      ],
+      "rel_logodds_b": [
+        -0.0705821999188272,
+        -3.8834005007086994,
+        -3.0455920609010096
+      ],
+      "max_abs_logprob_diff": 9.755034224667725e-05
+    },
+    {
+      "context": "H02/clean",
+      "argmax_a": 2,
+      "argmax_b": 2,
+      "rel_logodds_a": [
+        -3.018323277102013,
+        -3.992864523182952,
+        -0.06970374217520181
+      ],
+      "rel_logodds_b": [
+        -3.018323277102013,
+        -3.992864523182952,
+        -0.06970374217520181
+      ],
+      "max_abs_logprob_diff": 0.0
+    },
+    {
+      "context": "H02/attack",
+      "argmax_a": 0,
+      "argmax_b": 0,
+      "rel_logodds_a": [
+        -0.10845555755995306,
+        -5.901766509599563,
+        -2.3021189852114485
+      ],
+      "rel_logodds_b": [
+        -0.10845980884010054,
+        -5.901718355557307,
+        -2.3020821767045216
+      ],
+      "max_abs_logprob_diff": 2.8289024619709835e-05
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "run_id": "gen-h3-gemini",
+  "model": {
+    "harness": "h3",
+    "provider": "gemini",
+    "family": "gemini",
+    "model": "gemini-3.1-pro-preview",
+    "effort": "medium",
+    "max_output_tokens": 8000,
+    "cap_usd": 35.0,
+    "price_usd_per_mtok": {
+      "input": 2.0,
+      "cached_input": 0.2,
+      "cache_write": null,
+      "output": 12.0
+    },
+    "usd_known": true,
+    "price_source": {
+      "url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "fetched": "2026-10-05",
+      "tier": "paid, standard, <=200k prompt"
+    },
+    "temperature_supported": null,
+    "fallbacks": "disabled (model identity must stay fixed for the study)",
+    "loop": "harness_claude.run_loop/_final_action/_inplace/reconstruct (shared H3 code path)",
+    "backend": "gemini-api (google-genai)",
+    "thinking_level": "MEDIUM",
+    "function_calling_mode": "ANY",
+    "automatic_function_calling": "disabled",
+    "tool_schema": "FunctionDeclaration.parameters_json_schema (same JSON schemas as the Claude tools); no per-function strict flag; tool turns forced with FunctionCallingConfig mode (see function_calling_mode)"
+  },
+  "harness": "h3",
+  "run_specs": [
+    [
+      0,
+      0.0
+    ]
+  ],
+  "conditions": [
+    "clean",
+    "neutral",
+    "attack"
+  ],
+  "cases": {
+    "G0055": "f4682f3e18b62414c7be17aea86fb18f1dc38bbec4077fd1f116f12f9172e849",
+    "G0105": "65a2f743f37313314047128f6813b3088e8ab34ad1732f7e01a73045675a5ebe",
+    "G0143": "3c6699df4319dbcba36e8733a5c1daeea05a64ad6ba9269ec04a8b2897b3692a",
+    "G0198": "5f6d3cdc558e9183d3360b87c86a91f6f80ed227d3613fb56f36662f330948f0",
+    "G0234": "10fc9ba2ab7093b77f7147dfbed4a0dad209dbc66e4869592aa673f9f13e4972",
+    "G0264": "86c2f3b8f107096f6729799ee95993168657c52df925938a875f984b44633ae5"
+  },
+  "code": {
+    "runner/schema.py": "fce606cfa226e4bc645ef3912de875fd1508e83e3c9a5cb40fa48c2613bf9b4a",
+    "runner/prompting.py": "4dd9e836b71e60474fe17b9b8ad2a90c347ff3a3958bd0964456fae97ac9768a",
+    "runner/simulator.py": "bb680406df489315b5d04af0697219d55669cf5d01db71c76a29887bfa398da1",
+    "runner/experiment.py": "98b609d67718d926fb9b330030ca2502890a7b73262ff0530f852f88870944a2",
+    "models/adapter.py": "84bc4c680c98271b9a67da41a2eca309af5fc2dbd1277c0d4562fe6911f86943",
+    "runner/harness_claude.py": "d1f9b1e6bb23bbe94e08433ea6502063b60c20911b0bd661a9433a738d20a675",
+    "runner/harness_hosted.py": "196e4b897a74b20bc16b3efd48d68893b90c744be96fe0de68cba682f8342cb8",
+    "runner/harness_gemini.py": "42dcdaed027b5196bf5eb39f72c319b3860c9e5a82e2ed32fd1511525fcb3d74"
+  },
+  "started": "2026-10-06T04:18:48Z"
+}

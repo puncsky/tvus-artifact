@@ -1,0 +1,161 @@
+{
+  "env": "w3/envs/torch-cuda",
+  "created": "2026-10-08",
+  "host": {
+    "name": "zgx-aa67 (DGX Spark)",
+    "machine": "aarch64",
+    "os": "Ubuntu 24.04.5 LTS",
+    "kernel": "7.0.0-1019-nvidia",
+    "gpu": "NVIDIA GB10",
+    "gpu_capability": "12.1",
+    "gpu_memory_gb": "N/A (unified; 121 GiB system RAM)",
+    "driver": "580.178.04",
+    "cuda_runtime": "13.0",
+    "unified_memory": true
+  },
+  "python": "3.12.15 (uv-managed, envs/uv-python)",
+  "uv": "0.12.23",
+  "torch": "2.14.1+cu130",
+  "torch_index_url": "https://download.pytorch.org/whl/cu130",
+  "torch_cuda": "13.0",
+  "torch_cuda_arch_list": [
+    "sm_80",
+    "sm_90",
+    "sm_100",
+    "sm_110",
+    "sm_120"
+  ],
+  "cudnn": "9.24.0 (92400)",
+  "transformers": "5.18.0",
+  "tokenizers": "0.23.2",
+  "accelerate": "1.15.0",
+  "bitsandbytes": "0.50.2",
+  "bitsandbytes_4bit_works": true,
+  "vllm": {
+    "available": null,
+    "version": null,
+    "install_route": "not checked on 2026-10-08 (slow link; the adapter does not use vLLM)",
+    "used": false,
+    "fallback": "transformers generate/score via models/torch_adapter.py (uncached forward per candidate) if vLLM is unavailable or its prompt-logprob path cannot be verified against verify_adapter.py"
+  },
+  "determinism": {
+    "use_deterministic_algorithms": "True (warn_only)",
+    "cublas_workspace_config": ":4096:8",
+    "allow_tf32": false,
+    "attn_implementation": "sdpa"
+  },
+  "verify": {
+    "qwen14b-torch-bf16": {
+      "pass": true,
+      "report": "reports/model-readiness/verify-qwen14b-torch.json"
+    },
+    "qwen14b-torch-4bit": {
+      "pass": false,
+      "report": "reports/model-readiness/verify-qwen14b-torch_dtype-4bit.json",
+      "why": "incremental-vs-uncached 0.547 nats > 0.5 tolerance (NF4); other checks pass"
+    },
+    "qwen32b-torch-bf16": {
+      "pass": null,
+      "report": null
+    }
+  },
+  "mlx_vs_torch": {
+    "mlx_scores_file": "reports/model-readiness/scores-qwen14b.json",
+    "cases": [
+      "S01",
+      "P01",
+      "H02"
+    ],
+    "torch_spec": "qwen14b-torch (bf16)",
+    "argmax_agreement": 0.8333333333333334,
+    "spearman_rel_logodds": 0.9352941176470588,
+    "max_abs_logprob_diff": 6.583844866050178,
+    "tokenization_mismatch_contexts": [],
+    "explanation_if_disagree": "5/6 argmax. H02/attack: bf16 candidates 0 and 2 are 0.08 nats apart (rel. log-odds -0.76 vs -0.67) and MLX 4-bit picks 0 (-0.26 vs -1.49): a near-tie flipped by quantization. NF4 vs MLX 4-bit: 4/6, Spearman 0.953."
+  },
+  "throughput": {
+    "qwen14b-torch-4bit": {
+      "s_per_1k_token_score_pass": 1.341331491590917,
+      "gen90_seconds": 5.327572645001055,
+      "gen90_tokens": 85,
+      "peak_memory_gb": 11.368179712
+    },
+    "qwen14b-torch-bf16": {
+      "s_per_1k_token_score_pass": 1.0216931869336259,
+      "gen90_seconds": 10.30674177400033,
+      "gen90_tokens": 76,
+      "peak_memory_gb": 30.489933824
+    },
+    "qwen32b-torch-bf16": {
+      "s_per_1k_token_score_pass": null,
+      "gen90_seconds": null,
+      "gen90_tokens": null,
+      "peak_memory_gb": null
+    }
+  },
+  "pip_freeze": [
+    "accelerate==1.15.0",
+    "annotated-doc==0.0.5",
+    "anyio==4.15.1",
+    "bitsandbytes==0.50.2",
+    "certifi==2026.7.22",
+    "click==8.5.0",
+    "cuda-bindings==13.3.1",
+    "cuda-pathfinder==1.6.0",
+    "cuda-toolkit==13.0.3.0",
+    "filelock==3.32.3",
+    "fsspec==2026.7.0",
+    "h11==0.16.0",
+    "hf-xet==1.7.0",
+    "httpcore==1.0.9",
+    "httpx==0.28.1",
+    "huggingface-hub==1.33.0",
+    "idna==3.20",
+    "jinja2==3.1.6",
+    "markdown-it-py==4.2.0",
+    "markupsafe==3.0.3",
+    "mdurl==0.1.2",
+    "mpmath==1.3.0",
+    "networkx==3.6.1",
+    "numpy==2.5.3",
+    "nvidia-cublas==13.1.1.3",
+    "nvidia-cuda-cupti==13.0.85",
+    "nvidia-cuda-nvrtc==13.0.88",
+    "nvidia-cuda-runtime==13.0.96",
+    "nvidia-cudnn-cu13==9.24.0.43",
+    "nvidia-cufft==12.0.0.61",
+    "nvidia-cufile==1.15.1.6",
+    "nvidia-curand==10.4.0.35",
+    "nvidia-cusolver==12.0.4.66",
+    "nvidia-cusparse==12.6.3.3",
+    "nvidia-cusparselt-cu13==0.8.1",
+    "nvidia-nccl-cu13==2.30.7",
+    "nvidia-nvjitlink==13.3.33",
+    "nvidia-nvshmem-cu13==3.4.5",
+    "nvidia-nvtx==13.0.85",
+    "packaging==26.3",
+    "psutil==7.2.2",
+    "pygments==2.21.0",
+    "pyyaml==6.0.3",
+    "regex==2026.9.29",
+    "rich==15.0.0",
+    "safetensors==0.8.0",
+    "setuptools==78.1.0",
+    "shellingham==1.5.4",
+    "sympy==1.14.0",
+    "tokenizers==0.23.2",
+    "torch==2.14.1+cu130",
+    "tqdm==4.70.1",
+    "transformers==5.18.0",
+    "triton==3.8.0",
+    "typer==0.27.3",
+    "typing-extensions==4.16.0"
+  ],
+  "notes": [
+    "venv must use a uv-managed Python: torch 2.14 routes some eager CUDA ops (bmm in RoPE) to Triton kernels, whose first use compiles a driver against Python.h; the system python3.12 has no headers and scoring crashed.",
+    "uv pip check: nvidia-cusparselt-cu13 'built for a different platform'; no effect observed.",
+    "batch_candidates must stay OFF in bf16: with unequal-length candidates (right padding, explicit mask) batched vs single differs by 0.89 nats on Qwen2.5-14B (S01/attack, 56 vs 68 tokens); the same test in fp32 differs by 1.2e-4, so the logic is right and the gap is bf16 numerics on the masked attention path. The original check reported 0.0 because S01's candidates have equal length; verify_adapter.py now lengthens one candidate. Run scripts/run_h100.sh with W3_SPEC_SUFFIX=''.",
+    "bf16 vs fp32 single-path sums on the same contexts differ by 0.53 and 0.92 nats (S01/attack); 32B fp32 does not fit in 121 GiB.",
+    "Network is WiFi at about 3 MB/s; first torch install timed out on pypi.nvidia.com (UV_HTTP_TIMEOUT=900 fixes it)."
+  ]
+}

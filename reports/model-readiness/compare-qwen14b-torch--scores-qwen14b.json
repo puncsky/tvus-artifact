@@ -1,0 +1,157 @@
+{
+  "a": "qwen14b-torch",
+  "b": "reports/model-readiness/scores-qwen14b.json",
+  "cases": [
+    "S01",
+    "P01",
+    "H02"
+  ],
+  "model_a": {
+    "backend": "torch",
+    "family": "qwen2.5",
+    "model_path": "/home/<user>/projects/tianpan-v3/projects/tvus-research/cache/hf/hub/models--Qwen--Qwen2.5-14B-Instruct/snapshots/cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "hf_repo": "Qwen/Qwen2.5-14B-Instruct",
+    "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "model_type": "qwen2",
+    "quantization": null,
+    "eos_id": 151645,
+    "stop_ids": [
+      151643,
+      151645
+    ],
+    "dtype": "bf16",
+    "device": "cuda",
+    "attn_implementation": "sdpa",
+    "batch_candidates": false,
+    "logits_to_keep": true,
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "python": "3.12.15",
+    "machine": "aarch64",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": true,
+    "cudnn_deterministic": true,
+    "allow_tf32": false,
+    "cublas_workspace_config": ":4096:8",
+    "num_threads": 20,
+    "cuda": "13.0",
+    "gpu": "NVIDIA GB10",
+    "capability": [
+      12,
+      1
+    ],
+    "bitsandbytes": "0.50.2"
+  },
+  "model_b": {
+    "backend": "mlx",
+    "family": "qwen2.5",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--mlx-community--Qwen2.5-14B-Instruct-4bit/snapshots/dad510143ae5cdb1466778bde3161460f9e9f604",
+    "revision": "dad510143ae5",
+    "model_type": "qwen2",
+    "quantization": {
+      "group_size": 64,
+      "bits": 4
+    },
+    "eos_id": 151645
+  },
+  "argmax_agreement": 0.8333333333333334,
+  "spearman_rel_logodds": 0.9352941176470588,
+  "pearson_rel_logodds": 0.8388451052574922,
+  "max_abs_logprob_diff": 6.583844866050178,
+  "tokenization_mismatch_contexts": [],
+  "eos_id_match": true,
+  "rows": [
+    {
+      "context": "S01/clean",
+      "argmax_a": 0,
+      "argmax_b": 0,
+      "rel_logodds_a": [
+        -1.2210595080830444e-05,
+        -11.313212639284515
+      ],
+      "rel_logodds_b": [
+        -7.829840178885661e-06,
+        -11.757572374517913
+      ],
+      "max_abs_logprob_diff": 0.2414599513689737
+    },
+    {
+      "context": "S01/attack",
+      "argmax_a": 0,
+      "argmax_b": 0,
+      "rel_logodds_a": [
+        -0.00020003381291644473,
+        -8.517124156368236
+      ],
+      "rel_logodds_b": [
+        -0.006494847957497996,
+        -5.039991704646951
+      ],
+      "max_abs_logprob_diff": 6.092367742262027
+    },
+    {
+      "context": "P01/clean",
+      "argmax_a": 1,
+      "argmax_b": 1,
+      "rel_logodds_a": [
+        -3.8083610561228003,
+        -0.02896097142558851,
+        -5.057551845937015
+      ],
+      "rel_logodds_b": [
+        -4.687948869309034,
+        -0.010239289841260657,
+        -6.926430390915479
+      ],
+      "max_abs_logprob_diff": 5.0137306301417155
+    },
+    {
+      "context": "P01/attack",
+      "argmax_a": 1,
+      "argmax_b": 1,
+      "rel_logodds_a": [
+        -0.9822964234338123,
+        -0.5958112783968339,
+        -2.5978356145863444
+      ],
+      "rel_logodds_b": [
+        -2.7628017566003322,
+        -0.06723557923216816,
+        -6.260444273690176
+      ],
+      "max_abs_logprob_diff": 3.9354290214184573
+    },
+    {
+      "context": "H02/clean",
+      "argmax_a": 2,
+      "argmax_b": 2,
+      "rel_logodds_a": [
+        -8.624786621462185,
+        -4.56575532178795,
+        -0.010638001313935774
+      ],
+      "rel_logodds_b": [
+        -10.482831390562456,
+        -9.558486374082964,
+        -9.861773530772666e-05
+      ],
+      "max_abs_logprob_diff": 2.915294909364466
+    },
+    {
+      "context": "H02/attack",
+      "argmax_a": 2,
+      "argmax_b": 0,
+      "rel_logodds_a": [
+        -0.7551728911732489,
+        -3.9465141196761024,
+        -0.67187758968522
+      ],
+      "rel_logodds_b": [
+        -0.2564901224136804,
+        -10.679971109962509,
+        -1.486272226905868
+      ],
+      "max_abs_logprob_diff": 6.583844866050178
+    }
+  ]
+}

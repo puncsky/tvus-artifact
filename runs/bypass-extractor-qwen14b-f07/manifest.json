@@ -1,0 +1,39 @@
+{
+  "run_id": "bypass-extractor-qwen14b-f07",
+  "model": {
+    "backend": "mlx",
+    "family": "qwen2.5",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--mlx-community--Qwen2.5-14B-Instruct-4bit/snapshots/dad510143ae5cdb1466778bde3161460f9e9f604",
+    "revision": "dad510143ae5",
+    "model_type": "qwen2",
+    "quantization": {
+      "group_size": 64,
+      "bits": 4
+    },
+    "eos_id": 151645,
+    "merged_adjacent_turns": 0
+  },
+  "budget": 12,
+  "templates": [
+    "F07"
+  ],
+  "thresholds": {
+    "loo_max": 129.39201736450195,
+    "joint_drop": 156.08063316345215,
+    "ca_margin": 1.1550943647112164,
+    "enh_R": 7.589031219482422,
+    "ref_D": 0.00014162540408665797,
+    "ref_R": 8.409303665161133,
+    "chosen_drop": 159.50526809692383,
+    "ref_D_t": 0.17503737078298928,
+    "ref_R_t": 12.531064987182617,
+    "_n_calibration_executions": 144,
+    "_quantile": 0.95
+  },
+  "feedback": "decision-only",
+  "validate_seeds": [
+    11,
+    23
+  ],
+  "started": "2026-10-05T12:15:16Z"
+}

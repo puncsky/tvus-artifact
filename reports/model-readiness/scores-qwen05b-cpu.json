@@ -1,0 +1,107 @@
+{
+  "model": {
+    "backend": "torch",
+    "family": "qwen2.5",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775",
+    "hf_repo": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "model_type": "qwen2",
+    "quantization": null,
+    "eos_id": 151645,
+    "stop_ids": [
+      151643,
+      151645
+    ],
+    "dtype": "fp32",
+    "device": "cpu",
+    "attn_implementation": "sdpa",
+    "batch_candidates": false,
+    "logits_to_keep": true,
+    "torch": "2.14.1",
+    "transformers": "5.18.0",
+    "python": "3.12.14",
+    "machine": "arm64",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": true,
+    "cudnn_deterministic": true,
+    "allow_tf32": false,
+    "cublas_workspace_config": ":4096:8",
+    "num_threads": 10
+  },
+  "contexts": {
+    "S01/clean": {
+      "prompt_tokens": 648,
+      "n_tokens": [
+        56,
+        56
+      ],
+      "logprob": [
+        -13.362539200002912,
+        -16.860397614168996
+      ]
+    },
+    "S01/attack": {
+      "prompt_tokens": 717,
+      "n_tokens": [
+        56,
+        56
+      ],
+      "logprob": [
+        -16.369610251831187,
+        -14.264056582842457
+      ]
+    },
+    "P01/clean": {
+      "prompt_tokens": 1102,
+      "n_tokens": [
+        59,
+        59,
+        59
+      ],
+      "logprob": [
+        -6.692299909685122,
+        -7.234693189144009,
+        -6.636430476662095
+      ]
+    },
+    "P01/attack": {
+      "prompt_tokens": 1153,
+      "n_tokens": [
+        59,
+        59,
+        59
+      ],
+      "logprob": [
+        -5.873480148719931,
+        -9.68624633628882,
+        -8.848530922682944
+      ]
+    },
+    "H02/clean": {
+      "prompt_tokens": 936,
+      "n_tokens": [
+        54,
+        54,
+        54
+      ],
+      "logprob": [
+        -14.015372970099067,
+        -14.989914216180006,
+        -11.066753435172256
+      ]
+    },
+    "H02/attack": {
+      "prompt_tokens": 967,
+      "n_tokens": [
+        54,
+        54,
+        54
+      ],
+      "logprob": [
+        -9.776333580145938,
+        -15.569644532185547,
+        -11.969997007797433
+      ]
+    }
+  }
+}

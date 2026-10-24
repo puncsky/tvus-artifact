@@ -1,0 +1,42 @@
+{
+  "run_id": "gen-h3-haiku",
+  "model": {
+    "backend": "anthropic-api",
+    "family": "claude",
+    "model": "claude-haiku-4-5",
+    "effort": "medium",
+    "thinking": "adaptive (model default)",
+    "sampling": "provider default (no temperature parameter sent)",
+    "fallbacks": "disabled (model identity must stay fixed for the study)",
+    "cap_usd": 15.0
+  },
+  "harness": "h3",
+  "run_specs": [
+    [
+      0,
+      0.0
+    ]
+  ],
+  "conditions": [
+    "clean",
+    "neutral",
+    "attack"
+  ],
+  "cases": {
+    "G0055": "f4682f3e18b62414c7be17aea86fb18f1dc38bbec4077fd1f116f12f9172e849",
+    "G0105": "65a2f743f37313314047128f6813b3088e8ab34ad1732f7e01a73045675a5ebe",
+    "G0143": "3c6699df4319dbcba36e8733a5c1daeea05a64ad6ba9269ec04a8b2897b3692a",
+    "G0198": "5f6d3cdc558e9183d3360b87c86a91f6f80ed227d3613fb56f36662f330948f0",
+    "G0234": "10fc9ba2ab7093b77f7147dfbed4a0dad209dbc66e4869592aa673f9f13e4972",
+    "G0264": "86c2f3b8f107096f6729799ee95993168657c52df925938a875f984b44633ae5"
+  },
+  "code": {
+    "runner/schema.py": "fce606cfa226e4bc645ef3912de875fd1508e83e3c9a5cb40fa48c2613bf9b4a",
+    "runner/prompting.py": "4dd9e836b71e60474fe17b9b8ad2a90c347ff3a3958bd0964456fae97ac9768a",
+    "runner/simulator.py": "bb680406df489315b5d04af0697219d55669cf5d01db71c76a29887bfa398da1",
+    "runner/experiment.py": "98b609d67718d926fb9b330030ca2502890a7b73262ff0530f852f88870944a2",
+    "models/adapter.py": "84bc4c680c98271b9a67da41a2eca309af5fc2dbd1277c0d4562fe6911f86943",
+    "runner/harness_claude.py": "d1f9b1e6bb23bbe94e08433ea6502063b60c20911b0bd661a9433a738d20a675"
+  },
+  "started": "2026-10-06T04:18:48Z"
+}

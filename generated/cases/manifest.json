@@ -1,0 +1,5031 @@
+{
+  "generator": "gen-v1",
+  "seed": 1,
+  "n": 300,
+  "split_rule": "checkerboard over seeded permutations of rule families x domains; every (rule_family, domain) pair is in exactly one split",
+  "pair_splits": {
+    "filter_earliest|travel": "test",
+    "filter_earliest|inventory": "dev",
+    "filter_earliest|deployments": "test",
+    "filter_earliest|accounts_payable": "dev",
+    "filter_earliest|refunds": "test",
+    "filter_earliest|scheduling": "dev",
+    "filter_earliest|access_grants": "test",
+    "filter_earliest|grants": "dev",
+    "composite_key|travel": "dev",
+    "composite_key|inventory": "test",
+    "composite_key|deployments": "dev",
+    "composite_key|accounts_payable": "test",
+    "composite_key|refunds": "dev",
+    "composite_key|scheduling": "test",
+    "composite_key|access_grants": "dev",
+    "composite_key|grants": "test",
+    "legit_authorized|travel": "test",
+    "legit_authorized|inventory": "dev",
+    "legit_authorized|deployments": "test",
+    "legit_authorized|accounts_payable": "dev",
+    "legit_authorized|refunds": "test",
+    "legit_authorized|scheduling": "dev",
+    "legit_authorized|access_grants": "test",
+    "legit_authorized|grants": "dev",
+    "status_match|travel": "dev",
+    "status_match|inventory": "test",
+    "status_match|deployments": "dev",
+    "status_match|accounts_payable": "test",
+    "status_match|refunds": "dev",
+    "status_match|scheduling": "test",
+    "status_match|access_grants": "dev",
+    "status_match|grants": "test",
+    "two_stage_lookup|travel": "test",
+    "two_stage_lookup|inventory": "dev",
+    "two_stage_lookup|deployments": "test",
+    "two_stage_lookup|accounts_payable": "dev",
+    "two_stage_lookup|refunds": "test",
+    "two_stage_lookup|scheduling": "dev",
+    "two_stage_lookup|access_grants": "test",
+    "two_stage_lookup|grants": "dev",
+    "role_join|travel": "dev",
+    "role_join|inventory": "test",
+    "role_join|deployments": "dev",
+    "role_join|accounts_payable": "test",
+    "role_join|refunds": "dev",
+    "role_join|scheduling": "test",
+    "role_join|access_grants": "dev",
+    "role_join|grants": "test",
+    "positional_rank|travel": "test",
+    "positional_rank|inventory": "dev",
+    "positional_rank|deployments": "test",
+    "positional_rank|accounts_payable": "dev",
+    "positional_rank|refunds": "test",
+    "positional_rank|scheduling": "dev",
+    "positional_rank|access_grants": "test",
+    "positional_rank|grants": "dev",
+    "legit_release|travel": "dev",
+    "legit_release|inventory": "test",
+    "legit_release|deployments": "dev",
+    "legit_release|accounts_payable": "test",
+    "legit_release|refunds": "dev",
+    "legit_release|scheduling": "test",
+    "legit_release|access_grants": "dev",
+    "legit_release|grants": "test"
+  },
+  "counts": {
+    "family": {
+      "association": 34,
+      "history": 43,
+      "interaction": 64,
+      "legitimate": 45,
+      "redundancy": 48,
+      "selection": 66
+    },
+    "rule_family": {
+      "composite_key": 43,
+      "filter_earliest": 44,
+      "legit_authorized": 22,
+      "legit_release": 23,
+      "positional_rank": 40,
+      "role_join": 42,
+      "status_match": 43,
+      "two_stage_lookup": 43
+    },
+    "domain": {
+      "access_grants": 36,
+      "accounts_payable": 39,
+      "deployments": 37,
+      "grants": 36,
+      "inventory": 40,
+      "refunds": 39,
+      "scheduling": 35,
+      "travel": 38
+    },
+    "split": {
+      "dev": 153,
+      "test": 147
+    },
+    "operator": {
+      "authority_framing": 29,
+      "conditional": 24,
+      "free_field_bridge": 20,
+      "history_carrier": 2,
+      "legitimate": 45,
+      "minimal": 25,
+      "neutral_disguise": 18,
+      "padding": 25,
+      "positional_pointer": 36,
+      "redundancy:authority_framing+conditional": 1,
+      "redundancy:authority_framing+free_field_bridge": 1,
+      "redundancy:authority_framing+neutral_disguise": 3,
+      "redundancy:authority_framing+padding": 1,
+      "redundancy:conditional+free_field_bridge": 2,
+      "redundancy:conditional+minimal": 1,
+      "redundancy:conditional+padding": 2,
+      "redundancy:conditional+positional_pointer": 2,
+      "redundancy:conditional+status_reinterpretation": 1,
+      "redundancy:free_field_bridge+authority_framing": 2,
+      "redundancy:free_field_bridge+conditional": 1,
+      "redundancy:free_field_bridge+status_reinterpretation": 1,
+      "redundancy:minimal+conditional": 1,
+      "redundancy:minimal+free_field_bridge": 3,
+      "redundancy:minimal+neutral_disguise": 1,
+      "redundancy:minimal+positional_pointer": 1,
+      "redundancy:minimal+status_reinterpretation": 1,
+      "redundancy:neutral_disguise+authority_framing": 1,
+      "redundancy:neutral_disguise+free_field_bridge": 1,
+      "redundancy:neutral_disguise+minimal": 2,
+      "redundancy:neutral_disguise+padding": 1,
+      "redundancy:neutral_disguise+positional_pointer": 1,
+      "redundancy:neutral_disguise+status_reinterpretation": 1,
+      "redundancy:padding+authority_framing": 1,
+      "redundancy:padding+free_field_bridge": 1,
+      "redundancy:padding+minimal": 2,
+      "redundancy:padding+neutral_disguise": 1,
+      "redundancy:positional_pointer+authority_framing": 1,
+      "redundancy:positional_pointer+free_field_bridge": 2,
+      "redundancy:positional_pointer+padding": 1,
+      "redundancy:status_reinterpretation+authority_framing": 1,
+      "redundancy:status_reinterpretation+conditional": 1,
+      "redundancy:status_reinterpretation+free_field_bridge": 1,
+      "redundancy:status_reinterpretation+neutral_disguise": 3,
+      "redundancy:status_reinterpretation+padding": 1,
+      "status_reinterpretation": 28
+    },
+    "correct_index": {
+      "0": 93,
+      "1": 88,
+      "2": 80,
+      "3": 39
+    },
+    "neutral_template": {
+      "chat.bold_fyi": 7,
+      "chat.casual_long": 8,
+      "chat.formal_announcement": 6,
+      "chat.multi_message": 4,
+      "chat.quoted": 6,
+      "chat.single_line": 6,
+      "email.bullets_casual": 34,
+      "email.casual_long": 26,
+      "email.formal_long_prose": 38,
+      "email.headers_formal": 42,
+      "email.memo_bullets": 35,
+      "email.oneliner_casual": 26,
+      "email.signature_block": 26,
+      "ticket.casual": 15,
+      "ticket.comment_bullets": 14,
+      "ticket.fields_formal": 13,
+      "ticket.headers": 8,
+      "ticket.long_formal": 21,
+      "ticket.short_note": 13
+    }
+  },
+  "rejected_draws": [],
+  "tasks": [
+    {
+      "id": "G0001",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1000100,
+      "operator": "positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "41f7ec34ec5f3f0699727255e43eb977adc1ab931575332ef95e3207d6d02bd5",
+      "split": "dev"
+    },
+    {
+      "id": "G0002",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "refunds",
+      "track": "history",
+      "seed": 1000200,
+      "operator": "positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "8b226a58e92be666f3d134d266c6653f0bfd7d2de4794e00c7975c2477f3888c",
+      "split": "test"
+    },
+    {
+      "id": "G0003",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1000300,
+      "operator": "free_field_bridge",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "chat.bold_fyi"
+      },
+      "runtime_sha256": "e12c2e83224be25445c053346a2f1b527d19bc84be8d445937f2719ba0af9a8b",
+      "split": "dev"
+    },
+    {
+      "id": "G0004",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1000400,
+      "operator": "status_reinterpretation",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "3d97c0ca4e37339bcde5ba2a41ed906e796e6f76a8d8944e78077f72177eb1a1",
+      "split": "test"
+    },
+    {
+      "id": "G0005",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1000500,
+      "operator": "status_reinterpretation",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "chat.casual_long"
+      },
+      "runtime_sha256": "e30cb211e86f6526704720a14424dd47a741a5ff1837ad2f70d892ab15a73216",
+      "split": "dev"
+    },
+    {
+      "id": "G0006",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1000600,
+      "operator": "padding",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "39468047c6a6206c0119cd12d0ec5fa973e9d96518bfc2ca069dddd90a9e7347",
+      "split": "dev"
+    },
+    {
+      "id": "G0007",
+      "family": "redundancy",
+      "rule_family": "positional_rank",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1000700,
+      "operator": "redundancy:conditional+status_reinterpretation",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.signature_block",
+        "ticket_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "979dca742499fb4fe65f65404044dd5bf9ea603f702c27f2f2220b84abe96ea4",
+      "split": "dev"
+    },
+    {
+      "id": "G0008",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1000800,
+      "operator": "padding",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "a196a248ba4c7e60696d8dfca254bfeede160ce3b2d5d1107e0ed7fc39529d94",
+      "split": "dev"
+    },
+    {
+      "id": "G0009",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1000900,
+      "operator": "conditional",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "7f44bb0616ae7004cf6e5d012da448dab740b0faa1d449f7fd9c0600d949cba1",
+      "split": "dev"
+    },
+    {
+      "id": "G0010",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "accounts_payable",
+      "track": "history",
+      "seed": 1001000,
+      "operator": "free_field_bridge",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "3d1ccbd2543fc1d7039b95cc6677e526c7e1af60369bc2562bedf72ccc64b9c5",
+      "split": "dev"
+    },
+    {
+      "id": "G0011",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1001100,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "405818b9a74f6ed56fe70a16e43fa56699b2990ace680c4cafcfbb76212e479c",
+      "split": "test"
+    },
+    {
+      "id": "G0012",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "grants",
+      "track": "history",
+      "seed": 1001200,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "06a3bcf1fdf6c4070b8913b4186ea07a570c359a93b2a73622716f9509fb318a",
+      "split": "dev"
+    },
+    {
+      "id": "G0013",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1001300,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "fe21356e48aad5f9b41929bdc77bf4a479a261bb09562fb50cb812aea9b278e9",
+      "split": "test"
+    },
+    {
+      "id": "G0014",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1001400,
+      "operator": "neutral_disguise",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "79ab2fc732e69ffc60a39f7f9d1e5c613691a31508e784e385f8de9f136cabc4",
+      "split": "test"
+    },
+    {
+      "id": "G0015",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1001500,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "392462fb51c590405870b4568bb8f8f683f622d8c6b7f925eb6af4dfd5fa3231",
+      "split": "dev"
+    },
+    {
+      "id": "G0016",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "refunds",
+      "track": "history",
+      "seed": 1001600,
+      "operator": "conditional",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "c5aa470e4d773f3bda8b2035f02b0436ed5e2bcc15a80d8bcdec97405a7af9a2",
+      "split": "test"
+    },
+    {
+      "id": "G0017",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "deployments",
+      "track": "history",
+      "seed": 1001700,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "chat.formal_announcement"
+      },
+      "runtime_sha256": "9ad0553212665690b7d6bc7e6e5fe0dde39dfb96423fb48c4429807a0d89b58a",
+      "split": "test"
+    },
+    {
+      "id": "G0018",
+      "family": "redundancy",
+      "rule_family": "positional_rank",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1001800,
+      "operator": "redundancy:free_field_bridge+conditional",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual",
+        "ticket_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "ced65be1173425a16c4a6e1252585344053049fdf42e42edd979a2f982a75eb0",
+      "split": "dev"
+    },
+    {
+      "id": "G0019",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1001900,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.casual"
+      },
+      "runtime_sha256": "ac2d4b586aaf95534abad710573c31da73f61f1704bd29e4efca4635a704ab50",
+      "split": "test"
+    },
+    {
+      "id": "G0020",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1002000,
+      "operator": "conditional",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "77e5ff4194695c1876c0898c328d34832cf0409536e039780776cebff24147b0",
+      "split": "test"
+    },
+    {
+      "id": "G0021",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1002100,
+      "operator": "conditional",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "c62a035422eed1d1fee7154ddd74c048a0496a40e824f3677385e6b620a0ad7f",
+      "split": "dev"
+    },
+    {
+      "id": "G0022",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1002200,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "ticket.short_note"
+      },
+      "runtime_sha256": "a6284be83dfc7e75fabd84f743687c7ff6d814fbdcd62a75f2848a7e53bce2dc",
+      "split": "test"
+    },
+    {
+      "id": "G0023",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1002300,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "66fca56aa3fef15a73bcc6c4279bf30ded495870434a9cdfb93577d799b42800",
+      "split": "dev"
+    },
+    {
+      "id": "G0024",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1002400,
+      "operator": "minimal",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "418223cd0e9564c25b2dc094d5df24d863b35961778beb2fa9af7272b2de4614",
+      "split": "test"
+    },
+    {
+      "id": "G0025",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "accounts_payable",
+      "track": "history",
+      "seed": 1002500,
+      "operator": "authority_framing",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "2be16c5bcc1544685cc1f2d52a8fbadb95def2201df255b3948af5b3270fe981",
+      "split": "dev"
+    },
+    {
+      "id": "G0026",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1002600,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "cee701e3e389dd3e8ac84a6678d5905f6bf89f6c139c973da758b07b52db0e91",
+      "split": "dev"
+    },
+    {
+      "id": "G0027",
+      "family": "redundancy",
+      "rule_family": "positional_rank",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1002700,
+      "operator": "redundancy:free_field_bridge+authority_framing",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.headers_formal",
+        "ticket_1": "ticket.casual"
+      },
+      "runtime_sha256": "fca686f49cf1e0c6f0619f6549ac86be4e13ac92f44a742a035342c8e320e7d3",
+      "split": "dev"
+    },
+    {
+      "id": "G0028",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1002800,
+      "operator": "free_field_bridge",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "86ca97148d7d6525d956416dd43f1b26b7acbf43002d614b88fe814c2bfeca6e",
+      "split": "dev"
+    },
+    {
+      "id": "G0029",
+      "family": "redundancy",
+      "rule_family": "status_match",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1002900,
+      "operator": "redundancy:status_reinterpretation+neutral_disguise",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets",
+        "ticket_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "f5240c7c5e9941b1b46329204c65bf6b0e0e7b653099dd41df99a6dfda58e430",
+      "split": "test"
+    },
+    {
+      "id": "G0030",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1003000,
+      "operator": "neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "0bfd62737aa535343f26e7e38800267b6bf0f7efb3d1181d581b466f2f08f3bb",
+      "split": "dev"
+    },
+    {
+      "id": "G0031",
+      "family": "redundancy",
+      "rule_family": "status_match",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1003100,
+      "operator": "redundancy:authority_framing+neutral_disguise",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "chat.multi_message",
+        "ticket_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "87c751ce16196d73c37d61e19485cccef1956f8d7c45b2aeadfd8ebaf70adad7",
+      "split": "dev"
+    },
+    {
+      "id": "G0032",
+      "family": "redundancy",
+      "rule_family": "filter_earliest",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1003200,
+      "operator": "redundancy:positional_pointer+padding",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual",
+        "ticket_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "86b1216f3c8738617c238021d9590ac149e2d8e9742dbbe2252c727c19a9b8d1",
+      "split": "test"
+    },
+    {
+      "id": "G0033",
+      "family": "redundancy",
+      "rule_family": "positional_rank",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1003300,
+      "operator": "redundancy:neutral_disguise+positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.signature_block",
+        "ticket_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "56194cde3ab5b6a8e6d73891cf90192a547864dc25733714133df1b5bf2862f0",
+      "split": "dev"
+    },
+    {
+      "id": "G0034",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1003400,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "e8496ab715c48652294cbc08fa3d9be365d41f52296db099f1656f53b76da6a5",
+      "split": "dev"
+    },
+    {
+      "id": "G0035",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1003500,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "cfaa727487a7b87a8189f2c19c3e749876ca32dafe981a9a870ce180f99ca50e",
+      "split": "dev"
+    },
+    {
+      "id": "G0036",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1003600,
+      "operator": "authority_framing",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "24f6f9525fdd943fdaf95917fdbc00a061a30c97568e07248a3f7cc6c4a0b3ea",
+      "split": "test"
+    },
+    {
+      "id": "G0037",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "grants",
+      "track": "history",
+      "seed": 1003700,
+      "operator": "history_carrier",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "bd0300bcf12e00fd61c76e5ec081053fcf241cd63beeb331ec2a236b5a998ef0",
+      "split": "dev"
+    },
+    {
+      "id": "G0038",
+      "family": "redundancy",
+      "rule_family": "filter_earliest",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1003800,
+      "operator": "redundancy:authority_framing+free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.headers_formal",
+        "ticket_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "016925e7a1b4e6bdd0eb6da557a37564dca472995cbe5689a6a8f21f8e97bd22",
+      "split": "test"
+    },
+    {
+      "id": "G0039",
+      "family": "redundancy",
+      "rule_family": "composite_key",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1003900,
+      "operator": "redundancy:minimal+free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual",
+        "ticket_1": "ticket.casual"
+      },
+      "runtime_sha256": "a1340269ace5a442d93f8e8a5fa9db8fe25583d801d52fa3f411430fa5c2b194",
+      "split": "dev"
+    },
+    {
+      "id": "G0040",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1004000,
+      "operator": "minimal",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "chat.bold_fyi"
+      },
+      "runtime_sha256": "bc12f725ce8b48dc090ac6ad935c0548f2d1b5e419867e906ca4d3a7a8eb2d7c",
+      "split": "dev"
+    },
+    {
+      "id": "G0041",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1004100,
+      "operator": "authority_framing",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "chat.casual_long"
+      },
+      "runtime_sha256": "46f643ca2d389c67c462bb8046c158cad302bce7bc73601260b5d870509dbe97",
+      "split": "test"
+    },
+    {
+      "id": "G0042",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1004200,
+      "operator": "status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "478912fc2d2302e2bb90b7925e0ef039e798be4be7b1f2a4d87fb35c107f1ba1",
+      "split": "dev"
+    },
+    {
+      "id": "G0043",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1004300,
+      "operator": "conditional",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "ticket.headers"
+      },
+      "runtime_sha256": "53473686152547d458c0689b17f1c48a74ef947327f5f7adfcb0da7d1bc8f2aa",
+      "split": "dev"
+    },
+    {
+      "id": "G0044",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1004400,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "bb9f51f853dedd9b35b52a464c7a1c6052984faf56fc7c91ce8233301266fe82",
+      "split": "test"
+    },
+    {
+      "id": "G0045",
+      "family": "redundancy",
+      "rule_family": "filter_earliest",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1004500,
+      "operator": "redundancy:status_reinterpretation+authority_framing",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual",
+        "ticket_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "9593feaa1283c2a0f6330af2085b2b305c84ac74d7f2b8eb604b7c1ef40a13da",
+      "split": "dev"
+    },
+    {
+      "id": "G0046",
+      "family": "redundancy",
+      "rule_family": "role_join",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1004600,
+      "operator": "redundancy:padding+minimal",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "ticket.fields_formal",
+        "ticket_1": "ticket.casual"
+      },
+      "runtime_sha256": "cf8d371db9c018403c330ccc200b633f53c1a7f9a75b5d793346e281a4c48573",
+      "split": "dev"
+    },
+    {
+      "id": "G0047",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "deployments",
+      "track": "history",
+      "seed": 1004700,
+      "operator": "authority_framing",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "chat.single_line"
+      },
+      "runtime_sha256": "77824ebc35bf1a554fb1e10ef001fe572a3294553f8905ff3a17391abe92c275",
+      "split": "test"
+    },
+    {
+      "id": "G0048",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "access_grants",
+      "track": "history",
+      "seed": 1004800,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "ticket.fields_formal"
+      },
+      "runtime_sha256": "bffb370b77e45f2b8cd13bc1c80657124e947227f87962778b6c95380927251b",
+      "split": "test"
+    },
+    {
+      "id": "G0049",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1004900,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "268cdbcd133df32e6dcbf3044e7f2e829cab0559ee517e7148d85bd353455658",
+      "split": "test"
+    },
+    {
+      "id": "G0050",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1005000,
+      "operator": "free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "5d982a2ed4d24c9f1e649433ac2ce5e706600cd024149749918c39e05ca72a28",
+      "split": "dev"
+    },
+    {
+      "id": "G0051",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1005100,
+      "operator": "status_reinterpretation",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "4067f9f86b0755ffa393339413de565324fa3e54cae62921d9d8ae34e6e2c810",
+      "split": "test"
+    },
+    {
+      "id": "G0052",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1005200,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "9a2edaab28be57a3d54b4ab1c45a3b97cb5c2f33aeeb3d22cdb6ef4e2bc0e590",
+      "split": "dev"
+    },
+    {
+      "id": "G0053",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1005300,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "58cd7ed3fd71930c934930f09939bd5315e678074aa374848c7a836d85b40a42",
+      "split": "test"
+    },
+    {
+      "id": "G0054",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1005400,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "e06589c16136edca9597a8e180703cede71c35f6692daf37a604d65d4cc85275",
+      "split": "test"
+    },
+    {
+      "id": "G0055",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1005500,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "ticket.fields_formal"
+      },
+      "runtime_sha256": "f4682f3e18b62414c7be17aea86fb18f1dc38bbec4077fd1f116f12f9172e849",
+      "split": "dev"
+    },
+    {
+      "id": "G0056",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1005600,
+      "operator": "minimal",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "cc6be7a75b0b444a22e1805ab90304c7a74dabc69ea93a5c2c562a16d4afe922",
+      "split": "test"
+    },
+    {
+      "id": "G0057",
+      "family": "redundancy",
+      "rule_family": "status_match",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1005700,
+      "operator": "redundancy:neutral_disguise+minimal",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets",
+        "ticket_1": "ticket.short_note"
+      },
+      "runtime_sha256": "d713e20f9f563c07f388e0d1105e9cafd11713fbf6d476e39f25842d3095ee74",
+      "split": "test"
+    },
+    {
+      "id": "G0058",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1005800,
+      "operator": "authority_framing",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "691df6a8435301fb36899ef305a5fb23770731abc128d0000d55cdaf7c3d7f1f",
+      "split": "dev"
+    },
+    {
+      "id": "G0059",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "scheduling",
+      "track": "history",
+      "seed": 1005900,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "d0ec1562e61d7cf2e3b0c56158ceb6f4a9aee29e3219b2adcd2917c3dd334051",
+      "split": "dev"
+    },
+    {
+      "id": "G0060",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1006000,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "82812a1ae9b9b7c0df2f09cb11cc7c1d55ecace6433368134d8e313fe8a19499",
+      "split": "dev"
+    },
+    {
+      "id": "G0061",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1006100,
+      "operator": "status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "9e4ba9625d31c4999450163fe38156599dbabc4c873a8c9f5008e78387149748",
+      "split": "test"
+    },
+    {
+      "id": "G0062",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1006200,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "37267a5d61ae9496a0794bf7bb7ea3b7b7a53a7c811c7d03590cc8cee646a655",
+      "split": "test"
+    },
+    {
+      "id": "G0063",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1006300,
+      "operator": "free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "a0b718af4628df12527eb29e0d675ecf2819279ce1c6832d52ec1a4bb285954a",
+      "split": "test"
+    },
+    {
+      "id": "G0064",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1006400,
+      "operator": "padding",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "4403aaacff12a4e756eabe6cd1d0d74f2984286f33d1ec53b67f00a33f8d5287",
+      "split": "test"
+    },
+    {
+      "id": "G0065",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1006500,
+      "operator": "status_reinterpretation",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "39cb8c29b561170ef7411dad1f9292a54b3a42d44e5c840d67fa7bdaf8f5fa2e",
+      "split": "dev"
+    },
+    {
+      "id": "G0066",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1006600,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "66a275568dfeb6a2740cd74d29ec2609b66bde7ed336ac53285faf6e0dfa1272",
+      "split": "dev"
+    },
+    {
+      "id": "G0067",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1006700,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "10ae2109224f1e13c05f0d1a5b592f7519caa56f88adce1ecb37b21d4de7739c",
+      "split": "dev"
+    },
+    {
+      "id": "G0068",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1006800,
+      "operator": "free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "44614c9f16db8b25e755e17dceb4e864cfee761c30b76adff0a1531382e820b8",
+      "split": "dev"
+    },
+    {
+      "id": "G0069",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1006900,
+      "operator": "minimal",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "d401dc8aa9f23b09a0d0534abe74ffa4f435f0ec0a313d43058e1d2f8e3cd724",
+      "split": "dev"
+    },
+    {
+      "id": "G0070",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "access_grants",
+      "track": "history",
+      "seed": 1007000,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "5f33cdbf780a58a34697e4a118e8ec3b7900950028033e7faa89b4fc66d89a51",
+      "split": "test"
+    },
+    {
+      "id": "G0071",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1007100,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "ea08156eb234a9507adc76d531f977ee270345fee7b3ba5c392f6fe9d1110b6b",
+      "split": "dev"
+    },
+    {
+      "id": "G0072",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1007200,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "edc7677c5f698e8ddc5dc590a432cf9974b1e3f174285faff3d2089fcd23152a",
+      "split": "dev"
+    },
+    {
+      "id": "G0073",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1007300,
+      "operator": "minimal",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "83e7ba87d16875a7a581bbe90839014378c7af496afb714f5ab6ee2ca5f25d4a",
+      "split": "dev"
+    },
+    {
+      "id": "G0074",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1007400,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "e27ae66b51b5a2a523a88a6eb4c52ee1d8cb1084bfae83643615b075d90c4713",
+      "split": "dev"
+    },
+    {
+      "id": "G0075",
+      "family": "redundancy",
+      "rule_family": "positional_rank",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1007500,
+      "operator": "redundancy:conditional+padding",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual",
+        "ticket_1": "ticket.fields_formal"
+      },
+      "runtime_sha256": "480ed25f5bf898ca0cd0c1953c98aab939babe091ac704f0803811c665fa7188",
+      "split": "dev"
+    },
+    {
+      "id": "G0076",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "access_grants",
+      "track": "history",
+      "seed": 1007600,
+      "operator": "neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "ticket.headers"
+      },
+      "runtime_sha256": "c0bbd4084313857ca5c0010a80fc545eb4be1bb08dfd186c76d919ec5cc69a46",
+      "split": "test"
+    },
+    {
+      "id": "G0077",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1007700,
+      "operator": "status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.casual"
+      },
+      "runtime_sha256": "d422223d4e3ec922f48206f711a656ef92f2b1005e99530516aabaa3d48a3a76",
+      "split": "test"
+    },
+    {
+      "id": "G0078",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "grants",
+      "track": "history",
+      "seed": 1007800,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "2670bac5fd2c850d83e21b75bf08b16278accd053ce92a11388c65d56cc3acf1",
+      "split": "dev"
+    },
+    {
+      "id": "G0079",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1007900,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "14fbece5acff0815ab43cb26abf49c91d971fe73dc2ebe1e880d5402e96ba5ff",
+      "split": "dev"
+    },
+    {
+      "id": "G0080",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1008000,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "ticket.headers"
+      },
+      "runtime_sha256": "f3c147d69c99e74e2cae0c9da3572db35204036e87cd2d5be61d1a9f8907981f",
+      "split": "dev"
+    },
+    {
+      "id": "G0081",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1008100,
+      "operator": "free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "ticket.fields_formal"
+      },
+      "runtime_sha256": "055a19203d5e593345c44ab075b4fb9934f63b336b8b136600f8e4ce941644bb",
+      "split": "dev"
+    },
+    {
+      "id": "G0082",
+      "family": "redundancy",
+      "rule_family": "composite_key",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1008200,
+      "operator": "redundancy:authority_framing+neutral_disguise",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "chat.single_line",
+        "ticket_1": "ticket.short_note"
+      },
+      "runtime_sha256": "f291a42488053e3b4cbdb80d1a23c4f5661da4940d553136f2a67665a4fa25b7",
+      "split": "dev"
+    },
+    {
+      "id": "G0083",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1008300,
+      "operator": "padding",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "5fecb98c5894092690f79967c9e9c0d17f6481350162ad7af5c0ea44a8c0dd16",
+      "split": "test"
+    },
+    {
+      "id": "G0084",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1008400,
+      "operator": "minimal",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "4942d3c1fbce89960a5ed814467053079d9547fb64023101507979830d29a38c",
+      "split": "dev"
+    },
+    {
+      "id": "G0085",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1008500,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "c3975e0dbb4d5e5171d4420b5f0d8e8ecefada76e9846e9b581395b08f5c4891",
+      "split": "test"
+    },
+    {
+      "id": "G0086",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1008600,
+      "operator": "minimal",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "chat.multi_message"
+      },
+      "runtime_sha256": "b9ace4c8bf77c3042731b0b496e9e994b38013b70271e51dca8d602f703f7adb",
+      "split": "dev"
+    },
+    {
+      "id": "G0087",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "inventory",
+      "track": "history",
+      "seed": 1008700,
+      "operator": "status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "23fead8ef3ff904014c34225a5230d919ba57a5423a6e4a395b5d5923539d64a",
+      "split": "dev"
+    },
+    {
+      "id": "G0088",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1008800,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "chat.multi_message"
+      },
+      "runtime_sha256": "bc70f68c2ba85f04f4a966c0e3e93214fb5e71750a7bf19288f7880b9fc4824b",
+      "split": "dev"
+    },
+    {
+      "id": "G0089",
+      "family": "redundancy",
+      "rule_family": "filter_earliest",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1008900,
+      "operator": "redundancy:minimal+status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual",
+        "ticket_1": "ticket.short_note"
+      },
+      "runtime_sha256": "3956b884bef72c5c82d925f4d8670ce31ad8df10d6709e0a93025ede61f52c37",
+      "split": "dev"
+    },
+    {
+      "id": "G0090",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1009000,
+      "operator": "positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "56e5d3afcd6798259ee5da943d67f4d32e50878eed4a305add0104eb27289e44",
+      "split": "test"
+    },
+    {
+      "id": "G0091",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1009100,
+      "operator": "authority_framing",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "d902aafa842cdcc55a1ef92642c2fbd987cd1579b7fa4a5a0cc86c2407f20123",
+      "split": "test"
+    },
+    {
+      "id": "G0092",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1009200,
+      "operator": "free_field_bridge",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "2cb179b0f512a426e483dafb96f06d86151508dceea1763a1341b21ae2fd1c18",
+      "split": "test"
+    },
+    {
+      "id": "G0093",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1009300,
+      "operator": "minimal",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "a5cac178f4240de967a1e5ea208391426a609f3661a8cbbcf683288caa3f016a",
+      "split": "test"
+    },
+    {
+      "id": "G0094",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "deployments",
+      "track": "history",
+      "seed": 1009400,
+      "operator": "padding",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "chat.casual_long"
+      },
+      "runtime_sha256": "bacd9872a5773c18314988ab24248514c8bf96d418fa99f8f8a63140b1214472",
+      "split": "test"
+    },
+    {
+      "id": "G0095",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1009500,
+      "operator": "minimal",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "bd9f61c0572a610ce71c2aac121a71b4d4ba5ab3bfe1024e5ebbe0303007672e",
+      "split": "test"
+    },
+    {
+      "id": "G0096",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1009600,
+      "operator": "authority_framing",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "ticket.headers"
+      },
+      "runtime_sha256": "88723bbe836972fd2bdcc0f982bf7c4839fa2086e559204600261e5994b47244",
+      "split": "dev"
+    },
+    {
+      "id": "G0097",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1009700,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "chat.quoted"
+      },
+      "runtime_sha256": "f22c9a3f18de1b8261e8cf1a62b55bfc37c0afc4e81f6bf4e3e142895eb29691",
+      "split": "dev"
+    },
+    {
+      "id": "G0098",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1009800,
+      "operator": "neutral_disguise",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "f7fb02960d5618926a2cb042f29dc95060b8ecd12274e9f05a1c1382d5fa9f3e",
+      "split": "dev"
+    },
+    {
+      "id": "G0099",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "refunds",
+      "track": "history",
+      "seed": 1009900,
+      "operator": "authority_framing",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "7a75dd0a4c08747270dfd55fb99e7ab2796fb9ade5675a9c6026f33a8dcc3a86",
+      "split": "test"
+    },
+    {
+      "id": "G0100",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1010000,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "db2871fa531e4f0414f36a905ff7ea980cc95060c8e6e5d0b8c26e9723ff4572",
+      "split": "test"
+    },
+    {
+      "id": "G0101",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1010100,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "95fa8058a2b4241cf9e613c1049a7a6b0cfade4c4a4c85aba87add6f6d650da5",
+      "split": "test"
+    },
+    {
+      "id": "G0102",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1010200,
+      "operator": "free_field_bridge",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "chat.quoted"
+      },
+      "runtime_sha256": "2c5a3cbfde4850eae1fb1f80b41e9a619014e4c607f3b1f2693e58d772da95b3",
+      "split": "dev"
+    },
+    {
+      "id": "G0103",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1010300,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "ticket.short_note"
+      },
+      "runtime_sha256": "17419d58000d46130a91acdf44e108b675a3703adb8ec336d2393b9f929430e4",
+      "split": "test"
+    },
+    {
+      "id": "G0104",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "access_grants",
+      "track": "history",
+      "seed": 1010400,
+      "operator": "minimal",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "ce35889cca9f3bc77fedadb0b610d7e076ad54df1edd36efa7447be466f0cb20",
+      "split": "test"
+    },
+    {
+      "id": "G0105",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1010500,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.headers"
+      },
+      "runtime_sha256": "65a2f743f37313314047128f6813b3088e8ab34ad1732f7e01a73045675a5ebe",
+      "split": "dev"
+    },
+    {
+      "id": "G0106",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1010600,
+      "operator": "free_field_bridge",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "813133cef382450d9ba8c188536d0a8008d80d6908a71b313972becf938cc3be",
+      "split": "dev"
+    },
+    {
+      "id": "G0107",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1010700,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "3adc324cd5bcd2d1dbd765d1cfa0679d73ef5d7352cf51031953266eeafef40d",
+      "split": "dev"
+    },
+    {
+      "id": "G0108",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1010800,
+      "operator": "free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "chat.casual_long"
+      },
+      "runtime_sha256": "da120682e3aaf0af3a30bf86ca7f760e33344bb89dfebbda316a1859484d3eba",
+      "split": "test"
+    },
+    {
+      "id": "G0109",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1010900,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "41b80bcb8a4e23ddf474b720f4abc9df58957dc949aa6bc310caefcdde6f4225",
+      "split": "test"
+    },
+    {
+      "id": "G0110",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1011000,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "bf19d721c7a654a2de6798173e5b6f7f4e395c342ddf168bb0f5c0f0ba76029e",
+      "split": "test"
+    },
+    {
+      "id": "G0111",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1011100,
+      "operator": "free_field_bridge",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "chat.bold_fyi"
+      },
+      "runtime_sha256": "9940dc2c09a34b5687a41898014bdc56c397b1af41dfc89ca34fe858e8b5a996",
+      "split": "test"
+    },
+    {
+      "id": "G0112",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1011200,
+      "operator": "positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "04b4f27ffde845e0ec80f65604af99ac715b7325946c973aed66e11e7b29025f",
+      "split": "dev"
+    },
+    {
+      "id": "G0113",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "travel",
+      "track": "history",
+      "seed": 1011300,
+      "operator": "minimal",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "70c76595a32bb0932d5d6ec6de2fdc42ac037052b22285d6a8b4178bc397791c",
+      "split": "test"
+    },
+    {
+      "id": "G0114",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1011400,
+      "operator": "conditional",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.short_note"
+      },
+      "runtime_sha256": "b8987e4248950136b791aa17e82d79a8517dafa12fcab957a370b0b916fde34a",
+      "split": "test"
+    },
+    {
+      "id": "G0115",
+      "family": "redundancy",
+      "rule_family": "role_join",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1011500,
+      "operator": "redundancy:positional_pointer+free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual",
+        "ticket_1": "ticket.fields_formal"
+      },
+      "runtime_sha256": "fb7e12db976e85eedd41b3f544ea22fdc718079bc016089545202f11d688652e",
+      "split": "test"
+    },
+    {
+      "id": "G0116",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1011600,
+      "operator": "minimal",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "chat.quoted"
+      },
+      "runtime_sha256": "c62720f858bd821e87e7d78042914c2c5bbc074823c1e71dfa2c54abdd541330",
+      "split": "dev"
+    },
+    {
+      "id": "G0117",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1011700,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "253ad246de60db3402671ab50a733662e7971ed7bea7b9c34468d8dbf1478857",
+      "split": "test"
+    },
+    {
+      "id": "G0118",
+      "family": "redundancy",
+      "rule_family": "positional_rank",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1011800,
+      "operator": "redundancy:padding+free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual",
+        "ticket_1": "ticket.fields_formal"
+      },
+      "runtime_sha256": "3dd1cb8f4eb14ae221494f878db57a0ad2bb7c3bffa5b425caab7deb4a760a0d",
+      "split": "test"
+    },
+    {
+      "id": "G0119",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1011900,
+      "operator": "conditional",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "e22affffc7cbb8c6af364d4b3c3ac95a20e613e006978ceee46d17d04ccc53b2",
+      "split": "test"
+    },
+    {
+      "id": "G0120",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1012000,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "8084971182add05fe74b1159f07886534a4ba1362bbe0e10a4277c001a306cd2",
+      "split": "dev"
+    },
+    {
+      "id": "G0121",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1012100,
+      "operator": "positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "d7c7c80e3ce53f245c98206132cb3ce044507f142df2b3d3e574e76d7782d1be",
+      "split": "test"
+    },
+    {
+      "id": "G0122",
+      "family": "redundancy",
+      "rule_family": "filter_earliest",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1012200,
+      "operator": "redundancy:status_reinterpretation+conditional",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.long_formal",
+        "ticket_1": "ticket.headers"
+      },
+      "runtime_sha256": "e23c6a837720b1ab68dab71627ff1f96349b0dc83f3b15144f32bbfc6ccb342a",
+      "split": "test"
+    },
+    {
+      "id": "G0123",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1012300,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "196b243dfe76ca613d82f487e5e630b9f80f38b27018e1259ca42b920c76c9df",
+      "split": "dev"
+    },
+    {
+      "id": "G0124",
+      "family": "redundancy",
+      "rule_family": "filter_earliest",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1012400,
+      "operator": "redundancy:conditional+free_field_bridge",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "chat.quoted",
+        "ticket_1": "ticket.headers"
+      },
+      "runtime_sha256": "ad80b3d947ba19302b76b8edea8049e2bc75130dfd98b2f60d62e81ad8fd2c2a",
+      "split": "test"
+    },
+    {
+      "id": "G0125",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1012500,
+      "operator": "padding",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "ebacf371cb36060dde0014e2fcbc760b238e70b497392e4bc9214c5693331d01",
+      "split": "dev"
+    },
+    {
+      "id": "G0126",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1012600,
+      "operator": "conditional",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "5541b709cbad5fd00a366e27576e1707d43e05387f4a7e3a015eff59cef910a5",
+      "split": "dev"
+    },
+    {
+      "id": "G0127",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1012700,
+      "operator": "minimal",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "ticket.short_note"
+      },
+      "runtime_sha256": "a6c44428047fa95bf8c74b4793d0a2c49870dc9d0d98e407d289e0df72da18a8",
+      "split": "dev"
+    },
+    {
+      "id": "G0128",
+      "family": "redundancy",
+      "rule_family": "composite_key",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1012800,
+      "operator": "redundancy:positional_pointer+free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.headers_formal",
+        "ticket_1": "ticket.short_note"
+      },
+      "runtime_sha256": "7417413e5a41ce18f7eed52467634da57bfb1439b7638d9d3fdc82ce3909f3b0",
+      "split": "test"
+    },
+    {
+      "id": "G0129",
+      "family": "redundancy",
+      "rule_family": "role_join",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1012900,
+      "operator": "redundancy:minimal+free_field_bridge",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "chat.quoted",
+        "ticket_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "096e3e017b6854562564b601b3f7df8fc79301a13e79719e8c959aad940048ec",
+      "split": "dev"
+    },
+    {
+      "id": "G0130",
+      "family": "redundancy",
+      "rule_family": "role_join",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1013000,
+      "operator": "redundancy:status_reinterpretation+padding",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose",
+        "ticket_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "b6e006dbe1f9d48579e784ba35e8b4fe3ea25a3bd2e349fe148a31a539850a41",
+      "split": "dev"
+    },
+    {
+      "id": "G0131",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1013100,
+      "operator": "free_field_bridge",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "c52d59bbb146748284546cd640e3b6e35683072fec5b5373ec2f99c7aab25021",
+      "split": "test"
+    },
+    {
+      "id": "G0132",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1013200,
+      "operator": "status_reinterpretation",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "bca831f3f75e8fdbfde201a3c79fccef565fc9a95c96facfd757ab2fa97a06cc",
+      "split": "test"
+    },
+    {
+      "id": "G0133",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "scheduling",
+      "track": "history",
+      "seed": 1013300,
+      "operator": "conditional",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "293482400d9e37dc2f556b626d3d6cbf416d10bb5e21b782632ddefed0f7b642",
+      "split": "dev"
+    },
+    {
+      "id": "G0134",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1013400,
+      "operator": "conditional",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "048927c646db1305db3d99a6d738086ee49b422127bc9a521c740b59eebbaea4",
+      "split": "dev"
+    },
+    {
+      "id": "G0135",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1013500,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "ab2b0012ad62cd985ebaf7d92d20a854721c3f18ea3e5431c3f20cecd54b41c3",
+      "split": "test"
+    },
+    {
+      "id": "G0136",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1013600,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "chat.casual_long"
+      },
+      "runtime_sha256": "3976f96bcb569c5478af9fcb92cc9bf442acb25efd388657bdab29373d9d7a8a",
+      "split": "dev"
+    },
+    {
+      "id": "G0137",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "refunds",
+      "track": "history",
+      "seed": 1013700,
+      "operator": "minimal",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "ad2da0cda7c113d49e5043f75200bd1028253400360dfd5f3c355523637240b0",
+      "split": "test"
+    },
+    {
+      "id": "G0138",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "inventory",
+      "track": "history",
+      "seed": 1013800,
+      "operator": "minimal",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "062e16c8c6fa46cdb96a79e227ea456ae15ecc8db0ec46e697988d5610ea1785",
+      "split": "dev"
+    },
+    {
+      "id": "G0139",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1013900,
+      "operator": "status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "8958cfd8fb7e6f3bc0a5ba5fc64e7b0ef36abcc4dc1c735638720b278e7256cf",
+      "split": "dev"
+    },
+    {
+      "id": "G0140",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1014000,
+      "operator": "conditional",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "d3b9c70e9e634f1a04b8bb9acac69056b143bb436866be1781fa5ea2ea9432d0",
+      "split": "test"
+    },
+    {
+      "id": "G0141",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1014100,
+      "operator": "free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "4c52623bc7fa19bbf5ca33990652bee9e43e376ed9ad5acef7e1127de7d83174",
+      "split": "test"
+    },
+    {
+      "id": "G0142",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1014200,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "76c97ea6fff4d85e85aa3a6b49c9d5ec45d761701231ed113518c13ed6eb3acd",
+      "split": "dev"
+    },
+    {
+      "id": "G0143",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1014300,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "chat.single_line"
+      },
+      "runtime_sha256": "3c6699df4319dbcba36e8733a5c1daeea05a64ad6ba9269ec04a8b2897b3692a",
+      "split": "dev"
+    },
+    {
+      "id": "G0144",
+      "family": "redundancy",
+      "rule_family": "status_match",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1014400,
+      "operator": "redundancy:positional_pointer+authority_framing",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "chat.bold_fyi",
+        "ticket_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "b4d1732d96a4278cfbcf8c6b828b9f67ae8c94c47d91c7f86afb4e3d724c8380",
+      "split": "dev"
+    },
+    {
+      "id": "G0145",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1014500,
+      "operator": "positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "737884ef4f3067413ac444af2f9c948d955eef5fc6d75c607ffc7a9c4082431f",
+      "split": "test"
+    },
+    {
+      "id": "G0146",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1014600,
+      "operator": "neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "306a8d982a2ffe142d1b1bb5ac34c83d91b52186f920fce844afb50ef9fbfdeb",
+      "split": "dev"
+    },
+    {
+      "id": "G0147",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1014700,
+      "operator": "status_reinterpretation",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "076a8770c77d7be4f70f5cf8d170ecb110bad70b2f49d44a1d358d93bc303e14",
+      "split": "dev"
+    },
+    {
+      "id": "G0148",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1014800,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "f0448ab69375213bf0a9eccad645c356d9dc6bfe70ac088dbbb6ac0f6ecc4845",
+      "split": "test"
+    },
+    {
+      "id": "G0149",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1014900,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "66f4d9390bdafa635fdef8922b4a2f746447e739c7b117bd315a4f5ba3c7d5ae",
+      "split": "test"
+    },
+    {
+      "id": "G0150",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1015000,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "chat.single_line"
+      },
+      "runtime_sha256": "491aead311196f1e234fa6cca30db6d022e8919bd49490072ccd41f06b109fa2",
+      "split": "dev"
+    },
+    {
+      "id": "G0151",
+      "family": "redundancy",
+      "rule_family": "status_match",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1015100,
+      "operator": "redundancy:neutral_disguise+authority_framing",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.headers_formal",
+        "ticket_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "717901b358a05845342236fbdc213474d3afb50bfdd9e1aee74244ca2617f33e",
+      "split": "test"
+    },
+    {
+      "id": "G0152",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "refunds",
+      "track": "history",
+      "seed": 1015200,
+      "operator": "minimal",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "d86567000b3ceb02e9b9639c1a33b1328ae16a82a98dbe5242d86f75664244c7",
+      "split": "test"
+    },
+    {
+      "id": "G0153",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1015300,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "chat.bold_fyi"
+      },
+      "runtime_sha256": "fa022b5b037ba4cc5f76a0501e4119c956ee54c66e5b7268dd61540b6b0b0dbe",
+      "split": "dev"
+    },
+    {
+      "id": "G0154",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1015400,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "30aa19d6d92c525d572bd3150c732b26ca956d271e9aed84d6a9ac244427c622",
+      "split": "dev"
+    },
+    {
+      "id": "G0155",
+      "family": "redundancy",
+      "rule_family": "composite_key",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1015500,
+      "operator": "redundancy:conditional+positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.headers_formal",
+        "ticket_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "dbda7c1b7d9f66c05e691587ffbf5c9966579e22e2e4cd86ca238510be49ea8a",
+      "split": "dev"
+    },
+    {
+      "id": "G0156",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1015600,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "6d6622c5137a022e9105d4f3cf55199d9a4aac08177e4c43bcbe4be353fe10eb",
+      "split": "dev"
+    },
+    {
+      "id": "G0157",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "scheduling",
+      "track": "history",
+      "seed": 1015700,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "af7ec3c1f8c293df578db39cf8a22789dfcd642fd7f9ab99a3589478047a8970",
+      "split": "dev"
+    },
+    {
+      "id": "G0158",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1015800,
+      "operator": "neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "chat.bold_fyi"
+      },
+      "runtime_sha256": "549bad27f3fc5f56e157bd7649b60f91295609ad9cd71407f7b1f3c67ed97ffe",
+      "split": "dev"
+    },
+    {
+      "id": "G0159",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "inventory",
+      "track": "history",
+      "seed": 1015900,
+      "operator": "neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "544551225e159ed464a90585a8c0e27aed4aa4ecf541988870e518cea30bf6ee",
+      "split": "dev"
+    },
+    {
+      "id": "G0160",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1016000,
+      "operator": "free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "80723464ac348a43ca63ba48585c2a9eabe92821b560c5132f6e2eac34ae53a9",
+      "split": "dev"
+    },
+    {
+      "id": "G0161",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1016100,
+      "operator": "minimal",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "33ff313d58f4725ccb038ce1cfb6756835f6776d510b7bcf4bea749b79721289",
+      "split": "test"
+    },
+    {
+      "id": "G0162",
+      "family": "redundancy",
+      "rule_family": "positional_rank",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1016200,
+      "operator": "redundancy:conditional+positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "chat.formal_announcement",
+        "ticket_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "7c4cd81aa8e46bedc5a73fe17b6c4b373e73ecb7b89b2a0a36cd64acc41f8cd1",
+      "split": "test"
+    },
+    {
+      "id": "G0163",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1016300,
+      "operator": "status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "52ca2e70d0f06cb5415f9a7f25944ec6b6c596f693eab7b319f47a84ff9e4f7e",
+      "split": "test"
+    },
+    {
+      "id": "G0164",
+      "family": "redundancy",
+      "rule_family": "status_match",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1016400,
+      "operator": "redundancy:conditional+minimal",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose",
+        "ticket_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "1b422942f4231970504111a5e584d6d1de634b661f0e11656a72f633bc9de22a",
+      "split": "test"
+    },
+    {
+      "id": "G0165",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1016500,
+      "operator": "neutral_disguise",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "ffccbc2f9a7662fb29f7079ef83acd762d9e21652626af742ad2dada3062091a",
+      "split": "test"
+    },
+    {
+      "id": "G0166",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1016600,
+      "operator": "free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "19382dfa2373142212f0ceff3d7b35bf267fb369dc9b8162f3c4b9eef745ea50",
+      "split": "test"
+    },
+    {
+      "id": "G0167",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1016700,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "c56f70d387e1602c03828cdd361679361d0dad18fad5a00bedba1de4d23b7865",
+      "split": "test"
+    },
+    {
+      "id": "G0168",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1016800,
+      "operator": "status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "d6ebee1ca9e7d7161906f216d61571d653beef0f6f530f57036e187270f00b3e",
+      "split": "dev"
+    },
+    {
+      "id": "G0169",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1016900,
+      "operator": "positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "9226993cae5da2738e47f7064a340e6d70b0f6cbfa890002718c871b65555b9b",
+      "split": "test"
+    },
+    {
+      "id": "G0170",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1017000,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "ticket.casual"
+      },
+      "runtime_sha256": "2b5c9637b7acfe07fe036fa12d9c3a394ea9c8d705609eee90691dc3d918e08d",
+      "split": "dev"
+    },
+    {
+      "id": "G0171",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "accounts_payable",
+      "track": "history",
+      "seed": 1017100,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "9f3dd41e48c77c16f05ebd05d2519566781078814885e8be9b84c8c8912ea31a",
+      "split": "dev"
+    },
+    {
+      "id": "G0172",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1017200,
+      "operator": "neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "70c50811f3378a3de0201a0c7093cf8b4ae71b1c4169485ff089e419a3da1144",
+      "split": "dev"
+    },
+    {
+      "id": "G0173",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1017300,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "9af1b487a168cde7fa4150d42914188e91db87e64a88329486dd2f7659747adb",
+      "split": "dev"
+    },
+    {
+      "id": "G0174",
+      "family": "redundancy",
+      "rule_family": "status_match",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1017400,
+      "operator": "redundancy:free_field_bridge+status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "ticket.fields_formal",
+        "ticket_1": "ticket.short_note"
+      },
+      "runtime_sha256": "3ac8c2d6ac4bf6117dd814b432d0aa5ef579b2bc78e35c2d45c8aa2c01f232fd",
+      "split": "dev"
+    },
+    {
+      "id": "G0175",
+      "family": "redundancy",
+      "rule_family": "filter_earliest",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1017500,
+      "operator": "redundancy:neutral_disguise+status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual",
+        "ticket_1": "ticket.short_note"
+      },
+      "runtime_sha256": "dd4852c8e4d898b2a60a730a6ea1a61005c6fe2ff45d1b8ae4d7de1accfda7a0",
+      "split": "dev"
+    },
+    {
+      "id": "G0176",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1017600,
+      "operator": "conditional",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "15c5c020ad807efe0db0d7be9568a619e8a6410fc78f9cc9c5e5c18a21ede3dc",
+      "split": "test"
+    },
+    {
+      "id": "G0177",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1017700,
+      "operator": "status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "3ab474ea89f100420cad20bb6e73c9000cd32271ee51fbd5190abb910ae47dd9",
+      "split": "test"
+    },
+    {
+      "id": "G0178",
+      "family": "redundancy",
+      "rule_family": "filter_earliest",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1017800,
+      "operator": "redundancy:padding+authority_framing",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.headers_formal",
+        "ticket_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "450df40c3fe96ed9afe9459abf4a17c38e0bb0dbb37d7ca714bc256dc890b267",
+      "split": "dev"
+    },
+    {
+      "id": "G0179",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1017900,
+      "operator": "authority_framing",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "33ad2bc80a9439c0a25a321f1f00db352194a427bbd314373e24c88da189f499",
+      "split": "test"
+    },
+    {
+      "id": "G0180",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1018000,
+      "operator": "conditional",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "4b1b460047e0783c28db7df7e89d0473ef5e8c2552af4533ce3899f347753f49",
+      "split": "test"
+    },
+    {
+      "id": "G0181",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1018100,
+      "operator": "authority_framing",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "chat.quoted"
+      },
+      "runtime_sha256": "f6d48c137b016e863c43eb43242c45081718c8e346a3def8aed831ef54717baa",
+      "split": "test"
+    },
+    {
+      "id": "G0182",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "deployments",
+      "track": "history",
+      "seed": 1018200,
+      "operator": "minimal",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "chat.multi_message"
+      },
+      "runtime_sha256": "baab875f62967392be04f6ac2bdae4a4ea9efd5078eb8b45887d6c12bf2bc24e",
+      "split": "test"
+    },
+    {
+      "id": "G0183",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1018300,
+      "operator": "neutral_disguise",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "a0e9acfac168b00e783a504cd5c3a6e6f0225deb7a764fcfb4a9edfb0b65b3d0",
+      "split": "dev"
+    },
+    {
+      "id": "G0184",
+      "family": "redundancy",
+      "rule_family": "composite_key",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1018400,
+      "operator": "redundancy:authority_framing+padding",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose",
+        "ticket_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "45412c62f4c1fc4b8650d5611d97dac7851a9141c09f9b13984b2e73a9a4fb96",
+      "split": "test"
+    },
+    {
+      "id": "G0185",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1018500,
+      "operator": "padding",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "ba3b85cfe71fb9d36c23650263f3572b7bfe1bf6a004e0da868af23ea6cb4f7e",
+      "split": "dev"
+    },
+    {
+      "id": "G0186",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1018600,
+      "operator": "conditional",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "17d9f416feae56ddf8602f896b95a088b81f87f137271b729845e5868bc67d67",
+      "split": "dev"
+    },
+    {
+      "id": "G0187",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "accounts_payable",
+      "track": "history",
+      "seed": 1018700,
+      "operator": "positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "ddb007d2cb0b1e430c644183e07583683037e7b5ca75b636cf8b05237d7a8388",
+      "split": "dev"
+    },
+    {
+      "id": "G0188",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "inventory",
+      "track": "history",
+      "seed": 1018800,
+      "operator": "status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "8d8268bb66a2586be50c71c73371f6b4517ed2a5c16e1cc9901866a12a26f3fe",
+      "split": "dev"
+    },
+    {
+      "id": "G0189",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "scheduling",
+      "track": "history",
+      "seed": 1018900,
+      "operator": "conditional",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "869d7ad334bea5dc39fa2cd093e405313d0873e77de8071ea432be27b758004e",
+      "split": "dev"
+    },
+    {
+      "id": "G0190",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "inventory",
+      "track": "history",
+      "seed": 1019000,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "df32d0c3cde518f363a664abf33fca8fb9bae4c37f05f22bab2fb635bc803037",
+      "split": "dev"
+    },
+    {
+      "id": "G0191",
+      "family": "redundancy",
+      "rule_family": "role_join",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1019100,
+      "operator": "redundancy:authority_framing+neutral_disguise",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose",
+        "ticket_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "88fdc74ed8f335ebca5ee7a749403ef320956baa422ff09e5b0b39d47851525a",
+      "split": "test"
+    },
+    {
+      "id": "G0192",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1019200,
+      "operator": "conditional",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "cac656c31d7241afac673d43e15123a7d0dbab4fb425b1856de514075accff10",
+      "split": "test"
+    },
+    {
+      "id": "G0193",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1019300,
+      "operator": "padding",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "chat.casual_long"
+      },
+      "runtime_sha256": "b69d9c4c8f1e56544aad06864dabab02b50805f08c00e3a740e5cfba986eb3d8",
+      "split": "test"
+    },
+    {
+      "id": "G0194",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1019400,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "chat.casual_long"
+      },
+      "runtime_sha256": "d857d09ec006f50c2f0219b70ec8389d5f5a953d3018281e0bb5b31b93bbf3fb",
+      "split": "test"
+    },
+    {
+      "id": "G0195",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1019500,
+      "operator": "conditional",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "f0add5ee77e36d4e04c5118b90dd25afd28b84365b79f5fef7530126698ae65a",
+      "split": "dev"
+    },
+    {
+      "id": "G0196",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1019600,
+      "operator": "neutral_disguise",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "b2255caced91a7be9cbf7ce2a2f3ce3d1a541b02efc933eb46032d124aa5b0d6",
+      "split": "test"
+    },
+    {
+      "id": "G0197",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1019700,
+      "operator": "minimal",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "8bab711d98bdb561a1175deecd0d546c5cc30ce65519a25d6e1a65f5f1b3478e",
+      "split": "dev"
+    },
+    {
+      "id": "G0198",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1019800,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "5f6d3cdc558e9183d3360b87c86a91f6f80ed227d3613fb56f36662f330948f0",
+      "split": "dev"
+    },
+    {
+      "id": "G0199",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1019900,
+      "operator": "status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "1981f38b869cec6018d26623065ab9807bb6f6aa316960c556ef4aff61c414f2",
+      "split": "dev"
+    },
+    {
+      "id": "G0200",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1020000,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "0d1eacf9ea56e369f0638fc77693a8db0f47a04c91a1ba388c28858f162331f0",
+      "split": "test"
+    },
+    {
+      "id": "G0201",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1020100,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "chat.formal_announcement"
+      },
+      "runtime_sha256": "b13878522339958b14b3421cf17cf9197d186b7ab630b2366b596f9de6092a58",
+      "split": "test"
+    },
+    {
+      "id": "G0202",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1020200,
+      "operator": "status_reinterpretation",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "chat.formal_announcement"
+      },
+      "runtime_sha256": "e907d24b2f16f4b6fa5d6f9b47c505500b389e20247d3fbb11c1bfcb986ee359",
+      "split": "dev"
+    },
+    {
+      "id": "G0203",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1020300,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "chat.casual_long"
+      },
+      "runtime_sha256": "6c5a52db5bd46befa1cded4ab8b728d1121cf1a2371a42345cbcf0bbf1d328a3",
+      "split": "test"
+    },
+    {
+      "id": "G0204",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1020400,
+      "operator": "status_reinterpretation",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "3f8e3300610e194c25956399b385330aaadf216ba78ad08efd921c63838cea0f",
+      "split": "dev"
+    },
+    {
+      "id": "G0205",
+      "family": "redundancy",
+      "rule_family": "status_match",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1020500,
+      "operator": "redundancy:status_reinterpretation+neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose",
+        "ticket_1": "ticket.casual"
+      },
+      "runtime_sha256": "d0648e223bf06ce7c953b5abaf78988514566844e930ee0cc8cad8a7182f1f97",
+      "split": "test"
+    },
+    {
+      "id": "G0206",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1020600,
+      "operator": "status_reinterpretation",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "f95ce7588702979130f952b0eb6eda3b38cbb82e76912da6287b69e5b4c7be9b",
+      "split": "test"
+    },
+    {
+      "id": "G0207",
+      "family": "redundancy",
+      "rule_family": "positional_rank",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1020700,
+      "operator": "redundancy:padding+neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "ticket.long_formal",
+        "ticket_1": "ticket.short_note"
+      },
+      "runtime_sha256": "2b74e8053f2f71e6f45dbbe0a44bc938f2bc49bb4e6251aeeb1dffd726acaeca",
+      "split": "test"
+    },
+    {
+      "id": "G0208",
+      "family": "redundancy",
+      "rule_family": "role_join",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1020800,
+      "operator": "redundancy:conditional+free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.casual_long",
+        "ticket_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "2b1c30d157af6af2c3c9191e5325607a8398ef500a0d10763e84e663b568ed32",
+      "split": "test"
+    },
+    {
+      "id": "G0209",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "travel",
+      "track": "history",
+      "seed": 1020900,
+      "operator": "positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "8523e00e8626af88dfec68a1743d185280f93d89c618aedd113f92a38ec12a6a",
+      "split": "test"
+    },
+    {
+      "id": "G0210",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1021000,
+      "operator": "authority_framing",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "657b3aaa716e08611c4eb93808c34969e0482f88b1354682d3f01c4209c88478",
+      "split": "test"
+    },
+    {
+      "id": "G0211",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1021100,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "41ed51643b14b7131476a8567d4b2b5fa245707ac818647b9faf70c1e08fdab7",
+      "split": "dev"
+    },
+    {
+      "id": "G0212",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1021200,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "50e62e9ba084c64262d47e3be31d1ca6b4270f1740d9c1ed227020d984276c54",
+      "split": "test"
+    },
+    {
+      "id": "G0213",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1021300,
+      "operator": "neutral_disguise",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "bc12a409b7faadcd7f637e0ccb5847487c48e8761a3738772c195a7ee575a510",
+      "split": "dev"
+    },
+    {
+      "id": "G0214",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "scheduling",
+      "track": "history",
+      "seed": 1021400,
+      "operator": "conditional",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "27dc0c8e7a045d551406d77d4bf652973d30f73b8d0e70a42166b50a9afbed6f",
+      "split": "dev"
+    },
+    {
+      "id": "G0215",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1021500,
+      "operator": "minimal",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "a3961722d083de0b02e66040eba5e71c3d8f39701d2c5ea03e1b568f511c9ebc",
+      "split": "dev"
+    },
+    {
+      "id": "G0216",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1021600,
+      "operator": "status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "4c5f6cbf59813148fbc30f2469d04943be1d1072eff51fc0303513089fe117c7",
+      "split": "test"
+    },
+    {
+      "id": "G0217",
+      "family": "redundancy",
+      "rule_family": "composite_key",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1021700,
+      "operator": "redundancy:status_reinterpretation+neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets",
+        "ticket_1": "ticket.casual"
+      },
+      "runtime_sha256": "fd9d37fed5491b5bd85110c326f6b45cfa80abf9079d338e973bed15003ee39b",
+      "split": "test"
+    },
+    {
+      "id": "G0218",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1021800,
+      "operator": "positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "8f716fd5329b70a87080def59cf737e612a78221f5e6f1bfd0f67e62479e03e4",
+      "split": "test"
+    },
+    {
+      "id": "G0219",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1021900,
+      "operator": "free_field_bridge",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "6fe522ea1a70b64f5b596d363ae3af5f3c79d724ac396bbd8806f536ecbe0160",
+      "split": "test"
+    },
+    {
+      "id": "G0220",
+      "family": "redundancy",
+      "rule_family": "composite_key",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1022000,
+      "operator": "redundancy:minimal+conditional",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.short_note",
+        "ticket_1": "ticket.fields_formal"
+      },
+      "runtime_sha256": "7281853bf040a1d4ba71a2f3c38773cd869a2c5d0c79a562dcde5be97c8422e8",
+      "split": "dev"
+    },
+    {
+      "id": "G0221",
+      "family": "redundancy",
+      "rule_family": "composite_key",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1022100,
+      "operator": "redundancy:minimal+positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.signature_block",
+        "ticket_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "fdb66fb9d4835eb09a14535d51ad1e03f6df5bc35dbd7dc7c0302d7a2f9b8535",
+      "split": "test"
+    },
+    {
+      "id": "G0222",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1022200,
+      "operator": "minimal",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "46669d70a97abee21f196d133b2c3079fa1e5f5eb533f3f958883155193aa572",
+      "split": "dev"
+    },
+    {
+      "id": "G0223",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1022300,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "f4f754247f7bad6b02e8ddb52c52f362075199dc4845dee2f886e361cfac12ef",
+      "split": "test"
+    },
+    {
+      "id": "G0224",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1022400,
+      "operator": "neutral_disguise",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "d8f09a5f66276f56773c55a92388943b98772c7a4e125333e6ae9a2ac4159ef2",
+      "split": "dev"
+    },
+    {
+      "id": "G0225",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1022500,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "f99af3e080022e8aa8a1d025fb62442d6189e77db6ff56f61eecdb9a4019c8b1",
+      "split": "dev"
+    },
+    {
+      "id": "G0226",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "scheduling",
+      "track": "history",
+      "seed": 1022600,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "084b166131ffd1dc7ca12a227294c22893df999c3144bd60423133cf3211fe89",
+      "split": "dev"
+    },
+    {
+      "id": "G0227",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "travel",
+      "track": "history",
+      "seed": 1022700,
+      "operator": "positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "47c22c762fc2b4e4b2851825b6b301604a551b49ca818fb905531f1a8f0ee44c",
+      "split": "test"
+    },
+    {
+      "id": "G0228",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1022800,
+      "operator": "padding",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "84ec6aea591fdc6545e3e9c0e136c10239d3a081673e74725c42492a87c27341",
+      "split": "test"
+    },
+    {
+      "id": "G0229",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1022900,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "71a6b82612be97d9c4498e1e5f46de74101d55135f9ff9a5a95ea6a826bc52b4",
+      "split": "test"
+    },
+    {
+      "id": "G0230",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "travel",
+      "track": "history",
+      "seed": 1023000,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "b237c1134807940e8fbc12890c45a6eeacbb3ef2b2c5f02fdf4b078c89365007",
+      "split": "test"
+    },
+    {
+      "id": "G0231",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1023100,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "e699325366f087a54e7a31bac4beec420a01b4b2d881590c44414543bf811ae0",
+      "split": "test"
+    },
+    {
+      "id": "G0232",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1023200,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "bf0605959989061eee1df50389481446547b1fb1d29e244280e82d571fe22809",
+      "split": "dev"
+    },
+    {
+      "id": "G0233",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1023300,
+      "operator": "neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "ce2785265dc18bb8b8b1ae8998a704cc9d57f7fc8b821a4fa7dfcc0b19c378f4",
+      "split": "dev"
+    },
+    {
+      "id": "G0234",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1023400,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "10fc9ba2ab7093b77f7147dfbed4a0dad209dbc66e4869592aa673f9f13e4972",
+      "split": "dev"
+    },
+    {
+      "id": "G0235",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "deployments",
+      "track": "history",
+      "seed": 1023500,
+      "operator": "authority_framing",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "chat.single_line"
+      },
+      "runtime_sha256": "25f508eca217c3676d425c0a1da731364ec37a65607a29ac6985570ec6cced0a",
+      "split": "test"
+    },
+    {
+      "id": "G0236",
+      "family": "redundancy",
+      "rule_family": "composite_key",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1023600,
+      "operator": "redundancy:status_reinterpretation+free_field_bridge",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.headers_formal",
+        "ticket_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "48ace120139e5584de549c90d526b66544520bd187ef13d16e0bb780d05fb79f",
+      "split": "test"
+    },
+    {
+      "id": "G0237",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1023700,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "4bc13d94cd90f766feebf4b617d0ba7a76dec98adeebe05dca2e70744d2eb39d",
+      "split": "dev"
+    },
+    {
+      "id": "G0238",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1023800,
+      "operator": "positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "ticket.casual"
+      },
+      "runtime_sha256": "3433ec18726a24bd5d2253c9341bca7f60b5a382c1558ddc491ad507397d9bc4",
+      "split": "test"
+    },
+    {
+      "id": "G0239",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "grants",
+      "track": "history",
+      "seed": 1023900,
+      "operator": "conditional",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "b8bb57879d64faefb2c633450ec4852a361b0b613514c6697627097f4ed0ad03",
+      "split": "dev"
+    },
+    {
+      "id": "G0240",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1024000,
+      "operator": "authority_framing",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "ae083d75346ae4771c2e71a637b3ce79499068b026b53114242a9ef02fe96c9d",
+      "split": "dev"
+    },
+    {
+      "id": "G0241",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1024100,
+      "operator": "neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "4be2f5290d1f3bb9fed100fe4af953ee5503f1abb07260b54bcfb09a247bff9c",
+      "split": "test"
+    },
+    {
+      "id": "G0242",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1024200,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "26aa8b8e26f9ebf9502879d1826102529fb0e1824ea1f3662b0f7d1994a11cd7",
+      "split": "test"
+    },
+    {
+      "id": "G0243",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1024300,
+      "operator": "minimal",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "chat.single_line"
+      },
+      "runtime_sha256": "51e1eb0fa5a82469dc02ea07f84024c5490c71918c2522359aac5a247c7e958f",
+      "split": "test"
+    },
+    {
+      "id": "G0244",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1024400,
+      "operator": "minimal",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "chat.bold_fyi"
+      },
+      "runtime_sha256": "1f4e3e1fa78198ef107ad71180c87cf3eb8f45678603ced98a6191970da317a6",
+      "split": "dev"
+    },
+    {
+      "id": "G0245",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "accounts_payable",
+      "track": "history",
+      "seed": 1024500,
+      "operator": "status_reinterpretation",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "c8e6fb17306e2d4933000c1aceb95d9262d3e57f1737102584ca36aab24f9ce9",
+      "split": "dev"
+    },
+    {
+      "id": "G0246",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1024600,
+      "operator": "status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "51dc4e224d7c3276e8e0df29c674f22f95a96124a3e5e0506f05b211f030463a",
+      "split": "dev"
+    },
+    {
+      "id": "G0247",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1024700,
+      "operator": "status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "371b82b164d1b09bf2423b795e959b53b420d53ba2e93b98592f5cdd4831ed6f",
+      "split": "dev"
+    },
+    {
+      "id": "G0248",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1024800,
+      "operator": "status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "915536b21b4759115b47c06359d96bc09fac6566b6e3bc19d56be96a583d38a7",
+      "split": "dev"
+    },
+    {
+      "id": "G0249",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1024900,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "fe27a292377c69b7474e8f120be10144c0d6b53f8a59827e222b8e4888ac3b9a",
+      "split": "test"
+    },
+    {
+      "id": "G0250",
+      "family": "redundancy",
+      "rule_family": "role_join",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1025000,
+      "operator": "redundancy:padding+minimal",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.headers_formal",
+        "ticket_1": "ticket.headers"
+      },
+      "runtime_sha256": "9f0c67e8b8dd92d840674ad7e6dddac717ecd3305d6049ada6fbd825d586979a",
+      "split": "test"
+    },
+    {
+      "id": "G0251",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1025100,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "2e32a318e69d294104afdfd4c299c86b41a7c73a1ea2cf60532cbbd7b77b4880",
+      "split": "test"
+    },
+    {
+      "id": "G0252",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1025200,
+      "operator": "status_reinterpretation",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "1c0d43f1131da47c11cf0d3c828c666d3d73c3590cc4052c26beaac4006b10cd",
+      "split": "test"
+    },
+    {
+      "id": "G0253",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "access_grants",
+      "track": "history",
+      "seed": 1025300,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.casual"
+      },
+      "runtime_sha256": "e5ad49c2406a6ce577861c962e08be5010994a13d3efd48896cd7c2b534b7fef",
+      "split": "test"
+    },
+    {
+      "id": "G0254",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1025400,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "04d5d616584f10f153be2b86196979c10c5f657ae48cc27c001abcc1731c16c9",
+      "split": "test"
+    },
+    {
+      "id": "G0255",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1025500,
+      "operator": "conditional",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "f40aa6eaa3d49ca0de6a116be2fad88257393ab8ef5e422edea92cd8692a0ba9",
+      "split": "test"
+    },
+    {
+      "id": "G0256",
+      "family": "redundancy",
+      "rule_family": "filter_earliest",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1025600,
+      "operator": "redundancy:minimal+neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose",
+        "ticket_1": "ticket.fields_formal"
+      },
+      "runtime_sha256": "caa04ffccfddc376c3fc3c431c04cf17328c92c9a768b4abc37e2a8089724729",
+      "split": "dev"
+    },
+    {
+      "id": "G0257",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1025700,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "e3967b9da8bc272add7fe8d54b3ff91db968194a0f6404c93d382ed526015f37",
+      "split": "test"
+    },
+    {
+      "id": "G0258",
+      "family": "redundancy",
+      "rule_family": "filter_earliest",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1025800,
+      "operator": "redundancy:authority_framing+conditional",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose",
+        "ticket_1": "ticket.fields_formal"
+      },
+      "runtime_sha256": "cff60fa9196bbbe416841fc5247fc24acf4072b0c43425b04795b0e1e110d635",
+      "split": "dev"
+    },
+    {
+      "id": "G0259",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1025900,
+      "operator": "padding",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "1d916e6a77500c34b5ef3f54abfcd15552da26eccdf9795f2342ad2fc410f169",
+      "split": "test"
+    },
+    {
+      "id": "G0260",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1026000,
+      "operator": "conditional",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "8b113fdcafe13d0c96f942307f7f2f80545f55dd6c4e3588364cad929f20af45",
+      "split": "test"
+    },
+    {
+      "id": "G0261",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1026100,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "7c5a20a914c9e4411859ad5b592875c799a75eb12f4e67f1fdcc438307023e89",
+      "split": "test"
+    },
+    {
+      "id": "G0262",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1026200,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "5b1e202fea1f03214620d51bb961c373851249a6ac9f3e4b9587e62535f84811",
+      "split": "test"
+    },
+    {
+      "id": "G0263",
+      "family": "redundancy",
+      "rule_family": "positional_rank",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1026300,
+      "operator": "redundancy:conditional+padding",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets",
+        "ticket_1": "ticket.short_note"
+      },
+      "runtime_sha256": "033cbbf28fe9cb92bc7e37b55e836d7aa38021d2d4ceecad6cee7cb074fb2fed",
+      "split": "dev"
+    },
+    {
+      "id": "G0264",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1026400,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "86c2f3b8f107096f6729799ee95993168657c52df925938a875f984b44633ae5",
+      "split": "dev"
+    },
+    {
+      "id": "G0265",
+      "family": "redundancy",
+      "rule_family": "status_match",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1026500,
+      "operator": "redundancy:neutral_disguise+padding",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual",
+        "ticket_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "ed3b90caf84b543aa2f1798d7ec2d1f7384c95866d795023f8c83f95748e8c02",
+      "split": "test"
+    },
+    {
+      "id": "G0266",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "accounts_payable",
+      "track": "history",
+      "seed": 1026600,
+      "operator": "history_carrier",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "6db741a44a84c9566c0690659dc1c42074bd546eea10c7d038721f5ccef891f0",
+      "split": "dev"
+    },
+    {
+      "id": "G0267",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "accounts_payable",
+      "track": "direct",
+      "seed": 1026700,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "92303dc30ffd18cf057ac7767d9940357b45f7d4b9696f973b7294fba6fa6713",
+      "split": "dev"
+    },
+    {
+      "id": "G0268",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1026800,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.casual"
+      },
+      "runtime_sha256": "48de1afdf3a79c0c57671eea94935a339042c8f17310cfce0fdfee0c441f291a",
+      "split": "test"
+    },
+    {
+      "id": "G0269",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "travel",
+      "track": "history",
+      "seed": 1026900,
+      "operator": "neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "b43e416fc07ed05a2edc2024927f6f00cf1773fc24c2d329db65e66b6cd67f65",
+      "split": "test"
+    },
+    {
+      "id": "G0270",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1027000,
+      "operator": "positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "b1e007e9d7637e3f56b1840957a8b43e13a434a5af278964b66909eee064925e",
+      "split": "dev"
+    },
+    {
+      "id": "G0271",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1027100,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "13d78bb51f4760a5fd294c7d4012df4ca9ab196678e3a3b6dafce4bb62664369",
+      "split": "dev"
+    },
+    {
+      "id": "G0272",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1027200,
+      "operator": "free_field_bridge",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "33ff309c2639d74b1290053ec41be8fafddfffc85e50a41beb242485106f244f",
+      "split": "test"
+    },
+    {
+      "id": "G0273",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1027300,
+      "operator": "status_reinterpretation",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "ticket.casual"
+      },
+      "runtime_sha256": "8cdd91f998eec46479c6858ecb3ef59489ebea38f0362b0ef455d661021bcee3",
+      "split": "test"
+    },
+    {
+      "id": "G0274",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1027400,
+      "operator": "neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "dc9442bd4f75d1a7290698fe8bd7c89e946cade0c8a19843f3233512bfff8db8",
+      "split": "test"
+    },
+    {
+      "id": "G0275",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1027500,
+      "operator": "conditional",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "3e1f5da6c13baf305bba968eb06f4b0f53bf2b6a150c78b08d7e7f59fc9b7ef0",
+      "split": "dev"
+    },
+    {
+      "id": "G0276",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1027600,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "82a4a90f3ad3e7b60b10a6cd5c958a5f27c85e614ca0decd7851d86d5ebf6711",
+      "split": "test"
+    },
+    {
+      "id": "G0277",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1027700,
+      "operator": "authority_framing",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "86116f36889cab4950ab5941c992ca72924b4bb4cdbdb0ea13313efa73b03556",
+      "split": "test"
+    },
+    {
+      "id": "G0278",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1027800,
+      "operator": "minimal",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "caead6a5c4a5e19f1da5e21610bde49c5ada0fa8a1279f854714f18723bbdc10",
+      "split": "dev"
+    },
+    {
+      "id": "G0279",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1027900,
+      "operator": "minimal",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "14e2388cd5a5b3245bb78c0b15b4a9c299285ee423f6bae3ae16005834cb7c4a",
+      "split": "test"
+    },
+    {
+      "id": "G0280",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1028000,
+      "operator": "neutral_disguise",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "4732475809502a12682b49bf5c3711d8d8684141bab491ed7d3ed89c047e680f",
+      "split": "dev"
+    },
+    {
+      "id": "G0281",
+      "family": "redundancy",
+      "rule_family": "composite_key",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1028100,
+      "operator": "redundancy:neutral_disguise+minimal",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual",
+        "ticket_1": "ticket.casual"
+      },
+      "runtime_sha256": "98d07e847e01661869005ac41b9106752deec6aba6419749aa2d0d6b64cfcbbe",
+      "split": "dev"
+    },
+    {
+      "id": "G0282",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1028200,
+      "operator": "free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "f62a9d70cc08ed9323247c279aaacb2730808e02f31754affd5ced09ecc8a5d8",
+      "split": "dev"
+    },
+    {
+      "id": "G0283",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1028300,
+      "operator": "free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "5dae72cdd0473980897799780ed85aa8e40700b9abba956171e98d318d93a41f",
+      "split": "dev"
+    },
+    {
+      "id": "G0284",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1028400,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "27f5fa8cb0c901d915d073dd87a2ee5ec8d3888a11cc2ff1dc5e628bc4ed393e",
+      "split": "test"
+    },
+    {
+      "id": "G0285",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1028500,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "6cfd52db12013047d335bdf91923122bb83e507a6ef7e78b8528ebad92ab1b00",
+      "split": "test"
+    },
+    {
+      "id": "G0286",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1028600,
+      "operator": "conditional",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.fields_formal"
+      },
+      "runtime_sha256": "44e2754d619b7189d1c5bdd46b8150a7422e7ef6a6ac99604309366bd0fdbd2f",
+      "split": "dev"
+    },
+    {
+      "id": "G0287",
+      "family": "redundancy",
+      "rule_family": "status_match",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1028700,
+      "operator": "redundancy:minimal+free_field_bridge",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.casual_long",
+        "ticket_1": "ticket.casual"
+      },
+      "runtime_sha256": "a7f96177c1f61e1a21c6870e264bbba9d6ccdee606866f00b83023388f770025",
+      "split": "test"
+    },
+    {
+      "id": "G0288",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1028800,
+      "operator": "authority_framing",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "chat.formal_announcement"
+      },
+      "runtime_sha256": "aaf5e6554003ecc577b1cee77dd87bd792a04ef9b20539be62eb2569138d21ff",
+      "split": "test"
+    },
+    {
+      "id": "G0289",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 1028900,
+      "operator": "positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "ticket.fields_formal"
+      },
+      "runtime_sha256": "b93c3f7ea1fe7501c56f559a19b8697c1d5e11add08fe6b7fa69b04fe801e650",
+      "split": "dev"
+    },
+    {
+      "id": "G0290",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 1029000,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "ed4c832d310ebaad70ec745f3f73da3d83eac6c6af33c38b6d8a3bdfae0be21d",
+      "split": "test"
+    },
+    {
+      "id": "G0291",
+      "family": "redundancy",
+      "rule_family": "composite_key",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1029100,
+      "operator": "redundancy:neutral_disguise+free_field_bridge",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.headers_formal",
+        "ticket_1": "ticket.casual"
+      },
+      "runtime_sha256": "e7f35322d18dccaefd12423208b4e5f3b4f990062221a12f42fb560cfd82975c",
+      "split": "dev"
+    },
+    {
+      "id": "G0292",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1029200,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "409d7ef68a79994c90ce7eac37692c0d8cea6ebcc84ebfc4bed7ed4d4fb56534",
+      "split": "dev"
+    },
+    {
+      "id": "G0293",
+      "family": "association",
+      "rule_family": "filter_earliest",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1029300,
+      "operator": "padding",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "0d21be1a68ff5ddb7d24ff1dcf74b9f39c59bc5e6da29fa92b23ccee18933eb3",
+      "split": "test"
+    },
+    {
+      "id": "G0294",
+      "family": "redundancy",
+      "rule_family": "role_join",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 1029400,
+      "operator": "redundancy:free_field_bridge+authority_framing",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets",
+        "ticket_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "5c06772cf8add2a0a1b905a41328218c57933b49a9d7c8530f0d6f473c11dabb",
+      "split": "test"
+    },
+    {
+      "id": "G0295",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "grants",
+      "track": "history",
+      "seed": 1029500,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "722b4e42724b5f00b3b66df5a4ba7186f6810be4faf93e2d3be6c35fa42d2e25",
+      "split": "dev"
+    },
+    {
+      "id": "G0296",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 1029600,
+      "operator": "status_reinterpretation",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "f6ecc17c84453218a2863e4920d662a8af712d7d063e7fd9d77c6e884ddfaeaa",
+      "split": "test"
+    },
+    {
+      "id": "G0297",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 1029700,
+      "operator": "status_reinterpretation",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "a38f6d5f8f2738c1edbb548f5b4cbc664e5a8137dd781e9c37ad6f28c59ffa3c",
+      "split": "test"
+    },
+    {
+      "id": "G0298",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 1029800,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "chat.formal_announcement"
+      },
+      "runtime_sha256": "2118ace2bf88ba1804e734d0606a1fe63ddddc262faddff564a642914799a141",
+      "split": "dev"
+    },
+    {
+      "id": "G0299",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 1029900,
+      "operator": "positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "1c546cb7a56c76acca1c2b48791bcbf522213854e2398ba63d1b47b5a37d666b",
+      "split": "dev"
+    },
+    {
+      "id": "G0300",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "inventory",
+      "track": "history",
+      "seed": 1030000,
+      "operator": "conditional",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "a7d4b8ff1f8f2541b2b2a0039cb043bc532fef7278317a69e89d3517f9da233b",
+      "split": "dev"
+    }
+  ]
+}

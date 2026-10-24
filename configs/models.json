@@ -1,0 +1,79 @@
+{
+  "qwen14b": {
+    "family": "qwen2.5",
+    "path": "cache/hf/hub/models--mlx-community--Qwen2.5-14B-Instruct-4bit/snapshots/dad510143ae5cdb1466778bde3161460f9e9f604",
+    "revision": "dad510143ae5",
+    "hf_repo": "mlx-community/Qwen2.5-14B-Instruct-4bit",
+    "role": "first family"
+  },
+  "llama8b": {
+    "family": "llama3.1",
+    "path": "cache/hf/hub/models--mlx-community--Meta-Llama-3.1-8B-Instruct-4bit/snapshots/241a666dad6cb93c8ff213d39a7f34a36bf26db4",
+    "revision": "241a666dad6c",
+    "hf_repo": "mlx-community/Meta-Llama-3.1-8B-Instruct-4bit",
+    "role": "second family"
+  },
+  "qwen05b-cpu": {
+    "backend": "torch",
+    "hf_repo": "Qwen/Qwen2.5-0.5B-Instruct",
+    "family": "qwen2.5",
+    "dtype": "fp32",
+    "device": "cpu",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "role": "CPU smoke test for the torch adapter (not evidence)"
+  },
+  "gemma27b": {
+    "family": "gemma3",
+    "path": "cache/hf/hub/models--mlx-community--gemma-3-27b-it-4bit/snapshots/83acee3d10064661a7a39ead3732dddb16fe15bb",
+    "revision": "83acee3d1006",
+    "hf_repo": "mlx-community/gemma-3-27b-it-4bit",
+    "role": "third family (4-bit pilot)"
+  },
+  "qwen32b-bf16": {
+    "backend": "torch",
+    "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+    "family": "qwen2.5",
+    "dtype": "bf16",
+    "device": "cuda",
+    "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "role": "H100 scale-up, first family (bf16; resolved 2026-10-05)"
+  },
+  "gemma27b-bf16": {
+    "backend": "torch",
+    "hf_repo": "google/gemma-3-27b-it",
+    "family": "gemma3",
+    "dtype": "bf16",
+    "device": "cuda",
+    "revision": "005ad3404e59d6023443cb575daa05336842228a",
+    "role": "H100 scale-up, third family (bf16; gated repo \u2014 HF token with manual access required)"
+  },
+  "mistral24b-bf16": {
+    "backend": "torch",
+    "hf_repo": "mistralai/Mistral-Small-24B-Instruct-2501",
+    "family": "mistral",
+    "dtype": "bf16",
+    "device": "cuda",
+    "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+    "role": "H100 scale-up, fourth family (bf16; resolved 2026-10-05)"
+  },
+  "qwen14b-torch": {
+    "backend": "torch",
+    "hf_repo": "Qwen/Qwen2.5-14B-Instruct",
+    "family": "qwen2.5",
+    "dtype": "bf16",
+    "device": "cuda",
+    "attn_implementation": "sdpa",
+    "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "role": "CUDA verification of the torch adapter against the MLX 14B reference (m8/t003)"
+  },
+  "qwen32b-torch": {
+    "backend": "torch",
+    "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+    "family": "qwen2.5",
+    "dtype": "bf16",
+    "device": "cuda",
+    "attn_implementation": "sdpa",
+    "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "role": "CUDA verification, 32B bf16 throughput (m8/t003)"
+  }
+}

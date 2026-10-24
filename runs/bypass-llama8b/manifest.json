@@ -1,0 +1,45 @@
+{
+  "run_id": "bypass-llama8b",
+  "model": {
+    "backend": "mlx",
+    "family": "llama3.1",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--mlx-community--Meta-Llama-3.1-8B-Instruct-4bit/snapshots/241a666dad6cb93c8ff213d39a7f34a36bf26db4",
+    "revision": "241a666dad6c",
+    "model_type": "llama",
+    "quantization": {
+      "group_size": 64,
+      "bits": 4
+    },
+    "eos_id": 128001
+  },
+  "budget": 12,
+  "templates": [
+    "S01",
+    "R01",
+    "R02",
+    "X02",
+    "X03",
+    "H01",
+    "H02",
+    "P01"
+  ],
+  "thresholds": {
+    "loo_max": 162.81152629852295,
+    "joint_drop": 226.1168727874756,
+    "ca_margin": 1.3442031880642504,
+    "enh_R": 5.47136116027832,
+    "ref_D": 0.16399308273790375,
+    "ref_R": 5.682384490966797,
+    "chosen_drop": 227.87916564941406,
+    "ref_D_t": 0.20663000691512193,
+    "ref_R_t": 3.9090919494628906,
+    "_n_calibration_executions": 136,
+    "_quantile": 0.95
+  },
+  "feedback": "decision-only",
+  "validate_seeds": [
+    11,
+    23
+  ],
+  "started": "2026-10-04T00:52:55Z"
+}

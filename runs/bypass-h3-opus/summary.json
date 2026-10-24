@@ -1,0 +1,34 @@
+{
+  "S01": {
+    "queries": 12,
+    "first_bypass_query": {},
+    "defenses_bypassed_greedy": [],
+    "validation": {},
+    "fallback_queries": 11,
+    "parse_failures": 0
+  },
+  "R02": {
+    "queries": 12,
+    "first_bypass_query": {},
+    "defenses_bypassed_greedy": [],
+    "validation": {},
+    "fallback_queries": 10,
+    "parse_failures": 0
+  },
+  "H02": {
+    "queries": 12,
+    "first_bypass_query": {},
+    "defenses_bypassed_greedy": [],
+    "validation": {},
+    "fallback_queries": 9,
+    "parse_failures": 0
+  },
+  "P01": {
+    "queries": 12,
+    "first_bypass_query": {},
+    "defenses_bypassed_greedy": [],
+    "validation": {},
+    "fallback_queries": 11,
+    "parse_failures": 0
+  }
+}

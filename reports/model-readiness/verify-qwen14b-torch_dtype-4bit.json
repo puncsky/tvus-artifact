@@ -1,0 +1,71 @@
+{
+  "model": {
+    "backend": "torch",
+    "family": "qwen2.5",
+    "model_path": "/home/<user>/projects/tianpan-v3/projects/tvus-research/cache/hf/hub/models--Qwen--Qwen2.5-14B-Instruct/snapshots/cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "hf_repo": "Qwen/Qwen2.5-14B-Instruct",
+    "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "model_type": "qwen2",
+    "quantization": {
+      "bnb": "nf4"
+    },
+    "eos_id": 151645,
+    "stop_ids": [
+      151643,
+      151645
+    ],
+    "dtype": "4bit",
+    "device": "cuda",
+    "attn_implementation": "sdpa",
+    "batch_candidates": false,
+    "logits_to_keep": true,
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "python": "3.12.15",
+    "machine": "aarch64",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": true,
+    "cudnn_deterministic": true,
+    "allow_tf32": false,
+    "cublas_workspace_config": ":4096:8",
+    "num_threads": 20,
+    "cuda": "13.0",
+    "gpu": "NVIDIA GB10",
+    "capability": [
+      12,
+      1
+    ],
+    "bitsandbytes": "0.50.2"
+  },
+  "checks": {
+    "numpy_recompute_max_abs_err": 4.222795684541953e-15,
+    "incremental_vs_uncached_max_abs_diff_nats": 0.5468257178213989,
+    "scores_uncached": [
+      -33.61152383947686,
+      -34.585651088819226
+    ],
+    "eos_included": true,
+    "greedy_deterministic": true,
+    "sampled_differs_across_seeds": true,
+    "batched_vs_single_max_abs_diff_nats": 0.0
+  },
+  "throughput": {
+    "score_pass_tokens": [
+      773,
+      773
+    ],
+    "s_per_1k_token_score_pass": 1.341331491590917,
+    "gen90_seconds": 5.327572645001055,
+    "gen90_tokens": 85
+  },
+  "peak_memory_gb": 11.368179712,
+  "timing": {
+    "score_pass_seconds": [
+      1.305983591999393,
+      0.7677148940001643
+    ],
+    "gen_seconds": 5.326573375999942,
+    "prompt_tokens": 717
+  },
+  "pass": false
+}

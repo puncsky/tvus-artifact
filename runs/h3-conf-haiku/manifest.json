@@ -1,0 +1,42 @@
+{
+  "run_id": "h3-conf-haiku",
+  "model": {
+    "backend": "anthropic-api",
+    "family": "claude",
+    "model": "claude-haiku-4-5",
+    "effort": "medium",
+    "thinking": "adaptive (model default)",
+    "fallbacks": "disabled (model identity must stay fixed for the study)",
+    "cap_usd": 8.0
+  },
+  "harness": "h3",
+  "run_specs": [
+    [
+      0,
+      0.0
+    ]
+  ],
+  "conditions": [
+    "clean",
+    "neutral",
+    "attack"
+  ],
+  "cases": {
+    "K05": "05bfc429a2b005743001e4c9c7cc818685d38cdb926fcd140bb08913d480420d",
+    "K06": "592267c04b7b39b1870a6e552a8a6afd045c2cdb502320b792cc442012bed04f",
+    "K04": "b9768cfc030d2a772449fc2b2085586ff2794592fb7a4c2f558d839743d09f5d",
+    "K07": "545b00fcf360ccc86f8893e7af56e513a749bd96a5880af3ab05eb324c55846c",
+    "K08": "95a2623c8894eb86d073e843fe6fa769fcc263090a3c3cc6b4ecdf556de830b4",
+    "K03": "c4fdd89b61d50ae98a108ea0bf3fa6a745bdc6a0fc667e32967088b446b303c8",
+    "K01": "1f0e14373fa2e99e6e7266842cd561ff6450af98d76b6b125e96278fb9140862",
+    "K02": "33bf3c556d79db839a7c109fbfe09b8f42eb87026feaeaadec6107b4fd242dec"
+  },
+  "code": {
+    "runner/schema.py": "fce606cfa226e4bc645ef3912de875fd1508e83e3c9a5cb40fa48c2613bf9b4a",
+    "runner/prompting.py": "4dd9e836b71e60474fe17b9b8ad2a90c347ff3a3958bd0964456fae97ac9768a",
+    "runner/simulator.py": "8d0a4e9899e2efe0a8af9159518f7914946942aafdae68b654c83281dd32f406",
+    "runner/experiment.py": "0e3c74e4ccb1a9b1af328b764c7650a0107364629068f4cae45324c391c3655b",
+    "models/adapter.py": "84bc4c680c98271b9a67da41a2eca309af5fc2dbd1277c0d4562fe6911f86943"
+  },
+  "started": "2026-10-05T05:48:10Z"
+}

@@ -1,0 +1,40 @@
+{
+  "run_id": "fb2-h2-qwen14b",
+  "model": {
+    "backend": "mlx",
+    "family": "qwen2.5",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--mlx-community--Qwen2.5-14B-Instruct-4bit/snapshots/dad510143ae5cdb1466778bde3161460f9e9f604",
+    "revision": "dad510143ae5",
+    "model_type": "qwen2",
+    "quantization": {
+      "group_size": 64,
+      "bits": 4
+    },
+    "eos_id": 151645,
+    "merged_adjacent_turns": 0
+  },
+  "harness": "h2",
+  "run_specs": [
+    [
+      0,
+      0.0
+    ]
+  ],
+  "conditions": [
+    "clean",
+    "neutral",
+    "attack"
+  ],
+  "cases": {
+    "F01": "f5c22963647703a02ddc990d2ddca56a6a1cf911d8e667532dd030cfebb0291c",
+    "F04": "57e0eeccc51c195683df9bf4bb16ed65d9de1742f7b923fec5228d7784e01825"
+  },
+  "code": {
+    "runner/schema.py": "bd34a39a92a2cc6bbab98a1560260906ef398fb87397542aa01abe0d7e70e649",
+    "runner/prompting.py": "e971d4c8132ab0309e38ada56466403dd0d9d30397297cfd58993827d2f66b11",
+    "runner/simulator.py": "e42ee564cab3b60614b41d6c10827bea0e6e0c5fe67ea437c4f43f1ee94619c9",
+    "runner/experiment.py": "4b8ead427f12aafeec77d60011b340d8b16a2177bd37dd006f67e102c0fae999",
+    "models/adapter.py": "84bc4c680c98271b9a67da41a2eca309af5fc2dbd1277c0d4562fe6911f86943"
+  },
+  "started": "2026-10-06T20:09:43Z"
+}

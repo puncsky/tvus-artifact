@@ -1,0 +1,538 @@
+{
+  "generator": "gen-v1",
+  "seed": 7,
+  "n": 24,
+  "split_rule": "checkerboard over seeded permutations of rule families x domains; every (rule_family, domain) pair is in exactly one split",
+  "pair_splits": {
+    "status_match|deployments": "test",
+    "status_match|refunds": "dev",
+    "status_match|inventory": "test",
+    "status_match|grants": "dev",
+    "status_match|travel": "test",
+    "status_match|access_grants": "dev",
+    "status_match|scheduling": "test",
+    "status_match|accounts_payable": "dev",
+    "composite_key|deployments": "dev",
+    "composite_key|refunds": "test",
+    "composite_key|inventory": "dev",
+    "composite_key|grants": "test",
+    "composite_key|travel": "dev",
+    "composite_key|access_grants": "test",
+    "composite_key|scheduling": "dev",
+    "composite_key|accounts_payable": "test",
+    "two_stage_lookup|deployments": "test",
+    "two_stage_lookup|refunds": "dev",
+    "two_stage_lookup|inventory": "test",
+    "two_stage_lookup|grants": "dev",
+    "two_stage_lookup|travel": "test",
+    "two_stage_lookup|access_grants": "dev",
+    "two_stage_lookup|scheduling": "test",
+    "two_stage_lookup|accounts_payable": "dev",
+    "positional_rank|deployments": "dev",
+    "positional_rank|refunds": "test",
+    "positional_rank|inventory": "dev",
+    "positional_rank|grants": "test",
+    "positional_rank|travel": "dev",
+    "positional_rank|access_grants": "test",
+    "positional_rank|scheduling": "dev",
+    "positional_rank|accounts_payable": "test",
+    "role_join|deployments": "test",
+    "role_join|refunds": "dev",
+    "role_join|inventory": "test",
+    "role_join|grants": "dev",
+    "role_join|travel": "test",
+    "role_join|access_grants": "dev",
+    "role_join|scheduling": "test",
+    "role_join|accounts_payable": "dev",
+    "filter_earliest|deployments": "dev",
+    "filter_earliest|refunds": "test",
+    "filter_earliest|inventory": "dev",
+    "filter_earliest|grants": "test",
+    "filter_earliest|travel": "dev",
+    "filter_earliest|access_grants": "test",
+    "filter_earliest|scheduling": "dev",
+    "filter_earliest|accounts_payable": "test",
+    "legit_release|deployments": "test",
+    "legit_release|refunds": "dev",
+    "legit_release|inventory": "test",
+    "legit_release|grants": "dev",
+    "legit_release|travel": "test",
+    "legit_release|access_grants": "dev",
+    "legit_release|scheduling": "test",
+    "legit_release|accounts_payable": "dev",
+    "legit_authorized|deployments": "dev",
+    "legit_authorized|refunds": "test",
+    "legit_authorized|inventory": "dev",
+    "legit_authorized|grants": "test",
+    "legit_authorized|travel": "dev",
+    "legit_authorized|access_grants": "test",
+    "legit_authorized|scheduling": "dev",
+    "legit_authorized|accounts_payable": "test"
+  },
+  "counts": {
+    "family": {
+      "history": 4,
+      "interaction": 4,
+      "legitimate": 4,
+      "redundancy": 7,
+      "selection": 5
+    },
+    "rule_family": {
+      "composite_key": 2,
+      "filter_earliest": 3,
+      "legit_authorized": 3,
+      "legit_release": 1,
+      "positional_rank": 3,
+      "role_join": 5,
+      "status_match": 3,
+      "two_stage_lookup": 4
+    },
+    "domain": {
+      "access_grants": 3,
+      "deployments": 3,
+      "grants": 5,
+      "inventory": 5,
+      "refunds": 2,
+      "scheduling": 2,
+      "travel": 4
+    },
+    "split": {
+      "dev": 17,
+      "test": 7
+    },
+    "operator": {
+      "authority_framing": 2,
+      "conditional": 1,
+      "free_field_bridge": 1,
+      "legitimate": 4,
+      "minimal": 2,
+      "neutral_disguise": 2,
+      "padding": 3,
+      "positional_pointer": 1,
+      "redundancy:conditional+neutral_disguise": 1,
+      "redundancy:conditional+padding": 1,
+      "redundancy:free_field_bridge+positional_pointer": 1,
+      "redundancy:minimal+neutral_disguise": 1,
+      "redundancy:minimal+status_reinterpretation": 1,
+      "redundancy:neutral_disguise+status_reinterpretation": 1,
+      "redundancy:status_reinterpretation+neutral_disguise": 1,
+      "status_reinterpretation": 1
+    },
+    "correct_index": {
+      "0": 9,
+      "1": 10,
+      "2": 4,
+      "3": 1
+    },
+    "neutral_template": {
+      "chat.casual_long": 2,
+      "chat.quoted": 1,
+      "email.bullets_casual": 3,
+      "email.casual_long": 3,
+      "email.formal_long_prose": 4,
+      "email.headers_formal": 2,
+      "email.memo_bullets": 3,
+      "email.oneliner_casual": 1,
+      "email.signature_block": 2,
+      "ticket.comment_bullets": 3,
+      "ticket.fields_formal": 1,
+      "ticket.headers": 2,
+      "ticket.long_formal": 1,
+      "ticket.short_note": 3
+    }
+  },
+  "rejected_draws": [],
+  "tasks": [
+    {
+      "id": "G0001",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 7000100,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "cf3afe24f1511fa3f8d82840934c41e15e8ae9610671e3f602eb63883ac4a34c",
+      "split": "dev"
+    },
+    {
+      "id": "G0002",
+      "family": "redundancy",
+      "rule_family": "filter_earliest",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 7000200,
+      "operator": "redundancy:status_reinterpretation+neutral_disguise",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual",
+        "ticket_1": "ticket.fields_formal"
+      },
+      "runtime_sha256": "65611db032e82c9b210eec45b1ebdb393a40d554be08b49c46adb4e340655956",
+      "split": "dev"
+    },
+    {
+      "id": "G0003",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 7000300,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "0421a7a9b7b4d76687ccb45c65612f415029a187103bee8e22dcdcb2ea33f77f",
+      "split": "test"
+    },
+    {
+      "id": "G0004",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "refunds",
+      "track": "history",
+      "seed": 7000400,
+      "operator": "minimal",
+      "n_candidates": 4,
+      "correct_index": 3,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "8075eba1ddcbe38ef17ca49a0bfd0555e94d3c011809ddf2c2786714b81835f7",
+      "split": "dev"
+    },
+    {
+      "id": "G0005",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 7000500,
+      "operator": "positional_pointer",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "chat.quoted"
+      },
+      "runtime_sha256": "c8e71352038a2068b2d09b561fc2895e63e70d1982b1b658c646399abe788535",
+      "split": "dev"
+    },
+    {
+      "id": "G0006",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 7000600,
+      "operator": "legitimate",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "chat.casual_long"
+      },
+      "runtime_sha256": "4536d1a3d6fd1f5d7615b9f85549895e1ccd2358b2bac242fda16ec77bf94a51",
+      "split": "dev"
+    },
+    {
+      "id": "G0007",
+      "family": "redundancy",
+      "rule_family": "filter_earliest",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 7000700,
+      "operator": "redundancy:minimal+status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets",
+        "ticket_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "ec221e24c399798e6a4a511f38f80e5b4e7889337d676bea0e91bcbb2c5d699a",
+      "split": "dev"
+    },
+    {
+      "id": "G0008",
+      "family": "redundancy",
+      "rule_family": "positional_rank",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 7000800,
+      "operator": "redundancy:free_field_bridge+positional_pointer",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose",
+        "ticket_1": "ticket.headers"
+      },
+      "runtime_sha256": "66a2a7e5297b2ac5dd9da2586b4610885520811d92d2ec3d5265691f1f988a6f",
+      "split": "dev"
+    },
+    {
+      "id": "G0009",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "access_grants",
+      "track": "history",
+      "seed": 7000900,
+      "operator": "neutral_disguise",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "3080b00000c67606ffb2fdf75b8819f2cd56278b19259701a30dba3e2204efec",
+      "split": "dev"
+    },
+    {
+      "id": "G0010",
+      "family": "redundancy",
+      "rule_family": "filter_earliest",
+      "domain": "deployments",
+      "track": "direct",
+      "seed": 7001000,
+      "operator": "redundancy:minimal+neutral_disguise",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "chat.casual_long",
+        "ticket_1": "ticket.short_note"
+      },
+      "runtime_sha256": "b14b09209d310d8042a6a42ad0619f6febbd79a7253e5e044606f485762ff9a0",
+      "split": "dev"
+    },
+    {
+      "id": "G0011",
+      "family": "interaction",
+      "rule_family": "positional_rank",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 7001100,
+      "operator": "status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.casual_long"
+      },
+      "runtime_sha256": "ae011f2234af0a6672289c1c1ca42149293c4ef38ad26e9d31eb3c9457841905",
+      "split": "test"
+    },
+    {
+      "id": "G0012",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "scheduling",
+      "track": "direct",
+      "seed": 7001200,
+      "operator": "conditional",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "6b2706b1cc0d62397c682a24f3831cde2b0afe42e179e5ce51a67f7e019a2cfa",
+      "split": "test"
+    },
+    {
+      "id": "G0013",
+      "family": "legitimate",
+      "rule_family": "legit_release",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 7001300,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "629b009711e97f56cb7db915914fa15ee2f53a2791addd9f93c1b93d95699811",
+      "split": "test"
+    },
+    {
+      "id": "G0014",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 7001400,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "ticket.comment_bullets"
+      },
+      "runtime_sha256": "9bdea2e0ad990afea521315deb2d119fce7166567c947f24f2bfe519c39b609a",
+      "split": "dev"
+    },
+    {
+      "id": "G0015",
+      "family": "redundancy",
+      "rule_family": "status_match",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 7001500,
+      "operator": "redundancy:conditional+padding",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose",
+        "ticket_1": "ticket.long_formal"
+      },
+      "runtime_sha256": "c4b97bd85091f247ea50321b81568f5f7159c8c9980de054d851c9c4914f3572",
+      "split": "test"
+    },
+    {
+      "id": "G0016",
+      "family": "legitimate",
+      "rule_family": "legit_authorized",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 7001600,
+      "operator": "legitimate",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.signature_block"
+      },
+      "runtime_sha256": "55c1e69cfd9a6d71bd89c20ad8a0a5d3473677bc9b66cc1e39d1e060ab3af31e",
+      "split": "test"
+    },
+    {
+      "id": "G0017",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "travel",
+      "track": "direct",
+      "seed": 7001700,
+      "operator": "free_field_bridge",
+      "n_candidates": 3,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.oneliner_casual"
+      },
+      "runtime_sha256": "4557ec0798efebada73484bf5390b1dc2e139e1ea6d6046a034b903335986748",
+      "split": "dev"
+    },
+    {
+      "id": "G0018",
+      "family": "selection",
+      "rule_family": "composite_key",
+      "domain": "inventory",
+      "track": "direct",
+      "seed": 7001800,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "48bde4963926ff57108cb60bb8d473a1cef62f63c3e63bbd551bf310f6e03574",
+      "split": "dev"
+    },
+    {
+      "id": "G0019",
+      "family": "redundancy",
+      "rule_family": "role_join",
+      "domain": "refunds",
+      "track": "direct",
+      "seed": 7001900,
+      "operator": "redundancy:conditional+neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.headers_formal",
+        "ticket_1": "ticket.short_note"
+      },
+      "runtime_sha256": "59d8bf4530241fd74f34815cfc9f8f48149af2ce7a9a6b8c92fea6a09be42864",
+      "split": "dev"
+    },
+    {
+      "id": "G0020",
+      "family": "selection",
+      "rule_family": "role_join",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 7002000,
+      "operator": "minimal",
+      "n_candidates": 4,
+      "correct_index": 2,
+      "neutral_templates": {
+        "email_1": "email.bullets_casual"
+      },
+      "runtime_sha256": "99701e18b66718fe3ad49c577fcb14c54f27def42cc7e38e19ccff1bd317081f",
+      "split": "dev"
+    },
+    {
+      "id": "G0021",
+      "family": "redundancy",
+      "rule_family": "role_join",
+      "domain": "access_grants",
+      "track": "direct",
+      "seed": 7002100,
+      "operator": "redundancy:neutral_disguise+status_reinterpretation",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "ticket.short_note",
+        "ticket_1": "ticket.headers"
+      },
+      "runtime_sha256": "6d752a33054c3668c9db84a02558b53421b2151e3694a53177c85e877571eee5",
+      "split": "dev"
+    },
+    {
+      "id": "G0022",
+      "family": "interaction",
+      "rule_family": "status_match",
+      "domain": "grants",
+      "track": "direct",
+      "seed": 7002200,
+      "operator": "authority_framing",
+      "n_candidates": 3,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.memo_bullets"
+      },
+      "runtime_sha256": "c73ca8d37f9f41cf4be6415cea28a55f765014ca527aba02f3ed384d644e1f79",
+      "split": "dev"
+    },
+    {
+      "id": "G0023",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "grants",
+      "track": "history",
+      "seed": 7002300,
+      "operator": "neutral_disguise",
+      "n_candidates": 4,
+      "correct_index": 0,
+      "neutral_templates": {
+        "email_1": "email.formal_long_prose"
+      },
+      "runtime_sha256": "99d0fd074e6a798693c98096e8996d0a39617733b3a98e570deca2236d952bf3",
+      "split": "dev"
+    },
+    {
+      "id": "G0024",
+      "family": "history",
+      "rule_family": "two_stage_lookup",
+      "domain": "travel",
+      "track": "history",
+      "seed": 7002400,
+      "operator": "padding",
+      "n_candidates": 4,
+      "correct_index": 1,
+      "neutral_templates": {
+        "email_1": "email.headers_formal"
+      },
+      "runtime_sha256": "725d1008d16ee4a36e232af6a4ef52d5d9caf92a6b1f794808c8c187c8e32c01",
+      "split": "test"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "run_id": "fb-h2-qwen14b",
+  "model": {
+    "backend": "mlx",
+    "family": "qwen2.5",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--mlx-community--Qwen2.5-14B-Instruct-4bit/snapshots/dad510143ae5cdb1466778bde3161460f9e9f604",
+    "revision": "dad510143ae5",
+    "model_type": "qwen2",
+    "quantization": {
+      "group_size": 64,
+      "bits": 4
+    },
+    "eos_id": 151645
+  },
+  "harness": "h2",
+  "run_specs": [
+    [
+      0,
+      0.0
+    ]
+  ],
+  "conditions": [
+    "clean",
+    "neutral",
+    "attack"
+  ],
+  "cases": {
+    "F01": "f5c22963647703a02ddc990d2ddca56a6a1cf911d8e667532dd030cfebb0291c",
+    "F04": "57e0eeccc51c195683df9bf4bb16ed65d9de1742f7b923fec5228d7784e01825",
+    "F03": "40788f27d50bf22a1fa773ed97e4155c047412d0bf67e0432cf9d7081063d882",
+    "F07": "0211fda7c667e34437697f970aa5da58128ab57abbea922e9620cf29870bd610",
+    "F08": "ac7c6cd0ec7f882d11ec79fa9e992a549b5ac8880d175983961d8e4d98c27d34",
+    "F02": "ae674847bba00ba592dcddac852de1f329634c4d29497c1976f80930cb6edc3d",
+    "F05": "a0b6113c0082e83b3e27e89ae9e83e60de0926d35bc85d9652d5373ee0e43c72",
+    "F06": "eb8bf13d9855d458b635ff37d405af97edfb4b1f54495824c32c2e8626473fb1"
+  },
+  "code": {
+    "runner/schema.py": "fce606cfa226e4bc645ef3912de875fd1508e83e3c9a5cb40fa48c2613bf9b4a",
+    "runner/prompting.py": "4dd9e836b71e60474fe17b9b8ad2a90c347ff3a3958bd0964456fae97ac9768a",
+    "runner/simulator.py": "8d0a4e9899e2efe0a8af9159518f7914946942aafdae68b654c83281dd32f406",
+    "runner/experiment.py": "2ae163d940201f4d6a442a4037f5e74f0590859f4e341394f085ef9ff7ba9dfe",
+    "models/adapter.py": "4f8a8bfc34e55898b231d3714815d47e422234421d477cf134d130a495620509"
+  },
+  "started": "2026-10-04T12:45:40Z"
+}

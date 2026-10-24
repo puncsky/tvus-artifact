@@ -1,0 +1,40 @@
+{
+  "run_id": "bypass-h3-opus",
+  "model": {
+    "backend": "anthropic-api",
+    "family": "claude",
+    "model": "claude-opus-5-5",
+    "effort": "medium",
+    "thinking": "adaptive (model default)",
+    "sampling": "provider default (no temperature parameter sent)",
+    "fallbacks": "disabled (model identity must stay fixed for the study)",
+    "cap_usd": 30.0
+  },
+  "harness": "h3",
+  "budget": 12,
+  "templates": [
+    "S01",
+    "R02",
+    "H02",
+    "P01"
+  ],
+  "thresholds": {
+    "loo_max": 0.0,
+    "joint_drop": 0.0,
+    "ca_margin": 0.0,
+    "enh_R": 0.0,
+    "ref_D": 0.0,
+    "ref_R": 0.0,
+    "chosen_drop": 0.0,
+    "ref_D_t": 0.0,
+    "ref_R_t": 0.0,
+    "_n_calibration_executions": 48,
+    "_quantile": 0.95
+  },
+  "feedback": "decision-only",
+  "validate_seeds": [
+    11,
+    23
+  ],
+  "started": "2026-10-05T22:37:40Z"
+}

@@ -1,0 +1,62 @@
+{
+  "model": {
+    "backend": "torch",
+    "family": "qwen2.5",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775",
+    "hf_repo": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "model_type": "qwen2",
+    "quantization": null,
+    "eos_id": 151645,
+    "stop_ids": [
+      151643,
+      151645
+    ],
+    "dtype": "fp32",
+    "device": "cpu",
+    "attn_implementation": "sdpa",
+    "batch_candidates": false,
+    "logits_to_keep": true,
+    "torch": "2.14.1",
+    "transformers": "5.18.0",
+    "python": "3.12.14",
+    "machine": "arm64",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": true,
+    "cudnn_deterministic": true,
+    "allow_tf32": false,
+    "cublas_workspace_config": ":4096:8",
+    "num_threads": 10
+  },
+  "checks": {
+    "numpy_recompute_max_abs_err": 2.0787229020892938e-13,
+    "incremental_vs_uncached_max_abs_diff_nats": 3.852406560156396e-05,
+    "scores_uncached": [
+      -16.369610251831187,
+      -14.264056582842457
+    ],
+    "eos_included": true,
+    "greedy_deterministic": true,
+    "sampled_differs_across_seeds": true,
+    "batched_vs_single_max_abs_diff_nats": 3.663421879096518e-05
+  },
+  "throughput": {
+    "score_pass_tokens": [
+      773,
+      773
+    ],
+    "s_per_1k_token_score_pass": 2.682433915260127,
+    "gen90_seconds": 6.442314792002435,
+    "gen90_tokens": 62
+  },
+  "peak_memory_gb": 3.293659136,
+  "timing": {
+    "score_pass_seconds": [
+      1.906055915998877,
+      2.240986916993279
+    ],
+    "gen_seconds": 9.661086584004806,
+    "prompt_tokens": 717
+  },
+  "pass": true
+}

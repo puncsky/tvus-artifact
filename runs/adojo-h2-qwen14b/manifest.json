@@ -1,0 +1,41 @@
+{
+  "run_id": "adojo-h2-qwen14b",
+  "model": {
+    "backend": "mlx",
+    "family": "qwen2.5",
+    "model_path": "<ARTIFACT_ROOT>/cache/hf/hub/models--mlx-community--Qwen2.5-14B-Instruct-4bit/snapshots/dad510143ae5cdb1466778bde3161460f9e9f604",
+    "revision": "dad510143ae5",
+    "model_type": "qwen2",
+    "quantization": {
+      "group_size": 64,
+      "bits": 4
+    },
+    "eos_id": 151645,
+    "merged_adjacent_turns": 0
+  },
+  "harness": "h2",
+  "run_specs": [
+    [
+      0,
+      0.0
+    ]
+  ],
+  "conditions": [
+    "clean",
+    "neutral",
+    "attack"
+  ],
+  "cases": {
+    "AD-banking-ut02": "4f0706639b1994982d115d2d944996a281f931a9341ab244fc03d3e02dedbe57",
+    "AD-travel-ut07": "bf34b8e69f94b50789f27c62c1e2b428685eb4e6a3120ba6f10ae5c1dad4e5df",
+    "AD-workspace-ut07": "80f44a027e571be0fa8cd3555c7d7f00790a8120fec7ac162b9178a986756c64"
+  },
+  "code": {
+    "runner/schema.py": "fce606cfa226e4bc645ef3912de875fd1508e83e3c9a5cb40fa48c2613bf9b4a",
+    "runner/prompting.py": "4dd9e836b71e60474fe17b9b8ad2a90c347ff3a3958bd0964456fae97ac9768a",
+    "runner/simulator.py": "8d0a4e9899e2efe0a8af9159518f7914946942aafdae68b654c83281dd32f406",
+    "runner/experiment.py": "0e3c74e4ccb1a9b1af328b764c7650a0107364629068f4cae45324c391c3655b",
+    "models/adapter.py": "84bc4c680c98271b9a67da41a2eca309af5fc2dbd1277c0d4562fe6911f86943"
+  },
+  "started": "2026-10-05T13:46:58Z"
+}
