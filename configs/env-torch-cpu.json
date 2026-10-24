@@ -1,7 +1,7 @@
 {
   "env": "w3/envs/torch",
   "created": "2026-10-03",
-  "created_with": "UV_CACHE_DIR=w3/cache/uv uv venv --python /opt/homebrew/opt/python@3.12/bin/python3.12 w3/envs/torch && uv pip install torch transformers==5.18.0 numpy safetensors huggingface_hub accelerate",
+  "created_with": "UV_CACHE_DIR=w3/cache/uv uv venv --python python3.12 w3/envs/torch && uv pip install torch transformers==5.18.0 numpy safetensors huggingface_hub accelerate",
   "host": {
     "machine": "arm64",
     "system": "Darwin",

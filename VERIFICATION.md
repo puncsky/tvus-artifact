@@ -1,6 +1,6 @@
 # Release verification
 
-The v1.0.0 artifact was exported and tested from a fresh ZIP extraction before publication. No model experiments or hosted API calls were performed during this verification.
+The v1.0.1 artifact adds explicit data-provenance and validation disclosures and the matching submission PDF. Scientific fixtures, runs and numerical results are unchanged from v1.0.0. Release checksums, paper-table recounts and the release-search audit were checked again from a fresh ZIP extraction; the pipeline checks below were established on the identical v1.0.0 implementation and data. No model experiments or hosted API calls were performed for this release.
 
 | Check | Result |
 | --- | --- |

@@ -1,8 +1,10 @@
 {
-  "version": "v1.0.0",
+  "version": "v1.0.1",
   "author": "Tian Pan",
   "repository": "https://github.com/puncsky/tvus-artifact",
   "path_redactions": [
+    "models/README-torch.md",
+    "configs/env-torch-cpu.json",
     "reports/adaptive-pilot-qwen14b/curves.json",
     "reports/adaptive-pilot-qwen14b/curves.md",
     "reports/causalarmor-native/results.meta.json",

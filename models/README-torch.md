@@ -28,7 +28,7 @@ Semantics that matter for MLX parity:
 
 ```bash
 cd w3
-UV_CACHE_DIR=$PWD/cache/uv uv venv --python /opt/homebrew/opt/python@3.12/bin/python3.12 envs/torch
+UV_CACHE_DIR=$PWD/cache/uv uv venv --python python3.12 envs/torch
 UV_CACHE_DIR=$PWD/cache/uv uv pip install --python envs/torch/bin/python torch transformers==5.18.0 numpy safetensors huggingface_hub accelerate
 # model: Qwen/Qwen2.5-0.5B-Instruct @ 7ae557604adf67be50417f59c2c2f167def9a775 under cache/hf (HF_HOME)
 TMPDIR=$PWD/tmp envs/torch/bin/python models/verify_adapter.py qwen05b-cpu
