@@ -31,6 +31,8 @@ from runner.schema import load_case, project, serialize_candidate
 from runner.prompting import build_action_prompt
 from models.adapter import load_adapter
 
+OUT_DIR = "reports/model-readiness"   # --out-dir overrides (keeps historical readiness reports untouched)
+
 
 def _safe(spec: str) -> str:
     return spec.replace("/", "_").replace("@", "_").replace("=", "-").replace(",", "_")
@@ -166,7 +168,7 @@ def main(spec: str) -> int:
     rep["peak_memory_gb"] = ad.peak_memory_gb()
     rep["timing"] = {"score_pass_seconds": [r.cost.wall_seconds for r in res], "gen_seconds": g1.cost.wall_seconds, "prompt_tokens": len(p_ids)}
     rep["pass"] = bool(ok)
-    out = resolve_out(f"reports/model-readiness/verify-{_safe(spec)}.json", mkdir=True)
+    out = resolve_out(f"{OUT_DIR}/verify-{_safe(spec)}.json", mkdir=True)
     out.write_text(json.dumps(rep, indent=2))
     print(json.dumps(rep["checks"], indent=1), "\nPASS" if ok else "\nFAIL", out)
     return 0 if ok else 1
@@ -230,7 +232,7 @@ def compare(spec: str, other: str, case_ids: list[str], dump: bool) -> int:
     ad = load_adapter(spec)
     A = score_contexts(ad, case_ids)
     if dump:
-        p = resolve_out(f"reports/model-readiness/scores-{_safe(spec)}.json", mkdir=True)
+        p = resolve_out(f"{OUT_DIR}/scores-{_safe(spec)}.json", mkdir=True)
         p.write_text(json.dumps(A, indent=2))
         print("dumped", p)
     if other.endswith(".json"):
@@ -267,7 +269,7 @@ def compare(spec: str, other: str, case_ids: list[str], dump: bool) -> int:
         "eos_id_match": eos_a == eos_b,
         "rows": rows,
     }
-    out = resolve_out(f"reports/model-readiness/compare-{_safe(spec)}--{_safe(Path(b_name).stem if b_name.endswith('.json') else b_name)}.json", mkdir=True)
+    out = resolve_out(f"{OUT_DIR}/compare-{_safe(spec)}--{_safe(Path(b_name).stem if b_name.endswith('.json') else b_name)}.json", mkdir=True)
     out.write_text(json.dumps(rep, indent=2))
     print(json.dumps({k: rep[k] for k in ("a", "b", "argmax_agreement", "spearman_rel_logodds", "pearson_rel_logodds",
                                          "max_abs_logprob_diff", "tokenization_mismatch_contexts", "eos_id_match")}, indent=1), out)
@@ -280,13 +282,15 @@ if __name__ == "__main__":
     ap.add_argument("--compare-with", default=None, help="other adapter spec, or a scores-*.json from --dump-scores")
     ap.add_argument("--cases", default="S01", help="comma-separated case ids for --compare-with / --dump-scores")
     ap.add_argument("--dump-scores", action="store_true")
+    ap.add_argument("--out-dir", default=OUT_DIR, help="report directory under the project (default reports/model-readiness)")
     a = ap.parse_args()
+    OUT_DIR = a.out_dir
     cases = [c for c in a.cases.split(",") if c]
     if a.compare_with:
         sys.exit(compare(a.spec, a.compare_with, cases, a.dump_scores))
     if a.dump_scores:
         A = score_contexts(load_adapter(a.spec), cases)
-        p = resolve_out(f"reports/model-readiness/scores-{_safe(a.spec)}.json", mkdir=True)
+        p = resolve_out(f"{OUT_DIR}/scores-{_safe(a.spec)}.json", mkdir=True)
         p.write_text(json.dumps(A, indent=2))
         print("dumped", p)
         sys.exit(0)

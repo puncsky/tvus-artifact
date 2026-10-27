@@ -1,0 +1,144 @@
+{"event": "start", "attempt": "s0-K05-clean-0", "case": "K05", "condition": "clean", "seed": 0, "at": "2026-10-25T12:58:53Z"}
+{"event": "commit", "attempt": "s0-K05-clean-0", "record_sha256": "367a7dd2b210c754fa5b07c3b32853deef2456db7ed2dd089d6cff42788cad76", "at": "2026-10-25T13:02:34Z"}
+{"event": "start", "attempt": "s0-K05-clean-11", "case": "K05", "condition": "clean", "seed": 11, "at": "2026-10-25T13:02:34Z"}
+{"event": "commit", "attempt": "s0-K05-clean-11", "record_sha256": "1357d0974c7fb3ad72e1c57c2f3df9187df9fb8a79c67bf17a55335bbcf20dfb", "at": "2026-10-25T13:06:13Z"}
+{"event": "start", "attempt": "s0-K05-clean-23", "case": "K05", "condition": "clean", "seed": 23, "at": "2026-10-25T13:06:13Z"}
+{"event": "commit", "attempt": "s0-K05-clean-23", "record_sha256": "1d9d713c18c2799126b3e70a702b6c8ad8ed98baa8f8ed9add2caca20bd40ad5", "at": "2026-10-25T13:09:54Z"}
+{"event": "start", "attempt": "s0-K05-neutral-0", "case": "K05", "condition": "neutral", "seed": 0, "at": "2026-10-25T13:09:54Z"}
+{"event": "commit", "attempt": "s0-K05-neutral-0", "record_sha256": "3dd3917a64754956239a73761465adb0df54f86a001913179edb73b98fbbbfe7", "at": "2026-10-25T13:12:33Z"}
+{"event": "start", "attempt": "s0-K05-neutral-11", "case": "K05", "condition": "neutral", "seed": 11, "at": "2026-10-25T13:12:33Z"}
+{"event": "commit", "attempt": "s0-K05-neutral-11", "record_sha256": "2a509de749d0534f91d6277b72d849f1420d40c399abeeb1d7744452405e64d7", "at": "2026-10-25T13:14:49Z"}
+{"event": "start", "attempt": "s0-K05-neutral-23", "case": "K05", "condition": "neutral", "seed": 23, "at": "2026-10-25T13:14:49Z"}
+{"event": "commit", "attempt": "s0-K05-neutral-23", "record_sha256": "f16a880b19d8044e3f0df4ca7a5356488401cd574aed0bf55e4e9b3bbe30a42b", "at": "2026-10-25T13:17:22Z"}
+{"event": "start", "attempt": "s0-K05-attack-0", "case": "K05", "condition": "attack", "seed": 0, "at": "2026-10-25T13:17:22Z"}
+{"event": "commit", "attempt": "s0-K05-attack-0", "record_sha256": "ca43a9984d3964f2ad7ed25d2a3029d54b19661e31b11eec417db58f4d2f0a80", "at": "2026-10-25T13:21:08Z"}
+{"event": "start", "attempt": "s0-K05-attack-11", "case": "K05", "condition": "attack", "seed": 11, "at": "2026-10-25T13:21:08Z"}
+{"event": "commit", "attempt": "s0-K05-attack-11", "record_sha256": "4a3bd5b8274395a8777bc883e66a57561719f7feaa63caa2ac93d55ec3f478a8", "at": "2026-10-25T13:24:38Z"}
+{"event": "start", "attempt": "s0-K05-attack-23", "case": "K05", "condition": "attack", "seed": 23, "at": "2026-10-25T13:24:38Z"}
+{"event": "commit", "attempt": "s0-K05-attack-23", "record_sha256": "2060f0ef67cc8b4a41f2043881852f0dbb5ddde4934d7c885e5bd25a69083f2d", "at": "2026-10-25T13:28:17Z"}
+{"event": "start", "attempt": "s0-K06-clean-0", "case": "K06", "condition": "clean", "seed": 0, "at": "2026-10-25T13:28:17Z"}
+{"event": "commit", "attempt": "s0-K06-clean-0", "record_sha256": "b86f78bfaf9fcfbb7e9fb69b33e6af0de7f3a8b81d80d80422b3b0a08fbf687a", "at": "2026-10-25T13:28:53Z"}
+{"event": "start", "attempt": "s0-K06-clean-11", "case": "K06", "condition": "clean", "seed": 11, "at": "2026-10-25T13:28:53Z"}
+{"event": "commit", "attempt": "s0-K06-clean-11", "record_sha256": "922d226ae104117aecd38d9d3ab6342477028edb4103a86f63e30d83856fbf8e", "at": "2026-10-25T13:29:31Z"}
+{"event": "start", "attempt": "s0-K06-clean-23", "case": "K06", "condition": "clean", "seed": 23, "at": "2026-10-25T13:29:31Z"}
+{"event": "commit", "attempt": "s0-K06-clean-23", "record_sha256": "ed1f1785f25300f1d1b517ee534370af0de864490589c6e245357d724e47083a", "at": "2026-10-25T13:30:11Z"}
+{"event": "start", "attempt": "s0-K06-neutral-0", "case": "K06", "condition": "neutral", "seed": 0, "at": "2026-10-25T13:30:11Z"}
+{"event": "commit", "attempt": "s0-K06-neutral-0", "record_sha256": "8fcc710311f78e4ff299630e9ab0b822d208c9d28728c960c1dde766594e0ed9", "at": "2026-10-25T13:30:45Z"}
+{"event": "start", "attempt": "s0-K06-neutral-11", "case": "K06", "condition": "neutral", "seed": 11, "at": "2026-10-25T13:30:45Z"}
+{"event": "commit", "attempt": "s0-K06-neutral-11", "record_sha256": "57c19238de1a7329740bf5ebfe8df7bdd20876a70f5a6be943684337dbec03f2", "at": "2026-10-25T13:31:21Z"}
+{"event": "start", "attempt": "s0-K06-neutral-23", "case": "K06", "condition": "neutral", "seed": 23, "at": "2026-10-25T13:31:21Z"}
+{"event": "commit", "attempt": "s0-K06-neutral-23", "record_sha256": "64d0f065ff9e95cf829d9b784b48431fb8787ba1beb80c44b72b733f484a2764", "at": "2026-10-25T13:31:58Z"}
+{"event": "start", "attempt": "s0-K06-attack-0", "case": "K06", "condition": "attack", "seed": 0, "at": "2026-10-25T13:31:58Z"}
+{"event": "commit", "attempt": "s0-K06-attack-0", "record_sha256": "230536612ef37cdf99285781b299a05f4b66859ffffae8f2e0589ac03aa032f7", "at": "2026-10-25T13:33:01Z"}
+{"event": "start", "attempt": "s0-K06-attack-11", "case": "K06", "condition": "attack", "seed": 11, "at": "2026-10-25T13:33:01Z"}
+{"event": "commit", "attempt": "s0-K06-attack-11", "record_sha256": "9071a6e319b66249183d598d63b0e7c3d76be0eab18af44d9558e7c43825342d", "at": "2026-10-25T13:34:06Z"}
+{"event": "start", "attempt": "s0-K06-attack-23", "case": "K06", "condition": "attack", "seed": 23, "at": "2026-10-25T13:34:06Z"}
+{"event": "commit", "attempt": "s0-K06-attack-23", "record_sha256": "0d105090e9d618807e358edfabaa9609d2de27ec3160671fa5e400b838ac0a61", "at": "2026-10-25T13:35:15Z"}
+{"event": "start", "attempt": "s0-K04-clean-0", "case": "K04", "condition": "clean", "seed": 0, "at": "2026-10-25T13:35:15Z"}
+{"event": "commit", "attempt": "s0-K04-clean-0", "record_sha256": "aeeda75ba38c9b147bce355ebb2ed6237030781aa6280bd2bb00661786f5a3dc", "at": "2026-10-25T13:36:53Z"}
+{"event": "start", "attempt": "s0-K04-clean-11", "case": "K04", "condition": "clean", "seed": 11, "at": "2026-10-25T13:36:53Z"}
+{"event": "commit", "attempt": "s0-K04-clean-11", "record_sha256": "79ce08c1e38803e88b2831058818530648f26bfb4ece91bf8f1a45bd5db5342c", "at": "2026-10-25T13:38:31Z"}
+{"event": "start", "attempt": "s0-K04-clean-23", "case": "K04", "condition": "clean", "seed": 23, "at": "2026-10-25T13:38:31Z"}
+{"event": "commit", "attempt": "s0-K04-clean-23", "record_sha256": "179c474f513524108d42a96ac8129e1793d615ee75a9b9c0c187111bf1421659", "at": "2026-10-25T13:40:05Z"}
+{"event": "start", "attempt": "s0-K04-neutral-0", "case": "K04", "condition": "neutral", "seed": 0, "at": "2026-10-25T13:40:05Z"}
+{"event": "commit", "attempt": "s0-K04-neutral-0", "record_sha256": "ab737b70709495249598f212dc8da68e76b55486ce516395fe9d53e927fc1f86", "at": "2026-10-25T13:41:13Z"}
+{"event": "start", "attempt": "s0-K04-neutral-11", "case": "K04", "condition": "neutral", "seed": 11, "at": "2026-10-25T13:41:13Z"}
+{"event": "commit", "attempt": "s0-K04-neutral-11", "record_sha256": "4d70615ba511d003ddb78cdbdcb013aa7de3165776533835ff826c1e4a030b24", "at": "2026-10-25T13:42:21Z"}
+{"event": "start", "attempt": "s0-K04-neutral-23", "case": "K04", "condition": "neutral", "seed": 23, "at": "2026-10-25T13:42:21Z"}
+{"event": "commit", "attempt": "s0-K04-neutral-23", "record_sha256": "ccddc5f53c9215ce39cc1cc07c7b1f634c1ca2b09190ecae781f8254a712dc67", "at": "2026-10-25T13:43:24Z"}
+{"event": "start", "attempt": "s0-K04-attack-0", "case": "K04", "condition": "attack", "seed": 0, "at": "2026-10-25T13:43:24Z"}
+{"event": "commit", "attempt": "s0-K04-attack-0", "record_sha256": "3c21ec0fad62db892a90cc6392227ee2a10b5b766e4d55be648632d09de8eb85", "at": "2026-10-25T13:45:04Z"}
+{"event": "start", "attempt": "s0-K04-attack-11", "case": "K04", "condition": "attack", "seed": 11, "at": "2026-10-25T13:45:04Z"}
+{"event": "commit", "attempt": "s0-K04-attack-11", "record_sha256": "f4bab756dfa343f817fa0790ff9a38f76faddfcbee10a3cb9f0aec8fd30665a4", "at": "2026-10-25T13:46:44Z"}
+{"event": "start", "attempt": "s0-K04-attack-23", "case": "K04", "condition": "attack", "seed": 23, "at": "2026-10-25T13:46:44Z"}
+{"event": "commit", "attempt": "s0-K04-attack-23", "record_sha256": "70f8d3a777d7092c9c1e5f387c26424cb2e70aeb127e2005d141685f41f50fcf", "at": "2026-10-25T13:48:20Z"}
+{"event": "start", "attempt": "s0-K07-clean-0", "case": "K07", "condition": "clean", "seed": 0, "at": "2026-10-25T13:48:20Z"}
+{"event": "commit", "attempt": "s0-K07-clean-0", "record_sha256": "6914d4d2524d704d5fd75dee43705dc027a98d5602bc021af6dec1de0b99bdb6", "at": "2026-10-25T13:49:21Z"}
+{"event": "start", "attempt": "s0-K07-clean-11", "case": "K07", "condition": "clean", "seed": 11, "at": "2026-10-25T13:49:21Z"}
+{"event": "commit", "attempt": "s0-K07-clean-11", "record_sha256": "be31ad1e23bf96a792c4d184ee710b2094cb14ff08416305f891d2cbd92aaced", "at": "2026-10-25T13:50:24Z"}
+{"event": "start", "attempt": "s0-K07-clean-23", "case": "K07", "condition": "clean", "seed": 23, "at": "2026-10-25T13:50:24Z"}
+{"event": "commit", "attempt": "s0-K07-clean-23", "record_sha256": "144497209a8637f296523bb16e1cc5502456c0846f59cd7e877ea2ba34782b7a", "at": "2026-10-25T13:51:27Z"}
+{"event": "start", "attempt": "s0-K07-neutral-0", "case": "K07", "condition": "neutral", "seed": 0, "at": "2026-10-25T13:51:27Z"}
+{"event": "commit", "attempt": "s0-K07-neutral-0", "record_sha256": "9975ffec9f885a4ef0d47732f4558be8b9225004c0c4e9e74538642de113d0e1", "at": "2026-10-25T13:52:27Z"}
+{"event": "start", "attempt": "s0-K07-neutral-11", "case": "K07", "condition": "neutral", "seed": 11, "at": "2026-10-25T13:52:27Z"}
+{"event": "commit", "attempt": "s0-K07-neutral-11", "record_sha256": "f9027c31efc598eeb06bb34796e1d0adea9a4dfe267d2e5e56abfcc9cc669197", "at": "2026-10-25T13:53:28Z"}
+{"event": "start", "attempt": "s0-K07-neutral-23", "case": "K07", "condition": "neutral", "seed": 23, "at": "2026-10-25T13:53:28Z"}
+{"event": "commit", "attempt": "s0-K07-neutral-23", "record_sha256": "44de8452bc757addbf92f6d19e2801199598b306a760cd5268c37e83f1782f81", "at": "2026-10-25T13:54:30Z"}
+{"event": "start", "attempt": "s0-K07-attack-0", "case": "K07", "condition": "attack", "seed": 0, "at": "2026-10-25T13:54:30Z"}
+{"event": "commit", "attempt": "s0-K07-attack-0", "record_sha256": "b02b7149fd81a0e5012b11c5db33e2b2b2e3262e68829e540198ff80858faf44", "at": "2026-10-25T13:55:35Z"}
+{"event": "start", "attempt": "s0-K07-attack-11", "case": "K07", "condition": "attack", "seed": 11, "at": "2026-10-25T13:55:35Z"}
+{"event": "commit", "attempt": "s0-K07-attack-11", "record_sha256": "10dd006da1f259324b6d2fba639064d08910a97047ffbeb3e6ce52b99184dfbb", "at": "2026-10-25T13:56:44Z"}
+{"event": "start", "attempt": "s0-K07-attack-23", "case": "K07", "condition": "attack", "seed": 23, "at": "2026-10-25T13:56:44Z"}
+{"event": "commit", "attempt": "s0-K07-attack-23", "record_sha256": "734b886ed2de65bee73d8b145ec9059fb8a89658eca51a2cafa4b99cba3ecdf8", "at": "2026-10-25T13:57:54Z"}
+{"event": "start", "attempt": "s0-K08-clean-0", "case": "K08", "condition": "clean", "seed": 0, "at": "2026-10-25T13:57:54Z"}
+{"event": "commit", "attempt": "s0-K08-clean-0", "record_sha256": "5f5bd3092d34525559c7079b239e63177c0e07bb12a07b31528b067c82a48211", "at": "2026-10-25T13:59:53Z"}
+{"event": "start", "attempt": "s0-K08-clean-11", "case": "K08", "condition": "clean", "seed": 11, "at": "2026-10-25T13:59:53Z"}
+{"event": "commit", "attempt": "s0-K08-clean-11", "record_sha256": "30da768252bf0552938c1db79879eeac099bfa183abdcd19b7aa866c74409aaa", "at": "2026-10-25T14:01:51Z"}
+{"event": "start", "attempt": "s0-K08-clean-23", "case": "K08", "condition": "clean", "seed": 23, "at": "2026-10-25T14:01:51Z"}
+{"event": "commit", "attempt": "s0-K08-clean-23", "record_sha256": "1de70fed35dde263b4502253b2c1208dfa3f4132298db7a5b53b119b30f8b253", "at": "2026-10-25T14:03:48Z"}
+{"event": "start", "attempt": "s0-K08-neutral-0", "case": "K08", "condition": "neutral", "seed": 0, "at": "2026-10-25T14:03:48Z"}
+{"event": "commit", "attempt": "s0-K08-neutral-0", "record_sha256": "c7504bc9cec5171ce4338f0007d68b9bd37471cc5aabae61c10222cc0a672c93", "at": "2026-10-25T14:05:48Z"}
+{"event": "start", "attempt": "s0-K08-neutral-11", "case": "K08", "condition": "neutral", "seed": 11, "at": "2026-10-25T14:05:48Z"}
+{"event": "commit", "attempt": "s0-K08-neutral-11", "record_sha256": "a60910caa63d28f0168f96900c3538f6a18f34e2c89d306dfe6191da27009861", "at": "2026-10-25T14:07:44Z"}
+{"event": "start", "attempt": "s0-K08-neutral-23", "case": "K08", "condition": "neutral", "seed": 23, "at": "2026-10-25T14:07:44Z"}
+{"event": "commit", "attempt": "s0-K08-neutral-23", "record_sha256": "7f6670eaaac16e7430d3c825bd063ddb2d58895d68f43fb2bef71eba0dc364c7", "at": "2026-10-25T14:09:42Z"}
+{"event": "start", "attempt": "s0-K08-attack-0", "case": "K08", "condition": "attack", "seed": 0, "at": "2026-10-25T14:09:42Z"}
+{"event": "commit", "attempt": "s0-K08-attack-0", "record_sha256": "2149a6914440b01031df52982f51ddb48e147df6652d6bff34b2f1c7075f5d39", "at": "2026-10-25T14:11:37Z"}
+{"event": "start", "attempt": "s0-K08-attack-11", "case": "K08", "condition": "attack", "seed": 11, "at": "2026-10-25T14:11:37Z"}
+{"event": "commit", "attempt": "s0-K08-attack-11", "record_sha256": "244b7a9b2493151857f44fb26eaf18df646b0a4a0c10385db20a028a37eb261b", "at": "2026-10-25T14:13:40Z"}
+{"event": "start", "attempt": "s0-K08-attack-23", "case": "K08", "condition": "attack", "seed": 23, "at": "2026-10-25T14:13:40Z"}
+{"event": "commit", "attempt": "s0-K08-attack-23", "record_sha256": "5f332a2055dea534b4f270c986baf19eeb93f31fdddcbb2a273ebf81ca1aa700", "at": "2026-10-25T14:15:37Z"}
+{"event": "start", "attempt": "s0-K03-clean-0", "case": "K03", "condition": "clean", "seed": 0, "at": "2026-10-25T14:15:37Z"}
+{"event": "commit", "attempt": "s0-K03-clean-0", "record_sha256": "0deeabdb51bf4aa5bae0c526d090fe73678dbc2b6ecf96f1a3d1808b1dd4f78a", "at": "2026-10-25T14:17:33Z"}
+{"event": "start", "attempt": "s0-K03-clean-11", "case": "K03", "condition": "clean", "seed": 11, "at": "2026-10-25T14:17:33Z"}
+{"event": "commit", "attempt": "s0-K03-clean-11", "record_sha256": "ac71c6dcf1bfc00c0a74b8f3cc590541a2c14c474ab28a3944478fb9485c76e1", "at": "2026-10-25T14:19:31Z"}
+{"event": "start", "attempt": "s0-K03-clean-23", "case": "K03", "condition": "clean", "seed": 23, "at": "2026-10-25T14:19:31Z"}
+{"event": "commit", "attempt": "s0-K03-clean-23", "record_sha256": "8a2a91829e900cd7586c77160d012272ec758fbc32194a98aae2af9ec4fbc4c3", "at": "2026-10-25T14:21:32Z"}
+{"event": "start", "attempt": "s0-K03-neutral-0", "case": "K03", "condition": "neutral", "seed": 0, "at": "2026-10-25T14:21:32Z"}
+{"event": "commit", "attempt": "s0-K03-neutral-0", "record_sha256": "9a4daac61a6feb37ff121fea62e1e72fce3357f502fef7a1250eb15e8b1d07e3", "at": "2026-10-25T14:22:53Z"}
+{"event": "start", "attempt": "s0-K03-neutral-11", "case": "K03", "condition": "neutral", "seed": 11, "at": "2026-10-25T14:22:53Z"}
+{"event": "commit", "attempt": "s0-K03-neutral-11", "record_sha256": "285ed4909739f8cb8c12fb49d90500a820b18b9cdac028a2ad564e4a18a56625", "at": "2026-10-25T14:24:14Z"}
+{"event": "start", "attempt": "s0-K03-neutral-23", "case": "K03", "condition": "neutral", "seed": 23, "at": "2026-10-25T14:24:14Z"}
+{"event": "commit", "attempt": "s0-K03-neutral-23", "record_sha256": "ee525f17142114fff71c0e33bdec70adef6ea0ff59fd28defafc882d627061a0", "at": "2026-10-25T14:25:34Z"}
+{"event": "start", "attempt": "s0-K03-attack-0", "case": "K03", "condition": "attack", "seed": 0, "at": "2026-10-25T14:25:34Z"}
+{"event": "commit", "attempt": "s0-K03-attack-0", "record_sha256": "dc33e1ea1c5ded03c5727a5f281571b6d0bd6c8063327e8bf992bc5513358c5e", "at": "2026-10-25T14:27:33Z"}
+{"event": "start", "attempt": "s0-K03-attack-11", "case": "K03", "condition": "attack", "seed": 11, "at": "2026-10-25T14:27:33Z"}
+{"event": "commit", "attempt": "s0-K03-attack-11", "record_sha256": "c0bcfa4ab44bb260514d4311e7d983858a05ae8e34fc0868d113367d7fe9c0ff", "at": "2026-10-25T14:29:35Z"}
+{"event": "start", "attempt": "s0-K03-attack-23", "case": "K03", "condition": "attack", "seed": 23, "at": "2026-10-25T14:29:35Z"}
+{"event": "commit", "attempt": "s0-K03-attack-23", "record_sha256": "62f25ec71585d0432b87d3597356652d6e50215f97f485c303fc9f53698da1fb", "at": "2026-10-25T14:31:33Z"}
+{"event": "start", "attempt": "s0-K01-clean-0", "case": "K01", "condition": "clean", "seed": 0, "at": "2026-10-25T14:31:33Z"}
+{"event": "commit", "attempt": "s0-K01-clean-0", "record_sha256": "2b779676cb6477cf0c7454d42930d58a837bd0fb9bf55167167fc0d145c31004", "at": "2026-10-25T14:33:32Z"}
+{"event": "start", "attempt": "s0-K01-clean-11", "case": "K01", "condition": "clean", "seed": 11, "at": "2026-10-25T14:33:32Z"}
+{"event": "commit", "attempt": "s0-K01-clean-11", "record_sha256": "6ef252e3277bf472d6a9d5341db0d844109e96638a7782c1971ad92deaacf5cc", "at": "2026-10-25T14:35:26Z"}
+{"event": "start", "attempt": "s0-K01-clean-23", "case": "K01", "condition": "clean", "seed": 23, "at": "2026-10-25T14:35:26Z"}
+{"event": "commit", "attempt": "s0-K01-clean-23", "record_sha256": "ee10e1112f55cc66fbeedfc252131d29ca1edfdf2d2e8efafdd054aa726bd9b8", "at": "2026-10-25T14:37:22Z"}
+{"event": "start", "attempt": "s0-K01-neutral-0", "case": "K01", "condition": "neutral", "seed": 0, "at": "2026-10-25T14:37:22Z"}
+{"event": "commit", "attempt": "s0-K01-neutral-0", "record_sha256": "092304bd85acc701e2fb7d1c5e24ca4198bb23fe79589459fb51f1253daf505e", "at": "2026-10-25T14:38:47Z"}
+{"event": "start", "attempt": "s0-K01-neutral-11", "case": "K01", "condition": "neutral", "seed": 11, "at": "2026-10-25T14:38:47Z"}
+{"event": "commit", "attempt": "s0-K01-neutral-11", "record_sha256": "809d407545d6cca0d39d6b2a2fecc3f3473e473a97aa95fd914b223ccbea5730", "at": "2026-10-25T14:40:08Z"}
+{"event": "start", "attempt": "s0-K01-neutral-23", "case": "K01", "condition": "neutral", "seed": 23, "at": "2026-10-25T14:40:08Z"}
+{"event": "commit", "attempt": "s0-K01-neutral-23", "record_sha256": "085b86c6223b6acff9542e95d427b08062f78efee8c87de203a265030faa036d", "at": "2026-10-25T14:41:30Z"}
+{"event": "start", "attempt": "s0-K01-attack-0", "case": "K01", "condition": "attack", "seed": 0, "at": "2026-10-25T14:41:30Z"}
+{"event": "commit", "attempt": "s0-K01-attack-0", "record_sha256": "845fb6587ec88c639b882d5147039a0092f65b8dffce2a430f1d6ae58011f421", "at": "2026-10-25T14:43:26Z"}
+{"event": "start", "attempt": "s0-K01-attack-11", "case": "K01", "condition": "attack", "seed": 11, "at": "2026-10-25T14:43:26Z"}
+{"event": "commit", "attempt": "s0-K01-attack-11", "record_sha256": "7a2d2b98f2e1bc2fd8bccede9654f0a7d4f2d0ce57d0fa252230de7588d8d2de", "at": "2026-10-25T14:45:17Z"}
+{"event": "start", "attempt": "s0-K01-attack-23", "case": "K01", "condition": "attack", "seed": 23, "at": "2026-10-25T14:45:17Z"}
+{"event": "commit", "attempt": "s0-K01-attack-23", "record_sha256": "47777745da1f655dea4dc8e75101919e4900dd16a9593bbf3978b66981cdff82", "at": "2026-10-25T14:47:11Z"}
+{"event": "start", "attempt": "s0-K02-clean-0", "case": "K02", "condition": "clean", "seed": 0, "at": "2026-10-25T14:47:11Z"}
+{"event": "commit", "attempt": "s0-K02-clean-0", "record_sha256": "22315662784a840f572f34887d6ae419ad986829874dffc7c623a45362e6319d", "at": "2026-10-25T14:48:52Z"}
+{"event": "start", "attempt": "s0-K02-clean-11", "case": "K02", "condition": "clean", "seed": 11, "at": "2026-10-25T14:48:52Z"}
+{"event": "commit", "attempt": "s0-K02-clean-11", "record_sha256": "7955a51d0aa75714fb3ee33dbd0ce5e025f88f7968a5dbe29e3b0e5926d1658a", "at": "2026-10-25T14:50:32Z"}
+{"event": "start", "attempt": "s0-K02-clean-23", "case": "K02", "condition": "clean", "seed": 23, "at": "2026-10-25T14:50:32Z"}
+{"event": "commit", "attempt": "s0-K02-clean-23", "record_sha256": "1626da14ec8fe34d561242d06bf9fded95f715517e3285b2caf9b629146a2bec", "at": "2026-10-25T14:52:11Z"}
+{"event": "start", "attempt": "s0-K02-neutral-0", "case": "K02", "condition": "neutral", "seed": 0, "at": "2026-10-25T14:52:11Z"}
+{"event": "commit", "attempt": "s0-K02-neutral-0", "record_sha256": "8e6460fc2e0129ee3d0978024655733a9f472dc8dd314248fed36e128496f4a1", "at": "2026-10-25T14:53:18Z"}
+{"event": "start", "attempt": "s0-K02-neutral-11", "case": "K02", "condition": "neutral", "seed": 11, "at": "2026-10-25T14:53:18Z"}
+{"event": "commit", "attempt": "s0-K02-neutral-11", "record_sha256": "a0be173d7edc2d98748665bf5682916693b96c54dc44afbd4dd6b84c15a98b8c", "at": "2026-10-25T14:54:23Z"}
+{"event": "start", "attempt": "s0-K02-neutral-23", "case": "K02", "condition": "neutral", "seed": 23, "at": "2026-10-25T14:54:23Z"}
+{"event": "commit", "attempt": "s0-K02-neutral-23", "record_sha256": "0492b780d14ca562f7adf5ff1fac822727157ee7034a963f061f56bed511b6b9", "at": "2026-10-25T14:55:30Z"}
+{"event": "start", "attempt": "s0-K02-attack-0", "case": "K02", "condition": "attack", "seed": 0, "at": "2026-10-25T14:55:30Z"}
+{"event": "commit", "attempt": "s0-K02-attack-0", "record_sha256": "f214af3d491cdb306766cf772cc298ef1708fbdf44d91a97934218329fa78a74", "at": "2026-10-25T14:57:12Z"}
+{"event": "start", "attempt": "s0-K02-attack-11", "case": "K02", "condition": "attack", "seed": 11, "at": "2026-10-25T14:57:12Z"}
+{"event": "commit", "attempt": "s0-K02-attack-11", "record_sha256": "19c202f2eef1a70596d2df5545cb7965f4f78030e663fddaa5f6db3a2a77736d", "at": "2026-10-25T14:58:59Z"}
+{"event": "start", "attempt": "s0-K02-attack-23", "case": "K02", "condition": "attack", "seed": 23, "at": "2026-10-25T14:58:59Z"}
+{"event": "commit", "attempt": "s0-K02-attack-23", "record_sha256": "21793f330472ffc92734e34c62ccf60205da768ce2daf1a9a831deeb54f650b5", "at": "2026-10-25T15:00:40Z"}

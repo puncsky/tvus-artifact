@@ -1,0 +1,147 @@
+{
+  "model": {
+    "key": "qwen32b-bf16",
+    "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+    "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "dtype": "bf16",
+    "batch_candidates": false
+  },
+  "labels": {
+    "original-derived": "October 2026 historical matrices; derived rows/summaries/thresholds only, raw records lost",
+    "replication": "rep20261025 complete re-collection with raw records (protocol reports/qwen32b-evidence/protocol.md)"
+  },
+  "roles": {
+    "dev": {
+      "original-derived": {
+        "run_id": "dev-qwen32b-bf16",
+        "report": "reports/dev-qwen32b-bf16",
+        "raw": "absent"
+      },
+      "replication": {
+        "run_id": "rep20261025-dev-qwen32b-bf16",
+        "present": true,
+        "dir": "runs/rep20261025-dev-qwen32b-bf16",
+        "manifest_started": "2026-10-25T05:58:25Z",
+        "manifest_sha256": "09f5dcd5adca7498b66f5fbbd82002f21ca1880ffab42f226eda73ddd9a96f87",
+        "sha256sums_sha256": "0ab5bc23ccadd8fa676369af20c7cd9131b1834274b1b09bfd3d58a5b59380cf",
+        "source_git": "d76c4aa9c6eed17656e48798bc37fe3945bd5b0f",
+        "host": "spark-71a4",
+        "resumes": 0,
+        "report_primary": "reports/rep20261025-dev-qwen32b-bf16",
+        "thresholds_primary": "reports/dev-qwen32b-bf16/thresholds.json",
+        "report_secondary": "reports/rep20261025-dev-qwen32b-bf16-secthr"
+      },
+      "manuscript_evidence": "replication"
+    },
+    "conf": {
+      "original-derived": {
+        "run_id": "conf-qwen32b-bf16",
+        "report": "reports/conf-qwen32b-bf16",
+        "raw": "absent"
+      },
+      "replication": {
+        "run_id": "rep20261025-conf-qwen32b-bf16",
+        "present": true,
+        "dir": "runs/rep20261025-conf-qwen32b-bf16",
+        "manifest_started": "2026-10-25T12:58:53Z",
+        "manifest_sha256": "946a52b7d3d52c1775a295496f5c44d8cd772561314d84c351c1bb511babbb0e",
+        "sha256sums_sha256": "9a761f50f2194414d3fc34daf4becc342d75a9b8bebef281c807c42817090166",
+        "source_git": "d76c4aa9c6eed17656e48798bc37fe3945bd5b0f",
+        "host": "spark-71a4",
+        "resumes": 0,
+        "report_primary": "reports/rep20261025-conf-qwen32b-bf16",
+        "thresholds_primary": "reports/dev-qwen32b-bf16/thresholds.json",
+        "report_secondary": "reports/rep20261025-conf-qwen32b-bf16-secthr"
+      },
+      "manuscript_evidence": "replication"
+    },
+    "gen-test": {
+      "original-derived": {
+        "run_id": "gen-test-qwen32b-bf16",
+        "report": "reports/gen-test-qwen32b-bf16",
+        "raw": "absent"
+      },
+      "replication": {
+        "run_id": "rep20261025-gen-test-qwen32b-bf16",
+        "present": true,
+        "dir": "runs/rep20261025-gen-test-qwen32b-bf16",
+        "manifest_started": "2026-10-25T15:06:37Z",
+        "manifest_sha256": "c1022ee01d790e8a5ff73929474b408b3f76a0c03078855959dec1bf611a01ca",
+        "sha256sums_sha256": "fcbfe7b302e17a6ebd5352ca68c75fcd33288f49b656ca710333541567f57a7f",
+        "source_git": "d76c4aa9c6eed17656e48798bc37fe3945bd5b0f",
+        "host": "spark-71a4",
+        "resumes": 0,
+        "report_primary": "reports/rep20261025-gen-test-qwen32b-bf16",
+        "thresholds_primary": "reports/dev-qwen32b-bf16/thresholds.json",
+        "report_secondary": "reports/rep20261025-gen-test-qwen32b-bf16-secthr"
+      },
+      "manuscript_evidence": "replication"
+    },
+    "h2-dev": {
+      "original-derived": {
+        "run_id": "h2-dev-qwen32b-bf16",
+        "report": "reports/h2-dev-qwen32b-bf16",
+        "raw": "absent"
+      },
+      "replication": {
+        "run_id": "rep20261025-h2-dev-qwen32b-bf16",
+        "present": true,
+        "dir": "runs/rep20261025-h2-dev-qwen32b-bf16",
+        "manifest_started": "2026-10-27T02:31:52Z",
+        "manifest_sha256": "bcef40b954af58ead919cc73dbaa25183d9f99530e29931b19882c4827f811eb",
+        "sha256sums_sha256": "75a53eae38e9a65b6c935943e6e2b1af2bf2a031f5d5d166480adf1079b2620f",
+        "source_git": "d76c4aa9c6eed17656e48798bc37fe3945bd5b0f",
+        "host": "spark-71a4",
+        "resumes": 0,
+        "report_primary": "reports/rep20261025-h2-dev-qwen32b-bf16",
+        "thresholds_primary": "reports/h2-dev-qwen32b-bf16/thresholds.json",
+        "report_secondary": "reports/rep20261025-h2-dev-qwen32b-bf16-secthr"
+      },
+      "manuscript_evidence": "replication"
+    },
+    "h2-conf": {
+      "original-derived": {
+        "run_id": "h2-conf-qwen32b-bf16",
+        "report": "reports/h2-conf-qwen32b-bf16",
+        "raw": "absent"
+      },
+      "replication": {
+        "run_id": "rep20261025-h2-conf-qwen32b-bf16",
+        "present": true,
+        "dir": "runs/rep20261025-h2-conf-qwen32b-bf16",
+        "manifest_started": "2026-10-27T10:03:23Z",
+        "manifest_sha256": "99fdd0bd76e46dad1f3cbeff33c57130ad87094f23818e0b84ecc1128efde04d",
+        "sha256sums_sha256": "aa7f88771ec07fc4aa0814866682b3aaf8679cc79ddb4c33ed8404c526057dcc",
+        "source_git": "d76c4aa9c6eed17656e48798bc37fe3945bd5b0f",
+        "host": "spark-71a4",
+        "resumes": 0,
+        "report_primary": "reports/rep20261025-h2-conf-qwen32b-bf16",
+        "thresholds_primary": "reports/h2-dev-qwen32b-bf16/thresholds.json",
+        "report_secondary": "reports/rep20261025-h2-conf-qwen32b-bf16-secthr"
+      },
+      "manuscript_evidence": "replication"
+    },
+    "fb-h1": {
+      "original-derived": {
+        "run_id": "fb-h1-qwen32b-bf16",
+        "report": "reports/fb-h1-qwen32b-bf16",
+        "raw": "absent"
+      },
+      "replication": {
+        "run_id": "rep20261025-fb-h1-qwen32b-bf16",
+        "present": true,
+        "dir": "runs/rep20261025-fb-h1-qwen32b-bf16",
+        "manifest_started": "2026-10-27T12:12:36Z",
+        "manifest_sha256": "bcb96b820e17739b8ff22d3d9fdbd8fb56d6099d07ee4606730c1270c20a9c34",
+        "sha256sums_sha256": "2cbbd44e8daf66efd700f1e293ae739707ccdeb2e0dee8116b753af77f2970e8",
+        "source_git": "d76c4aa9c6eed17656e48798bc37fe3945bd5b0f",
+        "host": "spark-71a4",
+        "resumes": 0,
+        "report_primary": "reports/rep20261025-fb-h1-qwen32b-bf16",
+        "thresholds_primary": "reports/dev-qwen32b-bf16/thresholds.json",
+        "report_secondary": "reports/rep20261025-fb-h1-qwen32b-bf16-secthr"
+      },
+      "manuscript_evidence": "replication"
+    }
+  }
+}

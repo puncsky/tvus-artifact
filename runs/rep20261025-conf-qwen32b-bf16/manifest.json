@@ -1,0 +1,261 @@
+{
+  "run_id": "rep20261025-conf-qwen32b-bf16",
+  "model_spec": "qwen32b-bf16",
+  "model": {
+    "backend": "torch",
+    "family": "qwen2.5",
+    "model_path": "/home/tp/projects/tianpan-v3/projects/tvus-research/cache/hf/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+    "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "model_type": "qwen2",
+    "quantization": null,
+    "eos_id": 151645,
+    "stop_ids": [
+      151643,
+      151645
+    ],
+    "dtype": "bf16",
+    "device": "cuda",
+    "attn_implementation": "sdpa",
+    "batch_candidates": false,
+    "sampling": {
+      "greedy_if_temperature_0": true,
+      "seeding": "torch.manual_seed + cuda.manual_seed_all per generate",
+      "top_k": 0,
+      "top_p": 1.0,
+      "min_p": 0.0,
+      "typical_p": 1.0,
+      "epsilon_cutoff": 0.0,
+      "eta_cutoff": 0.0,
+      "repetition_penalty": 1.0,
+      "no_repeat_ngram_size": 0,
+      "num_beams": 1
+    },
+    "logits_to_keep": true,
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "python": "3.12.15",
+    "machine": "aarch64",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": true,
+    "cudnn_deterministic": true,
+    "allow_tf32": false,
+    "cublas_workspace_config": ":4096:8",
+    "num_threads": 20,
+    "cuda": "13.0",
+    "gpu": "NVIDIA GB10",
+    "capability": [
+      12,
+      1
+    ],
+    "bitsandbytes": "0.50.2"
+  },
+  "harness": "h1",
+  "run_specs": [
+    [
+      0,
+      0.0
+    ],
+    [
+      11,
+      0.7
+    ],
+    [
+      23,
+      0.7
+    ]
+  ],
+  "conditions": [
+    "clean",
+    "neutral",
+    "attack"
+  ],
+  "cases": {
+    "K05": "05bfc429a2b005743001e4c9c7cc818685d38cdb926fcd140bb08913d480420d",
+    "K06": "592267c04b7b39b1870a6e552a8a6afd045c2cdb502320b792cc442012bed04f",
+    "K04": "b9768cfc030d2a772449fc2b2085586ff2794592fb7a4c2f558d839743d09f5d",
+    "K07": "545b00fcf360ccc86f8893e7af56e513a749bd96a5880af3ab05eb324c55846c",
+    "K08": "95a2623c8894eb86d073e843fe6fa769fcc263090a3c3cc6b4ecdf556de830b4",
+    "K03": "c4fdd89b61d50ae98a108ea0bf3fa6a745bdc6a0fc667e32967088b446b303c8",
+    "K01": "1f0e14373fa2e99e6e7266842cd561ff6450af98d76b6b125e96278fb9140862",
+    "K02": "33bf3c556d79db839a7c109fbfe09b8f42eb87026feaeaadec6107b4fd242dec"
+  },
+  "fixture_files": {
+    "K05": {
+      "runtime.json": "d07b23eac868498899321362e16089333d0823194b3cb732ade534208571d109",
+      "evaluator.json": "11fc1b129f1ff415739e9616544bde96325130589e1a75fa9a14a6d33922071d"
+    },
+    "K06": {
+      "runtime.json": "91c0e935bbfe929c1adfc8c4d40e0fe08687d90661c806536432a364d64a849c",
+      "evaluator.json": "daf18d4cff1f8f6a751f86de6d58305f0688bd9ae4c34eb86e93a7afd252f8c0"
+    },
+    "K04": {
+      "runtime.json": "946ae7e2f75cb548e956bf27c0dcfdb2bea7b753ed9643a2c05b5c373e17062e",
+      "evaluator.json": "b51d3ccdd0d9bdad858f595e326081e8cce4f84511ac656410c509a90d7c800f"
+    },
+    "K07": {
+      "runtime.json": "6d3e859aec05a30f537b51c92b0d97858172eb8f3d4e319a2d997edac756a367",
+      "evaluator.json": "85ead0041a55e3ae72583ea014c6205fb9ef008d1067120fc85602d146dc8588"
+    },
+    "K08": {
+      "runtime.json": "f8e4c83240e1566e20809c602e5ec2e04b87042c4e3f9b258179013c4a1a2218",
+      "evaluator.json": "5f5946de7ccfdf1920df2e5fc0d01e55e4a763bcff14a4dea587e1b0840aa1b5"
+    },
+    "K03": {
+      "runtime.json": "0bdf41dc4ff6ef5a5d3f2cde45d3acd7b387b770cf55c309ca72ea973bf54241",
+      "evaluator.json": "c625589dd192fd87c1e658b61af680f0e999fb99195d2446c58fc2db6a3765e6"
+    },
+    "K01": {
+      "runtime.json": "38624986ce2c92e42fc055eb3f5205ac46aa8f7780ce7fe904e8b7f5822cf643",
+      "evaluator.json": "e5e300cf4c884ef89077daf905102e28e339f1646299674b7d821e1f8eb01a29"
+    },
+    "K02": {
+      "runtime.json": "c806b5a6489e88dba31767a5ab124982f526c59ef21a500438ac38db15c6900b",
+      "evaluator.json": "03eb13dec7a3a09db318af5ecd1ca2d87a449699247037294d725e80ac3532cb"
+    }
+  },
+  "code": {
+    "runner/schema.py": "bd34a39a92a2cc6bbab98a1560260906ef398fb87397542aa01abe0d7e70e649",
+    "runner/prompting.py": "e971d4c8132ab0309e38ada56466403dd0d9d30397297cfd58993827d2f66b11",
+    "runner/simulator.py": "e42ee564cab3b60614b41d6c10827bea0e6e0c5fe67ea437c4f43f1ee94619c9",
+    "runner/experiment.py": "a88a2b40673ba404831d21d395ef9e7edb878c0a6e7ede7c20c6505b4e09b440",
+    "runner/recording.py": "7df7310855786ee48f1bdaca85bf8ccfd4ba4c486d00d78714be1e69a74ffef3",
+    "runner/harness_react.py": "8e1acbb5d69a111c99665073d3c1cd7a9420f5c265b86c3874ef8f76588c91a8",
+    "runner/paths.py": "a0e19ccfe0a10fd7030052efd8c510f7a3f0166fc0f2b5d7db3f937e7c465b50",
+    "models/adapter.py": "84bc4c680c98271b9a67da41a2eca309af5fc2dbd1277c0d4562fe6911f86943",
+    "models/torch_adapter.py": "1517ecf4db864f41f2929ee1ae651b7b912afc3955f3f42a08551ed75f135f25",
+    "configs/models.json": "2a252b3825f08bc16b32f7034578c82b0fe4863aacc058e4dbf87a1a7519c6b0"
+  },
+  "plan": "reports/qwen32b-evidence/run-plan.json",
+  "plan_sha256": "811f66f95758a5d3151277d0d2d17e623ccb0c21339b2558b41bef82f4e8c5d0",
+  "started": "2026-10-25T12:58:53Z",
+  "host": {
+    "hostname": "spark-71a4",
+    "machine": "aarch64",
+    "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+    "python": "3.12.15",
+    "nvidia_smi": "NVIDIA GB10, 580.178.04"
+  },
+  "source": {
+    "git": "d76c4aa9c6eed17656e48798bc37fe3945bd5b0f",
+    "dirty_bound_files": true,
+    "untracked_bound_files": [
+      "runner/recording.py"
+    ],
+    "snapshot": "source-snapshot-s0.patch",
+    "snapshot_sha256": "d4bbf3131c663702b4cec67129f9c8bacbf81c27886527e9602fb4de09050a65"
+  },
+  "recorder_version": 1,
+  "compat": {
+    "run_id": "rep20261025-conf-qwen32b-bf16",
+    "harness": "h1",
+    "run_specs": [
+      [
+        0,
+        0.0
+      ],
+      [
+        11,
+        0.7
+      ],
+      [
+        23,
+        0.7
+      ]
+    ],
+    "conditions": [
+      "clean",
+      "neutral",
+      "attack"
+    ],
+    "cases": {
+      "K05": "05bfc429a2b005743001e4c9c7cc818685d38cdb926fcd140bb08913d480420d",
+      "K06": "592267c04b7b39b1870a6e552a8a6afd045c2cdb502320b792cc442012bed04f",
+      "K04": "b9768cfc030d2a772449fc2b2085586ff2794592fb7a4c2f558d839743d09f5d",
+      "K07": "545b00fcf360ccc86f8893e7af56e513a749bd96a5880af3ab05eb324c55846c",
+      "K08": "95a2623c8894eb86d073e843fe6fa769fcc263090a3c3cc6b4ecdf556de830b4",
+      "K03": "c4fdd89b61d50ae98a108ea0bf3fa6a745bdc6a0fc667e32967088b446b303c8",
+      "K01": "1f0e14373fa2e99e6e7266842cd561ff6450af98d76b6b125e96278fb9140862",
+      "K02": "33bf3c556d79db839a7c109fbfe09b8f42eb87026feaeaadec6107b4fd242dec"
+    },
+    "fixture_files": {
+      "K05": {
+        "runtime.json": "d07b23eac868498899321362e16089333d0823194b3cb732ade534208571d109",
+        "evaluator.json": "11fc1b129f1ff415739e9616544bde96325130589e1a75fa9a14a6d33922071d"
+      },
+      "K06": {
+        "runtime.json": "91c0e935bbfe929c1adfc8c4d40e0fe08687d90661c806536432a364d64a849c",
+        "evaluator.json": "daf18d4cff1f8f6a751f86de6d58305f0688bd9ae4c34eb86e93a7afd252f8c0"
+      },
+      "K04": {
+        "runtime.json": "946ae7e2f75cb548e956bf27c0dcfdb2bea7b753ed9643a2c05b5c373e17062e",
+        "evaluator.json": "b51d3ccdd0d9bdad858f595e326081e8cce4f84511ac656410c509a90d7c800f"
+      },
+      "K07": {
+        "runtime.json": "6d3e859aec05a30f537b51c92b0d97858172eb8f3d4e319a2d997edac756a367",
+        "evaluator.json": "85ead0041a55e3ae72583ea014c6205fb9ef008d1067120fc85602d146dc8588"
+      },
+      "K08": {
+        "runtime.json": "f8e4c83240e1566e20809c602e5ec2e04b87042c4e3f9b258179013c4a1a2218",
+        "evaluator.json": "5f5946de7ccfdf1920df2e5fc0d01e55e4a763bcff14a4dea587e1b0840aa1b5"
+      },
+      "K03": {
+        "runtime.json": "0bdf41dc4ff6ef5a5d3f2cde45d3acd7b387b770cf55c309ca72ea973bf54241",
+        "evaluator.json": "c625589dd192fd87c1e658b61af680f0e999fb99195d2446c58fc2db6a3765e6"
+      },
+      "K01": {
+        "runtime.json": "38624986ce2c92e42fc055eb3f5205ac46aa8f7780ce7fe904e8b7f5822cf643",
+        "evaluator.json": "e5e300cf4c884ef89077daf905102e28e339f1646299674b7d821e1f8eb01a29"
+      },
+      "K02": {
+        "runtime.json": "c806b5a6489e88dba31767a5ab124982f526c59ef21a500438ac38db15c6900b",
+        "evaluator.json": "03eb13dec7a3a09db318af5ecd1ca2d87a449699247037294d725e80ac3532cb"
+      }
+    },
+    "code": {
+      "runner/schema.py": "bd34a39a92a2cc6bbab98a1560260906ef398fb87397542aa01abe0d7e70e649",
+      "runner/prompting.py": "e971d4c8132ab0309e38ada56466403dd0d9d30397297cfd58993827d2f66b11",
+      "runner/simulator.py": "e42ee564cab3b60614b41d6c10827bea0e6e0c5fe67ea437c4f43f1ee94619c9",
+      "runner/experiment.py": "a88a2b40673ba404831d21d395ef9e7edb878c0a6e7ede7c20c6505b4e09b440",
+      "runner/recording.py": "7df7310855786ee48f1bdaca85bf8ccfd4ba4c486d00d78714be1e69a74ffef3",
+      "runner/harness_react.py": "8e1acbb5d69a111c99665073d3c1cd7a9420f5c265b86c3874ef8f76588c91a8",
+      "runner/paths.py": "a0e19ccfe0a10fd7030052efd8c510f7a3f0166fc0f2b5d7db3f937e7c465b50",
+      "models/adapter.py": "84bc4c680c98271b9a67da41a2eca309af5fc2dbd1277c0d4562fe6911f86943",
+      "models/torch_adapter.py": "1517ecf4db864f41f2929ee1ae651b7b912afc3955f3f42a08551ed75f135f25",
+      "configs/models.json": "2a252b3825f08bc16b32f7034578c82b0fe4863aacc058e4dbf87a1a7519c6b0"
+    },
+    "plan_sha256": "811f66f95758a5d3151277d0d2d17e623ccb0c21339b2558b41bef82f4e8c5d0",
+    "model": {
+      "backend": "torch",
+      "family": "qwen2.5",
+      "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+      "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+      "model_type": "qwen2",
+      "quantization": null,
+      "dtype": "bf16",
+      "device": "cuda",
+      "eos_id": 151645,
+      "stop_ids": [
+        151643,
+        151645
+      ],
+      "attn_implementation": "sdpa",
+      "batch_candidates": false,
+      "torch": "2.14.1+cu130",
+      "transformers": "5.18.0",
+      "sampling": {
+        "greedy_if_temperature_0": true,
+        "seeding": "torch.manual_seed + cuda.manual_seed_all per generate",
+        "top_k": 0,
+        "top_p": 1.0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "epsilon_cutoff": 0.0,
+        "eta_cutoff": 0.0,
+        "repetition_penalty": 1.0,
+        "no_repeat_ngram_size": 0,
+        "num_beams": 1
+      }
+    }
+  }
+}

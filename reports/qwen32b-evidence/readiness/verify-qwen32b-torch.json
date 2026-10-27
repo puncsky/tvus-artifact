@@ -1,0 +1,82 @@
+{
+  "model": {
+    "backend": "torch",
+    "family": "qwen2.5",
+    "model_path": "/home/<user>/projects/tianpan-v3/projects/tvus-research/cache/hf/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+    "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "model_type": "qwen2",
+    "quantization": null,
+    "eos_id": 151645,
+    "stop_ids": [
+      151643,
+      151645
+    ],
+    "dtype": "bf16",
+    "device": "cuda",
+    "attn_implementation": "sdpa",
+    "batch_candidates": false,
+    "sampling": {
+      "greedy_if_temperature_0": true,
+      "seeding": "torch.manual_seed + cuda.manual_seed_all per generate",
+      "top_k": 0,
+      "top_p": 1.0,
+      "min_p": 0.0,
+      "typical_p": 1.0,
+      "epsilon_cutoff": 0.0,
+      "eta_cutoff": 0.0,
+      "repetition_penalty": 1.0,
+      "no_repeat_ngram_size": 0,
+      "num_beams": 1
+    },
+    "logits_to_keep": true,
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "python": "3.12.15",
+    "machine": "aarch64",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": true,
+    "cudnn_deterministic": true,
+    "allow_tf32": false,
+    "cublas_workspace_config": ":4096:8",
+    "num_threads": 20,
+    "cuda": "13.0",
+    "gpu": "NVIDIA GB10",
+    "capability": [
+      12,
+      1
+    ],
+    "bitsandbytes": "0.50.2"
+  },
+  "checks": {
+    "numpy_recompute_max_abs_err": 5.995324465760375e-15,
+    "incremental_vs_uncached_max_abs_diff_nats": 0.24974225404780626,
+    "scores_uncached": [
+      -29.275579198627884,
+      -32.133302968069835
+    ],
+    "eos_included": true,
+    "greedy_deterministic": true,
+    "sampled_differs_across_seeds": true,
+    "batched_vs_single_max_abs_diff_nats": 0.6155607106409207
+  },
+  "throughput": {
+    "score_pass_tokens": [
+      773,
+      773
+    ],
+    "s_per_1k_token_score_pass": 3.045586666871566,
+    "gen90_seconds": 26.824201540002832,
+    "gen90_tokens": 90
+  },
+  "peak_memory_gb": 66.419769344,
+  "timing": {
+    "score_pass_seconds": [
+      3.7111681049864274,
+      0.9973088819970144
+    ],
+    "gen_seconds": 29.316369895997923,
+    "prompt_tokens": 717
+  },
+  "pass": false
+}

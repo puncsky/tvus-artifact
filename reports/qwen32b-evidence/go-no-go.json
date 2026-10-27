@@ -1,0 +1,16 @@
+{
+  "go": true,
+  "decided_at": "2026-10-25T05:53:00Z",
+  "machine": "spark-71a4 (DGX Spark, GB10 sm_12.1, 121 GiB unified, aarch64, Ubuntu 24.04.5, driver 580.178.04 / CUDA 13.0)",
+  "authorization": "author approved use of this machine in chat on 2026-10-25 ('you can use this machine'); owned hardware, no rental, no paid use; no hosted API calls planned",
+  "spend": {"gpu_usd_projected": 0.0, "gpu_usd_spent_to_date": 0.0, "gpu_cap_usd": 450.0, "api_usd_spent_to_date": 77.96, "api_cap_usd": 300.0, "total_cap_usd": 1000.0},
+  "readiness": {"verify_adapter": "reports/qwen32b-evidence/readiness/verify-qwen32b-torch.json", "all_checks_bit_identical_to_october": true,
+                "only_failing_check": "batched_vs_single 0.6156 nats (known; batch_candidates=false)", "peak_memory_gb": 66.42,
+                "checkpoint_files_verified": "reports/qwen32b-evidence/checkpoint-files.json (27/27, 65.54 GB)"},
+  "probe": {"run": "runs/rep20261025-probe-qwen32b-bf16 (not evidence)", "s_per_execution": 172.7, "historical_s_per_execution": 170.7,
+            "compare": "reports/qwen32b-evidence/probe-compare.json: B0 and B2 tuples 9/9 equal to the October rows, all threshold statistics identical (max |diff| 0.0)"},
+  "projection": {"file": "reports/qwen32b-evidence/projection.json", "collection_hours": 74.2, "run_storage_gb": 0.22, "with_checkpoint_and_backup_gb": 0.65,
+                 "disk_free_tb": 1.9},
+  "conditions": ["one model process at a time; the wrapper refuses to start while another GPU compute process runs or < 80 GiB is available",
+                 "no long job is started by this decision record itself; collection is the separate `run` invocation (t004-t006)"]
+}

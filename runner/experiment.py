@@ -18,7 +18,6 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import sys
 import time
@@ -29,7 +28,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from runner.paths import resolve_out, CATEGORY  # noqa: E402
 from runner.schema import load_all, validate_case, runtime_hash, CONDITIONS, project  # noqa: E402
-from runner import simulator  # noqa: E402
+from runner import simulator, recording  # noqa: E402
 from runner.simulator import PublicCase, run_agent, score_candidates, AgentRun  # noqa: E402
 from runner.prompting import build_release_prompt  # noqa: E402
 from models.adapter import load_adapter, Cost  # noqa: E402
@@ -290,6 +289,21 @@ def run_execution(adapter, case_pub: PublicCase, condition: str, seed: int, temp
     return rec
 
 
+COLLECTION_CODE = ("runner/schema.py", "runner/prompting.py", "runner/simulator.py", "runner/experiment.py", "runner/recording.py",
+                   "runner/harness_react.py", "runner/paths.py", "models/adapter.py", "models/torch_adapter.py", "configs/models.json")
+
+
+def _check_plan(plan: dict, a, case_ids: list[str], specs: list) -> list[str]:
+    """A frozen run plan pins the schedule of its run ids; refuse any deviation."""
+    role = next((r for r in plan["runs"] if r["run_id"] == a.run_id), None)
+    if role is None:
+        return [f"run id {a.run_id} is not in the plan"]
+    want = {"model": role["model_spec"], "harness": role["harness"], "conditions": role["conditions"],
+            "seeds": role["seeds"], "cases": role["cases"]}
+    have = {"model": a.model, "harness": a.harness, "conditions": a.conditions, "seeds": [s for s, _ in specs], "cases": case_ids}
+    return [f"{k}: plan {want[k]} != invocation {have[k]}" for k in want if want[k] != have[k]]
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", required=True, help="local key from configs/models.json, claude[:id], openai:<id> or gemini:<id> (hosted => --harness h3)")
@@ -299,18 +313,12 @@ def main() -> int:
     ap.add_argument("--seeds", nargs="*", type=int)
     ap.add_argument("--harness", default="h1", choices=["h1", "h2", "h3"])
     ap.add_argument("--cap-usd", type=float, default=50.0, help="spend cap for hosted API runs (per run id)")
+    ap.add_argument("--plan", help="frozen run plan (JSON); the invocation must match its entry for --run-id")
+    ap.add_argument("--checkpoint-every", type=int, default=0, help="checksum + verified copy of the run dir every N committed executions")
+    ap.add_argument("--checkpoint-dest", default="evidence/run-checkpoints")
+    ap.add_argument("--abort-after-calls", type=int, help=argparse.SUPPRESS)   # fault injection for the resume check
     a = ap.parse_args()
     simulator.set_harness(a.harness)
-
-    out_dir = resolve_out(f"runs/{a.run_id}", mkdir=True)
-    out_dir.mkdir(parents=True, exist_ok=True)
-    out = out_dir / "executions.jsonl"
-    done = set()
-    if out.exists():
-        for line in out.read_text().splitlines():
-            if line.strip():
-                r = json.loads(line)
-                done.add((r["case"], r["condition"], r["seed"]))
 
     cases = load_all(a.cases)
     bad = {c.id: validate_case(c) for c in cases}
@@ -319,36 +327,89 @@ def main() -> int:
         print("invalid fixtures:", json.dumps(bad, indent=1))
         return 2
     specs = [(s, t) for s, t in RUN_SPECS if not a.seeds or s in a.seeds]
+    plan_sha = None
+    if a.plan:
+        plan_path = resolve_out(a.plan)
+        plan_sha = recording.sha256_file(plan_path)
+        errs = _check_plan(json.loads(plan_path.read_text()), a, [c.id for c in cases], specs)
+        if errs:
+            print("invocation does not match the frozen plan:\n  " + "\n  ".join(errs))
+            return 2
 
+    out_dir = resolve_out(f"runs/{a.run_id}", mkdir=True)
+    out_dir.mkdir(parents=True, exist_ok=True)
     adapter = build_adapter(a.model, a.harness, a.cap_usd, str(out_dir / "spend.json"))
+    code_files = COLLECTION_CODE + ((("runner/harness_claude.py",) + (("runner/harness_hosted.py", f"runner/harness_{adapter.family}.py")
+                                     if adapter.family in ("openai", "gemini") else ())) if a.harness == "h3" else ())
     manifest = {
-        "run_id": a.run_id, "model": adapter.describe(), "harness": a.harness, "run_specs": specs, "conditions": a.conditions,
+        "run_id": a.run_id, "model_spec": a.model, "model": adapter.describe(), "harness": a.harness, "run_specs": specs,
+        "conditions": a.conditions,
         "cases": {c.id: runtime_hash(c.runtime) for c in cases},
-        "code": {p: hashlib.sha256((CATEGORY / p).read_bytes()).hexdigest()
-                 for p in ("runner/schema.py", "runner/prompting.py", "runner/simulator.py", "runner/experiment.py", "models/adapter.py")
-                 + ((("runner/harness_claude.py",) + (("runner/harness_hosted.py", f"runner/harness_{adapter.family}.py")
-                     if adapter.family in ("openai", "gemini") else ())) if a.harness == "h3" else ())},
-        "started": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "fixture_files": {c.id: {f: recording.sha256_file(c.path / f) for f in ("runtime.json", "evaluator.json")} for c in cases},
+        "code": {p: recording.sha256_file(CATEGORY / p) for p in code_files},
+        "plan": a.plan, "plan_sha256": plan_sha,
+        "started": recording.now(),
     }
-    (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2))
+    session, mismatch = recording.check_resume(out_dir, manifest)
+    if mismatch:
+        print(f"refusing to resume runs/{a.run_id}: configuration differs from its immutable manifest:\n  " + "\n  ".join(mismatch))
+        return 3
+    source = recording.source_state(list(code_files), out_dir, session)
+    if session == 0:
+        recording.create_manifest(out_dir, {**manifest, "host": recording.host_facts(), "source": source})
+    torn = [r for r in (recording.repair_torn_tail(out_dir / f, session) for f in
+                        ("executions.jsonl", "attempts.jsonl", "trace.jsonl", "inputs.jsonl", "ledger.jsonl")) if r]
+    out = out_dir / "executions.jsonl"
+    prior = recording.read_jsonl(out)
+    done = {(r["case"], r["condition"], r["seed"]) for r in prior}
+    att_events = recording.read_jsonl(out_dir / "attempts.jsonl")
+    committed = {e["attempt"] for e in att_events if e["event"] == "commit"}
+    recovered = [r["attempt"] for r in prior if r.get("attempt") and r["attempt"] not in committed]   # killed between record and commit event
+    incomplete = [e for e in att_events if e["event"] == "start" and e["attempt"] not in committed and e["attempt"] not in recovered]
+    if recovered:
+        log = recording.AppendLog(out_dir / "attempts.jsonl")
+        for att_id in recovered:
+            log.write({"event": "commit", "attempt": att_id, "recovered_on_resume": session, "at": recording.now()})
+        log.close()
+    if session > 0:
+        recording.AppendLog(out_dir / "resumes.jsonl").write({
+            "session": session, "at": recording.now(), "host": recording.host_facts(), "source": source, "model": manifest["model"],
+            "committed_before": len(done), "incomplete_attempts": incomplete, "torn_tails": torn})
 
+    rad = recording.RecordingAdapter(adapter, out_dir, session, abort_after_calls=a.abort_after_calls)
+    attempts, execs = recording.AppendLog(out_dir / "attempts.jsonl"), recording.AppendLog(out)
+    ck_log = recording.AppendLog(resolve_out(f"{a.checkpoint_dest}/checkpoints.jsonl", mkdir=True)) if a.checkpoint_every else None
     total = len(cases) * len(a.conditions) * len(specs)
-    n = 0
-    with out.open("a") as fh:
-        for case in cases:
-            pub = PublicCase(case)
-            for cond in a.conditions:
-                for seed, temp in specs:
-                    n += 1
-                    if (case.id, cond, seed) in done:
-                        continue
-                    rec = run_execution(adapter, pub, cond, seed, temp)
-                    fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
-                    fh.flush()
-                    b0 = rec["b0"]
-                    print(f"[{n}/{total}] {case.id} {cond} seed={seed} status={b0['status']} cand={b0['candidate_index']} "
-                          f"{rec['wall_seconds']:.0f}s passes={rec['cost']['total']['forward_passes']}", flush=True)
-    (out_dir / "ledger.json").write_text(json.dumps(adapter.ledger.entries))
+    n = new = 0
+    for case in cases:
+        pub = PublicCase(case)
+        for cond in a.conditions:
+            for seed, temp in specs:
+                n += 1
+                if (case.id, cond, seed) in done:
+                    continue
+                att = f"s{session}-{case.id}-{cond}-{seed}"
+                rad.attempt = att
+                started = recording.now()
+                attempts.write({"event": "start", "attempt": att, "case": case.id, "condition": cond, "seed": seed, "at": started})
+                rec = run_execution(rad, pub, cond, seed, temp)
+                rec.update({"attempt": att, "started": started, "finished": recording.now()})
+                line = json.dumps(rec, ensure_ascii=False)
+                execs.write(rec)
+                done.add((case.id, cond, seed))
+                attempts.write({"event": "commit", "attempt": att, "record_sha256": recording.sha256_bytes(line.encode("utf-8")),
+                                "at": recording.now()})
+                new += 1
+                b0 = rec["b0"]
+                print(f"[{n}/{total}] {case.id} {cond} seed={seed} status={b0['status']} cand={b0['candidate_index']} "
+                      f"{rec['wall_seconds']:.0f}s passes={rec['cost']['total']['forward_passes']}", flush=True)
+                if ck_log and new % a.checkpoint_every == 0:
+                    ck_log.write(recording.checkpoint(out_dir, resolve_out(f"{a.checkpoint_dest}/{a.run_id}")))
+    rad.close()
+    # cumulative ledger snapshot (all sessions) for legacy consumers; ledger.jsonl stays the durable record
+    (out_dir / "ledger.json").write_text(json.dumps(recording.read_jsonl(out_dir / "ledger.jsonl")))
+    if ck_log:
+        ck_log.write(recording.checkpoint(out_dir, resolve_out(f"{a.checkpoint_dest}/{a.run_id}")))
     print("done", out)
     return 0
 

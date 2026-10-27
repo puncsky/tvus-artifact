@@ -1,0 +1,48 @@
+{
+  "probe_run": "rep20261025-probe-qwen32b-bf16",
+  "probe_executions": 9,
+  "probe_s_per_exec": 172.69112791989107,
+  "historical_probe_s_per_exec": 170.69050653900072,
+  "speed_ratio_new_over_historical": 1.0117207536696438,
+  "roles": {
+    "dev": {
+      "scheduled": 216,
+      "historical_lower_bound_s_per_exec": 160.05101547831273,
+      "projected_hours": 11.172958446366415
+    },
+    "conf": {
+      "scheduled": 72,
+      "historical_lower_bound_s_per_exec": 151.8134797390008,
+      "projected_hours": 3.5326355071913205
+    },
+    "gen-test": {
+      "scheduled": 1323,
+      "historical_lower_bound_s_per_exec": 121.72968119189592,
+      "projected_hours": 52.04899248335927
+    },
+    "h2-dev": {
+      "scheduled": 72,
+      "historical_lower_bound_s_per_exec": 207.7510388341725,
+      "projected_hours": 4.83427886445409
+    },
+    "h2-conf": {
+      "scheduled": 24,
+      "historical_lower_bound_s_per_exec": 200.2996386759593,
+      "projected_hours": 1.5536293107409913
+    },
+    "fb-h1": {
+      "scheduled": 24,
+      "historical_lower_bound_s_per_exec": 140.91500340212164,
+      "projected_hours": 1.0930108564143874
+    }
+  },
+  "projected_collection_hours": 74.23550546852647,
+  "probe_bytes_per_exec": 124872.88888888889,
+  "projected_run_storage_gb": 0.21615497066666667,
+  "projected_storage_with_checkpoint_and_backup_gb": 0.648464912,
+  "paid": false,
+  "projected_usd": 0.0,
+  "gpu_cap_usd": 450.0,
+  "gpu_spent_usd": 0.0,
+  "note": "owned DGX Spark spark-71a4 (author-approved 2026-10-25); hours scale the historical per-role lower bounds by the probe speed ratio"
+}

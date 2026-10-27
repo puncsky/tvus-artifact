@@ -5,7 +5,7 @@ title: "TVUS: Trusted Values, Untrusted Choices"
 authors:
   - family-names: Pan
     given-names: Tian
-version: 1.0.1
+version: 1.1.0
 url: "https://github.com/puncsky/tvus-artifact"
 repository-code: "https://github.com/puncsky/tvus-artifact"
 license: MIT

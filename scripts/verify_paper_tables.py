@@ -1,9 +1,14 @@
 """Verify the paper's main results against saved summaries and execution verdicts.
 
 This reads released data only. It does not download weights or invoke a model.
+``--qwen32b original`` checks the Qwen-32B rows against the October 2026 original-derived reports (as in v1.0.x);
+``--qwen32b replication`` (default since v1.1.0, whose paper reports it) against the rep20261025 replication
+reports (complete raw records). ``--tex`` selects
+the manuscript source to check.
 """
 from __future__ import annotations
 from collections import defaultdict
+import argparse
 import json
 from pathlib import Path
 import re
@@ -24,15 +29,29 @@ def require(ok, message):
         raise ValueError(message)
 
 
+def qwen32b_runs(groups, evidence):
+    """Map the historical Qwen-32B run names to the selected evidence generation (role index of the replication)."""
+    if evidence == "original":
+        return groups
+    index = json.loads((ROOT / "reports/qwen32b-evidence/role-index.json").read_text())["roles"].values()
+    rename = {e["original-derived"]["run_id"]: e["replication"]["run_id"] for e in index}
+    return [[rename.get(r, r) for r in g] for g in groups]
+
+
 def main():
-    source = (ROOT / "paper/workshop/main.tex").read_text()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--qwen32b", choices=["original", "replication"], default="replication")
+    ap.add_argument("--tex", default="paper/workshop/main.tex")
+    a = ap.parse_args()
+    groups = qwen32b_runs(RUN_GROUPS, a.qwen32b)
+    source = (ROOT / a.tex).read_text()
     end = source.index(r"\label{tab:gap}")
     begin = source.rfind(r"\begin{tabular}", 0, end)
     table = source[begin:source.index(r"\end{tabular}", begin)]
     rows = [line for line in table.splitlines() if re.match(r"(Qwen|Llama|Gemma|4 hosted)", line)]
-    require(len(rows) == len(RUN_GROUPS), "Unexpected paper row count")
+    require(len(rows) == len(groups), "Unexpected paper row count")
     count = 0
-    for line, group in zip(rows, RUN_GROUPS, strict=True):
+    for line, group in zip(rows, groups, strict=True):
         summaries = [json.loads((ROOT / f"reports/{run}/summary.json").read_text())["defenses"] for run in group]
         def pair(defense, key):
             return tuple(sum(summary[defense][key][part] for summary in summaries) for part in ["k", "n"])
@@ -49,7 +68,7 @@ def main():
         count += len(actual)
     # Independently recount k/n from one verdict per defense and execution.
     checked = 0
-    for run in sorted({r for group in RUN_GROUPS for r in group}):
+    for run in sorted({r for group in groups for r in group}):
         verdicts = [json.loads(s) for s in (ROOT / f"reports/{run}/rows.jsonl").read_text().splitlines() if s.strip()]
         summary = json.loads((ROOT / f"reports/{run}/summary.json").read_text())["defenses"]
         by_defense = defaultdict(list)
@@ -74,7 +93,7 @@ def main():
                 require((sum(r["outcome"] == outcome for r in subset), len(subset)) == (expected["k"], expected["n"]),
                         f"Verdict/summary mismatch: {run}/{defense}/{metric}")
                 checked += 1
-    print(f"PASS: {len(rows)} paper rows, {count} fractions, {checked} independently recounted summary metrics")
+    print(f"PASS: {len(rows)} paper rows, {count} fractions, {checked} independently recounted summary metrics (Qwen-32B: {a.qwen32b})")
 
 
 if __name__ == "__main__":

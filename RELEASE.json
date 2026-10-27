@@ -1,5 +1,5 @@
 {
-  "version": "v1.0.1",
+  "version": "v1.1.0",
   "author": "Tian Pan",
   "repository": "https://github.com/puncsky/tvus-artifact",
   "path_redactions": [
@@ -46,31 +46,25 @@
     "reports/model-readiness/verify-qwen14b-torch_dtype-4bit.json",
     "reports/model-readiness/verify-qwen14b.json",
     "reports/model-readiness/verify-qwen32b-torch.json",
+    "reports/qwen32b-evidence/inventory.json",
+    "reports/qwen32b-evidence/readiness/verify-qwen32b-torch.json",
+    "reports/qwen32b-evidence/searches.json",
+    "reports/rep20261025-conf-qwen32b-bf16/summary.json",
+    "reports/rep20261025-conf-qwen32b-bf16-secthr/summary.json",
+    "reports/rep20261025-dev-qwen32b-bf16/summary.json",
+    "reports/rep20261025-dev-qwen32b-bf16-secthr/summary.json",
+    "reports/rep20261025-fb-h1-qwen32b-bf16/summary.json",
+    "reports/rep20261025-fb-h1-qwen32b-bf16-secthr/summary.json",
+    "reports/rep20261025-gen-test-qwen32b-bf16/summary.json",
+    "reports/rep20261025-gen-test-qwen32b-bf16-secthr/summary.json",
+    "reports/rep20261025-h2-conf-qwen32b-bf16/summary.json",
+    "reports/rep20261025-h2-conf-qwen32b-bf16-secthr/summary.json",
+    "reports/rep20261025-h2-dev-qwen32b-bf16/summary.json",
+    "reports/rep20261025-h2-dev-qwen32b-bf16-secthr/summary.json",
     "reports/serialization-probe-qwen14b.json",
     "review/spot-check-generated-2026-10-answer.md",
     "review/spot-check-generated-2026-10-v2.md",
-    "review/spot-check-generated-2026-10.md",
-    "runs/adaptive-pilot-qwen14b/manifest.json",
-    "runs/adojo-h2-qwen14b/manifest.json",
-    "runs/bypass-extractor-qwen14b/manifest.json",
-    "runs/bypass-extractor-qwen14b-f07/manifest.json",
-    "runs/bypass-extractor-qwen14b-k08/manifest.json",
-    "runs/bypass-llama8b/manifest.json",
-    "runs/bypass-qwen14b/manifest.json",
-    "runs/conf-gemma27b/manifest.json",
-    "runs/conf-llama8b/manifest.json",
-    "runs/conf-qwen14b/manifest.json",
-    "runs/dev-gemma27b/manifest.json",
-    "runs/dev-llama8b/manifest.json",
-    "runs/dev-qwen14b/manifest.json",
-    "runs/fb-h1-qwen14b/manifest.json",
-    "runs/fb-h2-qwen14b/manifest.json",
-    "runs/fb2-h1-qwen14b/manifest.json",
-    "runs/fb2-h2-qwen14b/manifest.json",
-    "runs/gen-dev-qwen14b/manifest.json",
-    "runs/h2-conf-qwen14b/manifest.json",
-    "runs/h2-dev-gemma27b/manifest.json",
-    "runs/h2-dev-qwen14b/manifest.json"
+    "review/spot-check-generated-2026-10.md"
   ],
   "run_coverage": [
     {
@@ -473,6 +467,102 @@
       ],
       "derived_rows": true,
       "summary": true
+    },
+    {
+      "run": "rep20261025-conf-qwen32b-bf16",
+      "raw_files": [
+        "SHA256SUMS",
+        "attempts.jsonl",
+        "executions.jsonl",
+        "inputs.jsonl",
+        "ledger.json",
+        "ledger.jsonl",
+        "manifest.json",
+        "source-snapshot-s0.patch",
+        "trace.jsonl"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "rep20261025-dev-qwen32b-bf16",
+      "raw_files": [
+        "SHA256SUMS",
+        "attempts.jsonl",
+        "executions.jsonl",
+        "inputs.jsonl",
+        "ledger.json",
+        "ledger.jsonl",
+        "manifest.json",
+        "source-snapshot-s0.patch",
+        "trace.jsonl"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "rep20261025-fb-h1-qwen32b-bf16",
+      "raw_files": [
+        "SHA256SUMS",
+        "attempts.jsonl",
+        "executions.jsonl",
+        "inputs.jsonl",
+        "ledger.json",
+        "ledger.jsonl",
+        "manifest.json",
+        "source-snapshot-s0.patch",
+        "trace.jsonl"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "rep20261025-gen-test-qwen32b-bf16",
+      "raw_files": [
+        "SHA256SUMS",
+        "attempts.jsonl",
+        "executions.jsonl",
+        "inputs.jsonl",
+        "ledger.json",
+        "ledger.jsonl",
+        "manifest.json",
+        "source-snapshot-s0.patch",
+        "trace.jsonl"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "rep20261025-h2-conf-qwen32b-bf16",
+      "raw_files": [
+        "SHA256SUMS",
+        "attempts.jsonl",
+        "executions.jsonl",
+        "inputs.jsonl",
+        "ledger.json",
+        "ledger.jsonl",
+        "manifest.json",
+        "source-snapshot-s0.patch",
+        "trace.jsonl"
+      ],
+      "derived_rows": true,
+      "summary": true
+    },
+    {
+      "run": "rep20261025-h2-dev-qwen32b-bf16",
+      "raw_files": [
+        "SHA256SUMS",
+        "attempts.jsonl",
+        "executions.jsonl",
+        "inputs.jsonl",
+        "ledger.json",
+        "ledger.jsonl",
+        "manifest.json",
+        "source-snapshot-s0.patch",
+        "trace.jsonl"
+      ],
+      "derived_rows": true,
+      "summary": true
     }
   ],
   "missing_raw_runs": [
@@ -483,5 +573,19 @@
     "h2-conf-qwen32b-bf16",
     "h2-dev-qwen32b-bf16"
   ],
-  "historical_hashes": "Original run manifests retain original code hashes; MANIFEST.sha256 covers the public export."
+  "historical_hashes": "Original run manifests retain original code hashes; MANIFEST.sha256 covers the public export.",
+  "evidence_labels": {
+    "original-derived": "October 2026 Qwen2.5-32B matrices <role>-qwen32b-bf16: derived verdicts, signals, costs and thresholds only; raw logs lost",
+    "replication": "rep20261025-<role>-qwen32b-bf16: complete re-collection from 2026-10-25 with raw records; the paper's 32B numbers"
+  },
+  "verbatim_raw_evidence": [
+    "rep20261025-conf-qwen32b-bf16",
+    "rep20261025-dev-qwen32b-bf16",
+    "rep20261025-fb-h1-qwen32b-bf16",
+    "rep20261025-gen-test-qwen32b-bf16",
+    "rep20261025-h2-conf-qwen32b-bf16",
+    "rep20261025-h2-dev-qwen32b-bf16"
+  ],
+  "verbatim_note": "Replication run files are copied byte-identically (their SHA256SUMS and manifests bind them), so their manifests keep the collection host's absolute cache path and hostname; all other metadata paths are scrubbed.",
+  "qwen32b_role_index": "reports/qwen32b-evidence/role-index.json"
 }

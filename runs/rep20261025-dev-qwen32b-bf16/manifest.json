@@ -1,0 +1,421 @@
+{
+  "run_id": "rep20261025-dev-qwen32b-bf16",
+  "model_spec": "qwen32b-bf16",
+  "model": {
+    "backend": "torch",
+    "family": "qwen2.5",
+    "model_path": "/home/tp/projects/tianpan-v3/projects/tvus-research/cache/hf/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+    "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "model_type": "qwen2",
+    "quantization": null,
+    "eos_id": 151645,
+    "stop_ids": [
+      151643,
+      151645
+    ],
+    "dtype": "bf16",
+    "device": "cuda",
+    "attn_implementation": "sdpa",
+    "batch_candidates": false,
+    "sampling": {
+      "greedy_if_temperature_0": true,
+      "seeding": "torch.manual_seed + cuda.manual_seed_all per generate",
+      "top_k": 0,
+      "top_p": 1.0,
+      "min_p": 0.0,
+      "typical_p": 1.0,
+      "epsilon_cutoff": 0.0,
+      "eta_cutoff": 0.0,
+      "repetition_penalty": 1.0,
+      "no_repeat_ngram_size": 0,
+      "num_beams": 1
+    },
+    "logits_to_keep": true,
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "python": "3.12.15",
+    "machine": "aarch64",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": true,
+    "cudnn_deterministic": true,
+    "allow_tf32": false,
+    "cublas_workspace_config": ":4096:8",
+    "num_threads": 20,
+    "cuda": "13.0",
+    "gpu": "NVIDIA GB10",
+    "capability": [
+      12,
+      1
+    ],
+    "bitsandbytes": "0.50.2"
+  },
+  "harness": "h1",
+  "run_specs": [
+    [
+      0,
+      0.0
+    ],
+    [
+      11,
+      0.7
+    ],
+    [
+      23,
+      0.7
+    ]
+  ],
+  "conditions": [
+    "clean",
+    "neutral",
+    "attack"
+  ],
+  "cases": {
+    "P01": "78ee39bb3aa1a68c6d8aca76f7c772d22a57f3f7d7cb85ff1ed7798211b298d9",
+    "P02": "94cbfbcb2f0ccf5ad7bcf194e7ff2bb8d2c71957018ecbe15aecf89e3204f9ce",
+    "P03": "d067d1fb4cadbfd5ef0b0fff243b142cac8381be27b286f6d66fbe2d4cf39cef",
+    "P04": "4452524408ea7f693ca7b011d7ddd48a9780a6a137492557321bb6abb1ad82ba",
+    "H01": "4da4880c75994dc7bddb682ed47ef2b6da651e077dd555388a88b5d67c07be6f",
+    "H02": "0cb2a027a3a0420237bd3977c9869220e5c1daff92578a3f7b36b87e7edc57a6",
+    "H03": "17a06a0a1bcb4774d536fc58926c700ba50a092024a1c8a74ca464e820b75eb3",
+    "H04": "bf788f1b22be0ab0289a965b7a8a8eb798da6a3bb35d38e3591c743a50df0329",
+    "X01": "0c1e82942ac051705da32da3f60b8cf5b98dd4cda79b0b8fccab96757f89bd42",
+    "X02": "79286dddc69cc88ad80ee3ad27529c674c20959da446dccd84b2af59ad7593a4",
+    "X03": "d1d034b804fba80cbe370267279f527c3bfffef02ccc694a1a36c8e9fd848c2c",
+    "X04": "787d436ea4f7f54df92c968f582ce284788f2a09d97e9b3ffe61f9751603855e",
+    "L01": "5ff9e35d7936077a126a5ac98dbc310d5cc0f91f18ffb37441d36281c7dd585a",
+    "L02": "c655e18ca65fe60228421a37cae4915f8ecb564c0f69a57f91c3c497369f496b",
+    "L03": "6c58032cb8ca612b811ab7dce9febdc6d149f86511ed1ec75d849a4a9f6c923d",
+    "L04": "b0a064d74b5421a8ffb4169d17f70f2768774b784b2c6dc13cffca628d19f233",
+    "R01": "8107179cf2945be818ec5e3e0481ba4de44c3efa053e9c55f281741fa4c27439",
+    "R02": "94724e3a50f592a26a5dee151e35f0350c71180e4cc3d8944e55a4f79cee45b6",
+    "R03": "03b365ac0e19dce67084c045f4aba20329f1f033225fe2eb1cf0188d8c67fc91",
+    "R04": "8b19f141ac57e843b43de15a807f3255349c801d332e9872f905038babbbc867",
+    "S01": "c540f62d640ffc5cf7fac75dc5585160a9e7058deb7c249caef15f10aacce1b5",
+    "S02": "3a42b09b20c87ae4c90344ced14a09352d65e54cdce1da877c51f7ca8cdf079f",
+    "S03": "7af057a96a469531cd61367d1439b149200012a267224a234bf5f373c74ffaf9",
+    "S04": "847d17241418d264a091b9ff91d563e0f8c218fb83a24f1a4fdf4ccb31d7d81a"
+  },
+  "fixture_files": {
+    "P01": {
+      "runtime.json": "bf19cdcc88008e7d19f10bc56a5ba2cd524587425c615f95f7a3d6aed3954bba",
+      "evaluator.json": "f5f672223983004f05ac8f286a123592ec139eb4a043d517ba646f7d5eb7e46b"
+    },
+    "P02": {
+      "runtime.json": "7cb5fb4ca7cdc57cff07dd87210ba34edec47e80b346ecaf2fffcfc78823afe6",
+      "evaluator.json": "b2b5e106ca8e465965028a39912b5f8f3d56d428c4bae18697dc38438d10553c"
+    },
+    "P03": {
+      "runtime.json": "7d866d27dbbb2fe2f776fa4357def208bc2c08edd7102d108e43220af9498c38",
+      "evaluator.json": "424e02199b04e1451923e7b0f1df3369faf540b1b6c90a0c55911ccf77725cbc"
+    },
+    "P04": {
+      "runtime.json": "cbe7c968da9c6c5028a0451627f542478c0b67707e97ba53e7632511339d0625",
+      "evaluator.json": "28e6cea710d381fcfc0f6977ee7deb46883f2161a0ec4b2906511383ba53421f"
+    },
+    "H01": {
+      "runtime.json": "5cb8d717c486a37c98719f2a29e595ea04c9b3e34b3fce668d23bfb65265b9e5",
+      "evaluator.json": "25a8c94fa7e2b130a392f147109f743aaf17861bcb46d14bbf85c789f0cfb2d0"
+    },
+    "H02": {
+      "runtime.json": "f5d4de68b18c7cd0a17804b88d21a69001999ab56b6c0f25b6180f68f356e675",
+      "evaluator.json": "11064d8e7a07c8f9f1bbe3ca304bdad20922b5c58b8fe5fd4e22dde720e7ab4f"
+    },
+    "H03": {
+      "runtime.json": "f87913d0f935c9950642df708d2aca4e523addc20d1039f2c204628e6cac3f85",
+      "evaluator.json": "d2fa2eb37c3a4a3614265d7f3519741e281b3647805e41398baf01e3d3a2cad1"
+    },
+    "H04": {
+      "runtime.json": "8ada1733ebd540d83e6516a9ee8862c07d5294b03b954239f28897c445141e26",
+      "evaluator.json": "e6d2f3f738aaaca0c15a093134e0168ac4c8f7a5b76eb3200dafd4f1fb7c1dd1"
+    },
+    "X01": {
+      "runtime.json": "d308cc616688e02d75de3f26c668659e0fc46e87d84f8525b2f994690de40ac7",
+      "evaluator.json": "8a10ef13c3d31c9fadf5f734263350bc5c76d6ffbdd8d5c1b32f80647573d4a5"
+    },
+    "X02": {
+      "runtime.json": "988d9b9f9b63e122064f079f5f99d78f9f8494ea34628a19464a7cba99b089af",
+      "evaluator.json": "f59cf7535a704d6d53010f46a234bbb0d4dba9ebedbfe4d42fbebe53c801d6e4"
+    },
+    "X03": {
+      "runtime.json": "8b0f737938c23e5e665e7b9f5db51c781cb860f564bbb201fdb3cac96d1605a6",
+      "evaluator.json": "4a832681ff21b2353cca1a7af9ef01464a0ba96ffed77e804f83c4304621cc82"
+    },
+    "X04": {
+      "runtime.json": "f1fbd0bc96f3903967a43d1bdc94cf87955c958b5eb4966c3b04676955899e8f",
+      "evaluator.json": "3da1a01a0f26e32d195934d803beaba07feacba46f1bfaa462e618d8fae51c1f"
+    },
+    "L01": {
+      "runtime.json": "b8b94a1e27472e4b1967d1ad64f09b29ff654ded57fb3757346d6c8ffd3eb968",
+      "evaluator.json": "dfcf5fabb02c42357beebb4e90440a04936870a5e25dba1cdf1b71420a6ecbe8"
+    },
+    "L02": {
+      "runtime.json": "795d760656167f27938adea137e53e49162b615d978708db40a6a7ffa4bf480b",
+      "evaluator.json": "96291d9205e4ee09df46f666e1f9c8f6c2c5214a5d416f626ea2eb2cbe07461c"
+    },
+    "L03": {
+      "runtime.json": "eade3f0beb871a04a4871d3c2a6d8952d07614a5a9f2c9e35ba321fb497224d1",
+      "evaluator.json": "e1992c520221027256bc15b8e3948308c0d11951149436d7a986e9967e28bf1d"
+    },
+    "L04": {
+      "runtime.json": "8eedf98d0e03cd42a3a1606ea15d6b434857b6636edb4bba19ae972332ea5136",
+      "evaluator.json": "034d6ae46e02088c2129f8ece1569e71facbb992efe67caededaec018da0dcad"
+    },
+    "R01": {
+      "runtime.json": "47833ebee98aeaa4c8d472bbe4e35220a3c4929af23aaa517898d58c2d1e8df3",
+      "evaluator.json": "b3e492cc8adb1812c0cdfc2c650e25340f01d093c6ac0cad500ac1358bda8984"
+    },
+    "R02": {
+      "runtime.json": "69521dcbfcd1c37e6b1c5bde7d125c40b69610142b7cb3b6a5be8e643993c35d",
+      "evaluator.json": "8ac5e3fd8973368e1cccad770c5bb55b94de0379b17b6cfa240df349f0115915"
+    },
+    "R03": {
+      "runtime.json": "c1b274149e6334b2200ddca083c187584032a6229ea63453b2c8e7bb82dee20f",
+      "evaluator.json": "b47f2105da253b36f6a117a471b2d69d4ef1de0e0840d6ca2350255396cb4824"
+    },
+    "R04": {
+      "runtime.json": "5ea09b54ccec1400ffe7e6debe65bae407cb720f6f3dd9919ad8be6ff972e147",
+      "evaluator.json": "5c9580f2287c863a228613168897c5761289c2743713bf12ee1277e3f6e09a20"
+    },
+    "S01": {
+      "runtime.json": "fb67d2f67ca3fa0c5544525f6cdd7ecd65c730a9fa5e0db5c1ae0078bf157c59",
+      "evaluator.json": "e03e8dbc078d301551d2f711d03623fd525c54d776160fb05b1a1ff12c6dbacb"
+    },
+    "S02": {
+      "runtime.json": "4b686da6e78580110b544a0f37df0be779919e59c61bcde7a5732a260f2ac0ed",
+      "evaluator.json": "b065e5f32ef7d1892b39e132fd91948b82f90f59d325e847eb155cb62eed5d2b"
+    },
+    "S03": {
+      "runtime.json": "c196c9f821ed119b0db7b4700a6f2f90788e2c136e12783893d586305f365040",
+      "evaluator.json": "33c870298cfe056450127c57d938a5d15e7c562627635a83d395d321273a40bb"
+    },
+    "S04": {
+      "runtime.json": "54fec737ab9e83800ae75d9435ee0c1ee42cfd0dbf5d85dbb2fb407673495ba2",
+      "evaluator.json": "f397aa0a02faebb4dbd223c9bc50c0a6015e5b8d694db87b9b2b94cc5979d591"
+    }
+  },
+  "code": {
+    "runner/schema.py": "bd34a39a92a2cc6bbab98a1560260906ef398fb87397542aa01abe0d7e70e649",
+    "runner/prompting.py": "e971d4c8132ab0309e38ada56466403dd0d9d30397297cfd58993827d2f66b11",
+    "runner/simulator.py": "e42ee564cab3b60614b41d6c10827bea0e6e0c5fe67ea437c4f43f1ee94619c9",
+    "runner/experiment.py": "a88a2b40673ba404831d21d395ef9e7edb878c0a6e7ede7c20c6505b4e09b440",
+    "runner/recording.py": "7df7310855786ee48f1bdaca85bf8ccfd4ba4c486d00d78714be1e69a74ffef3",
+    "runner/harness_react.py": "8e1acbb5d69a111c99665073d3c1cd7a9420f5c265b86c3874ef8f76588c91a8",
+    "runner/paths.py": "a0e19ccfe0a10fd7030052efd8c510f7a3f0166fc0f2b5d7db3f937e7c465b50",
+    "models/adapter.py": "84bc4c680c98271b9a67da41a2eca309af5fc2dbd1277c0d4562fe6911f86943",
+    "models/torch_adapter.py": "1517ecf4db864f41f2929ee1ae651b7b912afc3955f3f42a08551ed75f135f25",
+    "configs/models.json": "2a252b3825f08bc16b32f7034578c82b0fe4863aacc058e4dbf87a1a7519c6b0"
+  },
+  "plan": "reports/qwen32b-evidence/run-plan.json",
+  "plan_sha256": "811f66f95758a5d3151277d0d2d17e623ccb0c21339b2558b41bef82f4e8c5d0",
+  "started": "2026-10-25T05:58:25Z",
+  "host": {
+    "hostname": "spark-71a4",
+    "machine": "aarch64",
+    "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+    "python": "3.12.15",
+    "nvidia_smi": "NVIDIA GB10, 580.178.04"
+  },
+  "source": {
+    "git": "d76c4aa9c6eed17656e48798bc37fe3945bd5b0f",
+    "dirty_bound_files": true,
+    "untracked_bound_files": [
+      "runner/recording.py"
+    ],
+    "snapshot": "source-snapshot-s0.patch",
+    "snapshot_sha256": "d4bbf3131c663702b4cec67129f9c8bacbf81c27886527e9602fb4de09050a65"
+  },
+  "recorder_version": 1,
+  "compat": {
+    "run_id": "rep20261025-dev-qwen32b-bf16",
+    "harness": "h1",
+    "run_specs": [
+      [
+        0,
+        0.0
+      ],
+      [
+        11,
+        0.7
+      ],
+      [
+        23,
+        0.7
+      ]
+    ],
+    "conditions": [
+      "clean",
+      "neutral",
+      "attack"
+    ],
+    "cases": {
+      "P01": "78ee39bb3aa1a68c6d8aca76f7c772d22a57f3f7d7cb85ff1ed7798211b298d9",
+      "P02": "94cbfbcb2f0ccf5ad7bcf194e7ff2bb8d2c71957018ecbe15aecf89e3204f9ce",
+      "P03": "d067d1fb4cadbfd5ef0b0fff243b142cac8381be27b286f6d66fbe2d4cf39cef",
+      "P04": "4452524408ea7f693ca7b011d7ddd48a9780a6a137492557321bb6abb1ad82ba",
+      "H01": "4da4880c75994dc7bddb682ed47ef2b6da651e077dd555388a88b5d67c07be6f",
+      "H02": "0cb2a027a3a0420237bd3977c9869220e5c1daff92578a3f7b36b87e7edc57a6",
+      "H03": "17a06a0a1bcb4774d536fc58926c700ba50a092024a1c8a74ca464e820b75eb3",
+      "H04": "bf788f1b22be0ab0289a965b7a8a8eb798da6a3bb35d38e3591c743a50df0329",
+      "X01": "0c1e82942ac051705da32da3f60b8cf5b98dd4cda79b0b8fccab96757f89bd42",
+      "X02": "79286dddc69cc88ad80ee3ad27529c674c20959da446dccd84b2af59ad7593a4",
+      "X03": "d1d034b804fba80cbe370267279f527c3bfffef02ccc694a1a36c8e9fd848c2c",
+      "X04": "787d436ea4f7f54df92c968f582ce284788f2a09d97e9b3ffe61f9751603855e",
+      "L01": "5ff9e35d7936077a126a5ac98dbc310d5cc0f91f18ffb37441d36281c7dd585a",
+      "L02": "c655e18ca65fe60228421a37cae4915f8ecb564c0f69a57f91c3c497369f496b",
+      "L03": "6c58032cb8ca612b811ab7dce9febdc6d149f86511ed1ec75d849a4a9f6c923d",
+      "L04": "b0a064d74b5421a8ffb4169d17f70f2768774b784b2c6dc13cffca628d19f233",
+      "R01": "8107179cf2945be818ec5e3e0481ba4de44c3efa053e9c55f281741fa4c27439",
+      "R02": "94724e3a50f592a26a5dee151e35f0350c71180e4cc3d8944e55a4f79cee45b6",
+      "R03": "03b365ac0e19dce67084c045f4aba20329f1f033225fe2eb1cf0188d8c67fc91",
+      "R04": "8b19f141ac57e843b43de15a807f3255349c801d332e9872f905038babbbc867",
+      "S01": "c540f62d640ffc5cf7fac75dc5585160a9e7058deb7c249caef15f10aacce1b5",
+      "S02": "3a42b09b20c87ae4c90344ced14a09352d65e54cdce1da877c51f7ca8cdf079f",
+      "S03": "7af057a96a469531cd61367d1439b149200012a267224a234bf5f373c74ffaf9",
+      "S04": "847d17241418d264a091b9ff91d563e0f8c218fb83a24f1a4fdf4ccb31d7d81a"
+    },
+    "fixture_files": {
+      "P01": {
+        "runtime.json": "bf19cdcc88008e7d19f10bc56a5ba2cd524587425c615f95f7a3d6aed3954bba",
+        "evaluator.json": "f5f672223983004f05ac8f286a123592ec139eb4a043d517ba646f7d5eb7e46b"
+      },
+      "P02": {
+        "runtime.json": "7cb5fb4ca7cdc57cff07dd87210ba34edec47e80b346ecaf2fffcfc78823afe6",
+        "evaluator.json": "b2b5e106ca8e465965028a39912b5f8f3d56d428c4bae18697dc38438d10553c"
+      },
+      "P03": {
+        "runtime.json": "7d866d27dbbb2fe2f776fa4357def208bc2c08edd7102d108e43220af9498c38",
+        "evaluator.json": "424e02199b04e1451923e7b0f1df3369faf540b1b6c90a0c55911ccf77725cbc"
+      },
+      "P04": {
+        "runtime.json": "cbe7c968da9c6c5028a0451627f542478c0b67707e97ba53e7632511339d0625",
+        "evaluator.json": "28e6cea710d381fcfc0f6977ee7deb46883f2161a0ec4b2906511383ba53421f"
+      },
+      "H01": {
+        "runtime.json": "5cb8d717c486a37c98719f2a29e595ea04c9b3e34b3fce668d23bfb65265b9e5",
+        "evaluator.json": "25a8c94fa7e2b130a392f147109f743aaf17861bcb46d14bbf85c789f0cfb2d0"
+      },
+      "H02": {
+        "runtime.json": "f5d4de68b18c7cd0a17804b88d21a69001999ab56b6c0f25b6180f68f356e675",
+        "evaluator.json": "11064d8e7a07c8f9f1bbe3ca304bdad20922b5c58b8fe5fd4e22dde720e7ab4f"
+      },
+      "H03": {
+        "runtime.json": "f87913d0f935c9950642df708d2aca4e523addc20d1039f2c204628e6cac3f85",
+        "evaluator.json": "d2fa2eb37c3a4a3614265d7f3519741e281b3647805e41398baf01e3d3a2cad1"
+      },
+      "H04": {
+        "runtime.json": "8ada1733ebd540d83e6516a9ee8862c07d5294b03b954239f28897c445141e26",
+        "evaluator.json": "e6d2f3f738aaaca0c15a093134e0168ac4c8f7a5b76eb3200dafd4f1fb7c1dd1"
+      },
+      "X01": {
+        "runtime.json": "d308cc616688e02d75de3f26c668659e0fc46e87d84f8525b2f994690de40ac7",
+        "evaluator.json": "8a10ef13c3d31c9fadf5f734263350bc5c76d6ffbdd8d5c1b32f80647573d4a5"
+      },
+      "X02": {
+        "runtime.json": "988d9b9f9b63e122064f079f5f99d78f9f8494ea34628a19464a7cba99b089af",
+        "evaluator.json": "f59cf7535a704d6d53010f46a234bbb0d4dba9ebedbfe4d42fbebe53c801d6e4"
+      },
+      "X03": {
+        "runtime.json": "8b0f737938c23e5e665e7b9f5db51c781cb860f564bbb201fdb3cac96d1605a6",
+        "evaluator.json": "4a832681ff21b2353cca1a7af9ef01464a0ba96ffed77e804f83c4304621cc82"
+      },
+      "X04": {
+        "runtime.json": "f1fbd0bc96f3903967a43d1bdc94cf87955c958b5eb4966c3b04676955899e8f",
+        "evaluator.json": "3da1a01a0f26e32d195934d803beaba07feacba46f1bfaa462e618d8fae51c1f"
+      },
+      "L01": {
+        "runtime.json": "b8b94a1e27472e4b1967d1ad64f09b29ff654ded57fb3757346d6c8ffd3eb968",
+        "evaluator.json": "dfcf5fabb02c42357beebb4e90440a04936870a5e25dba1cdf1b71420a6ecbe8"
+      },
+      "L02": {
+        "runtime.json": "795d760656167f27938adea137e53e49162b615d978708db40a6a7ffa4bf480b",
+        "evaluator.json": "96291d9205e4ee09df46f666e1f9c8f6c2c5214a5d416f626ea2eb2cbe07461c"
+      },
+      "L03": {
+        "runtime.json": "eade3f0beb871a04a4871d3c2a6d8952d07614a5a9f2c9e35ba321fb497224d1",
+        "evaluator.json": "e1992c520221027256bc15b8e3948308c0d11951149436d7a986e9967e28bf1d"
+      },
+      "L04": {
+        "runtime.json": "8eedf98d0e03cd42a3a1606ea15d6b434857b6636edb4bba19ae972332ea5136",
+        "evaluator.json": "034d6ae46e02088c2129f8ece1569e71facbb992efe67caededaec018da0dcad"
+      },
+      "R01": {
+        "runtime.json": "47833ebee98aeaa4c8d472bbe4e35220a3c4929af23aaa517898d58c2d1e8df3",
+        "evaluator.json": "b3e492cc8adb1812c0cdfc2c650e25340f01d093c6ac0cad500ac1358bda8984"
+      },
+      "R02": {
+        "runtime.json": "69521dcbfcd1c37e6b1c5bde7d125c40b69610142b7cb3b6a5be8e643993c35d",
+        "evaluator.json": "8ac5e3fd8973368e1cccad770c5bb55b94de0379b17b6cfa240df349f0115915"
+      },
+      "R03": {
+        "runtime.json": "c1b274149e6334b2200ddca083c187584032a6229ea63453b2c8e7bb82dee20f",
+        "evaluator.json": "b47f2105da253b36f6a117a471b2d69d4ef1de0e0840d6ca2350255396cb4824"
+      },
+      "R04": {
+        "runtime.json": "5ea09b54ccec1400ffe7e6debe65bae407cb720f6f3dd9919ad8be6ff972e147",
+        "evaluator.json": "5c9580f2287c863a228613168897c5761289c2743713bf12ee1277e3f6e09a20"
+      },
+      "S01": {
+        "runtime.json": "fb67d2f67ca3fa0c5544525f6cdd7ecd65c730a9fa5e0db5c1ae0078bf157c59",
+        "evaluator.json": "e03e8dbc078d301551d2f711d03623fd525c54d776160fb05b1a1ff12c6dbacb"
+      },
+      "S02": {
+        "runtime.json": "4b686da6e78580110b544a0f37df0be779919e59c61bcde7a5732a260f2ac0ed",
+        "evaluator.json": "b065e5f32ef7d1892b39e132fd91948b82f90f59d325e847eb155cb62eed5d2b"
+      },
+      "S03": {
+        "runtime.json": "c196c9f821ed119b0db7b4700a6f2f90788e2c136e12783893d586305f365040",
+        "evaluator.json": "33c870298cfe056450127c57d938a5d15e7c562627635a83d395d321273a40bb"
+      },
+      "S04": {
+        "runtime.json": "54fec737ab9e83800ae75d9435ee0c1ee42cfd0dbf5d85dbb2fb407673495ba2",
+        "evaluator.json": "f397aa0a02faebb4dbd223c9bc50c0a6015e5b8d694db87b9b2b94cc5979d591"
+      }
+    },
+    "code": {
+      "runner/schema.py": "bd34a39a92a2cc6bbab98a1560260906ef398fb87397542aa01abe0d7e70e649",
+      "runner/prompting.py": "e971d4c8132ab0309e38ada56466403dd0d9d30397297cfd58993827d2f66b11",
+      "runner/simulator.py": "e42ee564cab3b60614b41d6c10827bea0e6e0c5fe67ea437c4f43f1ee94619c9",
+      "runner/experiment.py": "a88a2b40673ba404831d21d395ef9e7edb878c0a6e7ede7c20c6505b4e09b440",
+      "runner/recording.py": "7df7310855786ee48f1bdaca85bf8ccfd4ba4c486d00d78714be1e69a74ffef3",
+      "runner/harness_react.py": "8e1acbb5d69a111c99665073d3c1cd7a9420f5c265b86c3874ef8f76588c91a8",
+      "runner/paths.py": "a0e19ccfe0a10fd7030052efd8c510f7a3f0166fc0f2b5d7db3f937e7c465b50",
+      "models/adapter.py": "84bc4c680c98271b9a67da41a2eca309af5fc2dbd1277c0d4562fe6911f86943",
+      "models/torch_adapter.py": "1517ecf4db864f41f2929ee1ae651b7b912afc3955f3f42a08551ed75f135f25",
+      "configs/models.json": "2a252b3825f08bc16b32f7034578c82b0fe4863aacc058e4dbf87a1a7519c6b0"
+    },
+    "plan_sha256": "811f66f95758a5d3151277d0d2d17e623ccb0c21339b2558b41bef82f4e8c5d0",
+    "model": {
+      "backend": "torch",
+      "family": "qwen2.5",
+      "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+      "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+      "model_type": "qwen2",
+      "quantization": null,
+      "dtype": "bf16",
+      "device": "cuda",
+      "eos_id": 151645,
+      "stop_ids": [
+        151643,
+        151645
+      ],
+      "attn_implementation": "sdpa",
+      "batch_candidates": false,
+      "torch": "2.14.1+cu130",
+      "transformers": "5.18.0",
+      "sampling": {
+        "greedy_if_temperature_0": true,
+        "seeding": "torch.manual_seed + cuda.manual_seed_all per generate",
+        "top_k": 0,
+        "top_p": 1.0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "epsilon_cutoff": 0.0,
+        "eta_cutoff": 0.0,
+        "repetition_penalty": 1.0,
+        "no_repeat_ngram_size": 0,
+        "num_beams": 1
+      }
+    }
+  }
+}

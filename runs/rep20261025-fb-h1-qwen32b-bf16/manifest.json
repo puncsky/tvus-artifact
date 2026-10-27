@@ -1,0 +1,245 @@
+{
+  "run_id": "rep20261025-fb-h1-qwen32b-bf16",
+  "model_spec": "qwen32b-bf16",
+  "model": {
+    "backend": "torch",
+    "family": "qwen2.5",
+    "model_path": "/home/tp/projects/tianpan-v3/projects/tvus-research/cache/hf/hub/models--Qwen--Qwen2.5-32B-Instruct/snapshots/5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+    "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "model_type": "qwen2",
+    "quantization": null,
+    "eos_id": 151645,
+    "stop_ids": [
+      151643,
+      151645
+    ],
+    "dtype": "bf16",
+    "device": "cuda",
+    "attn_implementation": "sdpa",
+    "batch_candidates": false,
+    "sampling": {
+      "greedy_if_temperature_0": true,
+      "seeding": "torch.manual_seed + cuda.manual_seed_all per generate",
+      "top_k": 0,
+      "top_p": 1.0,
+      "min_p": 0.0,
+      "typical_p": 1.0,
+      "epsilon_cutoff": 0.0,
+      "eta_cutoff": 0.0,
+      "repetition_penalty": 1.0,
+      "no_repeat_ngram_size": 0,
+      "num_beams": 1
+    },
+    "logits_to_keep": true,
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "python": "3.12.15",
+    "machine": "aarch64",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": true,
+    "cudnn_deterministic": true,
+    "allow_tf32": false,
+    "cublas_workspace_config": ":4096:8",
+    "num_threads": 20,
+    "cuda": "13.0",
+    "gpu": "NVIDIA GB10",
+    "capability": [
+      12,
+      1
+    ],
+    "bitsandbytes": "0.50.2"
+  },
+  "harness": "h1",
+  "run_specs": [
+    [
+      0,
+      0.0
+    ]
+  ],
+  "conditions": [
+    "clean",
+    "neutral",
+    "attack"
+  ],
+  "cases": {
+    "F01": "f5c22963647703a02ddc990d2ddca56a6a1cf911d8e667532dd030cfebb0291c",
+    "F04": "57e0eeccc51c195683df9bf4bb16ed65d9de1742f7b923fec5228d7784e01825",
+    "F03": "40788f27d50bf22a1fa773ed97e4155c047412d0bf67e0432cf9d7081063d882",
+    "F07": "0211fda7c667e34437697f970aa5da58128ab57abbea922e9620cf29870bd610",
+    "F08": "ac7c6cd0ec7f882d11ec79fa9e992a549b5ac8880d175983961d8e4d98c27d34",
+    "F02": "ae674847bba00ba592dcddac852de1f329634c4d29497c1976f80930cb6edc3d",
+    "F05": "a0b6113c0082e83b3e27e89ae9e83e60de0926d35bc85d9652d5373ee0e43c72",
+    "F06": "eb8bf13d9855d458b635ff37d405af97edfb4b1f54495824c32c2e8626473fb1"
+  },
+  "fixture_files": {
+    "F01": {
+      "runtime.json": "dc6c01e27bbee5799f2bfa224c5618560eb20a54af75286c520d9a88d96ea8d8",
+      "evaluator.json": "3250128d8fc252544762b9cfbb9105e2a1cf1aa9f998bd4440dbed61a8743aa5"
+    },
+    "F04": {
+      "runtime.json": "838a476beff8082fe18dce40fe550e110ab23edb1eb82887d666020671564304",
+      "evaluator.json": "cb1ca80bea321dba283f78f195539a81541b1237166cb23c79a520a3b3b2333b"
+    },
+    "F03": {
+      "runtime.json": "c92a26cec7b5160e198c9cc28e822788f0cdcc330154d260981f59ded8dc7b8e",
+      "evaluator.json": "a1b5ea2f76e3b2bab2328210849443041c05a03d080012556b0b7b030be6f87e"
+    },
+    "F07": {
+      "runtime.json": "28738692f9ffcfd8ccb0be89fce962d70a7943d8e81e861dc127490a7f93ae22",
+      "evaluator.json": "9cbdc0182a51a2358930072b30192bf34a9db5e5817c64a720439aa0c335bd19"
+    },
+    "F08": {
+      "runtime.json": "e50b1cd5b4653de1f34e77aa6fd02d54efbf479e3ae43ea6a7994572cdd26d89",
+      "evaluator.json": "051f1d9a8cec56edf7bd13acaae06e1cb1f13a5cf1f357599afc1e5becfa284a"
+    },
+    "F02": {
+      "runtime.json": "021dc5c507efa1bbd06c88ee3fcf7ffecf0e88cba37487d4e51dd35c5d8c3242",
+      "evaluator.json": "572ad70eaf3eafb69d6609ffbd2b070a45359cc1eb186018e775b915f5556256"
+    },
+    "F05": {
+      "runtime.json": "9e36560aa99b72a90d49ca666c67564989533f102136f98c297da56d5a04f226",
+      "evaluator.json": "dcf760776753220c3e63b4b71d629befc7956f0e246a44d267d82699deb7e866"
+    },
+    "F06": {
+      "runtime.json": "e1c7fcf6eba52395bd2e3daa1cf6219845bbceb99d5d63429f8645e4e1cce83d",
+      "evaluator.json": "cd3922622bcebdc0c01b4ec7a35998fce22bb3391eef11ca23c97fb212c0a74d"
+    }
+  },
+  "code": {
+    "runner/schema.py": "bd34a39a92a2cc6bbab98a1560260906ef398fb87397542aa01abe0d7e70e649",
+    "runner/prompting.py": "e971d4c8132ab0309e38ada56466403dd0d9d30397297cfd58993827d2f66b11",
+    "runner/simulator.py": "e42ee564cab3b60614b41d6c10827bea0e6e0c5fe67ea437c4f43f1ee94619c9",
+    "runner/experiment.py": "a88a2b40673ba404831d21d395ef9e7edb878c0a6e7ede7c20c6505b4e09b440",
+    "runner/recording.py": "7df7310855786ee48f1bdaca85bf8ccfd4ba4c486d00d78714be1e69a74ffef3",
+    "runner/harness_react.py": "8e1acbb5d69a111c99665073d3c1cd7a9420f5c265b86c3874ef8f76588c91a8",
+    "runner/paths.py": "a0e19ccfe0a10fd7030052efd8c510f7a3f0166fc0f2b5d7db3f937e7c465b50",
+    "models/adapter.py": "84bc4c680c98271b9a67da41a2eca309af5fc2dbd1277c0d4562fe6911f86943",
+    "models/torch_adapter.py": "1517ecf4db864f41f2929ee1ae651b7b912afc3955f3f42a08551ed75f135f25",
+    "configs/models.json": "2a252b3825f08bc16b32f7034578c82b0fe4863aacc058e4dbf87a1a7519c6b0"
+  },
+  "plan": "reports/qwen32b-evidence/run-plan.json",
+  "plan_sha256": "811f66f95758a5d3151277d0d2d17e623ccb0c21339b2558b41bef82f4e8c5d0",
+  "started": "2026-10-27T12:12:36Z",
+  "host": {
+    "hostname": "spark-71a4",
+    "machine": "aarch64",
+    "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+    "python": "3.12.15",
+    "nvidia_smi": "NVIDIA GB10, 580.178.04"
+  },
+  "source": {
+    "git": "d76c4aa9c6eed17656e48798bc37fe3945bd5b0f",
+    "dirty_bound_files": true,
+    "untracked_bound_files": [
+      "runner/recording.py"
+    ],
+    "snapshot": "source-snapshot-s0.patch",
+    "snapshot_sha256": "d4bbf3131c663702b4cec67129f9c8bacbf81c27886527e9602fb4de09050a65"
+  },
+  "recorder_version": 1,
+  "compat": {
+    "run_id": "rep20261025-fb-h1-qwen32b-bf16",
+    "harness": "h1",
+    "run_specs": [
+      [
+        0,
+        0.0
+      ]
+    ],
+    "conditions": [
+      "clean",
+      "neutral",
+      "attack"
+    ],
+    "cases": {
+      "F01": "f5c22963647703a02ddc990d2ddca56a6a1cf911d8e667532dd030cfebb0291c",
+      "F04": "57e0eeccc51c195683df9bf4bb16ed65d9de1742f7b923fec5228d7784e01825",
+      "F03": "40788f27d50bf22a1fa773ed97e4155c047412d0bf67e0432cf9d7081063d882",
+      "F07": "0211fda7c667e34437697f970aa5da58128ab57abbea922e9620cf29870bd610",
+      "F08": "ac7c6cd0ec7f882d11ec79fa9e992a549b5ac8880d175983961d8e4d98c27d34",
+      "F02": "ae674847bba00ba592dcddac852de1f329634c4d29497c1976f80930cb6edc3d",
+      "F05": "a0b6113c0082e83b3e27e89ae9e83e60de0926d35bc85d9652d5373ee0e43c72",
+      "F06": "eb8bf13d9855d458b635ff37d405af97edfb4b1f54495824c32c2e8626473fb1"
+    },
+    "fixture_files": {
+      "F01": {
+        "runtime.json": "dc6c01e27bbee5799f2bfa224c5618560eb20a54af75286c520d9a88d96ea8d8",
+        "evaluator.json": "3250128d8fc252544762b9cfbb9105e2a1cf1aa9f998bd4440dbed61a8743aa5"
+      },
+      "F04": {
+        "runtime.json": "838a476beff8082fe18dce40fe550e110ab23edb1eb82887d666020671564304",
+        "evaluator.json": "cb1ca80bea321dba283f78f195539a81541b1237166cb23c79a520a3b3b2333b"
+      },
+      "F03": {
+        "runtime.json": "c92a26cec7b5160e198c9cc28e822788f0cdcc330154d260981f59ded8dc7b8e",
+        "evaluator.json": "a1b5ea2f76e3b2bab2328210849443041c05a03d080012556b0b7b030be6f87e"
+      },
+      "F07": {
+        "runtime.json": "28738692f9ffcfd8ccb0be89fce962d70a7943d8e81e861dc127490a7f93ae22",
+        "evaluator.json": "9cbdc0182a51a2358930072b30192bf34a9db5e5817c64a720439aa0c335bd19"
+      },
+      "F08": {
+        "runtime.json": "e50b1cd5b4653de1f34e77aa6fd02d54efbf479e3ae43ea6a7994572cdd26d89",
+        "evaluator.json": "051f1d9a8cec56edf7bd13acaae06e1cb1f13a5cf1f357599afc1e5becfa284a"
+      },
+      "F02": {
+        "runtime.json": "021dc5c507efa1bbd06c88ee3fcf7ffecf0e88cba37487d4e51dd35c5d8c3242",
+        "evaluator.json": "572ad70eaf3eafb69d6609ffbd2b070a45359cc1eb186018e775b915f5556256"
+      },
+      "F05": {
+        "runtime.json": "9e36560aa99b72a90d49ca666c67564989533f102136f98c297da56d5a04f226",
+        "evaluator.json": "dcf760776753220c3e63b4b71d629befc7956f0e246a44d267d82699deb7e866"
+      },
+      "F06": {
+        "runtime.json": "e1c7fcf6eba52395bd2e3daa1cf6219845bbceb99d5d63429f8645e4e1cce83d",
+        "evaluator.json": "cd3922622bcebdc0c01b4ec7a35998fce22bb3391eef11ca23c97fb212c0a74d"
+      }
+    },
+    "code": {
+      "runner/schema.py": "bd34a39a92a2cc6bbab98a1560260906ef398fb87397542aa01abe0d7e70e649",
+      "runner/prompting.py": "e971d4c8132ab0309e38ada56466403dd0d9d30397297cfd58993827d2f66b11",
+      "runner/simulator.py": "e42ee564cab3b60614b41d6c10827bea0e6e0c5fe67ea437c4f43f1ee94619c9",
+      "runner/experiment.py": "a88a2b40673ba404831d21d395ef9e7edb878c0a6e7ede7c20c6505b4e09b440",
+      "runner/recording.py": "7df7310855786ee48f1bdaca85bf8ccfd4ba4c486d00d78714be1e69a74ffef3",
+      "runner/harness_react.py": "8e1acbb5d69a111c99665073d3c1cd7a9420f5c265b86c3874ef8f76588c91a8",
+      "runner/paths.py": "a0e19ccfe0a10fd7030052efd8c510f7a3f0166fc0f2b5d7db3f937e7c465b50",
+      "models/adapter.py": "84bc4c680c98271b9a67da41a2eca309af5fc2dbd1277c0d4562fe6911f86943",
+      "models/torch_adapter.py": "1517ecf4db864f41f2929ee1ae651b7b912afc3955f3f42a08551ed75f135f25",
+      "configs/models.json": "2a252b3825f08bc16b32f7034578c82b0fe4863aacc058e4dbf87a1a7519c6b0"
+    },
+    "plan_sha256": "811f66f95758a5d3151277d0d2d17e623ccb0c21339b2558b41bef82f4e8c5d0",
+    "model": {
+      "backend": "torch",
+      "family": "qwen2.5",
+      "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+      "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+      "model_type": "qwen2",
+      "quantization": null,
+      "dtype": "bf16",
+      "device": "cuda",
+      "eos_id": 151645,
+      "stop_ids": [
+        151643,
+        151645
+      ],
+      "attn_implementation": "sdpa",
+      "batch_candidates": false,
+      "torch": "2.14.1+cu130",
+      "transformers": "5.18.0",
+      "sampling": {
+        "greedy_if_temperature_0": true,
+        "seeding": "torch.manual_seed + cuda.manual_seed_all per generate",
+        "top_k": 0,
+        "top_p": 1.0,
+        "min_p": 0.0,
+        "typical_p": 1.0,
+        "epsilon_cutoff": 0.0,
+        "eta_cutoff": 0.0,
+        "repetition_penalty": 1.0,
+        "no_repeat_ngram_size": 0,
+        "num_beams": 1
+      }
+    }
+  }
+}

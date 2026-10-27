@@ -1,0 +1,18 @@
+[
+  {"location": "original DGX Spark zgx-aa67 (tailnet zgx-aa67.tail91d428.ts.net, 100.99.213.110), ~/projects/tianpan-v3/projects/tvus-research/runs/*qwen32b*",
+   "method": "tailscale status; one bounded SSH attempt (BatchMode, ConnectTimeout=10) from spark-71a4",
+   "outcome": "unreachable: tailscale reports 'offline, last seen 13d ago'; ssh port 22 connection timed out. Not retried.",
+   "at": "2026-10-25T04:17:21Z"},
+  {"location": "author-supplied DGX Spark spark-71a4 (this host): whole root filesystem (find / -xdev) for *qwen32b*, tvus-state*, other tvus-research/w3 checkouts; ~/.cache/huggingface; /home/<user>/projects/spark",
+   "method": "filesystem search 2026-10-25 (new location, not previously searched)",
+   "outcome": "absent: only the committed reports/*-qwen32b-bf16 derived directories of this fresh checkout; no runs/, handoff/ or tvus-state archive; ../spark holds Qwen3.8 checkpoints only (not the frozen model).",
+   "at": "2026-10-25T04:10:00Z"},
+  {"location": "public artifact tvus-artifact v1.0.1 (author-supplied local copy tvus-artifact-v1.0.1.zip, sha256 105a3338ffbc6ff5f0de9e55a03fdc6e4e1f492ca130341eb20e2c30ac386999, identical to the published release asset and its .sha256)",
+   "method": "extracted to downloads/tvus-artifact-v1.0.1-extract/; compared every 32B report file to reports/*-qwen32b-bf16; listed runs/",
+   "outcome": "no 32B raw records: runs/ has 35 run dirs, none qwen32b; RELEASE.json missing_raw_runs lists all six roles. rows.jsonl, thresholds.json and table.md byte-identical to the repo; summary.json differs only by the redacted model_path user name.",
+   "at": "2026-10-25T04:27:00Z"},
+  {"location": "author's Mac monorepo checkout and handoff/tvus-state.tgz (+ nested anonymous artifact)",
+   "method": "not repeated: searched on 2026-10-24 (context.md 'Artifact publication update'; .pm/w1/m1/_milestone.md notes)",
+   "outcome": "absent per the 2026-10-24 audit: the 2026-10-06 handoff bundle predates the 32B matrices; neither archive contains 32B raw records.",
+   "at": "2026-10-24"}
+]

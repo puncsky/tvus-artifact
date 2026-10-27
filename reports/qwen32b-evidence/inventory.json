@@ -1,0 +1,1766 @@
+{
+  "generated": "2026-10-25T04:34:24Z",
+  "task": "research .pm/w1/m1/t001",
+  "model": {
+    "key": "qwen32b-bf16",
+    "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+    "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "dtype": "bf16",
+    "batch_candidates": false
+  },
+  "model_calls": 0,
+  "searches": [
+    {
+      "location": "original DGX Spark zgx-aa67 (tailnet zgx-aa67.tail91d428.ts.net, 100.99.213.110), ~/projects/tianpan-v3/projects/tvus-research/runs/*qwen32b*",
+      "method": "tailscale status; one bounded SSH attempt (BatchMode, ConnectTimeout=10) from spark-71a4",
+      "outcome": "unreachable: tailscale reports 'offline, last seen 13d ago'; ssh port 22 connection timed out. Not retried.",
+      "at": "2026-10-25T04:17:21Z"
+    },
+    {
+      "location": "author-supplied DGX Spark spark-71a4 (this host): whole root filesystem (find / -xdev) for *qwen32b*, tvus-state*, other tvus-research/w3 checkouts; ~/.cache/huggingface; /home/<user>/projects/spark",
+      "method": "filesystem search 2026-10-25 (new location, not previously searched)",
+      "outcome": "absent: only the committed reports/*-qwen32b-bf16 derived directories of this fresh checkout; no runs/, handoff/ or tvus-state archive; ../spark holds Qwen3.8 checkpoints only (not the frozen model).",
+      "at": "2026-10-25T04:10:00Z"
+    },
+    {
+      "location": "public artifact tvus-artifact v1.0.1 (author-supplied local copy tvus-artifact-v1.0.1.zip, sha256 105a3338ffbc6ff5f0de9e55a03fdc6e4e1f492ca130341eb20e2c30ac386999, identical to the published release asset and its .sha256)",
+      "method": "extracted to downloads/tvus-artifact-v1.0.1-extract/; compared every 32B report file to reports/*-qwen32b-bf16; listed runs/",
+      "outcome": "no 32B raw records: runs/ has 35 run dirs, none qwen32b; RELEASE.json missing_raw_runs lists all six roles. rows.jsonl, thresholds.json and table.md byte-identical to the repo; summary.json differs only by the redacted model_path user name.",
+      "at": "2026-10-25T04:27:00Z"
+    },
+    {
+      "location": "author's Mac monorepo checkout and handoff/tvus-state.tgz (+ nested anonymous artifact)",
+      "method": "not repeated: searched on 2026-10-24 (context.md 'Artifact publication update'; .pm/w1/m1/_milestone.md notes)",
+      "outcome": "absent per the 2026-10-24 audit: the 2026-10-06 handoff bundle predates the 32B matrices; neither archive contains 32B raw records.",
+      "at": "2026-10-24"
+    }
+  ],
+  "public_release": {
+    "file": "downloads/tvus-artifact-v1.0.1/RELEASE.json",
+    "sha256": "72b0eb7bfae6240999c126d339dd1c16e6b6a9659b6748130abe07e513b6c4ec",
+    "version": "v1.0.1",
+    "missing_raw_runs": [
+      "conf-qwen32b-bf16",
+      "dev-qwen32b-bf16",
+      "fb-h1-qwen32b-bf16",
+      "gen-test-qwen32b-bf16",
+      "h2-conf-qwen32b-bf16",
+      "h2-dev-qwen32b-bf16"
+    ]
+  },
+  "code_and_fixture_history": "git: runner/, models/, fixtures (cases/, confirmation/, failure-boundary/, generated/cases, generated/test-split.txt) unchanged since 9ecac5d73 (2026-10-06), i.e. before the original runs; later commits touched only configs/env-cuda.json, configs/models.json, models/verify_adapter.py, run/artifact/audit scripts and protocol text. Uncommitted edits on the original host cannot be excluded.",
+  "matrices": [
+    {
+      "role": "dev",
+      "historical_run_id": "dev-qwen32b-bf16",
+      "harness": "h1",
+      "fixtures": "cases",
+      "case_list": null,
+      "seeds": [
+        0,
+        11,
+        23
+      ],
+      "temperatures": [
+        0.0,
+        0.7,
+        0.7
+      ],
+      "scheduled_executions": 216,
+      "scheduled_by_condition": {
+        "clean": 72,
+        "neutral": 72,
+        "attack": 72
+      },
+      "historical_report_files": {
+        "rows.jsonl": "27aa538c79d0b523e6737e797d2c159c0bb6fd105e59febc23b457743d5dcfbc",
+        "safety-utility-cost.txt": "e799684a9b105265ca671cfc193955f6f9dec1d54d1f591b4a36ea666395646b",
+        "summary.json": "169826c13b979e0611e18f658983ec2a53017e32675975aaa7edc01332a46e21",
+        "table.md": "ae624cc052620f1e9f93bfc70e720df10aa7497b7726696ab2adf6dc77db17b9",
+        "thresholds.json": "76e5a0ca2d944184631fb02f3d8369e27b8cdf001eb4cf1be57e6ffb9526e4af"
+      },
+      "historical_dossiers": 19,
+      "derived_counts": {
+        "summary_n_executions": 216,
+        "summary_n_scheduled": 216,
+        "summary_missing_coverage": 0,
+        "rows": 3240,
+        "row_execution_keys": 216,
+        "defenses": 15,
+        "rows_per_execution": 15.0,
+        "threat_templates": 20,
+        "legit_templates": 4,
+        "b0_clean_correct": "70/72",
+        "b0_attack_unauthorized": "19/60",
+        "b0_attack_attributable": "19/60",
+        "b2_attack_unauthorized": "0/60",
+        "regen_only_attack_unauthorized": "0/60",
+        "b6_reference_attack_unauthorized": "0/60",
+        "conditional_on_b0_steered": {
+          "b2_reconstruction": "0/19",
+          "b6_regen_only": "0/19",
+          "b6_reference": "0/19",
+          "b6_chosen_only": "16/19"
+        },
+        "steered_templates": 7,
+        "thresholds_in_summary": {
+          "loo_max": 149.80549956644313,
+          "joint_drop": 192.18700020743682,
+          "ca_margin": 1.3373222067481323,
+          "enh_R": 13.603511905425606,
+          "ref_D": 0.5244519044077196,
+          "ref_R": 13.603511905425606,
+          "chosen_drop": 192.18700020743682,
+          "ref_D_t": 0.11074440589466478,
+          "ref_R_t": 10.105606296882375,
+          "_n_calibration_executions": 144,
+          "_quantile": 0.95
+        },
+        "model": {
+          "backend": "torch",
+          "family": "qwen2.5",
+          "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+          "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+          "model_type": "qwen2",
+          "quantization": null,
+          "eos_id": 151645,
+          "stop_ids": [
+            151643,
+            151645
+          ],
+          "dtype": "bf16",
+          "device": "cuda",
+          "attn_implementation": "sdpa",
+          "batch_candidates": false,
+          "logits_to_keep": true,
+          "torch": "2.14.1+cu130",
+          "transformers": "5.18.0",
+          "python": "3.12.15",
+          "machine": "aarch64",
+          "deterministic_algorithms": true,
+          "deterministic_warn_only": true,
+          "cudnn_deterministic": true,
+          "allow_tf32": false,
+          "cublas_workspace_config": ":4096:8",
+          "num_threads": 20,
+          "cuda": "13.0",
+          "gpu": "NVIDIA GB10",
+          "capability": [
+            12,
+            1
+          ],
+          "bitsandbytes": "0.50.2"
+        },
+        "row_keys_match_schedule": true
+      },
+      "summary_counts_agree": true,
+      "thresholds": {
+        "file": "reports/dev-qwen32b-bf16/thresholds.json",
+        "sha256": "76e5a0ca2d944184631fb02f3d8369e27b8cdf001eb4cf1be57e6ffb9526e4af",
+        "matches_summary": true
+      },
+      "required_raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "raw_files_present_locally": [],
+      "public_release_raw_files": [],
+      "public_release_lists_missing": true,
+      "original_manifest": "absent (code, fixture and start-time bindings of the original execution are unrecoverable)",
+      "model_binding_from_summary": {
+        "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+        "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+        "dtype": "bf16",
+        "batch_candidates": false,
+        "attn_implementation": "sdpa",
+        "torch": "2.14.1+cu130",
+        "transformers": "5.18.0",
+        "gpu": "NVIDIA GB10"
+      },
+      "fixture_hashes_current": {
+        "P01": {
+          "runtime.json": "bf19cdcc88008e7d19f10bc56a5ba2cd524587425c615f95f7a3d6aed3954bba",
+          "evaluator.json": "f5f672223983004f05ac8f286a123592ec139eb4a043d517ba646f7d5eb7e46b"
+        },
+        "P02": {
+          "runtime.json": "7cb5fb4ca7cdc57cff07dd87210ba34edec47e80b346ecaf2fffcfc78823afe6",
+          "evaluator.json": "b2b5e106ca8e465965028a39912b5f8f3d56d428c4bae18697dc38438d10553c"
+        },
+        "P03": {
+          "runtime.json": "7d866d27dbbb2fe2f776fa4357def208bc2c08edd7102d108e43220af9498c38",
+          "evaluator.json": "424e02199b04e1451923e7b0f1df3369faf540b1b6c90a0c55911ccf77725cbc"
+        },
+        "P04": {
+          "runtime.json": "cbe7c968da9c6c5028a0451627f542478c0b67707e97ba53e7632511339d0625",
+          "evaluator.json": "28e6cea710d381fcfc0f6977ee7deb46883f2161a0ec4b2906511383ba53421f"
+        },
+        "H01": {
+          "runtime.json": "5cb8d717c486a37c98719f2a29e595ea04c9b3e34b3fce668d23bfb65265b9e5",
+          "evaluator.json": "25a8c94fa7e2b130a392f147109f743aaf17861bcb46d14bbf85c789f0cfb2d0"
+        },
+        "H02": {
+          "runtime.json": "f5d4de68b18c7cd0a17804b88d21a69001999ab56b6c0f25b6180f68f356e675",
+          "evaluator.json": "11064d8e7a07c8f9f1bbe3ca304bdad20922b5c58b8fe5fd4e22dde720e7ab4f"
+        },
+        "H03": {
+          "runtime.json": "f87913d0f935c9950642df708d2aca4e523addc20d1039f2c204628e6cac3f85",
+          "evaluator.json": "d2fa2eb37c3a4a3614265d7f3519741e281b3647805e41398baf01e3d3a2cad1"
+        },
+        "H04": {
+          "runtime.json": "8ada1733ebd540d83e6516a9ee8862c07d5294b03b954239f28897c445141e26",
+          "evaluator.json": "e6d2f3f738aaaca0c15a093134e0168ac4c8f7a5b76eb3200dafd4f1fb7c1dd1"
+        },
+        "X01": {
+          "runtime.json": "d308cc616688e02d75de3f26c668659e0fc46e87d84f8525b2f994690de40ac7",
+          "evaluator.json": "8a10ef13c3d31c9fadf5f734263350bc5c76d6ffbdd8d5c1b32f80647573d4a5"
+        },
+        "X02": {
+          "runtime.json": "988d9b9f9b63e122064f079f5f99d78f9f8494ea34628a19464a7cba99b089af",
+          "evaluator.json": "f59cf7535a704d6d53010f46a234bbb0d4dba9ebedbfe4d42fbebe53c801d6e4"
+        },
+        "X03": {
+          "runtime.json": "8b0f737938c23e5e665e7b9f5db51c781cb860f564bbb201fdb3cac96d1605a6",
+          "evaluator.json": "4a832681ff21b2353cca1a7af9ef01464a0ba96ffed77e804f83c4304621cc82"
+        },
+        "X04": {
+          "runtime.json": "f1fbd0bc96f3903967a43d1bdc94cf87955c958b5eb4966c3b04676955899e8f",
+          "evaluator.json": "3da1a01a0f26e32d195934d803beaba07feacba46f1bfaa462e618d8fae51c1f"
+        },
+        "L01": {
+          "runtime.json": "b8b94a1e27472e4b1967d1ad64f09b29ff654ded57fb3757346d6c8ffd3eb968",
+          "evaluator.json": "dfcf5fabb02c42357beebb4e90440a04936870a5e25dba1cdf1b71420a6ecbe8"
+        },
+        "L02": {
+          "runtime.json": "795d760656167f27938adea137e53e49162b615d978708db40a6a7ffa4bf480b",
+          "evaluator.json": "96291d9205e4ee09df46f666e1f9c8f6c2c5214a5d416f626ea2eb2cbe07461c"
+        },
+        "L03": {
+          "runtime.json": "eade3f0beb871a04a4871d3c2a6d8952d07614a5a9f2c9e35ba321fb497224d1",
+          "evaluator.json": "e1992c520221027256bc15b8e3948308c0d11951149436d7a986e9967e28bf1d"
+        },
+        "L04": {
+          "runtime.json": "8eedf98d0e03cd42a3a1606ea15d6b434857b6636edb4bba19ae972332ea5136",
+          "evaluator.json": "034d6ae46e02088c2129f8ece1569e71facbb992efe67caededaec018da0dcad"
+        },
+        "R01": {
+          "runtime.json": "47833ebee98aeaa4c8d472bbe4e35220a3c4929af23aaa517898d58c2d1e8df3",
+          "evaluator.json": "b3e492cc8adb1812c0cdfc2c650e25340f01d093c6ac0cad500ac1358bda8984"
+        },
+        "R02": {
+          "runtime.json": "69521dcbfcd1c37e6b1c5bde7d125c40b69610142b7cb3b6a5be8e643993c35d",
+          "evaluator.json": "8ac5e3fd8973368e1cccad770c5bb55b94de0379b17b6cfa240df349f0115915"
+        },
+        "R03": {
+          "runtime.json": "c1b274149e6334b2200ddca083c187584032a6229ea63453b2c8e7bb82dee20f",
+          "evaluator.json": "b47f2105da253b36f6a117a471b2d69d4ef1de0e0840d6ca2350255396cb4824"
+        },
+        "R04": {
+          "runtime.json": "5ea09b54ccec1400ffe7e6debe65bae407cb720f6f3dd9919ad8be6ff972e147",
+          "evaluator.json": "5c9580f2287c863a228613168897c5761289c2743713bf12ee1277e3f6e09a20"
+        },
+        "S01": {
+          "runtime.json": "fb67d2f67ca3fa0c5544525f6cdd7ecd65c730a9fa5e0db5c1ae0078bf157c59",
+          "evaluator.json": "e03e8dbc078d301551d2f711d03623fd525c54d776160fb05b1a1ff12c6dbacb"
+        },
+        "S02": {
+          "runtime.json": "4b686da6e78580110b544a0f37df0be779919e59c61bcde7a5732a260f2ac0ed",
+          "evaluator.json": "b065e5f32ef7d1892b39e132fd91948b82f90f59d325e847eb155cb62eed5d2b"
+        },
+        "S03": {
+          "runtime.json": "c196c9f821ed119b0db7b4700a6f2f90788e2c136e12783893d586305f365040",
+          "evaluator.json": "33c870298cfe056450127c57d938a5d15e7c562627635a83d395d321273a40bb"
+        },
+        "S04": {
+          "runtime.json": "54fec737ab9e83800ae75d9435ee0c1ee42cfd0dbf5d85dbb2fb407673495ba2",
+          "evaluator.json": "f397aa0a02faebb4dbd223c9bc50c0a6015e5b8d694db87b9b2b94cc5979d591"
+        }
+      },
+      "original_collection_time": {
+        "exact": null,
+        "derived_report_first_commit": {
+          "commit": "4254c6479",
+          "date": "2026-10-08T16:37:25-07:00"
+        },
+        "window": "2026-10-08 to 2026-10-10 (DGX Spark zgx-aa67; .pm/w3/m10/t004 log 2026-10-10)"
+      },
+      "disposition": "fresh-replication-required"
+    },
+    {
+      "role": "conf",
+      "historical_run_id": "conf-qwen32b-bf16",
+      "harness": "h1",
+      "fixtures": "confirmation/cases",
+      "case_list": null,
+      "seeds": [
+        0,
+        11,
+        23
+      ],
+      "temperatures": [
+        0.0,
+        0.7,
+        0.7
+      ],
+      "scheduled_executions": 72,
+      "scheduled_by_condition": {
+        "clean": 24,
+        "neutral": 24,
+        "attack": 24
+      },
+      "historical_report_files": {
+        "rows.jsonl": "86cd38e3088d58e2176621ea42c41355280b5e7d4f6e3f127a9e054428d3f175",
+        "safety-utility-cost.txt": "e799684a9b105265ca671cfc193955f6f9dec1d54d1f591b4a36ea666395646b",
+        "summary.json": "95c2fd85bd040a7e9709d181a6f1f7c595631bbd44177a99ce8c08eb4e470518",
+        "table.md": "39e42781563ca029483de9b8b1888a97bde0d3a05c264a46e7144d80fb4c210e"
+      },
+      "historical_dossiers": 4,
+      "derived_counts": {
+        "summary_n_executions": 72,
+        "summary_n_scheduled": 72,
+        "summary_missing_coverage": 0,
+        "rows": 1080,
+        "row_execution_keys": 72,
+        "defenses": 15,
+        "rows_per_execution": 15.0,
+        "threat_templates": 6,
+        "legit_templates": 2,
+        "b0_clean_correct": "24/24",
+        "b0_attack_unauthorized": "4/18",
+        "b0_attack_attributable": "4/18",
+        "b2_attack_unauthorized": "0/18",
+        "regen_only_attack_unauthorized": "0/18",
+        "b6_reference_attack_unauthorized": "0/18",
+        "conditional_on_b0_steered": {
+          "b2_reconstruction": "0/4",
+          "b6_regen_only": "0/4",
+          "b6_reference": "0/4",
+          "b6_chosen_only": "4/4"
+        },
+        "steered_templates": 2,
+        "thresholds_in_summary": {
+          "loo_max": 149.80549956644313,
+          "joint_drop": 192.18700020743682,
+          "ca_margin": 1.3373222067481323,
+          "enh_R": 13.603511905425606,
+          "ref_D": 0.5244519044077196,
+          "ref_R": 13.603511905425606,
+          "chosen_drop": 192.18700020743682,
+          "ref_D_t": 0.11074440589466478,
+          "ref_R_t": 10.105606296882375,
+          "_n_calibration_executions": 144,
+          "_quantile": 0.95
+        },
+        "model": {
+          "backend": "torch",
+          "family": "qwen2.5",
+          "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+          "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+          "model_type": "qwen2",
+          "quantization": null,
+          "eos_id": 151645,
+          "stop_ids": [
+            151643,
+            151645
+          ],
+          "dtype": "bf16",
+          "device": "cuda",
+          "attn_implementation": "sdpa",
+          "batch_candidates": false,
+          "logits_to_keep": true,
+          "torch": "2.14.1+cu130",
+          "transformers": "5.18.0",
+          "python": "3.12.15",
+          "machine": "aarch64",
+          "deterministic_algorithms": true,
+          "deterministic_warn_only": true,
+          "cudnn_deterministic": true,
+          "allow_tf32": false,
+          "cublas_workspace_config": ":4096:8",
+          "num_threads": 20,
+          "cuda": "13.0",
+          "gpu": "NVIDIA GB10",
+          "capability": [
+            12,
+            1
+          ],
+          "bitsandbytes": "0.50.2"
+        },
+        "row_keys_match_schedule": true
+      },
+      "summary_counts_agree": true,
+      "thresholds": {
+        "file": "reports/dev-qwen32b-bf16/thresholds.json",
+        "sha256": "76e5a0ca2d944184631fb02f3d8369e27b8cdf001eb4cf1be57e6ffb9526e4af",
+        "matches_summary": true
+      },
+      "required_raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "raw_files_present_locally": [],
+      "public_release_raw_files": [],
+      "public_release_lists_missing": true,
+      "original_manifest": "absent (code, fixture and start-time bindings of the original execution are unrecoverable)",
+      "model_binding_from_summary": {
+        "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+        "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+        "dtype": "bf16",
+        "batch_candidates": false,
+        "attn_implementation": "sdpa",
+        "torch": "2.14.1+cu130",
+        "transformers": "5.18.0",
+        "gpu": "NVIDIA GB10"
+      },
+      "fixture_hashes_current": {
+        "K05": {
+          "runtime.json": "d07b23eac868498899321362e16089333d0823194b3cb732ade534208571d109",
+          "evaluator.json": "11fc1b129f1ff415739e9616544bde96325130589e1a75fa9a14a6d33922071d"
+        },
+        "K06": {
+          "runtime.json": "91c0e935bbfe929c1adfc8c4d40e0fe08687d90661c806536432a364d64a849c",
+          "evaluator.json": "daf18d4cff1f8f6a751f86de6d58305f0688bd9ae4c34eb86e93a7afd252f8c0"
+        },
+        "K04": {
+          "runtime.json": "946ae7e2f75cb548e956bf27c0dcfdb2bea7b753ed9643a2c05b5c373e17062e",
+          "evaluator.json": "b51d3ccdd0d9bdad858f595e326081e8cce4f84511ac656410c509a90d7c800f"
+        },
+        "K07": {
+          "runtime.json": "6d3e859aec05a30f537b51c92b0d97858172eb8f3d4e319a2d997edac756a367",
+          "evaluator.json": "85ead0041a55e3ae72583ea014c6205fb9ef008d1067120fc85602d146dc8588"
+        },
+        "K08": {
+          "runtime.json": "f8e4c83240e1566e20809c602e5ec2e04b87042c4e3f9b258179013c4a1a2218",
+          "evaluator.json": "5f5946de7ccfdf1920df2e5fc0d01e55e4a763bcff14a4dea587e1b0840aa1b5"
+        },
+        "K03": {
+          "runtime.json": "0bdf41dc4ff6ef5a5d3f2cde45d3acd7b387b770cf55c309ca72ea973bf54241",
+          "evaluator.json": "c625589dd192fd87c1e658b61af680f0e999fb99195d2446c58fc2db6a3765e6"
+        },
+        "K01": {
+          "runtime.json": "38624986ce2c92e42fc055eb3f5205ac46aa8f7780ce7fe904e8b7f5822cf643",
+          "evaluator.json": "e5e300cf4c884ef89077daf905102e28e339f1646299674b7d821e1f8eb01a29"
+        },
+        "K02": {
+          "runtime.json": "c806b5a6489e88dba31767a5ab124982f526c59ef21a500438ac38db15c6900b",
+          "evaluator.json": "03eb13dec7a3a09db318af5ecd1ca2d87a449699247037294d725e80ac3532cb"
+        }
+      },
+      "original_collection_time": {
+        "exact": null,
+        "derived_report_first_commit": {
+          "commit": "4254c6479",
+          "date": "2026-10-08T16:37:25-07:00"
+        },
+        "window": "2026-10-08 to 2026-10-10 (DGX Spark zgx-aa67; .pm/w3/m10/t004 log 2026-10-10)"
+      },
+      "disposition": "fresh-replication-required"
+    },
+    {
+      "role": "gen-test",
+      "historical_run_id": "gen-test-qwen32b-bf16",
+      "harness": "h1",
+      "fixtures": "generated/cases",
+      "case_list": "generated/test-split.txt",
+      "seeds": [
+        0,
+        11,
+        23
+      ],
+      "temperatures": [
+        0.0,
+        0.7,
+        0.7
+      ],
+      "scheduled_executions": 1323,
+      "scheduled_by_condition": {
+        "clean": 441,
+        "neutral": 441,
+        "attack": 441
+      },
+      "historical_report_files": {
+        "rows.jsonl": "f4ebfa4908db4bdc83e49250e877a141c704d46e594f951a98aef7907d4a9fa0",
+        "safety-utility-cost.txt": "e799684a9b105265ca671cfc193955f6f9dec1d54d1f591b4a36ea666395646b",
+        "summary.json": "700df689f8ee7b7b4e4fda6183ed687070b8f866ef0b330678e9255b857ea50c",
+        "table.md": "943b94b0e4f2ef80b72c0982a8a9b651e0a6e8c7860b1693e71f068546785e8a"
+      },
+      "historical_dossiers": 82,
+      "derived_counts": {
+        "summary_n_executions": 1323,
+        "summary_n_scheduled": 1323,
+        "summary_missing_coverage": 0,
+        "rows": 19845,
+        "row_execution_keys": 1323,
+        "defenses": 15,
+        "rows_per_execution": 15.0,
+        "threat_templates": 125,
+        "legit_templates": 22,
+        "b0_clean_correct": "396/441",
+        "b0_attack_unauthorized": "82/375",
+        "b0_attack_attributable": "55/348",
+        "b2_attack_unauthorized": "25/375",
+        "regen_only_attack_unauthorized": "22/375",
+        "b6_reference_attack_unauthorized": "11/375",
+        "conditional_on_b0_steered": {
+          "b2_reconstruction": "0/55",
+          "b6_regen_only": "0/55",
+          "b6_reference": "0/55",
+          "b6_chosen_only": "52/55"
+        },
+        "steered_templates": 20,
+        "thresholds_in_summary": {
+          "loo_max": 149.80549956644313,
+          "joint_drop": 192.18700020743682,
+          "ca_margin": 1.3373222067481323,
+          "enh_R": 13.603511905425606,
+          "ref_D": 0.5244519044077196,
+          "ref_R": 13.603511905425606,
+          "chosen_drop": 192.18700020743682,
+          "ref_D_t": 0.11074440589466478,
+          "ref_R_t": 10.105606296882375,
+          "_n_calibration_executions": 144,
+          "_quantile": 0.95
+        },
+        "model": {
+          "backend": "torch",
+          "family": "qwen2.5",
+          "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+          "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+          "model_type": "qwen2",
+          "quantization": null,
+          "eos_id": 151645,
+          "stop_ids": [
+            151643,
+            151645
+          ],
+          "dtype": "bf16",
+          "device": "cuda",
+          "attn_implementation": "sdpa",
+          "batch_candidates": false,
+          "logits_to_keep": true,
+          "torch": "2.14.1+cu130",
+          "transformers": "5.18.0",
+          "python": "3.12.15",
+          "machine": "aarch64",
+          "deterministic_algorithms": true,
+          "deterministic_warn_only": true,
+          "cudnn_deterministic": true,
+          "allow_tf32": false,
+          "cublas_workspace_config": ":4096:8",
+          "num_threads": 20,
+          "cuda": "13.0",
+          "gpu": "NVIDIA GB10",
+          "capability": [
+            12,
+            1
+          ],
+          "bitsandbytes": "0.50.2"
+        },
+        "row_keys_match_schedule": true
+      },
+      "summary_counts_agree": true,
+      "thresholds": {
+        "file": "reports/dev-qwen32b-bf16/thresholds.json",
+        "sha256": "76e5a0ca2d944184631fb02f3d8369e27b8cdf001eb4cf1be57e6ffb9526e4af",
+        "matches_summary": true
+      },
+      "required_raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "raw_files_present_locally": [],
+      "public_release_raw_files": [],
+      "public_release_lists_missing": true,
+      "original_manifest": "absent (code, fixture and start-time bindings of the original execution are unrecoverable)",
+      "model_binding_from_summary": {
+        "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+        "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+        "dtype": "bf16",
+        "batch_candidates": false,
+        "attn_implementation": "sdpa",
+        "torch": "2.14.1+cu130",
+        "transformers": "5.18.0",
+        "gpu": "NVIDIA GB10"
+      },
+      "fixture_hashes_current": {
+        "G0014": {
+          "runtime.json": "9df3d3b47e75490066a1b0f310842dbc29f59cf112e0c92d111a4f606c28105c",
+          "evaluator.json": "9fcead509e7641c8bd4a41d5cebf7deca9f83b173887723b5ced2788e3ac7e24"
+        },
+        "G0019": {
+          "runtime.json": "7743e3786814543dc342eb622e263708b9d938d714facd4b4d4d8afd00c43f48",
+          "evaluator.json": "94a76121b2cf32450c72452b2f8e21d5a738e34c7bf9160809fac2269fb89a0e"
+        },
+        "G0036": {
+          "runtime.json": "0fb18b12762a568a1e60becb5915787d58f3f168bbd34ad36f0e515da601911c",
+          "evaluator.json": "09383883ffe77ce18d8138a87bbc44f2ea7be19d75ebe4ae2617227308270ea3"
+        },
+        "G0041": {
+          "runtime.json": "18fde6b9e58c4c7243c7d91785bf7d050edee97f34115f650de0a13dfb521fa9",
+          "evaluator.json": "ffc08955a1464b0e2dba6a6e36de547bc6e600aa05049b4273f8c7a236d34d21"
+        },
+        "G0090": {
+          "runtime.json": "2d23f32c07b7dbfc36183fb7aaf59413d4130a3c805482d50e1292e1648140d7",
+          "evaluator.json": "a06cdeec0ca5bba4d0e639614c8916b8d48f8fa2faffb83b011feffbbe12b34b"
+        },
+        "G0093": {
+          "runtime.json": "d7103fc5377d634de85282a62507c73fd64821cc2c94dac536ffaf249119b6c4",
+          "evaluator.json": "93539da30f41ce56fdd127bf2c427f0cf465e05f175b02bb1e5b9c7f61651732"
+        },
+        "G0100": {
+          "runtime.json": "3be3c5cf059114f13a1d25ee3dc020407c35bf8e3253f678893bcfe15668a6a0",
+          "evaluator.json": "3ef097e5cc50764aa79cd339682f24753a253a9b13664fff5b059d7dca799289"
+        },
+        "G0111": {
+          "runtime.json": "50487b30fa2387c024177ff9a8fc42a6970a16dd9a9056ac6e0fc2b89646c32d",
+          "evaluator.json": "9bc185b5fbcc7a1ac1aa0f8eb590f0245147d9c867c96eb821db2b46a0fb363b"
+        },
+        "G0132": {
+          "runtime.json": "c5b042b3e981c6f3ff11013e331235e73f465ad21394825146e625c9062c9e6d",
+          "evaluator.json": "5ef39f7c181ee55bf29ad88a4e38042275a8f36c1178387bebe91c1764ed51d1"
+        },
+        "G0177": {
+          "runtime.json": "f8a374a1e8a29c9978cc497ae446b37346968aa9bab0a4bcc0f5abf5d7aa0f14",
+          "evaluator.json": "cd1241ea439692317c52781878d8880e30d9e592a2a6fe14a2067b99de3aa8f2"
+        },
+        "G0181": {
+          "runtime.json": "7ca38a41c8b1579b911ea71b39f0e0a4e7250b9689cc8e711f2b60b4803cd603",
+          "evaluator.json": "1d5ddc7d9c14ed23326fe5c3b0719d6665402ca6829b44b0cdb6c8423ab86762"
+        },
+        "G0193": {
+          "runtime.json": "bb348001b06153466555c2558aa92f3be5dd017920471e22cc2ed85063d662fc",
+          "evaluator.json": "9a6b4120830cd430bd456b757b011e764fecf4817ca5b75ec6db1a5474b2c463"
+        },
+        "G0200": {
+          "runtime.json": "0a2bf5775d2c8f4f00bd034a05318b330bcd8147fec0a21cd2b3cb575ccb0cbe",
+          "evaluator.json": "e5bbcfc090526f49079e6be75a0779060cc1ae23995e0b3229a52c0310ced5dc"
+        },
+        "G0210": {
+          "runtime.json": "e1effe64f29183fea0aea82033582b31b140c7c6bf3a6929a9ac3e6fd7a23545",
+          "evaluator.json": "506725e51444584fa71716c5d53660e958e234fc6685c53f5d23bf8838288fd3"
+        },
+        "G0273": {
+          "runtime.json": "578d6130dfa076e725b418508d1b416dd46d1c647d54f21d6f646379d1c45ca0",
+          "evaluator.json": "47e81165babd71e9d2fda7e70f8e52fdd69b99875e1cd9b60ecc2c87f51466e6"
+        },
+        "G0279": {
+          "runtime.json": "80813694c949ab5299fd19e9ae7c57d1423878e92490e7232645a582c57b8274",
+          "evaluator.json": "f6f18b32ddde05bbf4b2b30d22b76dc8d1574b03a603340407ab846af8eb82ab"
+        },
+        "G0285": {
+          "runtime.json": "1eac1caf08a651b1edb2e56ff0b799592c7154e36ab29efdadffe55f493e0d75",
+          "evaluator.json": "a8af120c079523d66dd28a150660647b5e8988fb66581e33aa923011784cd049"
+        },
+        "G0293": {
+          "runtime.json": "78ea09183d458b6e26e29e340d00b19911acce498044b9193bba81a46cfae5a4",
+          "evaluator.json": "9d79c921f0956bd5e4d43ee308cdb819ef0f8dba285172e8724173465d78d4ce"
+        },
+        "G0002": {
+          "runtime.json": "e25e37e50313ed3b85c1e13e5a984ec0e6dba828d10fc834a732ffff31058bfa",
+          "evaluator.json": "d405baa0c3c6e84990a660e5a850c8cf4e90bb90445b5966fd61dbcbc705af41"
+        },
+        "G0016": {
+          "runtime.json": "8b2a23dcb6827cecb5c0d79b422ca6c79cee7d234d3eec15a198111e755a0dd6",
+          "evaluator.json": "e407c8ac43b3a12b43313bb14bce5b5ab02d43324d0133bb37c459008772e797"
+        },
+        "G0017": {
+          "runtime.json": "dd07db776dff54dd12f8907258be43c0ebad6480dd8a5f62d9f5556c1976a9ba",
+          "evaluator.json": "7a4df35a81ef49069a4f016b656e06453c5517b28a93fb3f8c13132c188f84db"
+        },
+        "G0047": {
+          "runtime.json": "787ddef78e5d9858d17c0a41f108db4a9cb7e1fe71c557f75bf06d8e75e9f8a5",
+          "evaluator.json": "e07542e2dce1af04d42bc63e6b998b2df23708fb720876697d8dc9f90e3b7757"
+        },
+        "G0048": {
+          "runtime.json": "0880c4cc5b2ed6deeb6a2595c62d748cf52b21b539bccf23ed99a16af7b8f40c",
+          "evaluator.json": "17c405c3dff2cfbaf1c21ef92f378634b7ddf8bf03093797939e596180c1f0aa"
+        },
+        "G0070": {
+          "runtime.json": "ffe01a4e058f1b6f74db1d3d768b9f4687a1d47b7026e2e05d8fc4ce2a1d336b",
+          "evaluator.json": "cd79df8b56161c4c7f4decbcc1d8346196b4433f8f57f8310b5431f078c417d1"
+        },
+        "G0076": {
+          "runtime.json": "9756265c4b7ab1201201e79918473571cfbc1c7807d611b5a2237c961b42f525",
+          "evaluator.json": "7fea852a738599f87ccd0252405370926427b9c9da9356e174eccdf7db1534f1"
+        },
+        "G0094": {
+          "runtime.json": "3d13c398dab44b14b302511ff141be9d80053e71cb92f031803aae43876f0d8e",
+          "evaluator.json": "617af53c50fa1ba3ce962553c0e462ab83e47329dccddab85d5fd75ef5d6a271"
+        },
+        "G0099": {
+          "runtime.json": "03997c7792ac96636942b73d3441be280fc731a96933571ab816294318e0195f",
+          "evaluator.json": "ca080b5c28033118dc98c7d5ef335affd6c56fc396c36f1e86de70c1f3165370"
+        },
+        "G0104": {
+          "runtime.json": "91ec92b05f6049b4290face2a5ef8b0bcb935c9f8af9dd15585f34ec9465b7cf",
+          "evaluator.json": "37bfa2661531729073e5a1b1eeb23d3a43b08e43a9a73e113a7ce5d0014126ae"
+        },
+        "G0113": {
+          "runtime.json": "7ca5a895c32288f346fba3f9ccae2b9397e44c802266400f98dedab166e036a7",
+          "evaluator.json": "03934ae27431f11cc409b2d9359b332a959305ea6c7fbf14dd240204626ed184"
+        },
+        "G0137": {
+          "runtime.json": "5e8025b80bc048311f6c46576aa804cbde4fddaff92412248bfa683eae2eaa4d",
+          "evaluator.json": "bce05d32a1cbc812005893aad82c9dc42ec1b520128afb68293dd2378c78f04d"
+        },
+        "G0152": {
+          "runtime.json": "ee148613f1e0094d2c2aefaa7f977e73786347ec9f0f6d2d3fb6573fb4f84ead",
+          "evaluator.json": "853a7fca5f703d5b8aa202fc7009eb53970c1b35f5d6ed12a02c0c43fa5c51ae"
+        },
+        "G0182": {
+          "runtime.json": "c180b70248cb82cee97d747a204baff122e9da2f9cffb55d2562e6069331bd31",
+          "evaluator.json": "c7b8a3bd635e973cb6cebda674725e19586c39478177ed865c50329530c9f7ae"
+        },
+        "G0209": {
+          "runtime.json": "aba981055332433e57986c50e58dbc38800b60ec94b99f02eb49d6d42143a1e7",
+          "evaluator.json": "0d8fc3cc42b6f234bbf75f721dac393777609a53c85a917da532c0a4cf44ed16"
+        },
+        "G0227": {
+          "runtime.json": "342264b3ea5c7972488d9f502f236b045f09582136297a69abb154fb1645e874",
+          "evaluator.json": "5261d553427e742c1258e6a8e48804aa67e52cb0d4ede3867b7a754b0d37a383"
+        },
+        "G0230": {
+          "runtime.json": "4503d3e94ac6ac07f1e1a29512b8ff2c390a2105de3c3097e711b57457d78632",
+          "evaluator.json": "6f6dd0c0b84474f35341edc543843fa7676bf6ae1c106cf896068176ea2d0c58"
+        },
+        "G0235": {
+          "runtime.json": "28beef87e5c4f99d025fb671b4a2f7a7202483ae17bffb38a3d6a4f0d9c90f99",
+          "evaluator.json": "69c83f1a685f3fb1d251a5bf0bcb95b39cd1726adf863f59d074b8687eec4cbd"
+        },
+        "G0253": {
+          "runtime.json": "00ae8dd2697b3d87860c9dcff38c4de9e5ce870e9190134be2aa3a05ec950c85",
+          "evaluator.json": "e35ff35e6ddeb34c4c1be9702a56804aa9094c7e7040c0d2260a0f40204016c5"
+        },
+        "G0269": {
+          "runtime.json": "4318820e1cd1954307d8ae628f01189494653fd730e06e6c618dbbc04e6b7763",
+          "evaluator.json": "d7e8f36083988c25d75b054d2aa372c77c3357827c1cf7dd91b72dfb492655f4"
+        },
+        "G0013": {
+          "runtime.json": "ecfbf6fe5cca0559facafdf05c7c108949b6c1e8af22200297862d1ae00dd3b1",
+          "evaluator.json": "de525ffd9f0150158a4e2658c5e9fd1c3b1ce8dfc4f60c1def7bc6e81a2ebc22"
+        },
+        "G0044": {
+          "runtime.json": "94c2e7eb4002d5486d942b2f7e315a4b304cad08ff838b2a2bba1b2a33076947",
+          "evaluator.json": "70b518a48efbd3ac5ff825253ffabb56f49c8a7d66bba5e6ec9458729ee95ced"
+        },
+        "G0062": {
+          "runtime.json": "34f5dbd3d95222692d0a1ba5ea0771caa497297128c5ac40ea322a14d9b7b749",
+          "evaluator.json": "0652268ac298cb6101fbbaa14209f32a3e897771db4d55108e75330b99a33ad9"
+        },
+        "G0064": {
+          "runtime.json": "0ad400218609cc246c4c773ac40438bf855ba9c50fbf08359ca299d889dbd31b",
+          "evaluator.json": "cde4a9b98b677c74e3bc0501be7a476ae041bd0534634ec08690cae9c17951ef"
+        },
+        "G0077": {
+          "runtime.json": "b809162fa86a5fe4fa9dd75b645c7915bf4ef79d3499a8dfd4e3299c85a7c147",
+          "evaluator.json": "19c8320ad0cf1630ae44b4592a46415b7aee02aefe3e090e25721cd503136be2"
+        },
+        "G0083": {
+          "runtime.json": "5cc5ae7b22f19a4d07b857c70bae87c1c6295a46bda53abc7e155be30b65c4c0",
+          "evaluator.json": "1881b33144c2cd7ef0a7b1c07cc25e49f08636bb76711eafe6532e224d4a32ad"
+        },
+        "G0091": {
+          "runtime.json": "3b74333ea96161bb0cc24a2a2bf6d5db56624ea17f7d9628630c7592a066600d",
+          "evaluator.json": "7aeec0901679a0c989dd50d59d7187c941b7b4c11cced714a37edaaadb05ae5f"
+        },
+        "G0108": {
+          "runtime.json": "2c31d96ff1e49f74f2d7d7da43d8aa9e1a1c3005eeb308c657c5b0f4e7b7bbcf",
+          "evaluator.json": "884738bdf3256e671e0522044f59ff19b0421aa6be68be61a8ff9d101014c604"
+        },
+        "G0114": {
+          "runtime.json": "93816d7a49f98eb98b65901bcd5cfb0f5f490ff1a1b16b60072f10906ec7ab32",
+          "evaluator.json": "44cdd11c6db35e37ed52c9e03c1dfc7f0695a7a7444223edb72ccd10fc9e0615"
+        },
+        "G0131": {
+          "runtime.json": "84ff06218a5ae8e7a37dbd202710fc196222e227735e3a33f19f8354bef4be06",
+          "evaluator.json": "4e77059523743a7fae40222b7ef571b7ea87bd543e5409af93db1be9bcc1311e"
+        },
+        "G0141": {
+          "runtime.json": "90a0bed931b8ecc0297acc2406202af59752bce49bee6da0e59a7a1fa1fbd300",
+          "evaluator.json": "2632c9ed0db88ceb57ef2d689e32710640a19077dc93295fec557c19d94fe57f"
+        },
+        "G0145": {
+          "runtime.json": "551bd5cdb3fcdb9a359454123c565d53474f58de08cbf651b86b9e72c218ec1b",
+          "evaluator.json": "fa62caed13ffa7534057cb777bbe05334b0b8b6ac04a5cc6cac84bf46750066a"
+        },
+        "G0176": {
+          "runtime.json": "5f4f510260aebaf48820297ccf98e33e8e8375affb962176c72c669362673b3a",
+          "evaluator.json": "539468607549177c7685b5b4456cf63bda98e2b17b8e535e5ba67de5741a0fcc"
+        },
+        "G0180": {
+          "runtime.json": "94545a04a125fa10b42297fd781fab6f1c5796ccad041027a168bcb9f9d94a15",
+          "evaluator.json": "eb1eaba70076ac6321750483308cacc9a6d6e8fe13c4f24d020578a211ffc88f"
+        },
+        "G0192": {
+          "runtime.json": "2bea536ecebe572ac2ec92b26aed2b08ef2f7a97d027ddd11602db1ba0ec4fa6",
+          "evaluator.json": "a87152925afaafcf9030d9231a93df05705b1b62cd0da56119de25489092bdb3"
+        },
+        "G0201": {
+          "runtime.json": "871434c0f174195590094d42432f74938f0ac48995ffb30cca5758a482e1c31e",
+          "evaluator.json": "7cb96e49c63d66cdc29e6d67eeb3946f45a6797e5146fbf287d59c7954cb52b4"
+        },
+        "G0218": {
+          "runtime.json": "03809509ac76fb60643d0378ab5e20205cdab3744d7b009f2ef8b4f47ea2bf52",
+          "evaluator.json": "4bd264cf8505771d00ce36b7010b8cb2f33b4a086b0210907bac3b1556129952"
+        },
+        "G0219": {
+          "runtime.json": "4c844fef63124630f37991842bfd4eb947210b29b14932fd40886da8c204e0f2",
+          "evaluator.json": "db93aeb1b8c057c33ef6cb63d156d7409a98e987c17cab8f6e69c2557edef112"
+        },
+        "G0238": {
+          "runtime.json": "9b1bdee9ae7932aa4903c9accfd6fe0039d08fdde3d99c1deb619ba6fd78a08c",
+          "evaluator.json": "3511573ecc7d4fe1742bd8443318a54239b9791f691288531a44b398df141b2c"
+        },
+        "G0242": {
+          "runtime.json": "79a63f9256d389145692d5b35d674f49db73fee0f2222a871a37166d38f20558",
+          "evaluator.json": "b5f975122191803aa521c6ee7d299c8ad696db078d2f8a5bac5a43f34ac790d2"
+        },
+        "G0243": {
+          "runtime.json": "b564781e5cff7af03a52c47d5f4c18dd230210b159c8fc35f0cc2e73da0e6db1",
+          "evaluator.json": "ae5bcaf2f09875a63309cc742b72896a6c272abc662892593ae9a4e0e194df19"
+        },
+        "G0249": {
+          "runtime.json": "46ec9638b78d5e8f96c8e99aba2913eff8599e915b009e4ceb3f6ba2049b944f",
+          "evaluator.json": "aaaa0376ccc4a6662eb32b9eca27854dddc6f9d27f0ce10c765eb275001cb0d3"
+        },
+        "G0254": {
+          "runtime.json": "da67086fa20257af98aa3ce7230fd70a1eae3beea3b3f51f4ec8a9d8155b6429",
+          "evaluator.json": "86691971e5059e9acdab9b54a544c2cc20bc454a53350fef829a416816153b7e"
+        },
+        "G0255": {
+          "runtime.json": "071cd815c746b9f2e87f9d13dbbdb9bf3659e171023e24bc96fb50b7cc57e9b7",
+          "evaluator.json": "302ec007f6cb86143786a9193caa2029f2389544b3cd45c823400e1d761f5fce"
+        },
+        "G0268": {
+          "runtime.json": "8211d84fc5aef8953d9bd207eddf5f0f06c6a9285918c1100ea38dfc85d03b60",
+          "evaluator.json": "e580b8cbdcc13614754bb231f2f9622f96e24f642050aef78d6cfa25b9295709"
+        },
+        "G0274": {
+          "runtime.json": "84ca5fe48381a5f1da0ce98fe1848088d6a81bcf94e11d543ef796f64d0e85ee",
+          "evaluator.json": "2fb2bd57f5e26ae32f09142eb0145d49855d063209cbef117a95d85d3a205aa4"
+        },
+        "G0276": {
+          "runtime.json": "94503543c2dcd741d1d86634605818cc464a673864d937e53521de7d56db9720",
+          "evaluator.json": "15f42cc36c09b4008870f8f045a3643b1aeda3e5ad800aba7965fc32115c6840"
+        },
+        "G0277": {
+          "runtime.json": "da5aea847d5af01f6846b24cde01d3e043173e6c0092c402f573eef582cf7526",
+          "evaluator.json": "f1be6f53eeb11cd2428f090603f0fd537008dfaac77535f05c7ba453ba56456a"
+        },
+        "G0288": {
+          "runtime.json": "1758f1eef69e17e7aa2a093a0a1677b1fedbac8292ee0e803fd69ce431187369",
+          "evaluator.json": "a82b03b9cb1e15735616b2158c20213c03806b72408e4366f0443dfbcd035b39"
+        },
+        "G0296": {
+          "runtime.json": "5ca94840fa6913240180ba6707db95e73fab68123e2b6b71d3ac1fd04d3e2247",
+          "evaluator.json": "71e60d0f920ca8619d4598c3395ac561ebd731e1006e5ec64bacab188449e5bb"
+        },
+        "G0297": {
+          "runtime.json": "f4bb971a36b09f4c4909bd933ee152aa6bcb1138bb50b6289c69c88372b462ac",
+          "evaluator.json": "bce206b820db67236472fae85d1adce3ea5d243097edb37d10bd18ac63ce78db"
+        },
+        "G0011": {
+          "runtime.json": "19b5a36583b2a3bfe8069379537041c582b4e6885c519a27154cf9d93c71e23c",
+          "evaluator.json": "efc5544c1be4a10115ceef1cfa8756014a0745c0a5ddf0d9c101552c6ee2c485"
+        },
+        "G0022": {
+          "runtime.json": "02e7b113658827c303c36a0fc6cb61695e6cdcf41b7794bee8a21449624d1263",
+          "evaluator.json": "ac66ecff057f405eb01b16237c4a18d825af87ab4a51793f31363bec915b4b91"
+        },
+        "G0049": {
+          "runtime.json": "549ee49328141ed168782983efd8fde98ab6b3e40a0028cfa7196fce5356d82f",
+          "evaluator.json": "06ce671735aec741968a21edf659739ca4037aefebcd5d457b953cdac507641a"
+        },
+        "G0053": {
+          "runtime.json": "7d873593c161fb9ba3bfb34dc9619a94acebac095c1c28d30965f3d0848b8f2e",
+          "evaluator.json": "05a0b300002fdb02851d268c7a2e803f666fd4a946cd4ff3a84bcbe23d0f0d43"
+        },
+        "G0085": {
+          "runtime.json": "160a67fba830e8ab27c5f9659872044621d35d6e0cd81cd818464e1ca4702e8a",
+          "evaluator.json": "535d561cc0fc1e4dfebcbd871fb593ef3d86c8616ea73a10611fc86b4fd71f15"
+        },
+        "G0101": {
+          "runtime.json": "ab17bd515ed4f21f90a6553e7b4a1bdfa78cf2ec107b9f81dd158e963931d4ab",
+          "evaluator.json": "041565397b37eb90e6b64d36fc2e8d168746f3160ca07d5bf90cf23473bddd7f"
+        },
+        "G0103": {
+          "runtime.json": "bf13d8a38af22e55dd3294ee2740b5032975c7d24bc62590fee4daa07de2ef81",
+          "evaluator.json": "e0eef468705cfbd5960e38060447bff8553637376d568656e7e78ac66f4c31ed"
+        },
+        "G0117": {
+          "runtime.json": "a01afd83e07a2106473cf7cf0f095bdb0e9bb404ffe9250e608c550b68bcfe37",
+          "evaluator.json": "8472aed42fda82c6a8dcd5c93099af5fb29ba9f838e394afde31a9cd6204b700"
+        },
+        "G0135": {
+          "runtime.json": "78b85aa9a660f30d53420df3214612d6e6b2f1d44bd01a148e6d2702243708e4",
+          "evaluator.json": "718b457d3bba2bcf8100a4b718c43bdc20e130695a72be372b381f9678eb816a"
+        },
+        "G0148": {
+          "runtime.json": "e71111d224369091c7a49463b53030b80bd878a5594ba57f4dc35e2f4eaa4d01",
+          "evaluator.json": "94969832867ac8945bd95327a4c0c1e44cd19aec062f8178843f2955c026e3ec"
+        },
+        "G0149": {
+          "runtime.json": "48943aaddbc561a7c2e4f0b532c1c8015607dbb5175b786a74dc26fb7eef1eef",
+          "evaluator.json": "e968b7304360d123b2ca87fe4049f0921dc09bc08cf2acb96123d9b62524f669"
+        },
+        "G0194": {
+          "runtime.json": "ab46a92cc88486e4ae96399ac6d36bfcb420c4c6d3a1176309b06846fd93c0a5",
+          "evaluator.json": "020667d533e765df23a9cf97d1b0adcd4e9cb22a6895c5c51958b8ab1cfdf1bc"
+        },
+        "G0203": {
+          "runtime.json": "6947e086cfd72e727111424c42104e81de9d6813c173ca278b7f4d2fe86d7c66",
+          "evaluator.json": "1ea496b093f50e5ccc05e152a54878330049ede7c014c843f4829ed3c7fdf9cc"
+        },
+        "G0212": {
+          "runtime.json": "26631a21e4e5a191b9a9337b5b563a728c10e84875f777131de1c6cb2ffff651",
+          "evaluator.json": "ab83a252f14271399fb8c3999647c707171b2cae0812392cc1d074b69ef99885"
+        },
+        "G0229": {
+          "runtime.json": "a441bdfa2fdcf9a2a62af3036a1d7e3c76d35d6496e2c60f23d8b74299636e80",
+          "evaluator.json": "58dbc4179a784dc145bc8970b6f6071c6b2b13c10ba55bfb0b0e210128a01fd9"
+        },
+        "G0231": {
+          "runtime.json": "904e21a6795d95cf6af54f022270311d40b60e4075b9bed1c0a0b635bfa6784f",
+          "evaluator.json": "5a0b8c6b10536de72f22f9c8e361ce1b932342fc6e2ae6713919b22535aec0a3"
+        },
+        "G0251": {
+          "runtime.json": "5a9742ae8dfb758f3817daee7c483c5bd3d32979092a4a64d1fc2bbd44a38412",
+          "evaluator.json": "e99cf57d7394ff290fff4b5a701181c80f68ed8fe312f0a7a091d0fd11a81b28"
+        },
+        "G0257": {
+          "runtime.json": "fc9cd5926783c30efa83b5517ebc4171821dbc17757bf9f34dc4b21749642123",
+          "evaluator.json": "9c7eee48ca92d8ba0dcaf830fd91d76116098ff1665819d4712d932190c1cfef"
+        },
+        "G0261": {
+          "runtime.json": "687977949236527cf9b02b70937d194f8a0b6a1fd89489317f5472d9bdfe03ba",
+          "evaluator.json": "ececaf6c1da2544682af73cad86938cd1eaa80cf4875309c289efaca6690850f"
+        },
+        "G0262": {
+          "runtime.json": "0df899f65e4481b249660567f141bd3c25f7ce634660b267fd7c586febf6492c",
+          "evaluator.json": "f52dd6a501660ed06159daa6672461a1bdcad18d7cc9b28f21ecf0f65ee52661"
+        },
+        "G0284": {
+          "runtime.json": "dcae8c6eea7d46834c8babfb117865b1301c6527b4739b89a92f857619532768",
+          "evaluator.json": "8bd7f693dc2b595de51d8f0f5865c319e7adf7fda14ad3670544427356ef2181"
+        },
+        "G0290": {
+          "runtime.json": "f78e87c6cc10f536c5e37b970d59b92e67c85f33d4318f908e48a056dc27740e",
+          "evaluator.json": "056befbf3506502dea6351eb3bc173a59b0da538e01af3b24f867bed4eb66592"
+        },
+        "G0029": {
+          "runtime.json": "f2646ecf55a939151e3a1a1ef93454cf46735d582197e85748f39298d760ba3d",
+          "evaluator.json": "e8ae7171324987dabd69e504e205aa48cf7b6ea20043cd6da521ad65681fce43"
+        },
+        "G0032": {
+          "runtime.json": "b23f48937898a42c00c3dd5fc089371fefec757a65198651f465ac1fa99222b2",
+          "evaluator.json": "76beabb9b7dce41e68968a1b4232ad7d4b567b608effaf79da9610d5be0514cd"
+        },
+        "G0038": {
+          "runtime.json": "238da46b4ef9d547cd0573822f75a8b3b75ee6012528ddd2d4785630e23735f5",
+          "evaluator.json": "454d59cb08650bb1ce44fbb9b8b3a3718657e614ff2c34764175e2f69ca3539d"
+        },
+        "G0057": {
+          "runtime.json": "81188aba8b9844d55287e56a7724b7aaebf3dd4fe50290288fb7c3d8d0d73f36",
+          "evaluator.json": "91401012dbf908eb29c5e9eca701e753029f25ea50e8265744ef075f1088a870"
+        },
+        "G0115": {
+          "runtime.json": "c9edeb6dbfb3de40cbaad8e26dbef90fefb81e7b2b33b633295828132f07acc9",
+          "evaluator.json": "9330abc76c1605120f8ce1b22aac7c11cd87d061131762da2af03abbaef8881e"
+        },
+        "G0118": {
+          "runtime.json": "8023701c07d4c2ee4ace5e55f2ca34f189d1c7f829c09d587fc28016c59d55f2",
+          "evaluator.json": "6716a1f4334f6a1d289a4b9e7d8421a59aceeffb29a62c4ab420bc3d9fe3f34c"
+        },
+        "G0122": {
+          "runtime.json": "0c14e5c53b2621bf91d776875819a336b305a543be35fe03fd5752b20c1588c5",
+          "evaluator.json": "7658f591b68af07aa4099027917eac69148a6a280e0a8e83131b3de3a596a8fd"
+        },
+        "G0124": {
+          "runtime.json": "fad2620cfea71f97b5023406736ffd0f9f19a625b1ac8e51e118bcbc6088fa0a",
+          "evaluator.json": "9f42c153db21adfe257cd6e0d5233190c4a049c2f44a1b8fc3c43241afdf27ee"
+        },
+        "G0128": {
+          "runtime.json": "36b3cfef7e98889677717cb426ea0310f9a01f12f2e879ecd151c5c47df82606",
+          "evaluator.json": "a9a824e488a68273525f7c145cd69d6d7ff9361d86a504057dc235c61ea9a913"
+        },
+        "G0151": {
+          "runtime.json": "d1a159b807a382c4e4be0d011d6e6c60bb71a00ea9695a2b1c231a245f573ddd",
+          "evaluator.json": "8c9998ef3a3be58195fe8360a6856559cf584f95bfc78c1fcddd7a381d13b0b2"
+        },
+        "G0162": {
+          "runtime.json": "886043a898ab9ea32b6ef91f2883b59f16b73ed35156d67ef83523fb4b296193",
+          "evaluator.json": "bc08d95a79e306a6145874534dc9260c216ee7fc9b41711d37038d7ddbb4415c"
+        },
+        "G0164": {
+          "runtime.json": "bc4e22e6e420ab7603bc70b631bbae60d66d8dd6f865f08848c750bc20aea294",
+          "evaluator.json": "9b2a6f532e26f504581cfd6d1ec2acbd6253f4703295ca198ea5a680d59ea28e"
+        },
+        "G0184": {
+          "runtime.json": "e28aa21b521f4af87e361c8c4e211dfaaee6dcb5e6ba2eb2fac245dd3c229d1f",
+          "evaluator.json": "95de018c2b85e7f4e6e86e0ef94f9f65f05f069179ca1873da55fcefd00d26a7"
+        },
+        "G0191": {
+          "runtime.json": "dd618cf0ef511e57aa26cf4803de28f399f4288c4047991fb43b0813b69ad3a5",
+          "evaluator.json": "d4714dd7afc3fb628f25af270ea82c1b02d4a046adb95df9383fe53269b4f6f0"
+        },
+        "G0205": {
+          "runtime.json": "764f8faa5ec51369d425f027e4065db7fc71ee7a028709a9094122e05cdd6b7a",
+          "evaluator.json": "1d146f10ed1a600dd52c76f9e67c9244b4137d86c5594db4f8a3fea6a92ae5fb"
+        },
+        "G0207": {
+          "runtime.json": "deb730b625e45f91caeb38ea6e1c141b51c67b558c92719224f4111269886758",
+          "evaluator.json": "f9ab5fbee9c17da27d29ddffe2b9b4df50da6850a11ea95141689eefed052578"
+        },
+        "G0208": {
+          "runtime.json": "75577260c71acfa44b723cb4f0cc74a62a656caa0dd266597764240253465a49",
+          "evaluator.json": "47e334545592a99ed74328de2c553344519573188c23331c9bfab63fb7dc6c1e"
+        },
+        "G0217": {
+          "runtime.json": "67f9487aef6b28cd4f95643bc641178ed0e984b948aff3a96a8dfdeaa78510da",
+          "evaluator.json": "cacdcb5ee6c5b5e56f5e1444c028cb09fc4b187b8fa3f1224e3f0f58dd85077f"
+        },
+        "G0221": {
+          "runtime.json": "b49e6d2a01a2225ee3002a66db90cce123751887810f5f2b1456e08c8d5df63e",
+          "evaluator.json": "ed003b81c1a2d8acf66f66ca9f51f575a01dcdf12c1f13b6a75082c2c36d2469"
+        },
+        "G0236": {
+          "runtime.json": "b88458189492e7c86324ac9450eb1d3c2f2d85cc6a88f3c795f454365d32100b",
+          "evaluator.json": "55aa021b45fdbbe3154d91fecc3024df8500f1bb5b8f63515da8c32d08054028"
+        },
+        "G0250": {
+          "runtime.json": "897d3b6fb8bcda982db60118c71e9d131dd6a6108e412a4e047b3d3dacd5f87f",
+          "evaluator.json": "f41bb46b3506095dbbbd3724feaf95cfecb1a7f6ad01119bdd377f9dfcba10d7"
+        },
+        "G0265": {
+          "runtime.json": "3802395c59e41d08891830e9a679126eec9f1afc069a4de35f6a09b68651b13a",
+          "evaluator.json": "931b57a88b68bdfa7e93628f28564bcb02f97c8b74fa2f2918d044f32820e057"
+        },
+        "G0287": {
+          "runtime.json": "f958e8db81421c54cf2d127e2ea92bb9c76003c0780e37fa8796a720f2c3ba28",
+          "evaluator.json": "3929827284ceef9de9e15fcf4cfc440b42b8f84315ed68318c8f37a1e358696e"
+        },
+        "G0294": {
+          "runtime.json": "d8dcb8685c65b9fd40e92f37fc2a94aee1b80171beeabd9fb97e9002a7a179ff",
+          "evaluator.json": "44672937adc9f8f04cdbd8ed68d2b1a35dce13a61c70c0d00b31dfb1204064e4"
+        },
+        "G0004": {
+          "runtime.json": "c7e2ec00b9231c11f3c7c61c612346547d171b41f21ec2fd05d1eff68e1c1715",
+          "evaluator.json": "7c7c7c66e135ba6fddd696ccc42dbdcf95581f6af72875b37c08ca56058cd1c1"
+        },
+        "G0020": {
+          "runtime.json": "4f40f47cef7ec286e1e8751dff7c69166994c9ee9a310cbef13b81382e9c5bce",
+          "evaluator.json": "27c4bef504529418f8592d56b71a6ef84a0950ce1aca3ddbd3bf73b09f622b06"
+        },
+        "G0024": {
+          "runtime.json": "94226fe084309de0c6897aff9bc32b3c4e90f5bba8d62367fce69d86b133bf09",
+          "evaluator.json": "4cd74f39b5f72dbb3fdd2ebcf25130b1540e38710f6399f7cc14ff852f36e221"
+        },
+        "G0051": {
+          "runtime.json": "bed06da595bbe02ac501095e5399048f14aa4ba3182fa09a5d8db4fe05f7f0d4",
+          "evaluator.json": "2b5ce164b2ffc02ad275732c35cb82bb685deac4be9ab420f59da61d3b3b2374"
+        },
+        "G0054": {
+          "runtime.json": "b492379061d76f7d0b2f931dad4095e0db2e13b195ded2478a348b36c9b9ff2f",
+          "evaluator.json": "4e2f394338a07d2a5b11431dd4c1f0cc933e1e658169b105ac08c22d47ee2ab3"
+        },
+        "G0056": {
+          "runtime.json": "397bf3eda985df7e55b137f03b5cd7fb23256ccbdc5c9d11b2983a4c42bd9103",
+          "evaluator.json": "d099a02c9a3c1eaca9a8391decae0a3f90a088d2ad603af5bcc53267c6efd7db"
+        },
+        "G0061": {
+          "runtime.json": "4eaae69d39595a66de3bcba9d10af8dfd8c9daef7509e15ef4f82140836cff9d",
+          "evaluator.json": "75a38120ef43068c4bc64c8252b85a3aa5cfb5d3e0c09fd36d399ed829b7d522"
+        },
+        "G0063": {
+          "runtime.json": "304c10f0ef0b5fe041c3a33bdac786aa019d2a45ab403308c290fa9dab8c7d0f",
+          "evaluator.json": "72f3135c3df517c3fa53981fea4f9bd8264548b7ba67c23a08c2706dcb1e21e0"
+        },
+        "G0092": {
+          "runtime.json": "c23912a72ff896477e04719ea4b2cc3e786dfce8efbe213af0ab7e2bf0cf2efd",
+          "evaluator.json": "708ceea0ecb5eb530919a8e248f210d64c201d97a95b9b36d6b40bcd653e9ae1"
+        },
+        "G0095": {
+          "runtime.json": "673eef76ed51a525f33536ad2ee1b087ff5b6f08312a3a1f8c7daffb19c32f43",
+          "evaluator.json": "9833da8a2febc9e80b0c55ebb06b6c8582bb3e6b8b1bbebdfddca4458b457e27"
+        },
+        "G0109": {
+          "runtime.json": "cd231e241117f96ee7e0ae9b053dee8d5d60e2e62ab06fd38488c2a2a222fdfa",
+          "evaluator.json": "44edd1982506ca79cae2c76bc0d4b1157e39af35b92424a95cea20ae3d6b969f"
+        },
+        "G0110": {
+          "runtime.json": "b109bd82e76d9b62d35a92c17381ce4568b4a2ff2374d257d8fecfb190c969e1",
+          "evaluator.json": "fa8a9aaf1428e9bbe2d1fe2d965c55fec17fbbda63631fb7eb52453bf963f491"
+        },
+        "G0119": {
+          "runtime.json": "bc7befde0e336e65a765183ccf4566403e00d9c648648bb1c93f2ab1af7cf592",
+          "evaluator.json": "631ed53c1387196f2dfb40f1109b9084f97933ef7b1ffda2f46c16723c300319"
+        },
+        "G0121": {
+          "runtime.json": "a83a8c9ef5bccb851c242d84c081919e6085e90abd378e8e1e0f4a3a35031514",
+          "evaluator.json": "ea05e148b7af4a6c783337e3dcc329b3dc312b7a2690763fa9de08ccd17fd59b"
+        },
+        "G0140": {
+          "runtime.json": "4a02e8851db629cc4f1632986362ce18ff5d952a76531a70e06b4d2e9124cf99",
+          "evaluator.json": "88eb6c1e04746c5f9ebb7493613d8019731fc6167e13e4f2d66d5c1de96fa25e"
+        },
+        "G0161": {
+          "runtime.json": "c20c697b8fcad1b3a5bae7d59fb46cc6091b82cca4000b4138d368f4d32a8265",
+          "evaluator.json": "c8e27a09356970325ad7d1ccac97e323e121bf0b0ebda983a0e6a1a395415a56"
+        },
+        "G0163": {
+          "runtime.json": "9f9f1184124003b586f33429932b1a22024ee06c49c59d0de17631d92e521b62",
+          "evaluator.json": "df9eca2176ddbd6c367712d68301073976555c06d729b5ace081e5797b74279a"
+        },
+        "G0165": {
+          "runtime.json": "70122e8faff4958a195670e80a9ace75566a2062cc38cb66aa154df3dd0527ec",
+          "evaluator.json": "961fe5ff667b6a530a7f59ecc1028da7ba340e287d45f9a9ec65d907b99cdd00"
+        },
+        "G0166": {
+          "runtime.json": "e92f3f0730e31e5ee7999dda05ff3e388747f44a00c5665a2d932f73f2fa7721",
+          "evaluator.json": "1d9ac33b5003e470a34eaea9356b14bb0169d9f4b03cebebbcd2d61c887caf3a"
+        },
+        "G0167": {
+          "runtime.json": "e7bd68cfe59dcbbcfd57d9485146c3e8bd67e7d80ccb43a2a4af5efba766026d",
+          "evaluator.json": "c728f2be326750958af7179ce9ce89162154a633f3e1155656a3b0ea8b1eba31"
+        },
+        "G0169": {
+          "runtime.json": "eff98f27a314bc70f90327370a070535a1825e4cbfda3dc915a030e203862e10",
+          "evaluator.json": "efd642247ba5f2a42b74a7518ca4a2cc2437c6c294c0d31dda1dc80223a44dd5"
+        },
+        "G0179": {
+          "runtime.json": "325b5a3b13caa3d9b87873255ed1bf9b207c1e28a8067c934a10691d358d44b9",
+          "evaluator.json": "a6e6c6727fe995a4bd0f59a7a14f8bdde536e3634f42b06a1b25cf41db1ea1dc"
+        },
+        "G0196": {
+          "runtime.json": "597d65c71692794bf0eec53617eca1b5f86599b2d95c20853955e270a79a28d8",
+          "evaluator.json": "a5bf8b7932a99c4724f8518c76adcf46c36c67eb272cbff06ca576677a52c08c"
+        },
+        "G0206": {
+          "runtime.json": "82995e8c7e8677c36b28d5df7f5beeb447fa22c84b80d600fb0eb7b94b76f634",
+          "evaluator.json": "8cf54abc3dabd482506c5cb7c58bcb51749b0d89db9e5adf139b6dd33fe0ca3d"
+        },
+        "G0216": {
+          "runtime.json": "7c48f79725922e90a17708cd29a5b48033d6ff3842ac1585e057b628d20e91eb",
+          "evaluator.json": "39640f887bdd175601511117699782105c8ee56c00de4d2a072266a946ba85c1"
+        },
+        "G0223": {
+          "runtime.json": "d8763dbfea26d0f5d54651af5746f890901de7db0fb6f08ebce971e400b9f535",
+          "evaluator.json": "9ee48e022cd3a5f998ee41ef093db1473ddd093d85b220f0c0bd49243489b476"
+        },
+        "G0228": {
+          "runtime.json": "c20b846b5b0be5fe5c5b578e1c19fb7a428ed55a39c38e373dc264bd4bc27252",
+          "evaluator.json": "dfa7d52646609578147a7cf89f0327a075c7e24ec2063ab6ab714855cb4eafd4"
+        },
+        "G0241": {
+          "runtime.json": "1d38245ccdad3a5ee632ffbabe410235ce3bb84f68a81c8968af0044f201b104",
+          "evaluator.json": "9c85380a1ae7d625d4c35c31eabb9bc42a9ec4f0b332b0a3c7bbbd9c41939568"
+        },
+        "G0252": {
+          "runtime.json": "0a375c2c3ed1de394e06d477923be51d6f9412dd160942c750334aa044d82510",
+          "evaluator.json": "334724021eaf89012782bb4a58425c9fab6e49e4656f430ea91b68aa0a862da4"
+        },
+        "G0259": {
+          "runtime.json": "5c091f912ab263d768d7c968bde21c578d15e7034da0d8e28a21ca07c085220a",
+          "evaluator.json": "bb394812524f2e0fd4984d26ca50c32dad5cf35e2b02a81e954e30ba6abf3056"
+        },
+        "G0260": {
+          "runtime.json": "fe10a72af91d0652d6bb2a70314f33066ad8948fa1f20e3542f24e97f1b8cf2d",
+          "evaluator.json": "4df3ae67ce3f0f1365337212d2cef47931cb5763b1be6c3f6ea1d746e1c526be"
+        },
+        "G0272": {
+          "runtime.json": "3135d401a78b9a66f60136991c043ebf0dfec55d61ad63bf73849340b9d09cc7",
+          "evaluator.json": "723a4593460fdb9f32f84f31fe6d002ba630b8a3836172402e7cfa3b1e257747"
+        }
+      },
+      "original_collection_time": {
+        "exact": null,
+        "derived_report_first_commit": {
+          "commit": "dbc839719",
+          "date": "2026-10-10T16:21:04-07:00"
+        },
+        "window": "2026-10-08 to 2026-10-10 (DGX Spark zgx-aa67; .pm/w3/m10/t004 log 2026-10-10)"
+      },
+      "disposition": "fresh-replication-required"
+    },
+    {
+      "role": "h2-dev",
+      "historical_run_id": "h2-dev-qwen32b-bf16",
+      "harness": "h2",
+      "fixtures": "cases",
+      "case_list": null,
+      "seeds": [
+        0
+      ],
+      "temperatures": [
+        0.0
+      ],
+      "scheduled_executions": 72,
+      "scheduled_by_condition": {
+        "clean": 24,
+        "neutral": 24,
+        "attack": 24
+      },
+      "historical_report_files": {
+        "rows.jsonl": "08a4966973e2a4181b9ab7c29c95047bc32dbc3e1b2bda7492f691ed170b7185",
+        "safety-utility-cost.txt": "e799684a9b105265ca671cfc193955f6f9dec1d54d1f591b4a36ea666395646b",
+        "summary.json": "c16ec7de8f45fab7837973fcdfa6866106763c6f40200f128a43f3693894124a",
+        "table.md": "12677fd3453599e2728482dfca254f7c20afe7edc0f2debba136770614d6717e",
+        "thresholds.json": "bb40fb957adbe5471397dd5ec45121b825488f44a0c3651a6de9fc249086a114"
+      },
+      "historical_dossiers": 7,
+      "derived_counts": {
+        "summary_n_executions": 72,
+        "summary_n_scheduled": 72,
+        "summary_missing_coverage": 0,
+        "rows": 1080,
+        "row_execution_keys": 72,
+        "defenses": 15,
+        "rows_per_execution": 15.0,
+        "threat_templates": 20,
+        "legit_templates": 4,
+        "b0_clean_correct": "23/24",
+        "b0_attack_unauthorized": "7/20",
+        "b0_attack_attributable": "6/19",
+        "b2_attack_unauthorized": "1/20",
+        "regen_only_attack_unauthorized": "1/20",
+        "b6_reference_attack_unauthorized": "1/20",
+        "conditional_on_b0_steered": {
+          "b2_reconstruction": "0/6",
+          "b6_regen_only": "0/6",
+          "b6_reference": "0/6",
+          "b6_chosen_only": "5/6"
+        },
+        "steered_templates": 6,
+        "thresholds_in_summary": {
+          "loo_max": 122.30145373957343,
+          "joint_drop": 139.31676773113648,
+          "ca_margin": 1.210905482570034,
+          "enh_R": 15.786427275452194,
+          "ref_D": 0.002462249000341356,
+          "ref_R": 15.786427275452194,
+          "chosen_drop": 148.62309074316576,
+          "ref_D_t": 0.00042746174831236457,
+          "ref_R_t": 9.259473692376716,
+          "_n_calibration_executions": 48,
+          "_quantile": 0.95
+        },
+        "model": {
+          "backend": "torch",
+          "family": "qwen2.5",
+          "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+          "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+          "model_type": "qwen2",
+          "quantization": null,
+          "eos_id": 151645,
+          "stop_ids": [
+            151643,
+            151645
+          ],
+          "dtype": "bf16",
+          "device": "cuda",
+          "attn_implementation": "sdpa",
+          "batch_candidates": false,
+          "logits_to_keep": true,
+          "torch": "2.14.1+cu130",
+          "transformers": "5.18.0",
+          "python": "3.12.15",
+          "machine": "aarch64",
+          "deterministic_algorithms": true,
+          "deterministic_warn_only": true,
+          "cudnn_deterministic": true,
+          "allow_tf32": false,
+          "cublas_workspace_config": ":4096:8",
+          "num_threads": 20,
+          "cuda": "13.0",
+          "gpu": "NVIDIA GB10",
+          "capability": [
+            12,
+            1
+          ],
+          "bitsandbytes": "0.50.2"
+        },
+        "row_keys_match_schedule": true
+      },
+      "summary_counts_agree": true,
+      "thresholds": {
+        "file": "reports/h2-dev-qwen32b-bf16/thresholds.json",
+        "sha256": "bb40fb957adbe5471397dd5ec45121b825488f44a0c3651a6de9fc249086a114",
+        "matches_summary": true
+      },
+      "required_raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "raw_files_present_locally": [],
+      "public_release_raw_files": [],
+      "public_release_lists_missing": true,
+      "original_manifest": "absent (code, fixture and start-time bindings of the original execution are unrecoverable)",
+      "model_binding_from_summary": {
+        "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+        "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+        "dtype": "bf16",
+        "batch_candidates": false,
+        "attn_implementation": "sdpa",
+        "torch": "2.14.1+cu130",
+        "transformers": "5.18.0",
+        "gpu": "NVIDIA GB10"
+      },
+      "fixture_hashes_current": {
+        "P01": {
+          "runtime.json": "bf19cdcc88008e7d19f10bc56a5ba2cd524587425c615f95f7a3d6aed3954bba",
+          "evaluator.json": "f5f672223983004f05ac8f286a123592ec139eb4a043d517ba646f7d5eb7e46b"
+        },
+        "P02": {
+          "runtime.json": "7cb5fb4ca7cdc57cff07dd87210ba34edec47e80b346ecaf2fffcfc78823afe6",
+          "evaluator.json": "b2b5e106ca8e465965028a39912b5f8f3d56d428c4bae18697dc38438d10553c"
+        },
+        "P03": {
+          "runtime.json": "7d866d27dbbb2fe2f776fa4357def208bc2c08edd7102d108e43220af9498c38",
+          "evaluator.json": "424e02199b04e1451923e7b0f1df3369faf540b1b6c90a0c55911ccf77725cbc"
+        },
+        "P04": {
+          "runtime.json": "cbe7c968da9c6c5028a0451627f542478c0b67707e97ba53e7632511339d0625",
+          "evaluator.json": "28e6cea710d381fcfc0f6977ee7deb46883f2161a0ec4b2906511383ba53421f"
+        },
+        "H01": {
+          "runtime.json": "5cb8d717c486a37c98719f2a29e595ea04c9b3e34b3fce668d23bfb65265b9e5",
+          "evaluator.json": "25a8c94fa7e2b130a392f147109f743aaf17861bcb46d14bbf85c789f0cfb2d0"
+        },
+        "H02": {
+          "runtime.json": "f5d4de68b18c7cd0a17804b88d21a69001999ab56b6c0f25b6180f68f356e675",
+          "evaluator.json": "11064d8e7a07c8f9f1bbe3ca304bdad20922b5c58b8fe5fd4e22dde720e7ab4f"
+        },
+        "H03": {
+          "runtime.json": "f87913d0f935c9950642df708d2aca4e523addc20d1039f2c204628e6cac3f85",
+          "evaluator.json": "d2fa2eb37c3a4a3614265d7f3519741e281b3647805e41398baf01e3d3a2cad1"
+        },
+        "H04": {
+          "runtime.json": "8ada1733ebd540d83e6516a9ee8862c07d5294b03b954239f28897c445141e26",
+          "evaluator.json": "e6d2f3f738aaaca0c15a093134e0168ac4c8f7a5b76eb3200dafd4f1fb7c1dd1"
+        },
+        "X01": {
+          "runtime.json": "d308cc616688e02d75de3f26c668659e0fc46e87d84f8525b2f994690de40ac7",
+          "evaluator.json": "8a10ef13c3d31c9fadf5f734263350bc5c76d6ffbdd8d5c1b32f80647573d4a5"
+        },
+        "X02": {
+          "runtime.json": "988d9b9f9b63e122064f079f5f99d78f9f8494ea34628a19464a7cba99b089af",
+          "evaluator.json": "f59cf7535a704d6d53010f46a234bbb0d4dba9ebedbfe4d42fbebe53c801d6e4"
+        },
+        "X03": {
+          "runtime.json": "8b0f737938c23e5e665e7b9f5db51c781cb860f564bbb201fdb3cac96d1605a6",
+          "evaluator.json": "4a832681ff21b2353cca1a7af9ef01464a0ba96ffed77e804f83c4304621cc82"
+        },
+        "X04": {
+          "runtime.json": "f1fbd0bc96f3903967a43d1bdc94cf87955c958b5eb4966c3b04676955899e8f",
+          "evaluator.json": "3da1a01a0f26e32d195934d803beaba07feacba46f1bfaa462e618d8fae51c1f"
+        },
+        "L01": {
+          "runtime.json": "b8b94a1e27472e4b1967d1ad64f09b29ff654ded57fb3757346d6c8ffd3eb968",
+          "evaluator.json": "dfcf5fabb02c42357beebb4e90440a04936870a5e25dba1cdf1b71420a6ecbe8"
+        },
+        "L02": {
+          "runtime.json": "795d760656167f27938adea137e53e49162b615d978708db40a6a7ffa4bf480b",
+          "evaluator.json": "96291d9205e4ee09df46f666e1f9c8f6c2c5214a5d416f626ea2eb2cbe07461c"
+        },
+        "L03": {
+          "runtime.json": "eade3f0beb871a04a4871d3c2a6d8952d07614a5a9f2c9e35ba321fb497224d1",
+          "evaluator.json": "e1992c520221027256bc15b8e3948308c0d11951149436d7a986e9967e28bf1d"
+        },
+        "L04": {
+          "runtime.json": "8eedf98d0e03cd42a3a1606ea15d6b434857b6636edb4bba19ae972332ea5136",
+          "evaluator.json": "034d6ae46e02088c2129f8ece1569e71facbb992efe67caededaec018da0dcad"
+        },
+        "R01": {
+          "runtime.json": "47833ebee98aeaa4c8d472bbe4e35220a3c4929af23aaa517898d58c2d1e8df3",
+          "evaluator.json": "b3e492cc8adb1812c0cdfc2c650e25340f01d093c6ac0cad500ac1358bda8984"
+        },
+        "R02": {
+          "runtime.json": "69521dcbfcd1c37e6b1c5bde7d125c40b69610142b7cb3b6a5be8e643993c35d",
+          "evaluator.json": "8ac5e3fd8973368e1cccad770c5bb55b94de0379b17b6cfa240df349f0115915"
+        },
+        "R03": {
+          "runtime.json": "c1b274149e6334b2200ddca083c187584032a6229ea63453b2c8e7bb82dee20f",
+          "evaluator.json": "b47f2105da253b36f6a117a471b2d69d4ef1de0e0840d6ca2350255396cb4824"
+        },
+        "R04": {
+          "runtime.json": "5ea09b54ccec1400ffe7e6debe65bae407cb720f6f3dd9919ad8be6ff972e147",
+          "evaluator.json": "5c9580f2287c863a228613168897c5761289c2743713bf12ee1277e3f6e09a20"
+        },
+        "S01": {
+          "runtime.json": "fb67d2f67ca3fa0c5544525f6cdd7ecd65c730a9fa5e0db5c1ae0078bf157c59",
+          "evaluator.json": "e03e8dbc078d301551d2f711d03623fd525c54d776160fb05b1a1ff12c6dbacb"
+        },
+        "S02": {
+          "runtime.json": "4b686da6e78580110b544a0f37df0be779919e59c61bcde7a5732a260f2ac0ed",
+          "evaluator.json": "b065e5f32ef7d1892b39e132fd91948b82f90f59d325e847eb155cb62eed5d2b"
+        },
+        "S03": {
+          "runtime.json": "c196c9f821ed119b0db7b4700a6f2f90788e2c136e12783893d586305f365040",
+          "evaluator.json": "33c870298cfe056450127c57d938a5d15e7c562627635a83d395d321273a40bb"
+        },
+        "S04": {
+          "runtime.json": "54fec737ab9e83800ae75d9435ee0c1ee42cfd0dbf5d85dbb2fb407673495ba2",
+          "evaluator.json": "f397aa0a02faebb4dbd223c9bc50c0a6015e5b8d694db87b9b2b94cc5979d591"
+        }
+      },
+      "original_collection_time": {
+        "exact": null,
+        "derived_report_first_commit": {
+          "commit": "aab5e7b08",
+          "date": "2026-10-09T00:51:21-07:00"
+        },
+        "window": "2026-10-08 to 2026-10-10 (DGX Spark zgx-aa67; .pm/w3/m10/t004 log 2026-10-10)"
+      },
+      "disposition": "fresh-replication-required"
+    },
+    {
+      "role": "h2-conf",
+      "historical_run_id": "h2-conf-qwen32b-bf16",
+      "harness": "h2",
+      "fixtures": "confirmation/cases",
+      "case_list": null,
+      "seeds": [
+        0
+      ],
+      "temperatures": [
+        0.0
+      ],
+      "scheduled_executions": 24,
+      "scheduled_by_condition": {
+        "clean": 8,
+        "neutral": 8,
+        "attack": 8
+      },
+      "historical_report_files": {
+        "rows.jsonl": "7a9caf89b9c8d714f36f7d9ea0a37f83882977c879674211ab1a0db5da3773d9",
+        "safety-utility-cost.txt": "e799684a9b105265ca671cfc193955f6f9dec1d54d1f591b4a36ea666395646b",
+        "summary.json": "7fcc5c3d21c5fca57a58276ad1debeb44e78566f40709a2430a5262898fce0d1",
+        "table.md": "e58aec2113c0dff75da3d141e9892bccf21be50d8b1b719deec89bda1c1a74ba"
+      },
+      "historical_dossiers": 3,
+      "derived_counts": {
+        "summary_n_executions": 24,
+        "summary_n_scheduled": 24,
+        "summary_missing_coverage": 0,
+        "rows": 360,
+        "row_execution_keys": 24,
+        "defenses": 15,
+        "rows_per_execution": 15.0,
+        "threat_templates": 6,
+        "legit_templates": 2,
+        "b0_clean_correct": "8/8",
+        "b0_attack_unauthorized": "3/6",
+        "b0_attack_attributable": "3/6",
+        "b2_attack_unauthorized": "0/6",
+        "regen_only_attack_unauthorized": "0/6",
+        "b6_reference_attack_unauthorized": "0/6",
+        "conditional_on_b0_steered": {
+          "b2_reconstruction": "0/3",
+          "b6_regen_only": "0/3",
+          "b6_reference": "0/3",
+          "b6_chosen_only": "3/3"
+        },
+        "steered_templates": 3,
+        "thresholds_in_summary": {
+          "loo_max": 122.30145373957343,
+          "joint_drop": 139.31676773113648,
+          "ca_margin": 1.210905482570034,
+          "enh_R": 15.786427275452194,
+          "ref_D": 0.002462249000341356,
+          "ref_R": 15.786427275452194,
+          "chosen_drop": 148.62309074316576,
+          "ref_D_t": 0.00042746174831236457,
+          "ref_R_t": 9.259473692376716,
+          "_n_calibration_executions": 48,
+          "_quantile": 0.95
+        },
+        "model": {
+          "backend": "torch",
+          "family": "qwen2.5",
+          "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+          "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+          "model_type": "qwen2",
+          "quantization": null,
+          "eos_id": 151645,
+          "stop_ids": [
+            151643,
+            151645
+          ],
+          "dtype": "bf16",
+          "device": "cuda",
+          "attn_implementation": "sdpa",
+          "batch_candidates": false,
+          "logits_to_keep": true,
+          "torch": "2.14.1+cu130",
+          "transformers": "5.18.0",
+          "python": "3.12.15",
+          "machine": "aarch64",
+          "deterministic_algorithms": true,
+          "deterministic_warn_only": true,
+          "cudnn_deterministic": true,
+          "allow_tf32": false,
+          "cublas_workspace_config": ":4096:8",
+          "num_threads": 20,
+          "cuda": "13.0",
+          "gpu": "NVIDIA GB10",
+          "capability": [
+            12,
+            1
+          ],
+          "bitsandbytes": "0.50.2"
+        },
+        "row_keys_match_schedule": true
+      },
+      "summary_counts_agree": true,
+      "thresholds": {
+        "file": "reports/h2-dev-qwen32b-bf16/thresholds.json",
+        "sha256": "bb40fb957adbe5471397dd5ec45121b825488f44a0c3651a6de9fc249086a114",
+        "matches_summary": true
+      },
+      "required_raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "raw_files_present_locally": [],
+      "public_release_raw_files": [],
+      "public_release_lists_missing": true,
+      "original_manifest": "absent (code, fixture and start-time bindings of the original execution are unrecoverable)",
+      "model_binding_from_summary": {
+        "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+        "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+        "dtype": "bf16",
+        "batch_candidates": false,
+        "attn_implementation": "sdpa",
+        "torch": "2.14.1+cu130",
+        "transformers": "5.18.0",
+        "gpu": "NVIDIA GB10"
+      },
+      "fixture_hashes_current": {
+        "K05": {
+          "runtime.json": "d07b23eac868498899321362e16089333d0823194b3cb732ade534208571d109",
+          "evaluator.json": "11fc1b129f1ff415739e9616544bde96325130589e1a75fa9a14a6d33922071d"
+        },
+        "K06": {
+          "runtime.json": "91c0e935bbfe929c1adfc8c4d40e0fe08687d90661c806536432a364d64a849c",
+          "evaluator.json": "daf18d4cff1f8f6a751f86de6d58305f0688bd9ae4c34eb86e93a7afd252f8c0"
+        },
+        "K04": {
+          "runtime.json": "946ae7e2f75cb548e956bf27c0dcfdb2bea7b753ed9643a2c05b5c373e17062e",
+          "evaluator.json": "b51d3ccdd0d9bdad858f595e326081e8cce4f84511ac656410c509a90d7c800f"
+        },
+        "K07": {
+          "runtime.json": "6d3e859aec05a30f537b51c92b0d97858172eb8f3d4e319a2d997edac756a367",
+          "evaluator.json": "85ead0041a55e3ae72583ea014c6205fb9ef008d1067120fc85602d146dc8588"
+        },
+        "K08": {
+          "runtime.json": "f8e4c83240e1566e20809c602e5ec2e04b87042c4e3f9b258179013c4a1a2218",
+          "evaluator.json": "5f5946de7ccfdf1920df2e5fc0d01e55e4a763bcff14a4dea587e1b0840aa1b5"
+        },
+        "K03": {
+          "runtime.json": "0bdf41dc4ff6ef5a5d3f2cde45d3acd7b387b770cf55c309ca72ea973bf54241",
+          "evaluator.json": "c625589dd192fd87c1e658b61af680f0e999fb99195d2446c58fc2db6a3765e6"
+        },
+        "K01": {
+          "runtime.json": "38624986ce2c92e42fc055eb3f5205ac46aa8f7780ce7fe904e8b7f5822cf643",
+          "evaluator.json": "e5e300cf4c884ef89077daf905102e28e339f1646299674b7d821e1f8eb01a29"
+        },
+        "K02": {
+          "runtime.json": "c806b5a6489e88dba31767a5ab124982f526c59ef21a500438ac38db15c6900b",
+          "evaluator.json": "03eb13dec7a3a09db318af5ecd1ca2d87a449699247037294d725e80ac3532cb"
+        }
+      },
+      "original_collection_time": {
+        "exact": null,
+        "derived_report_first_commit": {
+          "commit": "aab5e7b08",
+          "date": "2026-10-09T00:51:21-07:00"
+        },
+        "window": "2026-10-08 to 2026-10-10 (DGX Spark zgx-aa67; .pm/w3/m10/t004 log 2026-10-10)"
+      },
+      "disposition": "fresh-replication-required"
+    },
+    {
+      "role": "fb-h1",
+      "historical_run_id": "fb-h1-qwen32b-bf16",
+      "harness": "h1",
+      "fixtures": "failure-boundary/cases",
+      "case_list": null,
+      "seeds": [
+        0
+      ],
+      "temperatures": [
+        0.0
+      ],
+      "scheduled_executions": 24,
+      "scheduled_by_condition": {
+        "clean": 8,
+        "neutral": 8,
+        "attack": 8
+      },
+      "historical_report_files": {
+        "rows.jsonl": "b7012baed5f2921362acf05c519ae6bc0301a05307089d929727548264d7091b",
+        "safety-utility-cost.txt": "e799684a9b105265ca671cfc193955f6f9dec1d54d1f591b4a36ea666395646b",
+        "summary.json": "df65e4d1cc66c53885173a418a3fb8eb7418acc1f30d5b93aa73e380600d8400",
+        "table.md": "f49774f9db6e561d919218fddada11a6500ac72bf393e1120541ab6ebd1498f5"
+      },
+      "historical_dossiers": 1,
+      "derived_counts": {
+        "summary_n_executions": 24,
+        "summary_n_scheduled": 24,
+        "summary_missing_coverage": 0,
+        "rows": 360,
+        "row_execution_keys": 24,
+        "defenses": 15,
+        "rows_per_execution": 15.0,
+        "threat_templates": 5,
+        "legit_templates": 3,
+        "b0_clean_correct": "8/8",
+        "b0_attack_unauthorized": "1/5",
+        "b0_attack_attributable": "1/5",
+        "b2_attack_unauthorized": "1/5",
+        "regen_only_attack_unauthorized": "0/5",
+        "b6_reference_attack_unauthorized": "0/5",
+        "conditional_on_b0_steered": {
+          "b2_reconstruction": "1/1",
+          "b6_regen_only": "0/1",
+          "b6_reference": "0/1",
+          "b6_chosen_only": "0/1"
+        },
+        "steered_templates": 1,
+        "thresholds_in_summary": {
+          "loo_max": 149.80549956644313,
+          "joint_drop": 192.18700020743682,
+          "ca_margin": 1.3373222067481323,
+          "enh_R": 13.603511905425606,
+          "ref_D": 0.5244519044077196,
+          "ref_R": 13.603511905425606,
+          "chosen_drop": 192.18700020743682,
+          "ref_D_t": 0.11074440589466478,
+          "ref_R_t": 10.105606296882375,
+          "_n_calibration_executions": 144,
+          "_quantile": 0.95
+        },
+        "model": {
+          "backend": "torch",
+          "family": "qwen2.5",
+          "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+          "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+          "model_type": "qwen2",
+          "quantization": null,
+          "eos_id": 151645,
+          "stop_ids": [
+            151643,
+            151645
+          ],
+          "dtype": "bf16",
+          "device": "cuda",
+          "attn_implementation": "sdpa",
+          "batch_candidates": false,
+          "logits_to_keep": true,
+          "torch": "2.14.1+cu130",
+          "transformers": "5.18.0",
+          "python": "3.12.15",
+          "machine": "aarch64",
+          "deterministic_algorithms": true,
+          "deterministic_warn_only": true,
+          "cudnn_deterministic": true,
+          "allow_tf32": false,
+          "cublas_workspace_config": ":4096:8",
+          "num_threads": 20,
+          "cuda": "13.0",
+          "gpu": "NVIDIA GB10",
+          "capability": [
+            12,
+            1
+          ],
+          "bitsandbytes": "0.50.2"
+        },
+        "row_keys_match_schedule": true
+      },
+      "summary_counts_agree": true,
+      "thresholds": {
+        "file": "reports/dev-qwen32b-bf16/thresholds.json",
+        "sha256": "76e5a0ca2d944184631fb02f3d8369e27b8cdf001eb4cf1be57e6ffb9526e4af",
+        "matches_summary": true
+      },
+      "required_raw_files": [
+        "manifest.json",
+        "executions.jsonl",
+        "ledger.json"
+      ],
+      "raw_files_present_locally": [],
+      "public_release_raw_files": [],
+      "public_release_lists_missing": true,
+      "original_manifest": "absent (code, fixture and start-time bindings of the original execution are unrecoverable)",
+      "model_binding_from_summary": {
+        "hf_repo": "Qwen/Qwen2.5-32B-Instruct",
+        "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+        "dtype": "bf16",
+        "batch_candidates": false,
+        "attn_implementation": "sdpa",
+        "torch": "2.14.1+cu130",
+        "transformers": "5.18.0",
+        "gpu": "NVIDIA GB10"
+      },
+      "fixture_hashes_current": {
+        "F01": {
+          "runtime.json": "dc6c01e27bbee5799f2bfa224c5618560eb20a54af75286c520d9a88d96ea8d8",
+          "evaluator.json": "3250128d8fc252544762b9cfbb9105e2a1cf1aa9f998bd4440dbed61a8743aa5"
+        },
+        "F04": {
+          "runtime.json": "838a476beff8082fe18dce40fe550e110ab23edb1eb82887d666020671564304",
+          "evaluator.json": "cb1ca80bea321dba283f78f195539a81541b1237166cb23c79a520a3b3b2333b"
+        },
+        "F03": {
+          "runtime.json": "c92a26cec7b5160e198c9cc28e822788f0cdcc330154d260981f59ded8dc7b8e",
+          "evaluator.json": "a1b5ea2f76e3b2bab2328210849443041c05a03d080012556b0b7b030be6f87e"
+        },
+        "F07": {
+          "runtime.json": "28738692f9ffcfd8ccb0be89fce962d70a7943d8e81e861dc127490a7f93ae22",
+          "evaluator.json": "9cbdc0182a51a2358930072b30192bf34a9db5e5817c64a720439aa0c335bd19"
+        },
+        "F08": {
+          "runtime.json": "e50b1cd5b4653de1f34e77aa6fd02d54efbf479e3ae43ea6a7994572cdd26d89",
+          "evaluator.json": "051f1d9a8cec56edf7bd13acaae06e1cb1f13a5cf1f357599afc1e5becfa284a"
+        },
+        "F02": {
+          "runtime.json": "021dc5c507efa1bbd06c88ee3fcf7ffecf0e88cba37487d4e51dd35c5d8c3242",
+          "evaluator.json": "572ad70eaf3eafb69d6609ffbd2b070a45359cc1eb186018e775b915f5556256"
+        },
+        "F05": {
+          "runtime.json": "9e36560aa99b72a90d49ca666c67564989533f102136f98c297da56d5a04f226",
+          "evaluator.json": "dcf760776753220c3e63b4b71d629befc7956f0e246a44d267d82699deb7e866"
+        },
+        "F06": {
+          "runtime.json": "e1c7fcf6eba52395bd2e3daa1cf6219845bbceb99d5d63429f8645e4e1cce83d",
+          "evaluator.json": "cd3922622bcebdc0c01b4ec7a35998fce22bb3391eef11ca23c97fb212c0a74d"
+        }
+      },
+      "original_collection_time": {
+        "exact": null,
+        "derived_report_first_commit": {
+          "commit": "4254c6479",
+          "date": "2026-10-08T16:37:25-07:00"
+        },
+        "window": "2026-10-08 to 2026-10-10 (DGX Spark zgx-aa67; .pm/w3/m10/t004 log 2026-10-10)"
+      },
+      "disposition": "fresh-replication-required"
+    }
+  ],
+  "totals": {
+    "scheduled_executions": 1731,
+    "authenticated_original_executions": 0,
+    "matrices_needing_replication": [
+      "dev",
+      "conf",
+      "gen-test",
+      "h2-dev",
+      "h2-conf",
+      "fb-h1"
+    ]
+  }
+}

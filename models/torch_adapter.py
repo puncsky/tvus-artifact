@@ -36,6 +36,11 @@ from models.adapter import Cost, CostLedger, GenResult, ScoreResult
 
 _DTYPES = {"fp32": "float32", "float32": "float32", "bf16": "bfloat16", "bfloat16": "bfloat16",
            "fp16": "float16", "float16": "float16", "4bit": "4bit"}
+# every sampling knob set EXPLICITLY to its neutral value: transformers fills None fields from the checkpoint's
+# generation_config.json (Qwen2.5 ships top_k=20, top_p=0.8, repetition_penalty=1.1), which would silently
+# diverge from MLX's plain temperature sampler.
+SAMPLING_NEUTRAL = dict(top_k=0, top_p=1.0, min_p=0.0, typical_p=1.0, epsilon_cutoff=0.0, eta_cutoff=0.0,
+                        repetition_penalty=1.0, no_repeat_ngram_size=0, num_beams=1)
 
 
 def pick_device(pref: str = "auto") -> str:
@@ -176,14 +181,9 @@ class TorchAdapter:
         if self.device == "cuda":
             torch.cuda.manual_seed_all(seed)
         sample = temperature > 0
-        # every sampling knob is set EXPLICITLY to its neutral value: transformers fills None fields from the
-        # checkpoint's generation_config.json (Qwen2.5 ships top_k=20, top_p=0.8, repetition_penalty=1.1),
-        # which would silently diverge from MLX's plain temperature sampler.
         gcfg = GenerationConfig(
             max_new_tokens=max_tokens, do_sample=sample, temperature=temperature if sample else 1.0,
-            top_k=0, top_p=1.0, min_p=0.0, typical_p=1.0, epsilon_cutoff=0.0, eta_cutoff=0.0,
-            repetition_penalty=1.0, no_repeat_ngram_size=0, num_beams=1,
-            eos_token_id=self.stop_ids, pad_token_id=self.pad_id)
+            **SAMPLING_NEUTRAL, eos_token_id=self.stop_ids, pad_token_id=self.pad_id)
         inp = torch.tensor([ids], device=self.device)
         t0 = time.perf_counter()
         out = self.model.generate(inp, attention_mask=torch.ones_like(inp), generation_config=gcfg)
@@ -307,6 +307,8 @@ class TorchAdapter:
             "device": self.device,
             "attn_implementation": self.attn_implementation,
             "batch_candidates": self.batch_candidates,
+            "sampling": {"greedy_if_temperature_0": True, "seeding": "torch.manual_seed + cuda.manual_seed_all per generate",
+                         **SAMPLING_NEUTRAL},
             "logits_to_keep": self._has_logits_to_keep,
             "torch": torch.__version__,
             "transformers": transformers.__version__,

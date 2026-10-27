@@ -43,10 +43,11 @@ def child_env() -> dict[str, str]:
             "HF_HUB_OFFLINE": "1",
             "TMPDIR": str(resolve_out("tmp")),
             "MPLCONFIGDIR": str(resolve_out("cache/mpl")),
+            "TRITON_CACHE_DIR": str(resolve_out("cache/triton")),   # torch eager ops may JIT Triton kernels
             "PYTHONDONTWRITEBYTECODE": "1",
         }
     )
-    for k in ("HF_HOME", "TMPDIR", "MPLCONFIGDIR"):
+    for k in ("HF_HOME", "TMPDIR", "MPLCONFIGDIR", "TRITON_CACHE_DIR"):
         Path(env[k]).mkdir(parents=True, exist_ok=True)
     return env
 
