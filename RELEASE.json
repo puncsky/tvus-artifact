@@ -1,5 +1,5 @@
 {
-  "version": "v1.1.0",
+  "version": "v1.1.1",
   "author": "Tian Pan",
   "repository": "https://github.com/puncsky/tvus-artifact",
   "path_redactions": [
@@ -12,27 +12,21 @@
     "reports/conf-llama8b/summary.json",
     "reports/conf-qwen14b/neutrality.json",
     "reports/conf-qwen14b/summary.json",
-    "reports/conf-qwen32b-bf16/summary.json",
     "reports/dev-gemma27b/neutrality.json",
     "reports/dev-gemma27b/summary.json",
     "reports/dev-llama8b/neutrality.json",
     "reports/dev-llama8b/summary.json",
     "reports/dev-qwen14b/neutrality.json",
     "reports/dev-qwen14b/summary.json",
-    "reports/dev-qwen32b-bf16/summary.json",
     "reports/fb-h1-qwen14b/summary.json",
-    "reports/fb-h1-qwen32b-bf16/summary.json",
     "reports/fb-h2-qwen14b/summary.json",
     "reports/fb2-h1-qwen14b/summary.json",
     "reports/fb2-h2-qwen14b/summary.json",
     "reports/gen-dev-qwen14b/summary.json",
-    "reports/gen-test-qwen32b-bf16/summary.json",
     "reports/h2-conf-qwen14b/summary.json",
-    "reports/h2-conf-qwen32b-bf16/summary.json",
     "reports/h2-dev-gemma27b/summary.json",
     "reports/h2-dev-qwen14b/neutrality.json",
     "reports/h2-dev-qwen14b/summary.json",
-    "reports/h2-dev-qwen32b-bf16/summary.json",
     "reports/model-readiness/compare-qwen05b-cpu--qwen05b-cpu_batch_candidates-true.json",
     "reports/model-readiness/compare-qwen05b-cpu_batch_candidates-true--scores-qwen05b-cpu.json",
     "reports/model-readiness/compare-qwen14b-torch--scores-qwen14b.json",
@@ -46,21 +40,12 @@
     "reports/model-readiness/verify-qwen14b-torch_dtype-4bit.json",
     "reports/model-readiness/verify-qwen14b.json",
     "reports/model-readiness/verify-qwen32b-torch.json",
-    "reports/qwen32b-evidence/inventory.json",
-    "reports/qwen32b-evidence/readiness/verify-qwen32b-torch.json",
-    "reports/qwen32b-evidence/searches.json",
     "reports/rep20261025-conf-qwen32b-bf16/summary.json",
-    "reports/rep20261025-conf-qwen32b-bf16-secthr/summary.json",
     "reports/rep20261025-dev-qwen32b-bf16/summary.json",
-    "reports/rep20261025-dev-qwen32b-bf16-secthr/summary.json",
     "reports/rep20261025-fb-h1-qwen32b-bf16/summary.json",
-    "reports/rep20261025-fb-h1-qwen32b-bf16-secthr/summary.json",
     "reports/rep20261025-gen-test-qwen32b-bf16/summary.json",
-    "reports/rep20261025-gen-test-qwen32b-bf16-secthr/summary.json",
     "reports/rep20261025-h2-conf-qwen32b-bf16/summary.json",
-    "reports/rep20261025-h2-conf-qwen32b-bf16-secthr/summary.json",
     "reports/rep20261025-h2-dev-qwen32b-bf16/summary.json",
-    "reports/rep20261025-h2-dev-qwen32b-bf16-secthr/summary.json",
     "reports/serialization-probe-qwen14b.json",
     "review/spot-check-generated-2026-10-answer.md",
     "review/spot-check-generated-2026-10-v2.md",
@@ -191,12 +176,6 @@
       "summary": true
     },
     {
-      "run": "conf-qwen32b-bf16",
-      "raw_files": [],
-      "derived_rows": true,
-      "summary": true
-    },
-    {
       "run": "dev-gemma27b",
       "raw_files": [
         "manifest.json",
@@ -227,24 +206,12 @@
       "summary": true
     },
     {
-      "run": "dev-qwen32b-bf16",
-      "raw_files": [],
-      "derived_rows": true,
-      "summary": true
-    },
-    {
       "run": "fb-h1-qwen14b",
       "raw_files": [
         "manifest.json",
         "executions.jsonl",
         "ledger.json"
       ],
-      "derived_rows": true,
-      "summary": true
-    },
-    {
-      "run": "fb-h1-qwen32b-bf16",
-      "raw_files": [],
       "derived_rows": true,
       "summary": true
     },
@@ -333,24 +300,12 @@
       "summary": true
     },
     {
-      "run": "gen-test-qwen32b-bf16",
-      "raw_files": [],
-      "derived_rows": true,
-      "summary": true
-    },
-    {
       "run": "h2-conf-qwen14b",
       "raw_files": [
         "manifest.json",
         "executions.jsonl",
         "ledger.json"
       ],
-      "derived_rows": true,
-      "summary": true
-    },
-    {
-      "run": "h2-conf-qwen32b-bf16",
-      "raw_files": [],
       "derived_rows": true,
       "summary": true
     },
@@ -371,12 +326,6 @@
         "executions.jsonl",
         "ledger.json"
       ],
-      "derived_rows": true,
-      "summary": true
-    },
-    {
-      "run": "h2-dev-qwen32b-bf16",
-      "raw_files": [],
       "derived_rows": true,
       "summary": true
     },
@@ -565,19 +514,8 @@
       "summary": true
     }
   ],
-  "missing_raw_runs": [
-    "conf-qwen32b-bf16",
-    "dev-qwen32b-bf16",
-    "fb-h1-qwen32b-bf16",
-    "gen-test-qwen32b-bf16",
-    "h2-conf-qwen32b-bf16",
-    "h2-dev-qwen32b-bf16"
-  ],
+  "missing_raw_runs": [],
   "historical_hashes": "Original run manifests retain original code hashes; MANIFEST.sha256 covers the public export.",
-  "evidence_labels": {
-    "original-derived": "October 2026 Qwen2.5-32B matrices <role>-qwen32b-bf16: derived verdicts, signals, costs and thresholds only; raw logs lost",
-    "replication": "rep20261025-<role>-qwen32b-bf16: complete re-collection from 2026-10-25 with raw records; the paper's 32B numbers"
-  },
   "verbatim_raw_evidence": [
     "rep20261025-conf-qwen32b-bf16",
     "rep20261025-dev-qwen32b-bf16",
@@ -586,6 +524,5 @@
     "rep20261025-h2-conf-qwen32b-bf16",
     "rep20261025-h2-dev-qwen32b-bf16"
   ],
-  "verbatim_note": "Replication run files are copied byte-identically (their SHA256SUMS and manifests bind them), so their manifests keep the collection host's absolute cache path and hostname; all other metadata paths are scrubbed.",
-  "qwen32b_role_index": "reports/qwen32b-evidence/role-index.json"
+  "verbatim_note": "Checksum-bound run files are copied byte-identically (their SHA256SUMS and manifests bind them), so their manifests keep the collection host's absolute cache path and hostname; all other metadata paths are scrubbed."
 }

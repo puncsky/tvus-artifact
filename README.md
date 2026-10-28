@@ -4,9 +4,9 @@ Research artifact for **Trusted Values, Untrusted Choices: A Measurement Study o
 
 An agent can choose an unauthorized action even when every argument value comes from a trusted record. This study measures that failure and examines two diagnostic traps: free-text dependence can obscure attribution of the protected choice, and deleting a source late can leave its influence in stored history.
 
-[Paper](paper/workshop/main.pdf) · [Reproduction instructions](REPRODUCING.md) · [Results and evidence map](RESULTS.md) · [Fixed release](https://github.com/puncsky/tvus-artifact/releases/tag/v1.1.0)
+[Paper](paper/workshop/main.pdf) · [Reproduction instructions](REPRODUCING.md) · [Results and evidence map](RESULTS.md) · [Fixed release](https://github.com/puncsky/tvus-artifact/releases/tag/v1.1.1)
 
-On the fully logged replication of the Qwen2.5-32B held-out generated test split, the chosen-action score gate missed **52/55** steered executions; clean-checkpoint regeneration missed **0/55**, while **22/375** of all scheduled attack executions still ended in unauthorized actions under regeneration (all 22 among the 27 whose same-seed clean run already failed; B2: 25/375, all in that stratum). These are benchmark measurements, not a general security guarantee. B1, B2 and B5 are paper-derived ports; official defense artifacts were not run.
+On the Qwen2.5-32B held-out generated test split, clean-checkpoint regeneration missed **0/55** attack-caused (steered) executions, versus **52/55** for the chosen-action score gate; over all scheduled attacks, **22/375** still ended in unauthorized actions under regeneration (B2: 25/375), all among the 27 whose same-seed clean run already failed. These are benchmark measurements, not a general security guarantee. B1, B2 and B5 are paper-derived ports; official defense artifacts were not run.
 
 ## Quick start
 
@@ -29,14 +29,14 @@ For the mock pipeline, re-analysis and plots, see [REPRODUCING.md](REPRODUCING.m
 | `generated/`, `generator/` | 300 generated tasks, split lists, deterministic generator and independent self-check |
 | `runner/`, `models/`, `configs/` | Harnesses, interventions, defense ports, analysis, model revisions and recorded environments |
 | `reports/` | Per-execution verdicts, frozen thresholds, summaries, score statistics and dossiers |
-| `runs/` | Available original model outputs, query logs, run manifests and cost ledgers; complete raw records of the Qwen2.5-32B replication (`runs/rep20261025-*`) |
+| `runs/` | Model outputs, query logs, run manifests and cost ledgers; the Qwen2.5-32B runs (`runs/rep20261025-*`) add per-call traces, content-addressed model inputs and checksums |
 | `review/` | Author validation packets and signed answers; hash-bound agent annotations for the release-search audit |
 | `external/agentdojo/` | 17 task ports, checker integration and upstream MIT notice |
 | `paper/workshop/` | Paper PDF, LaTeX source and vector figure |
 | `protocol*.md`, `preregistration*.json` | Historical protocol and changes; preserve their recorded freeze status |
 | `MANIFEST.sha256`, `RELEASE.json` | Checksums, publication metadata and per-run evidence coverage |
 
-**Evidence coverage:** all paper main-result runs have per-execution verdicts and summaries. The original October 2026 Qwen2.5-32B matrices survive only as derived verdicts, signals, costs and frozen thresholds (`original-derived`); their raw logs and run manifests were lost and could not be recovered. All six 32B matrices were therefore re-collected in a separately labeled replication (`rep20261025-*`, collected from 2026-10-25) with complete raw inputs, outputs, immutable manifests, cost ledgers and checksums; every 32B number in the paper comes from the replication. `reports/qwen32b-evidence/` holds the protocol, the recovery inventory, the role index and the original-versus-replication comparison. [RESULTS.md](RESULTS.md) distinguishes re-analysis from rerunning models.
+**Evidence coverage:** every reported run has per-execution verdicts, summaries and its raw model outputs (`RELEASE.json` lists per-run coverage). [RESULTS.md](RESULTS.md) distinguishes re-analysis from rerunning models.
 
 ## Data provenance and validation
 

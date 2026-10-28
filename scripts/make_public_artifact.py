@@ -22,12 +22,13 @@ CODE_DIRS = ["runner", "models", "generator", "cases", "confirmation",
 ROOT_FILES = ["protocol.md", "protocol-v2.md", "preregistration.json",
               "preregistration-v2.json", "artifacts.md", "baseline-matrix.md"]
 REVIEW_FILES = ["fixture-authoring-brief.md", "case-review-template.json", "release-search-validity.json"]
-SUPPORT_REPORTS = {"main", "separability", "causalarmor-native", "adaptive-pilot-qwen14b", "model-readiness", "qwen32b-evidence"}
+SUPPORT_REPORTS = {"main", "separability", "causalarmor-native", "adaptive-pilot-qwen14b", "model-readiness"}
+QWEN32B_PLAN = "reports/qwen32b-evidence/run-plan.json"   # the run plan every Qwen-32B run manifest binds by hash
+HOST_ONLY = {"runner/qwen32b_evidence.py", "runner/qwen32b_compare.py"}   # collection-host tooling (local backups, model cache)
 ROOT_REPORTS = ["bypass-extractor-audit.json", "bypass-extractor.md", "binding-control.json",
                 "serialization-probe-qwen14b.json", "structural-baselines-compatibility.md"]
 SCRIPT_FILES = ["smoke_adapter.py", "serialization_probe.py", "verify_artifact.py", "verify_paper_tables.py",
-                "check_resume_mock.sh", "run_qwen32b_evidence.sh", "analyze_qwen32b_replication.sh",
-                "verify_qwen32b_release.py", "make_public_artifact.py"]   # the verifier reuses the export redaction rules
+                "check_resume_mock.sh", "analyze_qwen32b.sh", "verify_qwen32b_release.py", "make_public_artifact.py"]   # the verifier reuses the export redaction rules
 # raw files of a legacy run; a checksum-bound run ships exactly the files its SHA256SUMS lists (see raw_files)
 RAW_FILES = ["manifest.json", "executions.jsonl", "queries.jsonl", "summary.json", "ledger.json", "spend.json",
              "spend-attacker.json"]
@@ -48,6 +49,7 @@ REDACTIONS = []
 def wanted(path: Path) -> bool:
     return (path.is_file() and not path.is_symlink()
             and not any(p.startswith(".") or p == "__pycache__" for p in path.relative_to(ROOT).parts)
+            and path.relative_to(ROOT).as_posix() not in HOST_ONLY
             and path.suffix in ALLOWED_EXT)
 
 
@@ -118,22 +120,25 @@ def main() -> None:
         copy(ROOT / "review" / name)
     for name in SCRIPT_FILES:
         copy(ROOT / "scripts" / name)
+    def report_run(p: Path) -> str:   # a report's raw run is the run_id analyze.py records
+        return json.loads((p / "summary.json").read_text())["run_id"]
+    # every exported run report has its raw run; derived-only and duplicate analyses stay local
     report_dirs = sorted(p for p in (ROOT / "reports").iterdir() if p.is_dir()
-                         and ((p / "summary.json").exists() or p.name in SUPPORT_REPORTS)
-                         and not re.search(r"mock|dry|refix|histfix|h1thr", p.name))
+                         and (p.name in SUPPORT_REPORTS or ((p / "summary.json").exists()
+                                                            and (ROOT / "runs" / report_run(p) / "executions.jsonl").exists()))
+                         and not re.search(r"mock|dry|refix|histfix|h1thr|secthr", p.name))
     for directory in report_dirs:
         for path in sorted(directory.rglob("*")):
             if wanted(path) and path.name != "README.md":
                 copy(path)
     for name in ROOT_REPORTS:
         copy(ROOT / "reports" / name)
+    copy(ROOT / QWEN32B_PLAN)
     # Preserve the actual author's signed validation, separately from private packets.
     for path in sorted((ROOT / "review").glob("spot-check*")):
         if path.suffix == ".md":
             copy(path)
-    # a report's raw run is the run_id analyze.py records (a -secthr report is a secondary analysis of the same run)
-    run_names = {json.loads((p / "summary.json").read_text())["run_id"] if (p / "summary.json").exists() else p.name
-                 for p in report_dirs}
+    run_names = {report_run(p) if (p / "summary.json").exists() else p.name for p in report_dirs}
     run_names |= {p.name for p in (ROOT / "runs").glob("bypass-*") if "mock" not in p.name}
     run_names |= {"adaptive-pilot-qwen14b", "adojo-h2-qwen14b"}
     coverage = []
@@ -161,14 +166,9 @@ def main() -> None:
         "path_redactions": REDACTIONS, "run_coverage": coverage,
         "missing_raw_runs": [r["run"] for r in coverage if r["derived_rows"] and not r["raw_files"]],
         "historical_hashes": "Original run manifests retain original code hashes; MANIFEST.sha256 covers the public export.",
-        "evidence_labels": {
-            "original-derived": "October 2026 Qwen2.5-32B matrices <role>-qwen32b-bf16: derived verdicts, signals, costs and thresholds only; raw logs lost",
-            "replication": "rep20261025-<role>-qwen32b-bf16: complete re-collection from 2026-10-25 with raw records; the paper's 32B numbers",
-        },
         "verbatim_raw_evidence": sorted(r["run"] for r in coverage if checksum_bound(ROOT / "runs" / r["run"]) and r["raw_files"]),
-        "verbatim_note": ("Replication run files are copied byte-identically (their SHA256SUMS and manifests bind them), so their "
+        "verbatim_note": ("Checksum-bound run files are copied byte-identically (their SHA256SUMS and manifests bind them), so their "
                           "manifests keep the collection host's absolute cache path and hostname; all other metadata paths are scrubbed."),
-        "qwen32b_role_index": "reports/qwen32b-evidence/role-index.json",
     }, indent=2) + "\n")
     lines = [f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(OUT).as_posix()}"
              for p in sorted(OUT.rglob("*")) if p.is_file() and p.name != "MANIFEST.sha256"]

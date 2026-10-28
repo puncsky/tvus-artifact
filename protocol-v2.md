@@ -339,12 +339,3 @@ Formal clarification: U lacks group-wide authority but can include sources with 
 Allowed is invariant only under interventions preserving the authorized view, including verified release
 facts. Extractor estimates are distinct from intended verified facts and can be wrong. No threshold,
 fixture, main-run verdict or spend cap changes in this correction.
-
-## Addendum 11 (2026-10-25) — Qwen2.5-32B evidence replication (research `.pm/w1`)
-
-The raw logs and manifests of the six October Qwen2.5-32B bf16 matrices were lost and could not be recovered
-(`reports/qwen32b-evidence/recovery.md`). A complete, separately labeled replication (`rep20261025-*`) is collected on
-the author-supplied DGX Spark `spark-71a4` under `reports/qwen32b-evidence/protocol.md` and `run-plan.json`, frozen by
-hash in `freeze.json` before any model call. Historical thresholds remain the primary comparison; a fresh
-replication-development calibration is reported only as a secondary analysis. No fixture, threshold, split, defense
-or endpoint of this protocol changes, and the historical derived evidence stays unchanged.

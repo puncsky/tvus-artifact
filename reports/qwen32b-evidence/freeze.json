@@ -1,8 +1,0 @@
-{
-  "protocol": "reports/qwen32b-evidence/protocol.md",
-  "protocol_sha256": "2e11ab7cb3c6b8480a2bc8a1721932f2ddf057db93798fd22247b93dbf2d1b23",
-  "plan": "reports/qwen32b-evidence/run-plan.json",
-  "plan_sha256": "811f66f95758a5d3151277d0d2d17e623ccb0c21339b2558b41bef82f4e8c5d0",
-  "frozen_at": "2026-10-25T04:45:30Z",
-  "model_calls_before_freeze": 0
-}
